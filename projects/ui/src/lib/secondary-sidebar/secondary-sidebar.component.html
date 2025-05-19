@@ -1,0 +1,40 @@
+<div class="w-60 h-full p-4 bg-secondary border-r relative z-40">
+    <!-- Navigation Items -->
+    <h2 class="font-semibold mb-4 ml-2">{{ title | translate }}</h2>
+    <ul>
+        <li *ngFor="let item of navItems" class="rounded-lg p-1" [ngClass]="{'bg-primary/10': isActive(item)}">
+
+            <!-- Parent Navigation Item -->
+            <app-button variant="ghost" (click)="item?.subItems?.length == 0 && navigateTo(item.url)"
+                class="flex items-center justify-between w-full p-2 rounded-md"
+                (click)="!isActive(item) && item.isActive = !item.isActive" [ngClass]="{'text-primary': item.isActive}">
+                <div class="flex w-full items-center gap-x-2">
+                    <app-icon [icon]="item.icon" class="w-5 h-5"></app-icon>
+                    <span class="font-medium text-sm">{{ item.title | translate }}</span>
+                </div>
+                <!-- Expand/Collapse Icon -->
+                <span *ngIf="item.subItems.length"
+                    class="text-gray-400 flex items-center justify-center transform transition-transform duration-300"
+                    [class.rotate-180]="item.isActive">
+                    {{ item.isActive ? '−' : '+' }}
+                </span>
+            </app-button>
+
+            <!-- Sub-Items -->
+            <ul *ngIf="item.isActive"
+                [class]="'pl-2 mt-2 mb-2 border-primary rounded relative transition-all duration-500 ease-in-out' + (item.isActive ? ' max-h-screen' : ' max-h-0 h-0 overflow-hidden') + (isActive(item) ? ' border-none' : ' border-l')">
+                <li *ngFor="let subItem of item.subItems"
+                    class="relative pl-2 py-2 flex items-center rounded-xl hover:bg-zinc-100 cursor-pointer"
+                    (click)="navigateTo(subItem.url)">
+                    <!-- Dot Line for Active Item -->
+                    <div class="h-2 w-2 rounded-full ml-[-1.25rem] mb-1"
+                        [ngClass]="{ 'bg-primary border-primary': subItem.isActive }"></div>
+                    <span class="text-xs pl-2"
+                        [ngClass]="{ 'font-semibold text-primary': subItem.isActive }">
+                        {{ subItem.title | translate }}
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

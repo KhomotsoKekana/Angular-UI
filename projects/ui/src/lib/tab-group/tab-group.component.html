@@ -1,0 +1,54 @@
+<div *ngIf="!isMobile || isMobile && !responsive" [ngClass]="getContainerClasses()" role="tablist"
+  [attr.aria-orientation]="orientation">
+  <!-- Animated Indicator for Pills and Underlined Variants -->
+  <div *ngIf="(variant === 'pills' || variant === 'underlined') && visibleTabs.length > 0"
+    [ngClass]="getIndicatorClasses()" [style]="indicatorStyle">
+  </div>
+
+  <!-- Tab Buttons -->
+  <button #tabButton *ngFor="let tab of visibleTabs; trackBy: trackByTabId" [ngClass]="getTabClasses(tab)" role="tab"
+    [id]="'tab-' + tab.id" [attr.aria-selected]="isActive(tab.id)" [attr.aria-disabled]="tab.disabled"
+    [disabled]="tab.disabled" [tabIndex]="isActive(tab.id) ? 0 : -1" (click)="selectTab(tab)">
+
+    <!-- Icon -->
+    <app-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 sm:h-4 sm:w-4 flex-shrink-0"
+      [icon]="tab.icon"></app-icon>
+
+    <!-- Label with optional translation -->
+    <span class="text-xs sm:text-sm">
+      {{ tab.translationKey ? (tab.translationKey | translate) : tab.label }}
+    </span>
+  </button>
+</div>
+
+<div *ngIf="isMobile && responsive" class="block sm:hidden">
+  <app-dropdown>
+    <app-dropdown-trigger
+      class="w-full flex items-center justify-between px-3 gap-2 py-1.5 text-sm font-medium border-b hover:border-primary bg-background hover:bg-muted/50 transition-colors">
+      <app-icon icon="layoutList" class="h-3 w-3 text-foreground" />
+
+      <div class="flex items-center">
+        <app-icon *ngIf="currentActiveTab?.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0"
+          [icon]="currentActiveTab?.icon"></app-icon>
+        <span class="text-sm font-medium">
+          {{currentActiveTab?.translationKey ? (currentActiveTab?.translationKey | translate) :
+          currentActiveTab?.label}}
+        </span>
+      </div>
+      <app-icon icon="chevronDown" class="h-4 w-4 text-foreground" />
+    </app-dropdown-trigger>
+    <app-dropdown-menu>
+      <app-dropdown-item *ngFor="let tab of visibleTabs; trackBy: trackByTabId" (click)="selectTab(tab)"
+        [disabled]="tab.disabled">
+        <app-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0" [icon]="tab.icon"></app-icon>
+
+        <span class="text-sm">
+          {{ tab.translationKey ? (tab.translationKey | translate) : tab.label }}
+        </span>
+
+        <app-icon *ngIf="isActive(tab.id)" class="ms-auto h-4 w-4 text-primary flex-shrink-0"
+          [icon]="'check'"></app-icon>
+      </app-dropdown-item>
+    </app-dropdown-menu>
+  </app-dropdown>
+</div>

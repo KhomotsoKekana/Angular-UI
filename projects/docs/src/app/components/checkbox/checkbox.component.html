@@ -1,0 +1,101 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Checkbox Component</h1>
+    <p class="mb-4">A form control that allows users to select one or multiple options from a set.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Checkbox</h2>
+    <div class="flex flex-col space-y-2 mb-6">
+        <app-checkbox id="basic-checkbox" [checked]="checked" (change)="onCheckboxChange($event)">Basic Checkbox</app-checkbox>
+        <p class="text-sm text-gray-600">Current value: {{ checked ? 'Checked' : 'Unchecked' }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Default Checked</h2>
+    <div class="flex flex-col space-y-2 mb-6">
+        <app-checkbox id="default-checked" [checked]="true">Default Checked</app-checkbox>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With NgModel Integration</h2>
+    <div class="flex flex-col space-y-2 mb-6">
+        <app-checkbox id="ngmodel-checkbox" [(ngModel)]="formModelValue">NgModel Binding</app-checkbox>
+        <p class="text-sm text-gray-600">Model value: {{ formModelValue ? 'Checked' : 'Unchecked' }}</p>
+        <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded w-32" (click)="formModelValue = !formModelValue">
+            Toggle
+        </button>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Multiple Checkboxes</h2>
+    <div class="flex flex-col space-y-2 mb-6">
+        <app-checkbox id="option1">Option 1</app-checkbox>
+        <app-checkbox id="option2">Option 2</app-checkbox>
+        <app-checkbox id="option3">Option 3</app-checkbox>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+<pre ngNonBindable class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic checkbox --&gt;
+&lt;app-checkbox id="my-checkbox" [checked]="isChecked" (change)="onCheckboxChange($event)"&gt;
+  Checkbox Label
+&lt;/app-checkbox&gt;
+
+&lt;!-- NgModel binding --&gt;
+&lt;app-checkbox id="model-checkbox" [(ngModel)]="formValue"&gt;
+  Two-way binding
+&lt;/app-checkbox&gt;
+</pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">checked</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the checkbox is checked</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">id</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'checkbox'</td>
+                    <td class="px-4 py-2 border-b">Unique identifier for the checkbox</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Payload</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">change</td>
+                    <td class="px-4 py-2 border-b">&#123; checked: boolean &#125;</td>
+                    <td class="px-4 py-2 border-b">Emitted when the checkbox state changes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Forms Integration</h2>
+        <p>
+            This component implements the ControlValueAccessor interface, making it compatible with Angular's form directives like ngModel and FormControl.
+        </p>
+    </div>
+</div>

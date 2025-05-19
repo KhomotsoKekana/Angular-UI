@@ -1,0 +1,366 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Chart Component</h1>
+    <p class="mb-4">A flexible charting component that supports various chart types including bar, line, area, donut, and pie charts. Built on top of ApexCharts, it provides extensive customization options and responsive design.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Chart Types</h2>
+    <div class="mb-2">
+        <div class="flex items-center gap-4 mb-2">
+            <div>
+                <label class="block text-sm mb-1">Select chart type:</label>
+                <select [(ngModel)]="selectedChartType" class="border rounded px-2 py-1">
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                    <option value="area">Area Chart</option>
+                    <option value="donut">Donut Chart</option>
+                    <option value="pie">Pie Chart</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm mb-1">Theme:</label>
+                <select [(ngModel)]="selectedTheme" class="border rounded px-2 py-1">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm mb-1">Data Labels:</label>
+                <input type="checkbox" [(ngModel)]="enableDataLabels" class="mr-2">Show data labels
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-6 border p-4 rounded" [ngClass]="{'bg-gray-800': selectedTheme === 'dark'}">
+        <!-- Axis charts (bar, line, area) -->
+        <app-chart *ngIf="['bar', 'line', 'area'].includes(selectedChartType)"
+            [type]="selectedChartType"
+            [series]="getSeriesForSelectedChart()"
+            [categories]="getCategoriesForSelectedChart()"
+            [height]="chartHeight"
+            [theme]="selectedTheme"
+            [enableDataLabels]="enableDataLabels"
+            [title]="selectedChartType.charAt(0).toUpperCase() + selectedChartType.slice(1) + ' Chart'"
+            [legendPosition]="legendPosition">
+        </app-chart>
+        
+        <!-- Donut chart -->
+        <app-chart *ngIf="selectedChartType === 'donut'"
+            [type]="'donut'"
+            [values]="donutChartValues"
+            [labels]="donutChartLabels"
+            [height]="chartHeight"
+            [theme]="selectedTheme"
+            [enableDataLabels]="enableDataLabels"
+            [title]="'Donut Chart'"
+            [centerLabel]="donutCenterLabel"
+            [centerValue]="donutCenterValue"
+            [cornerRadius]="cornerRadius"
+            [legendPosition]="legendPosition">
+        </app-chart>
+        
+        <!-- Pie chart -->
+        <app-chart *ngIf="selectedChartType === 'pie'"
+            [type]="'pie'"
+            [values]="pieChartValues"
+            [labels]="pieChartLabels"
+            [height]="chartHeight"
+            [theme]="selectedTheme"
+            [enableDataLabels]="enableDataLabels"
+            [title]="'Pie Chart'"
+            [cornerRadius]="cornerRadius"
+            [legendPosition]="legendPosition">
+        </app-chart>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Chart Customization</h2>
+    <div class="mb-2">
+        <div class="grid grid-cols-2 gap-4 mb-2">
+            <div>
+                <label class="block text-sm mb-1">Chart Height:</label>
+                <input type="range" min="200" max="500" step="10" [(ngModel)]="chartHeight" class="w-full">
+                <span class="text-xs">{{ chartHeight }}px</span>
+            </div>
+            <div>
+                <label class="block text-sm mb-1">Corner Radius (for pie/donut):</label>
+                <input type="range" min="0" max="30" step="1" [(ngModel)]="cornerRadius" class="w-full">
+                <span class="text-xs">{{ cornerRadius }}px</span>
+            </div>
+            <div>
+                <label class="block text-sm mb-1">Legend Position:</label>
+                <select [(ngModel)]="legendPosition" class="border rounded px-2 py-1">
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Value Formatting</h2>
+    <div class="mb-6 border p-4 rounded">
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <h3 class="font-medium mb-2">Percentage Formatter</h3>
+                <app-chart
+                    [type]="'donut'"
+                    [values]="[25.2, 37.5, 15.8, 21.5]"
+                    [labels]="['Category A', 'Category B', 'Category C', 'Category D']"
+                    [height]="250"
+                    [theme]="'light'"
+                    [valueFormatter]="percentageFormatter"
+                    [enableDataLabels]="true">
+                </app-chart>
+            </div>
+            <div>
+                <h3 class="font-medium mb-2">Currency Formatter</h3>
+                <app-chart
+                    [type]="'bar'"
+                    [series]="[{name: 'Revenue', data: [12500, 8700, 19600, 14300]}]"
+                    [categories]="['Q1', 'Q2', 'Q3', 'Q4']"
+                    [height]="250"
+                    [theme]="'light'"
+                    [valueFormatter]="currencyFormatter"
+                    [enableDataLabels]="true">
+                </app-chart>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Dynamic Data Updates</h2>
+    <div class="mb-6 border p-4 rounded">
+        <button (click)="updateChartData()" class="mb-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Update Chart Data
+        </button>
+        <app-chart
+            [type]="'bar'"
+            [series]="[{name: 'Live Updates', data: liveUpdateData}]"
+            [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
+            [height]="250">
+        </app-chart>
+        <p class="mt-2 text-sm text-gray-600">Click the button to update the chart data with random values.</p>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic bar chart --&gt;
+&lt;app-chart
+  [type]="'bar'"
+  [series]="[{name: 'Sales', data: [44, 55, 57, 56, 61, 58]}]"
+  [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
+  [height]="320"
+  [title]="'Monthly Sales'"&gt;
+&lt;/app-chart&gt;
+
+&lt;!-- Line chart --&gt;
+&lt;app-chart
+  [type]="'line'"
+  [series]="lineChartSeries"
+  [categories]="lineChartCategories"
+  [height]="320"
+  [title]="'Weekly Traffic'"&gt;
+&lt;/app-chart&gt;
+
+&lt;!-- Donut chart with custom center label --&gt;
+&lt;app-chart
+  [type]="'donut'"
+  [values]="[44, 55, 13, 33]"
+  [labels]="['Team A', 'Team B', 'Team C', 'Team D']"
+  [centerLabel]="'Total'"
+  [centerValue]="'145'"
+  [height]="320"&gt;
+&lt;/app-chart&gt;
+
+&lt;!-- Pie chart with custom formatting --&gt;
+&lt;app-chart
+  [type]="'pie'"
+  [values]="pieChartValues"
+  [labels]="pieChartLabels"
+  [valueFormatter]="percentageFormatter"
+  [enableDataLabels]="true"
+  [height]="320"&gt;
+&lt;/app-chart&gt;
+        </pre>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Common Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">type</td>
+                    <td class="px-4 py-2 border-b">'bar' | 'line' | 'area' | 'donut' | 'radialBar' | 'pie'</td>
+                    <td class="px-4 py-2 border-b">'bar'</td>
+                    <td class="px-4 py-2 border-b">Type of chart to display</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">title</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Chart title</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">height</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">320</td>
+                    <td class="px-4 py-2 border-b">Height of the chart in pixels</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">theme</td>
+                    <td class="px-4 py-2 border-b">'light' | 'dark'</td>
+                    <td class="px-4 py-2 border-b">'light'</td>
+                    <td class="px-4 py-2 border-b">Chart theme</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">enableDataLabels</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Show data labels on the chart</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">valueFormatter</td>
+                    <td class="px-4 py-2 border-b">(value: number) => string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Custom function to format values in labels and tooltips</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">legendPosition</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'top'</td>
+                    <td class="px-4 py-2 border-b">Position of the legend</td>
+                </tr>
+                <!-- <tr>
+                    <td class="px-4 py-2 border-b">customOptions</td>
+                    <td class="px-4 py-2 border-b">Partial&lt;ApexOptions&gt;</td>
+                    <td class="px-4 py-2 border-b">{}</td>
+                    <td class="px-4 py-2 border-b">Advanced customization options that will be merged with defaults</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Axis Chart Properties</h2>
+        <p class="text-sm text-gray-600 mb-2">These properties apply to bar, line, and area charts.</p>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">series</td>
+                    <td class="px-4 py-2 border-b">any[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <!-- <td class="px-4 py-2 border-b">Series data in format [{ name: string, data: number[] }]</td> -->
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">categories</td>
+                    <td class="px-4 py-2 border-b">string[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">X-axis category labels</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Non-Axis Chart Properties</h2>
+        <p class="text-sm text-gray-600 mb-2">These properties apply to donut, pie, and radialBar charts.</p>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">values</td>
+                    <td class="px-4 py-2 border-b">number[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Data values for each segment</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">labels</td>
+                    <td class="px-4 py-2 border-b">string[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Labels for each segment</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">cornerRadius</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">10</td>
+                    <td class="px-4 py-2 border-b">Radius for rounded corners on pie/donut slices</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Donut Chart Specific Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">centerLabel</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Label text shown in donut center</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">centerValue</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Value text shown in donut center</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">showTotal</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to show total value in center</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">totalLabel</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'Total'</td>
+                    <td class="px-4 py-2 border-b">Label for total value in center</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Best Practices</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Use bar charts for comparing discrete categories</li>
+            <li class="mb-1">Use line charts for showing trends over continuous data points</li>
+            <li class="mb-1">Use area charts for emphasizing volume under a trend</li>
+            <li class="mb-1">Use donut/pie charts for showing proportion of parts to a whole</li>
+            <li class="mb-1">Provide value formatters to make data more readable</li>
+            <li class="mb-1">Keep colors consistent across related charts</li>
+            <li class="mb-1">Don't overload charts with too many data series</li>
+        </ul>
+    </div>
+</div>

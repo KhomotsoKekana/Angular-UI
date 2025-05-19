@@ -1,0 +1,28 @@
+<div class="relative inline-flex items-center">
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" [checked]="checked" (change)="onChangeEvent($event)" [id]="id"
+        class="absolute w-0 h-0 opacity-0 pointer-events-none" />
+
+    <!-- Custom Checkbox and Projected Content -->
+    <label (click)="onLabelClick()" class="flex items-center gap-2 cursor-pointer">
+        <!-- Custom Checkbox -->
+        <div class="flex items-center justify-center w-5 h-5 rounded-lg border border-gray-300 transition-all duration-300"
+            [ngClass]="{
+      'bg-cyan-600 border-cyan-600': checked,
+      'bg-white border-gray-300': !checked
+    }">
+            <!-- SVG Tick -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-dasharray="48" stroke-dashoffset="48" d="M5 12l5 5L20 7"
+                    [ngStyle]="{ 'stroke-dashoffset': checked ? '0' : '48' }"
+                    class="transition-[stroke-dashoffset] duration-[1500ms] ease-out"></path>
+            </svg>
+        </div>
+
+        <!-- Projected Content -->
+        <div class="select-none text-sm">
+            <ng-content></ng-content>
+        </div>
+    </label>
+</div>

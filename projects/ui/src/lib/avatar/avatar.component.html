@@ -1,0 +1,36 @@
+<div class="relative flex items-center justify-center rounded-full border" [ngClass]="{
+    'w-8 h-8 text-xs': size === 'sm',
+    'w-9 h-9 text-sm': size === 'md',
+    'w-14 h-14 text-lg': size === 'lg',
+    'bg-primary border-primary': variant == 'primary',
+    'bg-secondary border-border': variant == 'secondary',
+    'bg-primary/10 border-primary/10': variant == 'primaryGhost',
+  }">
+  <!-- Avatar Image -->
+  <img *ngIf="src" [src]="src" [alt]="alt" class="absolute w-full h-full object-cover rounded-full"
+    (error)="onImageError()" />
+
+  <!-- Fallback Initials -->
+  <span *ngIf="!src && name" class="font-semibold" [ngClass]="{
+    'text-primary-foreground': variant == 'primary',
+    'text-foreground': variant == 'secondary',
+    'text-primary': variant == 'primaryGhost',
+  }">
+    {{ initials }}
+  </span>
+
+  <!-- Fallback Default Image -->
+  <div *ngIf="!src && !name" class="p-1.5">
+    <app-icon icon="user" class="w-full h-full" fill="var(--color-foreground)" />
+  </div>
+
+
+  <!-- Status Indicator -->
+  <div *ngIf="status" class="absolute flex items-center justify-center bottom-[-0.1rem] right-[-0.1rem]" [ngClass]="{
+      'w-3 h-3': size === 'sm',
+      'w-3.5 h-3.5': size === 'md',
+      'w-4 h-4': size === 'lg',
+      'bg-green-500': status === 'online',
+      'bg-rose-500': status === 'offline'
+    }" style="border: 1px solid white; border-radius: 50%;"></div>
+</div>

@@ -1,0 +1,176 @@
+<div class="p-6 space-y-8">
+    <h1 class="text-xl font-semibold">Data Table Component</h1>
+    <p class="mb-4">A powerful, feature-rich table component for displaying structured data with sorting, filtering, and
+        pagination.</p>
+
+    <h2 class="text-lg font-medium mb-2">Client-side Data Processing</h2>
+    <div class="mb-6 overflow-x-auto">
+        <app-data-table [data]="tableData" [columns]="tableColumns" [rowClickable]="true"
+            (rowClick)="onRowClick($event)">
+        </app-data-table>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">Server-side Data Processing</h2>
+    <div class="mb-6 overflow-x-auto">
+        <app-data-table [data]="serverData" [columns]="tableColumns" [isServerSide]="true" [loading]="loading"
+            [totalItems]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage"
+            (pageChange)="onPageChange($event)" (sortChange)="onSortChange($event)"
+            (filterChange)="onFilterChange($event)">
+        </app-data-table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto" ngNonBindable>
+&lt;!-- Basic client-side table --&gt;
+&lt;app-data-table
+  [data]="yourDataArray"
+  [columns]="yourColumnsArray"&gt;
+&lt;/app-data-table&gt;
+
+&lt;!-- Server-side data processing with pagination, sorting, and filtering --&gt;
+&lt;app-data-table
+  [data]="serverData"
+  [columns]="tableColumns"
+  [isServerSide]="true"
+  [loading]="loading"
+  [totalItems]="totalItems"
+  [pageSize]="pageSize"
+  [pageIndex]="currentPage"
+  (pageChange)="onPageChange($event)"
+  (sortChange)="onSortChange($event)"
+  (filterChange)="onFilterChange($event)"&gt;
+&lt;/app-data-table&gt;
+
+&lt;!-- With custom column templates --&gt;
+&lt;app-data-table [data]="data" [columns]="columns"&gt;
+  &lt;ng-template appColumnTemplate columnName="status" let-element&gt;
+    &lt;span class="badge" [ngClass]="element.status === 'Active' ? 'bg-green-500' : 'bg-red-500'"&gt;
+      {{ element.status }}
+    &lt;/span&gt;
+  &lt;/ng-template&gt;
+&lt;/app-data-table&gt;
+        </pre>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Column Definition Interface</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto" ngNonBindable>
+export interface Column &#123;
+  name: string;         // Property name in data object
+  header: string;       // Display name for column
+  sortable?: boolean;   // Whether the column can be sorted
+  filterable?: boolean; // Whether the column can be filtered
+  cell?: (element: any) => string; // Optional formatter
+  width?: string;       // Optional width specification
+  align?: 'left' | 'center' | 'right'; // Alignment
+  hideOnSmall?: boolean; // Hide on small screens
+&#125;
+        </pre>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">data</td>
+                    <td class="px-4 py-2 border-b">any[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Array of data objects to display in the table</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">columns</td>
+                    <td class="px-4 py-2 border-b">Column[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Array of column definitions</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">isServerSide</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether data processing happens on the server</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">totalItems</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">0</td>
+                    <td class="px-4 py-2 border-b">Total number of items for server-side pagination</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageIndex</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">0</td>
+                    <td class="px-4 py-2 border-b">Current page index (0-based)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageSize</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">10</td>
+                    <td class="px-4 py-2 border-b">Number of items per page</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageSizeOptions</td>
+                    <td class="px-4 py-2 border-b">number[]</td>
+                    <td class="px-4 py-2 border-b">[5, 10, 25, 50, 100]</td>
+                    <td class="px-4 py-2 border-b">Available page size options</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">loading</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the table is loading data</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">rowClickable</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether rows can be clicked</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Payload</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageChange</td>
+                    <td class="px-4 py-2 border-b">PageEvent</td>
+                    <td class="px-4 py-2 border-b">Emitted when page index or size changes</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">sortChange</td>
+                    <td class="px-4 py-2 border-b">Sort</td>
+                    <td class="px-4 py-2 border-b">Emitted when sorting changes</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">filterChange</td>
+                    <td class="px-4 py-2 border-b">TableFilter[]</td>
+                    <td class="px-4 py-2 border-b">Emitted when filters are applied or cleared</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">rowClick</td>
+                    <td class="px-4 py-2 border-b">any</td>
+                    <td class="px-4 py-2 border-b">Emitted when a row is clicked (if rowClickable is true)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

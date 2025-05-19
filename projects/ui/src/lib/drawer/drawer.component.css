@@ -1,0 +1,9 @@
+.fixed {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .resizer {
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 50;
+  }

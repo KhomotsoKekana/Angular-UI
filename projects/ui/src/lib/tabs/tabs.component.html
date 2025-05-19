@@ -1,0 +1,70 @@
+    <!-- Tabs Navigation -->
+    <div class="flex flex-wrap gap-4 px-2">
+        <div *ngFor="let group of groupedTabs; trackBy: trackByGroup" class="relative flex items-center mb-1 h-9 min-w-fit"
+            [ngClass]="{
+                'border-b border-gray-300': variant === 'underline',
+                'bg-transparent shadow-surround rounded-full p-1 min-w-fit': variant === 'pill',
+                'bg-white/60 border rounded-xl p-1 min-w-fit': variant === 'pill-square',
+                'justify-between gap-x-4': variant === 'step'
+            }">
+            <!-- Active Tab Indicator -->
+            <div *ngIf="variant !== 'step' && isActiveGroup(group)"
+                class="absolute border transition-all duration-300 ease-in-out" [ngClass]="{
+                    'h-[2px] bottom-0 border-primary bg-primary': variant === 'underline',
+                    'h-[85%] rounded-full shadow bg-white border-gray-200': variant === 'pill',
+                    'h-[80%] rounded-lg bg-primary/10 border-primary/10 shadow-surround': variant === 'pill-square'
+                }" [style.left]="activeTabStyles.left" [style.width]="activeTabStyles.width">
+            </div>
+
+            <!-- Tabs -->
+            <button #tab *ngFor="let tab of group.tabs; trackBy: trackByIndex" (click)="selectTab(tab.index)"
+                class="relative z-10 flex-shrink-0 px-3 py-2 text-sm font-medium transition-all duration-300" [ngClass]="{
+                    'text-primary/90': tab.index == activeTabIndex && (variant === 'pill' || variant === 'pill-square'),
+                    'text-primary font-semibold': tab.index == activeTabIndex && variant === 'underline',
+                    'text-gray-500': tab.index !== activeTabIndex && variant !== 'step',
+                    'flex items-center gap-x-2 cursor-pointer bg-white px-4': variant === 'step',
+                    'hover:text-primary/50': tab.index !== activeTabIndex
+                }">
+                <!-- Step-Specific Markup -->
+                <ng-container *ngIf="variant === 'step'; else regularTab">
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-all" [ngClass]="{
+                        'bg-primary text-white': tab.index == activeTabIndex,
+                        'bg-gray-300 text-gray-500': tab.index != activeTabIndex
+                    }">
+                        {{ tab.index + 1 }}
+                    </div>
+                    <div class="text-sm font-medium" [ngClass]="{
+                        'text-primary': tab.index == activeTabIndex,
+                        'text-gray-500': tab.index != activeTabIndex
+                    }">
+                        {{ tab.label }}
+                    </div>
+                </ng-container>
+
+                <!-- Regular Tabs -->
+                <ng-template #regularTab>
+                    <div class="flex items-center gap-x-2">
+                        <app-standard-icon *ngIf="tab.leadingStandardIcon" [icon]="tab.leadingStandardIcon" class="w-5 h-5" />
+                        <app-icon *ngIf="tab.leadingIcon" [icon]="tab.leadingIcon" class="h-5 w-5" />
+                        {{ tab.label }}
+                    </div>
+                </ng-template>
+            </button>
+        </div>
+    </div>
+
+    <!-- Connecting Line for Step Variant -->
+    <div *ngIf="variant === 'step'" class="absolute w-full h-[2px] top-4 bg-gray-300">
+        <div #stepLine class="absolute h-full bg-primary transition-all duration-300" [style.width]="stepLineWidth">
+        </div>
+    </div>
+
+    <!-- Tab Content -->
+    <ng-container *ngFor="let content of tabContents">
+        <ng-container *ngIf="shouldRenderContent(content.id)">
+            <ng-container *ngIf="isTabContentVisible(content)">
+                <ng-container *ngTemplateOutlet="content.templateRef"></ng-container>
+                <!-- <ng-content></ng-content> -->
+            </ng-container>
+        </ng-container>
+    </ng-container>

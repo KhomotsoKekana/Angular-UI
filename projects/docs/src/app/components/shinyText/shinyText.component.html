@@ -1,0 +1,49 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Shiny Text Component</h1>
+    <p class="mb-4">A component that adds a shining animation to text.</p>
+
+    <h2 class="text-lg font-medium mb-2">Basic Usage</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-animated-shiny-text>
+            This is some shiny text!
+        </app-animated-shiny-text>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">With Custom Class</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-animated-shiny-text className="text-2xl font-bold text-purple-500">
+            This is larger, bold, purple shiny text!
+        </app-animated-shiny-text>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties (app-animated-shiny-text)</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">className</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Optional custom CSS classes to apply to the text.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage Example</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-animated-shiny-text className="text-xl text-blue-600"&gt;
+  Hello World!
+&lt;/app-animated-shiny-text&gt;
+        </pre>
+    </div>
+</div>

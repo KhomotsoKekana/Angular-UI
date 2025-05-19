@@ -1,0 +1,75 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Accordion Component</h1>
+    <p class="mb-4">An expandable panel component that can show and hide content.</p>
+    
+    <div class="max-w-md">
+        <app-accordion>
+            <app-accordion-item title="First Section" subTitle="Click to expand">
+                <p>This is the content of the first section. You can place any content here.</p>
+            </app-accordion-item>
+            
+            <app-accordion-item title="Second Section" subTitle="With default open property" [defaultOpen]="true">
+                <p>This accordion item is opened by default using the [defaultOpen] property.</p>
+                <p class="mt-2">You can add multiple paragraphs or any other components inside.</p>
+            </app-accordion-item>
+            
+            <app-accordion-item title="Third Section" subTitle="Another example">
+                <div class="p-2 bg-gray-100 rounded">
+                    <p>You can even include styled content within accordion items.</p>
+                </div>
+            </app-accordion-item>
+        </app-accordion>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-accordion&gt;
+  &lt;app-accordion-item title="Section Title" subTitle="Optional subtitle"&gt;
+    Content goes here
+  &lt;/app-accordion-item&gt;
+  
+  &lt;app-accordion-item 
+    title="Another Section" 
+    subTitle="With default open property" 
+    [defaultOpen]="true"&gt;
+    This section is open by default
+  &lt;/app-accordion-item&gt;
+&lt;/app-accordion&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">title</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">The heading text for the accordion item</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">subTitle</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Optional subtitle text displayed below the title</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">defaultOpen</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the accordion item is expanded by default</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

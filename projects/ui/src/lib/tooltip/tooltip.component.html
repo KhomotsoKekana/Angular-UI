@@ -1,0 +1,5 @@
+<div [@tooltipAnimation] *ngIf="visible && text" [style.maxWidth]="maxWidth"
+  class="py-1 px-3 rounded shadow-surround border text-xs font-medium" [class]="variantClasses">
+  {{ text }}
+  <div [ngClass]="arrowClasses + variantClasses" class="absolute w-2 h-2 bg-inherit transform rotate-45"></div>
+</div>

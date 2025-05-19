@@ -1,0 +1,140 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Badge Component</h1>
+    <p class="mb-4">A small label that highlights status, count, or contextual information.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Variants</h2>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+        <app-badge variant="success" text="Success" />
+        <app-badge variant="warning" text="Warning" />
+        <app-badge variant="error" text="Error" />
+        <app-badge variant="neutral" text="Neutral" />
+        <app-badge variant="info" text="Info" />
+        <app-badge variant="primary" text="Primary" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Sizes</h2>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+        <app-badge size="xs" text="Extra small" />
+        <app-badge size="sm" text="Small" />
+        <app-badge size="md" text="Medium" />
+        <app-badge size="lg" text="Large" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Closable</h2>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+        <app-badge variant="success" text="Closable Badge" [closable]="true" (onClose)="closeHandler()" />
+        <app-badge variant="warning" text="Click X to close" [closable]="true" (onClose)="closeHandler()" />
+        <app-badge variant="error" text="Dismissible" [closable]="true" (onClose)="closeHandler()" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With Numbers</h2>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+        <app-badge variant="primary" [text]="5" />
+        <app-badge variant="info" [text]="42" />
+        <app-badge variant="success" [text]="100" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Used as Wrapper</h2>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+        <app-badge variant="primary" [isWrapper]="true">
+            <span class="px-2">Custom Content</span>
+        </app-badge>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic badge --&gt;
+&lt;app-badge 
+  variant="success" 
+  text="New Feature" 
+/&gt;
+
+&lt;!-- Closable badge --&gt;
+&lt;app-badge 
+  variant="error" 
+  text="Outdated" 
+  [closable]="true"
+  (onClose)="handleBadgeClose()" 
+/&gt;
+
+&lt;!-- Number badge --&gt;
+&lt;app-badge 
+  variant="info" 
+  [text]="unreadCount" 
+/&gt;
+
+&lt;!-- Badge as wrapper --&gt;
+&lt;app-badge 
+  variant="primary" 
+  [isWrapper]="true"
+&gt;
+  &lt;span&gt;Custom content&lt;/span&gt;
+&lt;/app-badge&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">variant</td>
+                    <td class="px-4 py-2 border-b">'success' | 'warning' | 'error' | 'neutral' | 'info' | 'primary'</td>
+                    <td class="px-4 py-2 border-b">'neutral'</td>
+                    <td class="px-4 py-2 border-b">Determines the color and style of the badge</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">size</td>
+                    <td class="px-4 py-2 border-b">'xs' | 'sm' | 'md' | 'lg'</td>
+                    <td class="px-4 py-2 border-b">'sm'</td>
+                    <td class="px-4 py-2 border-b">Controls the size of the badge</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">closable</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the badge shows a close button</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">text</td>
+                    <td class="px-4 py-2 border-b">string | number</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Text content of the badge</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">isWrapper</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the badge wraps custom content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">onClose</td>
+                    <td class="px-4 py-2 border-b">Emitted when the close button is clicked</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

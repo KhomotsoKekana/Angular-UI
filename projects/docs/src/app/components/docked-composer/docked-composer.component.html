@@ -1,0 +1,275 @@
+<div class="p-6 space-y-6">
+    <h1 class="text-xl font-semibold">Docked Composer Component</h1>
+    <p class="mb-4">A versatile floating panel component that can be docked at the bottom of the screen. It supports minimizing, maximizing, closing, and optional dragging functionality.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Usage</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleBasicComposer()">
+            {{ basicOpen ? 'Close' : 'Open' }} Basic Composer
+        </flex-button>
+        
+        <app-docked-composer 
+            [isOpen]="basicOpen" 
+            [title]="basicTitle"
+            (onClose)="basicOpen = false">
+            <div class="p-4">
+                <p class="text-sm text-gray-600">This is a basic docked composer with default settings.</p>
+                <p class="text-sm text-gray-600 mt-2">You can minimize, maximize, or close it using the buttons in the header.</p>
+            </div>
+        </app-docked-composer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Custom Content</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleCustomComposer()">
+            {{ customOpen ? 'Close' : 'Open' }} Email Composer
+        </flex-button>
+        
+        <app-docked-composer 
+            [isOpen]="customOpen" 
+            [title]="customTitle"
+            (onClose)="customOpen = false">
+            <div class="p-4 flex flex-col h-full">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">To:</label>
+                    <app-input [(ngModel)]="emailTo" placeholder="recipient@example.com"></app-input>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Subject:</label>
+                    <app-input [(ngModel)]="emailSubject" placeholder="Enter subject"></app-input>
+                </div>
+                <div class="flex-grow mb-4">
+                    <label class="block text-sm font-medium mb-1">Message:</label>
+                    <textarea [(ngModel)]="emailBody" 
+                        class="w-full h-32 px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <flex-button variant="secondary" class="mr-2" (click)="customOpen = false">
+                        Cancel
+                    </flex-button>
+                    <flex-button variant="primary" (click)="sendEmail()">
+                        Send Email
+                    </flex-button>
+                </div>
+            </div>
+        </app-docked-composer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Draggable Composer</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleDraggableComposer()">
+            {{ draggableOpen ? 'Close' : 'Open' }} Draggable Composer
+        </flex-button>
+        
+        <app-docked-composer 
+            [isOpen]="draggableOpen" 
+            [title]="draggableTitle"
+            [allowDrag]="true"
+            (onClose)="draggableOpen = false">
+            <div class="p-4">
+                <p class="text-sm text-gray-600">This composer can be dragged around the screen.</p>
+                <p class="text-sm text-gray-600 mt-2">Click and drag the header to move it to your preferred position.</p>
+            </div>
+        </app-docked-composer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Multiple Composers</h2>
+    <div class="mb-6 border p-4 rounded">
+        <div class="flex space-x-2 mb-4">
+            <flex-button (click)="toggleComposer1()">
+                {{ composer1Open ? 'Close' : 'Open' }} Composer 1
+            </flex-button>
+            <flex-button (click)="toggleComposer2()">
+                {{ composer2Open ? 'Close' : 'Open' }} Composer 2
+            </flex-button>
+            <flex-button (click)="toggleComposer3()">
+                {{ composer3Open ? 'Close' : 'Open' }} Composer 3
+            </flex-button>
+        </div>
+        
+        <div class="flex space-x-2">
+            <flex-button variant="secondary" (click)="openAllComposers()">Open All</flex-button>
+            <flex-button variant="secondary" (click)="closeAllComposers()">Close All</flex-button>
+        </div>
+        
+        <app-docked-composer 
+            [isOpen]="composer1Open" 
+            [title]="'Composer 1'"
+            [allowDrag]="true"
+            (onClose)="handleComposerClose(1)">
+            <div class="p-4">
+                <p class="text-sm text-gray-600">This is Composer 1.</p>
+                <p class="text-sm text-gray-600 mt-2">Multiple composers can be opened simultaneously.</p>
+            </div>
+        </app-docked-composer>
+        
+        <app-docked-composer 
+            [isOpen]="composer2Open" 
+            [title]="'Composer 2'"
+            [allowDrag]="true"
+            (onClose)="handleComposerClose(2)">
+            <div class="p-4">
+                <p class="text-sm text-gray-600">This is Composer 2.</p>
+                <p class="text-sm text-gray-600 mt-2">Each composer can be minimized, maximized, and positioned independently.</p>
+            </div>
+        </app-docked-composer>
+        
+        <app-docked-composer 
+            [isOpen]="composer3Open" 
+            [title]="'Composer 3'"
+            [allowDrag]="true"
+            (onClose)="handleComposerClose(3)">
+            <div class="p-4">
+                <p class="text-sm text-gray-600">This is Composer 3.</p>
+                <p class="text-sm text-gray-600 mt-2">You can organize multiple composers as needed for your application.</p>
+            </div>
+        </app-docked-composer>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic docked composer --&gt;
+&lt;app-docked-composer 
+  [isOpen]="isComposerOpen" 
+  [title]="'New Message'"
+  (onClose)="isComposerOpen = false"&gt;
+  &lt;!-- Content goes here --&gt;
+  &lt;div class="p-4"&gt;
+    &lt;p&gt;Your composer content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-docked-composer&gt;
+
+&lt;!-- Draggable docked composer --&gt;
+&lt;app-docked-composer 
+  [isOpen]="isDraggableOpen" 
+  [title]="'Draggable Composer'"
+  [allowDrag]="true"
+  (onClose)="isDraggableOpen = false"&gt;
+  &lt;div class="p-4"&gt;
+    &lt;p&gt;This composer can be dragged around&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-docked-composer&gt;
+        </pre>
+        
+        <div class="mt-4">
+            <p>In your component TypeScript file:</p>
+            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+import { Component } from '@angular/core';
+import { DockedComposerComponent } from 'path-to-your-ui-lib';
+
+@Component({
+  // ...component metadata
+})
+export class YourComponent {
+  isComposerOpen = false;
+  isDraggableOpen = false;
+  
+  toggleComposer() {
+    this.isComposerOpen = !this.isComposerOpen;
+  }
+  
+  toggleDraggableComposer() {
+    this.isDraggableOpen = !this.isDraggableOpen;
+  }
+}
+            </pre>
+        </div>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Inputs</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Input</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">isOpen</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">true</td>
+                    <td class="px-4 py-2 border-b">Controls the visibility of the composer</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">title</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'New Message'</td>
+                    <td class="px-4 py-2 border-b">Title displayed in the header of the composer</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">label</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'Customer'</td>
+                    <td class="px-4 py-2 border-b">Secondary label for additional context (currently unused in UI)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">allowClose</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">true</td>
+                    <td class="px-4 py-2 border-b">Whether to show the close button</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">allowResize</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">true</td>
+                    <td class="px-4 py-2 border-b">Whether to allow minimizing/maximizing the composer</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">allowDrag</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the composer can be dragged around by its header</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Outputs</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Output</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">onClose</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;void&gt;</td>
+                    <td class="px-4 py-2 border-b">Emitted when the close button is clicked</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Features</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Minimizable - Collapse the composer to just its header</li>
+            <li class="mb-1">Maximizable - Expand the composer to take up more screen space</li>
+            <li class="mb-1">Closable - Completely hide the composer</li>
+            <li class="mb-1">Draggable - Optional ability to reposition the composer by dragging its header</li>
+            <li class="mb-1">Custom content - Project any content using Angular's content projection</li>
+            <li class="mb-1">Multiple instances - Support for multiple composers displayed simultaneously</li>
+        </ul>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Best Practices</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Use composers for secondary operations that users might want to keep open while continuing to work with the main UI</li>
+            <li class="mb-1">Enable dragging for composers when users might benefit from repositioning them</li>
+            <li class="mb-1">Keep composer content focused on a single task or related set of actions</li>
+            <li class="mb-1">Consider accessibility by ensuring keyboard navigation works within your composer content</li>
+            <li class="mb-1">For multiple composers, use distinct titles to help users differentiate between them</li>
+        </ul>
+    </div>
+</div>

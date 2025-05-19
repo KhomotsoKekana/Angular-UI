@@ -1,0 +1,241 @@
+<div class="p-6 md:p-8 space-y-8 font-sans">
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-800">Secondary Sidebar Component</h1>
+        <p class="text-lg text-gray-600 mt-2">
+            The <code>&lt;app-secondary-sidebar&gt;</code> provides a vertical navigation menu, typically used for sub-sections within a larger page or module (e.g., settings pages). It supports nested navigation items and displays a title.
+        </p>
+    </header>
+
+    <!-- Example 1: Basic Secondary Sidebar -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">1. Basic Secondary Sidebar</h2>
+        <p class="text-gray-600 mb-4">
+            A simple secondary sidebar with a title and a flat list of navigation items.
+            The <code>title</code> input sets the header for the sidebar, and <code>navItems</code> provides the links.
+        </p>
+        <div class="border border-gray-300 rounded-lg bg-gray-50 flex" style="min-height: 300px;">
+            <app-secondary-sidebar [navItems]="basicNavItems" [title]="'SIDEBAR.ACCOUNT' | translate"></app-secondary-sidebar>
+            <div class="p-4 text-sm text-gray-500 flex-grow">
+                <!-- Simulated content area -->
+                <p>Content for the selected section would appear here.</p>
+                <!-- <p>Selected: {{ basicNavItems.find(item => item.isActive)?.title | translate }}</p> -->
+            </div>
+        </div>
+        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
+&lt;!-- component.html --&gt;
+&lt;ui-secondary-sidebar [navItems]="myNavItems" [title]="'My Sidebar Title' | translate"&gt;&lt;/ui-secondary-sidebar&gt;
+
+&lt;!-- component.ts --&gt;
+basicNavItems = [
+  &amp;#123; title: 'SIDEBAR.PROFILE', url: '/profile', icon: 'user', isActive: false, subItems: [] &amp;#125;,
+  &amp;#123; title: 'SIDEBAR.ACCOUNT', url: '/account', icon: 'settings', isActive: true, subItems: [] &amp;#125;,
+  &amp;#123; title: 'SIDEBAR.APPEARANCE', url: '/appearance', icon: 'eye', isActive: false, subItems: [] &amp;#125;
+];
+        </pre>
+    </section>
+
+    <!-- Example 2: Sidebar with Sub-Navigation -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">2. Sidebar with Sub-Navigation</h2>
+        <p class="text-gray-600 mb-4">
+            Demonstrates a sidebar with nested navigation items. Parent items expand to show their sub-items.
+            The active state is managed based on the current route or manual interaction.
+        </p>
+        <div class="border border-gray-300 rounded-lg bg-gray-50 flex" style="min-height: 400px;">
+            <app-secondary-sidebar [navItems]="navItemsWithSub" [title]="'CUSTOM_TITLE' | translate"></app-secondary-sidebar>
+            <div class="p-4 text-sm text-gray-500 flex-grow">
+                <!-- Simulated content area -->
+                <p>Content for the selected sub-section would appear here.</p>
+                 <ng-container *ngFor="let item of navItemsWithSub">
+                    <ng-container *ngIf="item.isActive && item.subItems">
+                        <p *ngFor="let subItem of item.subItems">
+                            <span *ngIf="subItem.isActive">Selected: {{ item.title | translate }} > {{ subItem.title | translate }}</span>
+                        </p>
+                    </ng-container>
+                 </ng-container>
+            </div>
+        </div>
+        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
+&lt;!-- component.html --&gt;
+&lt;ui-secondary-sidebar [navItems]="navItemsWithSub" [title]="'Advanced Settings' | translate"&gt;&lt;/ui-secondary-sidebar&gt;
+
+&lt;!-- component.ts --&gt;
+navItemsWithSub = [
+  &amp;#123;
+    title: 'SIDEBAR.GENERAL', url: '/general', icon: 'settingsCog', isActive: false,
+    subItems: [
+      &amp;#123; title: 'SIDEBAR.LANGUAGE', url: '/general/language', isActive: false &amp;#125;,
+      &amp;#123; title: 'SIDEBAR.TIMEZONE', url: '/general/timezone', isActive: false &amp;#125;
+    ]
+  &amp;#125;,
+  &amp;#123;
+    title: 'SIDEBAR.USERS', url: '/users', icon: 'users', isActive: true,
+    subItems: [
+      &amp;#123; title: 'SIDEBAR.ALL_USERS', url: '/users/all', isActive: true &amp;#125;,
+      &amp;#123; title: 'SIDEBAR.ROLES', url: '/users/roles', isActive: false &amp;#125;
+    ]
+  &amp;#125;
+];
+        </pre>
+    </section>
+
+    <!-- Component Inputs -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Inputs (<code>&lt;app-secondary-sidebar&gt;</code>)</h2>
+        <div class="overflow-x-auto custom-scrollbar">
+            <table class="min-w-full bg-white border border-gray-300 rounded-md">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Property</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Type</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Default</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>title</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">'Settings'</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The title displayed at the top of the sidebar. Can be a translation key.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>navItems</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>NavItem[]</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>[]</code> (empty array)</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">An array of navigation items to display. See the <code>NavItem</code> interface below for structure.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Interface: NavItem -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Interface: <code>NavItem</code></h2>
+        <p class="text-gray-600 mb-3">
+            Each object in the <code>navItems</code> array should conform to the following structure:
+        </p>
+        <div class="overflow-x-auto custom-scrollbar">
+            <table class="min-w-full bg-white border border-gray-300 rounded-md">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Property</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Type</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Required</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>title</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">Yes</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The display text for the navigation item. Can be a translation key.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>url</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">Yes (if no subItems or if parent is clickable)</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The router link for the navigation item.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>icon</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">No</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The name of the icon to display (from the available icon set).</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>isActive</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>boolean</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">No</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">Indicates if the item is currently active. The component also updates this based on router events.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>subItems</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>SubNavItem[]</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">No</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">An array of <code>SubNavItem</code> objects for nested navigation. See <code>SubNavItem</code> interface below.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Interface: SubNavItem -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Interface: <code>SubNavItem</code></h2>
+        <p class="text-gray-600 mb-3">
+            Each object in a <code>NavItem</code>'s <code>subItems</code> array should conform to this structure:
+        </p>
+        <div class="overflow-x-auto custom-scrollbar">
+            <table class="min-w-full bg-white border border-gray-300 rounded-md">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Property</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Type</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Required</th>
+                        <th class="px-5 py-3 border-b text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>title</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">Yes</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The display text for the sub-navigation item. Can be a translation key.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>url</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">Yes</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">The router link for the sub-navigation item.</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-700"><code>isActive</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>boolean</code></td>
+                        <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500">No</td>
+                        <td class="px-5 py-3 text-sm text-gray-600">Indicates if the sub-item is currently active. Updated based on router events.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Styling and Customization -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Styling and Customization</h2>
+        <p class="text-gray-600 mb-4">
+            The secondary sidebar's appearance is primarily controlled by Tailwind CSS classes within its own component structure and the <code>app-button</code> component it uses internally.
+            Active states are highlighted (e.g., text color, background).
+            The component is designed to fit within a layout container and will take the height of its parent.
+            Ensure your application's icon set (via <code>IconComponent</code>) includes any icons specified in <code>NavItem.icon</code>.
+        </p>
+    </section>
+</div>
+
+<!-- Custom scrollbar styles (same as header example) -->
+<style>
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+/* Ensure demo area has enough height */
+.flex[style*="min-height: 300px"], .flex[style*="min-height: 400px"] {
+    overflow: hidden; /* Prevent content spill during animation/resize */
+}
+ui-secondary-sidebar {
+    flex-shrink: 0; /* Prevent sidebar from shrinking if content is too wide */
+}
+</style>

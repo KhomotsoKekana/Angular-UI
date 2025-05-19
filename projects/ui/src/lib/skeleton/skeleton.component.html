@@ -1,0 +1,28 @@
+<div [ngSwitch]="type">
+  <!-- Default skeleton -->
+  <div 
+    *ngSwitchDefault
+    class="bg-gray-300 animate-pulse"
+    [ngClass]="class"
+    role="status"
+    aria-label="Loading"
+  >
+    <span class="sr-only">Loading...</span>
+  </div>
+  
+  <!-- Donut chart skeleton -->
+  <div 
+    *ngSwitchCase="'donut-chart'" 
+    class="relative w-full max-w-[200px] mx-auto" 
+    role="status" 
+    aria-label="Loading donut chart"
+  >
+    <div 
+      class="bg-gray-300 animate-pulse relative rounded-full w-full pb-[100%]" 
+      [ngClass]="class"
+    >
+      <div class="absolute top-1/4 left-1/4 w-1/2 h-1/2 rounded-full bg-white"></div>
+    </div>
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

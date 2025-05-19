@@ -1,0 +1,27 @@
+/* Adjust vertical line thickness and spacing */
+ul li ul {
+    margin-left: 1rem; /* Proper indentation for sub-items */
+  }
+  
+  ul li ul li {
+    position: relative;
+  }
+  
+  ul li ul li a {
+    margin-left: 1.5rem; /* Space between the dot and the sub-item text */
+    transition: color 0.2s ease, font-weight 0.2s ease;
+  }
+  
+  ul li ul li div {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Active Sub-Item */
+  ul li ul li a.font-semibold {
+    font-weight: 600;
+  }
+  
+  /* Dot and line alignment */
+  ul li ul li .h-2 {
+    margin-top: 0.25rem; /* Center the dot vertically */
+  }

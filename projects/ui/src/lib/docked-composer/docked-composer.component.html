@@ -1,0 +1,38 @@
+<div *ngIf="isOpen" cdkDrag [cdkDragDisabled]="!allowDrag"
+    class="fixed bottom-4 z-30 right-4 bg-white/90 backdrop-blur-xl shadow-surround border rounded-lg overflow-hidden flex flex-col transition-all duration-300 ease-in-out"
+    [ngClass]="{
+        'h-[80vh] w-[80vw]': isFullScreen && !isMinimized, 
+        'h-[570px] w-[500px]': !isFullScreen && !isMinimized,
+        'h-auto': isMinimized,
+        'cursor-default': !allowDrag
+    }" [ngStyle]="{ transform: position }" cdkDragBoundary=".container" [cdkDragFreeDragPosition]="{x: posX, y: posY}"
+    (cdkDragEnded)="dragEnd($event)">
+
+    <!-- Header -->
+    <div class="bg-primary/10 text-primary flex justify-between items-center px-3 py-2"
+        [ngClass]="{'cursor-move': allowDrag}">
+        <div class="flex flex-col">
+            <h3 class="text-sm font-semibold pe-6">{{title}}</h3>
+            <!-- <span class="text-xs text-muted-foreground">{{label}}</span> -->
+        </div>
+        <div class="flex">
+            <flex-button variant="ghost" class="hover:text-primary hover:bg-primary/10" (click)="toggleMinimize()">
+                <app-icon *ngIf="!isMinimized" icon="minus" class="h-4 w-4" />
+                <app-icon *ngIf="isMinimized" icon="plus" class="h-4 w-4" />
+            </flex-button>
+            <flex-button variant="ghost" class="hover:text-primary hover:bg-primary/10" *ngIf="!isMinimized"
+                (click)="toggleFullScreen()">
+                <app-icon *ngIf="!isFullScreen" icon="maximize" class="h-4 w-4" />
+                <app-icon *ngIf="isFullScreen" icon="minimize" class="h-4 w-4" />
+            </flex-button>
+            <flex-button variant="ghost" class="hover:text-destructive hover:bg-destructive/10" (click)="close()">
+                <app-icon icon="x" class="h-5 w-5" />
+            </flex-button>
+        </div>
+    </div>
+
+    <!-- Content (Hidden when Minimized) -->
+    <div *ngIf="!isMinimized" class="flex-col flex p-0 h-full overflow-hidden">
+        <ng-content></ng-content>
+    </div>
+</div>

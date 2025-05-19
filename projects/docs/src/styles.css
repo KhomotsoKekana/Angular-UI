@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+@theme {
+    /* Core Colors */
+    --color-background: rgb(255, 255, 255);
+    /* Main background color for surfaces (e.g. page, containers) */
+    --color-foreground: rgb(15, 23, 42);
+    /* Primary text and icon color on light backgrounds */
+    --color-muted: rgb(241, 245, 249);
+    /* Light, subtle background used for less-emphasized UI areas */
+    --color-muted-foreground: rgb(100, 116, 139);
+    /* Text or icon color to be used on muted backgrounds */
+    --color-popover: rgb(255, 255, 255);
+    /* Background for popovers, tooltips, or modal dialogs */
+    --color-popover-foreground: rgb(15, 23, 42);
+    /* Text color inside popovers and similar overlays */
+    /* --border: 226, 232, 240; */
+    /* --color-border: rgb(180, 178, 171); */
+    --color-border: rgb(229, 231, 235);
+
+    /* Border color for cards, inputs, or separators */
+    --color-input: rgba(255, 255, 255, 1);
+    /* Background/border color for input fields */
+    --color-card: rgb(255, 255, 255);
+    /* Background color for card components */
+    --color-card-foreground: rgb(15, 23, 42);
+    /* Text color for card components */
+
+    /* Action Colors */
+    --color-primary: rgb(234, 99, 35);
+    /* Primary action color (e.g. main buttons or links) */
+    --color-primary-foreground: rgb(248, 250, 252);
+    /* Text or icon color used on primary-colored elements */
+    /* --secondary: 241, 245, 249; */
+    --color-secondary: rgb(250, 249, 247);
+
+    /* Secondary action color for less prominent buttons */
+    --color-secondary-foreground: rgb(15, 23, 42);
+    /* Foreground color on secondary elements */
+    --color-accent: rgb(241, 245, 249);
+    /* Accent color for highlighting elements */
+    --color-accent-foreground: rgb(15, 23, 42);
+    /* Text color on accent-colored backgrounds */
+    --color-danger: var(--color-rose-600);
+    --color-danger-hover: var(--color-red-800);
+    /* Destructive action color (used for delete, remove actions) */
+    --color-destructive-foreground: rgb(248, 250, 252);
+    /* Foreground color on destructive elements */
+
+    /* Utility Colors */
+    --color-ring: rgb(148, 163, 184);
+    /* Focus ring (outline) color for interactive elements */
+    --color-radius: 0.5rem;
+    /* Default border radius for rounded corners */
+
+    /* Additional Colors (for notifications, etc.) */
+    --color-info: var(--color-sky-600);
+    --color-info-hover: var(--color-sky-800);
+
+    /* Color used for informational messages (blue tone) */
+    --color-info-foreground: rgb(255, 255, 255);
+
+    /* Foreground/text color on info backgrounds */
+    --color-success: var(--color-emerald-600);
+    --color-success-hover: var(--color-emerald-800);
+
+    /* Color used for success messages (green tone) */
+    --color-success-foreground: rgb(255, 255, 255);
+    /* Text color on success backgrounds */
+    --color-warning: var(--color-amber-600);
+    --color-warning-hover: var(--color-amber-800);
+
+    /* Color used for warnings (orange tone) */
+    --color-warning-foreground: rgb(255, 255, 255);
+    /* Text color on warning backgrounds */
+
+    --shadow-surround: 0px 0px 7px 0px rgba(0, 0, 0, 0.03), 0px 1px 7px 0px rgba(0, 0, 0, 0.08), 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+    --shadow-3xl: 0 35px 35px rgba(0, 0, 0, 0.25);
+
+
+    --animate-slide-down: slide-down 0.1s ease-out;
+    --animate-slide-up: slide-up 0.1s ease-out;
+    --animate-progressBar: progressBar 3s linear forwards;
+    --animate-fade-in: fadeIn 0.2s ease-out;
+    --animate-fade-out: fadeOut 0.2s ease-in;
+    --animate-scale-in: scaleIn 0.1s ease-out forwards;
+    --animate-scale-out: scaleOut 0.1s ease-in forwards;
+    --animation-spin: spin 1s linear infinite;
+    --animate-spin-slow: spin 2s linear infinite;
+    --animate-spin-fast: spin 0.5s linear infinite;
+    --animate-spin-pause: spinPause 0.8s linear infinite;
+    --animate-dotted-pause: spinPause 0.8s linear infinite 0.1s;
+    /* Delayed dotted spinner animation */
+    --animate-pulse: pulse 1.5s ease-in-out infinite;
+    --animate-accordionOpen: accordionOpen 0.3s ease-in-out forwards;
+    --animate-accordionClose: accordionClose 0.3s ease-in-out forwards;
+
+    @keyframes slide-down {
+        0% {
+            opacity: 1;
+            transform: translateY(-10px)
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    @keyframes slide-up {
+        0% {
+            opacity: 1;
+            transform: translateY(10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes progressBar {
+        from {
+            width: '100%'
+        }
+
+        to {
+            width: '0%'
+        }
+    }
+
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: 'translateX(100px)'
+        }
+
+        100% {
+            opacity: 1;
+            transform: 'translateX(0)'
+        }
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+            transform: 'translateX(0)'
+        }
+
+        100% {
+            opacity: 0;
+            transform: 'translateX(100px)'
+        }
+    }
+
+    @keyframes scaleIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8)
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1)
+        }
+    }
+
+    @keyframes scaleOut {
+        0% {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(0.8)
+        }
+    }
+
+    @keyframes spinPause {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        /* Pause at the bottom */
+        70% {
+            transform: rotate(180deg);
+        }
+
+        /* Hold position briefly */
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1
+        }
+
+        ;
+
+        50% {
+            opacity: 0.4
+        }
+
+        ;
+    }
+
+    @keyframes accordionOpen {
+        from {
+            max-height: 0;
+            opacity: 0
+        }
+
+        to {
+            max-height: var(--accordion-content-height);
+            opacity: 1
+        }
+    }
+
+    @keyframes accordionClose {
+        from {
+            max-height: var(--accordion-content-height);
+            opacity: 1
+        }
+
+        to {
+            max-height: 0;
+            opacity: 0
+        }
+    }
+
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+      border-color: var(--color-gray-200, currentColor);
+    }
+  }

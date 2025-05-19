@@ -1,0 +1,217 @@
+<div class="p-6 space-y-6">
+    <h1 class="text-xl font-semibold">Date Picker Component</h1>
+    <p class="mb-4">A flexible date picker component for selecting date ranges. Features include preset ranges, custom range selection, dual-calendar view, and time selection.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Date Range Picker</h2>
+    <div class="mb-6 border p-4 rounded">
+        <app-date-picker
+            [fromDate]="basicFromDate"
+            [toDate]="basicToDate"
+            (dateRangeSelected)="onBasicDateRangeSelected($event)">
+        </app-date-picker>
+        
+        <div class="mt-4">
+            <p>Selected range: <strong>{{ formatDate(basicFromDate) }} - {{ formatDate(basicToDate) }}</strong></p>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Date Range with Time Selection</h2>
+    <div class="mb-6 border p-4 rounded">
+        <app-date-picker
+            [fromDate]="timeFromDate"
+            [toDate]="timeToDate"
+            [showTimePicker]="true"
+            (dateRangeSelected)="onTimePickerDateRangeSelected($event)">
+        </app-date-picker>
+        
+        <div class="mt-4">
+            <p>Selected range with time: <strong>{{ formatDateWithTime(timeFromDate) }} - {{ formatDateWithTime(timeToDate) }}</strong></p>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Date Picker Placement</h2>
+    <div class="mb-6 border p-4 rounded">
+        <div class="mb-4">
+            <label class="block text-sm mb-1">Select dropdown placement:</label>
+            <select [(ngModel)]="selectedPlacement" class="border rounded px-2 py-1">
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select>
+        </div>
+        
+        <div class="flex justify-center items-center h-40">
+            <app-date-picker
+                [fromDate]="placementFromDate"
+                [toDate]="placementToDate"
+                [placement]="selectedPlacement"
+                (dateRangeSelected)="onPlacementDateRangeSelected($event)">
+            </app-date-picker>
+        </div>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Available Preset Ranges</h2>
+        <p class="mb-2">The date picker comes with several built-in preset ranges for quick selection:</p>
+        <ul class="list-disc ml-6 mt-2 mb-4">
+            <li class="mb-1">Last hour</li>
+            <li class="mb-1">Last 6 hours</li>
+            <li class="mb-1">Last 12 hours</li>
+            <li class="mb-1">Today</li>
+            <li class="mb-1">Yesterday</li>
+            <li class="mb-1">Last 7 days</li>
+            <li class="mb-1">Last 14 days</li>
+            <li class="mb-1">Month to date</li>
+            <li class="mb-1">Last 3 months</li>
+            <li class="mb-1">Last 12 months</li>
+            <li class="mb-1">Custom range</li>
+        </ul>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic date range picker --&gt;
+&lt;app-date-picker
+  [fromDate]="startDate"
+  [toDate]="endDate"
+  (dateRangeSelected)="onDateRangeSelected($event)"&gt;
+&lt;/app-date-picker&gt;
+
+&lt;!-- Date range picker with time selection --&gt;
+&lt;app-date-picker
+  [fromDate]="startDate"
+  [toDate]="endDate"
+  [showTimePicker]="true"
+  (dateRangeSelected)="onDateRangeSelected($event)"&gt;
+&lt;/app-date-picker&gt;
+
+&lt;!-- Date range picker with custom placement --&gt;
+&lt;app-date-picker
+  [fromDate]="startDate"
+  [toDate]="endDate"
+  [placement]="'top'"
+  (dateRangeSelected)="onDateRangeSelected($event)"&gt;
+&lt;/app-date-picker&gt;
+        </pre>
+        
+        <div class="mt-4">
+            <p>In your component TypeScript file:</p>
+            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+import { Component } from '@angular/core';
+import { DatePickerComponent } from 'path-to-your-ui-lib';
+
+@Component({
+  // ...component metadata
+})
+export class YourComponent {
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  
+  // Set initial dates if needed
+  constructor() {
+    const today = new Date();
+    const lastWeek = new Date();
+    lastWeek.setDate(today.getDate() - 7);
+    
+    this.startDate = lastWeek;
+    this.endDate = today;
+  }
+  
+  onDateRangeSelected(range: { start: Date, end: Date }) {
+    this.startDate = range.start;
+    this.endDate = range.end;
+    console.log('Date range selected:', range);
+    // Process the selected date range
+  }
+}
+            </pre>
+        </div>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">fromDate</td>
+                    <td class="px-4 py-2 border-b">Date | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Start date of the selected range</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">toDate</td>
+                    <td class="px-4 py-2 border-b">Date | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">End date of the selected range</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">placement</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'bottom'</td>
+                    <td class="px-4 py-2 border-b">Position of the dropdown relative to the trigger</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">showTimePicker</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to show time input fields</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">dateRangeSelected</td>
+                    <!-- <td class="px-4 py-2 border-b">EventEmitter&lt;{ start: Date, end: Date }&gt;</td> -->
+                    <td class="px-4 py-2 border-b">Emitted when a date range is selected or a preset is chosen</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Features</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Dual-calendar month view for easier range selection</li>
+            <li class="mb-1">Built-in preset date ranges for quick selection</li>
+            <li class="mb-1">Custom date range selection</li>
+            <li class="mb-1">Optional time selection</li>
+            <li class="mb-1">Visual highlighting of the selected range</li>
+            <li class="mb-1">Configurable dropdown placement</li>
+            <li class="mb-1">Internationalization support through Angular's TranslateModule</li>
+            <li class="mb-1">Works with both mouse and keyboard navigation</li>
+        </ul>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Accessibility</h2>
+        <p>The Date Picker component follows accessibility best practices:</p>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Keyboard navigation support for calendar navigation and selection</li>
+            <li class="mb-1">Screen reader friendly with appropriate ARIA attributes</li>
+            <li class="mb-1">Focus management for improved keyboard usability</li>
+            <li class="mb-1">High contrast visual indicators for selection states</li>
+        </ul>
+    </div>
+</div>

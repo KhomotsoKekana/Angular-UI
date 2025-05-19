@@ -1,0 +1,29 @@
+<div *ngIf="variant=='default'" class="relative flex items-center justify-center">
+    <!-- Main Circle Spinner -->
+    <div [ngClass]="[
+        'inline-block rounded-full',
+        borderColorDefault,
+        sizeClass,
+        speedClass
+      ]" role="status" aria-label="Loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="variant=='linear'" class="relative flex items-center justify-center">
+    <!-- Main Circle Spinner -->
+    <div [ngClass]="[
+        'inline-block animate-spin-pause rounded-full',
+        borderColorLinear,
+        sizeClass
+      ]" role="status" aria-label="Loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <!-- Dotted Circle Spinner -->
+    <div [ngClass]="[
+        'absolute animate-dotted-pause rounded-full border-dotted',
+        borderColorLinear,
+        sizeClass
+      ]" aria-hidden="true"></div>
+</div>

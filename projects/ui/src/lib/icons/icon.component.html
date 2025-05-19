@@ -1,0 +1,6 @@
+<!-- [attr.width]="size"
+[attr.height]="size" -->
+<svg [class]="this.className" [attr.fill]="fill" [attr.stroke]="color" stroke-linecap="round" stroke-linejoin="round"
+  [attr.stroke-width]="strokeWidth" viewBox="0 0 24 24">
+  <g [innerHTML]="this.iconHtml"></g> <!-- Dynamically insert the SVG path -->
+</svg>

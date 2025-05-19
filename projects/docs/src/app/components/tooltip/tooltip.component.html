@@ -1,0 +1,191 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Tooltip Component</h1>
+    <p class="mb-4">A small pop-up element that appears when the user hovers over or focuses on an element, providing additional information.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Tooltip</h2>
+    <div class="mb-6 flex items-center gap-4">
+        <div class="relative inline-flex">
+            <flex-button #tooltipTrigger1 (mouseenter)="tooltip1.visible = true" (mouseleave)="tooltip1.visible = false">
+                Hover Me
+            </flex-button>
+            <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
+                <app-tooltip #tooltip1 text="This is a basic tooltip"></app-tooltip>
+            </div>
+        </div>
+        <div class="relative inline-flex">
+            <flex-button #tooltipTrigger2 variant="outline" (mouseenter)="tooltip2.visible = true" (mouseleave)="tooltip2.visible = false" (click)="tooltip2.visible = !tooltip2.visible">
+                Click or Hover Me
+            </flex-button>
+            <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
+                <app-tooltip #tooltip2 text="Click or hover interaction"></app-tooltip>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Positions</h2>
+    <div class="mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            <div *ngFor="let position of positions" class="relative inline-flex">
+                <flex-button (mouseenter)="positionTooltip.visible = true; selectedPosition = position" 
+                             (mouseleave)="positionTooltip.visible = false">
+                    {{ position }}
+                </flex-button>
+                <div class="absolute" [ngClass]="{
+                    'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': position === 'top',
+                    'bottom-0 left-1/2 -translate-x-1/2 translate-y-full mt-2': position === 'bottom',
+                    'top-1/2 left-0 -translate-y-1/2 -translate-x-full mr-2': position === 'left',
+                    'top-1/2 right-0 -translate-y-1/2 translate-x-full ml-2': position === 'right'
+                }">
+                    <app-tooltip #positionTooltip [position]="selectedPosition" [text]="'Tooltip on ' + selectedPosition"></app-tooltip>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Variants</h2>
+    <div class="mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div *ngFor="let variant of variants" class="relative inline-flex">
+                <flex-button [variant]="variant === 'default' ? 'primary' : variant" 
+                             (mouseenter)="variantTooltip.visible = true; selectedVariant = variant" 
+                             (mouseleave)="variantTooltip.visible = false">
+                    {{ variant }}
+                </flex-button>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                    <app-tooltip #variantTooltip [variant]="selectedVariant" [text]="variant + ' variant'"></app-tooltip>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Custom Styling</h2>
+    <div class="mb-6">
+        <div class="mb-4 flex flex-wrap gap-6">
+            <div>
+                <label class="block text-sm font-medium mb-1">Background Color</label>
+                <input type="color" [(ngModel)]="customBgColor" class="p-1 border rounded">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Text Color</label>
+                <input type="color" [(ngModel)]="customTextColor" class="p-1 border rounded">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Max Width</label>
+                <input type="text" [(ngModel)]="customMaxWidth" class="p-1 border rounded w-24">
+            </div>
+        </div>
+        <div class="relative inline-flex">
+            <flex-button (mouseenter)="customTooltip.visible = true" (mouseleave)="customTooltip.visible = false">
+                Custom Tooltip
+            </flex-button>
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                <app-tooltip #customTooltip 
+                    text="This tooltip has custom styling applied to it"
+                    [bgColor]="customBgColor"
+                    [textColor]="customTextColor"
+                    [maxWidth]="customMaxWidth">
+                </app-tooltip>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Long Content</h2>
+    <div class="mb-6">
+        <div class="relative inline-flex">
+            <flex-button variant="outline" (mouseenter)="longTooltip.visible = true" (mouseleave)="longTooltip.visible = false">
+                Hover for Details
+            </flex-button>
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                <app-tooltip #longTooltip text="This tooltip contains a longer explanation which will be constrained by the maxWidth property and will wrap to multiple lines if necessary." maxWidth="250px"></app-tooltip>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Parent element needs positioning and structure --&gt;
+&lt;div class="relative inline-flex"&gt;
+  &lt;!-- Element that triggers the tooltip --&gt;
+  &lt;button (mouseenter)="tooltip.visible = true" 
+          (mouseleave)="tooltip.visible = false"&gt;
+    Hover Me
+  &lt;/button&gt;
+  
+  &lt;!-- Container for positioning the tooltip --&gt;
+  &lt;div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full"&gt;
+    &lt;!-- The tooltip component itself --&gt;
+    &lt;app-tooltip #tooltip 
+      text="This is a tooltip"
+      position="top"
+      variant="default"&gt;
+    &lt;/app-tooltip&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">text</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Text content of the tooltip</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">position</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'top'</td>
+                    <td class="px-4 py-2 border-b">Position of the tooltip relative to its target</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">bgColor</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'#FFFFFF'</td>
+                    <td class="px-4 py-2 border-b">Background color of the tooltip (when not using variants)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">textColor</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'#000000'</td>
+                    <td class="px-4 py-2 border-b">Text color of the tooltip (when not using variants)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">maxWidth</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'200px'</td>
+                    <td class="px-4 py-2 border-b">Maximum width of the tooltip</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">variant</td>
+                    <td class="px-4 py-2 border-b">'default' | 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'success'</td>
+                    <td class="px-4 py-2 border-b">'default'</td>
+                    <td class="px-4 py-2 border-b">Predefined styling variant for the tooltip</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">visible</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Controls the visibility of the tooltip</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Accessibility Notes</h2>
+        <p>For proper accessibility, tooltips should be used to provide non-essential information or clarification. Critical information should be made directly visible.</p>
+        <p>Using ARIA attributes such as <code>aria-describedby</code> on the trigger element linking to the tooltip's ID is recommended for screen reader compatibility.</p>
+    </div>
+</div>

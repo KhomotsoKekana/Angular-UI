@@ -1,0 +1,47 @@
+<!-- Backdrop Overlay -->
+<div *ngIf="showBackdrop"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+    (click)="close()"></div>
+
+<!-- <div class="fixed inset-y-0 m-2 bg-white rounded-lg w-32 left-0 z-50">
+        </div> -->
+
+
+<!-- Drawer -->
+<div *ngIf="showDrawer" [hidden]="!isOpen" #drawer
+    [@slideIn]="{ value: '', params: { transformEnter: getTransform(position), transformLeave: getTransform(position) } }"
+    [ngClass]="{
+    'top-0 inset-x-0': position === 'top',
+    'bottom-0 inset-x-0': position === 'bottom',
+    'left-0 inset-y-0': position === 'left',
+    'right-0 inset-y-0': position === 'right'
+}" [style.width]="position === 'left' || position === 'right' ? size + 'px' : 'full'"
+    [style.height]="position === 'top' || position === 'bottom' ? size + 'px' : 'screen'"
+    class="fixed bg-white/95 backdrop-blur-xl overflow-hidden border border-border shadow-surround z-50 flex flex-col transition-all duration-150 ease-in-out rounded-lg m-2 select-none">
+
+    <div class="h-full w-full flex flex-col relative">
+
+        <div class="p-2 flex justify-end items-center absolute -right-2 -top-2">
+            <button (click)="close()" class="text-gray-500 rounded-full p-1 hover:bg-primary/10 hover:text-primary transition cursor-pointer">
+                <app-icon icon="x" class="h-5 w-5">
+                </app-icon>
+            </button>
+        </div>
+
+
+        <div #drawerContent class="{{innerClass}} flex-1 overflow-auto">
+            <ng-content></ng-content>
+        </div>
+
+    </div>
+
+    <div *ngIf="resizable" #resizer [ngClass]="{
+        'h-2 w-1/5 bottom-1 left-1/2 transform -translate-x-1/2': position === 'top',
+        'h-2 w-1/5 top-1 left-1/2 transform -translate-x-1/2 ': position === 'bottom',
+        'w-2 h-1/5 right-1 top-1/2 transform -translate-y-1/2 ': position === 'left',
+        'w-2 h-1/5 left-1 top-1/2 transform -translate-y-1/2 ': position === 'right'
+          }"
+            class="bg-gray-300 hover:bg-gray-500 transition-opacity opacity-50 rounded-lg absolute m-1 cursor-grabbing"
+            ></div>
+
+</div>

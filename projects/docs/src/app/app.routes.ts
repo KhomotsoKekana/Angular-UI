@@ -1,0 +1,77 @@
+import { Routes } from '@angular/router';
+import { DocsAnchorComponent } from './components/anchor/anchor.component';
+import { DocsBreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { DocsButtonComponent } from './components/button/button.component';
+import { DocsSonnerComponent } from './components/sonner/sonner.component';
+import { DocsAccordionComponent } from './components/accordion/accordion.component';
+import { DocsAvatarComponent } from './components/avatar/avatar.component';
+import { DocsBadgeComponent } from './components/badge/badge.component';
+import { DocsCardComponent } from './components/card/card.component';
+import { DocsChartComponent } from './components/chart/chart.component';
+import { DocsCheckboxComponent } from './components/checkbox/checkbox.component';
+import { DocsDataTableComponent } from './components/data-table/data-table.component';
+import { DocsDatePickerComponent } from './components/date-picker/date-picker.component';
+import { DocsDividerComponent } from './components/divider/divider.component';
+import { DocsDockedComposerComponent } from './components/docked-composer/docked-composer.component';
+import { DocsDropdownComponent } from './components/dropdown/dropdown.component';
+import { DocsDynamicTooltipComponent } from './components/dynamic-tooltip/dynamic-tooltip.component';
+import { DocsHeaderComponent } from './components/header/header.component';
+import { DocsIllustrationsComponent } from './components/illustrations/illustrations.component';
+import { DocsSwitchComponent } from './components/switch/switch.component';
+import { DocsInputComponent } from './components/input/input.component';
+import { DocsModalComponent } from './components/modal/modal.component';
+import { DocsOtpInputComponent } from './components/otp-input/otp-input.component';
+import { DocsPaginatorComponent } from './components/paginator/paginator.component';
+import { DocsPopoverComponent } from './components/popover/popover.component';
+import { DocsRadioGroupComponent } from './components/radio-group/radio-group.component';
+import { SecondarySidebarDocumentationComponent } from './components/secondary-sidebar/secondary-sidebar.component';
+import { DocsSelectComponent } from './components/select/select.component';
+import { MultiSelectDemoComponent } from './components/select/multi-select-demo.component';
+import { DocsShinyTextComponent } from './components/shinyText/shinyText.component';
+import { DocsSkeletonComponent } from './components/skeleton/skeleton.component';
+import { DocsSpinnerComponent } from './components/spinner/spinner.component';
+import { DocsTabGroupComponent } from './components/tab-group/tab-group.component';
+import { DocsTabsComponent } from './components/tabs/tabs.component';
+import { DocsTooltipComponent } from './components/tooltip/tooltip.component';
+import { DrawerDocsComponent } from './components/drawer/drawer.component';
+import { MainSidebarDocumentationComponent } from './components/main-sidebar/main-sidebar.component';
+
+export const routes: Routes = [
+    { path: '', redirectTo: 'anchor', pathMatch: 'full' },
+    { path: 'anchor', component: DocsAnchorComponent },
+    { path: 'breadcrumb', component: DocsBreadcrumbComponent },
+    { path: 'button', component: DocsButtonComponent },
+    { path: 'sonner', component: DocsSonnerComponent },
+    { path: 'accordion', component: DocsAccordionComponent },
+    { path: 'avatar', component: DocsAvatarComponent },
+    { path: 'badge', component: DocsBadgeComponent },
+    { path: 'card', component: DocsCardComponent },
+    { path: 'chart', component: DocsChartComponent },
+    { path: 'checkbox', component: DocsCheckboxComponent },
+    { path: 'data-table', component: DocsDataTableComponent },
+    { path: 'date-picker', component: DocsDatePickerComponent },
+    { path: 'divider', component: DocsDividerComponent },
+    { path: 'docked-composer', component: DocsDockedComposerComponent },
+    { path: 'drawer', component: DrawerDocsComponent },
+    { path: 'dropdown', component: DocsDropdownComponent },
+    { path: 'dynamic-tooltip', component: DocsDynamicTooltipComponent },
+    { path: 'header', component: DocsHeaderComponent },
+    { path: 'illustrations', component: DocsIllustrationsComponent },
+    { path: 'switch', component: DocsSwitchComponent },
+    { path: 'input', component: DocsInputComponent },
+    { path: 'main-sidebar', component: MainSidebarDocumentationComponent },
+    { path: 'modal', component: DocsModalComponent },
+    { path: 'otp-input', component: DocsOtpInputComponent },
+    { path: 'paginator', component: DocsPaginatorComponent },
+    { path: 'popover', component: DocsPopoverComponent },
+    { path: 'radio-group', component: DocsRadioGroupComponent },
+    { path: 'secondary-sidebar', component: SecondarySidebarDocumentationComponent },
+    { path: 'select', component: DocsSelectComponent },
+    { path: 'multi-select', component: MultiSelectDemoComponent },
+    { path: 'shiny-text', component: DocsShinyTextComponent },
+    { path: 'skeleton', component: DocsSkeletonComponent },
+    { path: 'spinner', component: DocsSpinnerComponent },
+    { path: 'tab-group', component: DocsTabGroupComponent },
+    { path: 'tabs', component: DocsTabsComponent },
+    { path: 'tooltip', component: DocsTooltipComponent },
+];

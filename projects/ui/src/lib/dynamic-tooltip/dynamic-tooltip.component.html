@@ -1,0 +1,9 @@
+<ng-container>
+    <ng-content select="app-dynamic-tooltip-trigger"></ng-content>
+
+    <ng-template #tooltipContent>
+        <div class="flex flex-col bg-card border rounded-md shadow-surround shadow-black/10 p-3">
+            <ng-content select="app-dynamic-tooltip-content"></ng-content>
+        </div>
+    </ng-template>
+</ng-container>

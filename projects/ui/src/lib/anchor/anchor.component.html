@@ -1,0 +1,6 @@
+<a [href]="disabled ? null : href"
+   [attr.target]="isExternal ? '_blank' : null"
+   [attr.rel]="isExternal ? 'noopener noreferrer' : null"
+   [ngClass]="getAnchorClasses()">
+  <ng-content />
+</a>

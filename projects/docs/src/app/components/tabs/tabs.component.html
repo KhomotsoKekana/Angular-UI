@@ -1,0 +1,268 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Tabs Component</h1>
+    <p class="mb-4">A navigation component that organizes content into different views that can be switched between.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Tabs</h2>
+    <div class="mb-6">
+        <app-tabs [tabs]="basicTabs">
+            <app-tab-content id="account">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+                    <p>This tab contains account settings and preferences.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="password">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Password Management</h3>
+                    <p>Update your password and security settings here.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="settings">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">General Settings</h3>
+                    <p>Configure application settings and preferences.</p>
+                </div>
+            </app-tab-content>
+        </app-tabs>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Tabs with Icons</h2>
+    <div class="mb-6">
+        <app-tabs [tabs]="iconTabs">
+            <app-tab-content id="profile">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">User Profile</h3>
+                    <p>Manage your profile information and preferences.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="notifications">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Notification Settings</h3>
+                    <p>Configure your notification preferences.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="security">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Security Settings</h3>
+                    <p>Manage security preferences and access control.</p>
+                </div>
+            </app-tab-content>
+        </app-tabs>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Tab Variants</h2>
+    <div class="mb-2">
+        <label class="block text-sm mb-1">Select variant:</label>
+        <select [(ngModel)]="selectedVariant" class="border rounded px-2 py-1 mb-3">
+            <option value="underline">Underline</option>
+            <option value="pill">Pill</option>
+            <option value="pill-square">Pill Square</option>
+            <option value="step">Step</option>
+        </select>
+    </div>
+    <div class="mb-6">
+        <app-tabs [tabs]="basicTabs" [variant]="selectedVariant">
+            <app-tab-content id="account">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+                    <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="password">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Password Management</h3>
+                    <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="settings">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">General Settings</h3>
+                    <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                </div>
+            </app-tab-content>
+        </app-tabs>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Step Tabs</h2>
+    <div class="mb-6">
+        <app-tabs [tabs]="stepTabs" variant="step">
+            <app-tab-content id="details">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Step 1: Details</h3>
+                    <p>Enter your personal details.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="address">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Step 2: Address</h3>
+                    <p>Enter your address information.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="payment">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Step 3: Payment</h3>
+                    <p>Enter your payment details.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="confirm">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Step 4: Confirmation</h3>
+                    <p>Confirm your submission.</p>
+                </div>
+            </app-tab-content>
+        </app-tabs>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Grouped Tabs</h2>
+    <div class="mb-6">
+        <app-tabs [tabs]="groupedTabs">
+            <app-tab-content id="general">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">General Settings</h3>
+                    <p>Configure general application settings.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="appearance">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Appearance Settings</h3>
+                    <p>Customize the application appearance.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="advanced">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Advanced Settings</h3>
+                    <p>Configure advanced application options.</p>
+                </div>
+            </app-tab-content>
+            <app-tab-content id="developer">
+                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                    <h3 class="text-lg font-medium mb-2">Developer Settings</h3>
+                    <p>Developer tools and configuration options.</p>
+                </div>
+            </app-tab-content>
+        </app-tabs>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Define tabs array in component --&gt;
+tabs = [
+  { key: 'tab1', label: 'First Tab' },
+  { key: 'tab2', label: 'Second Tab', leadingIcon: 'star' },
+  { key: 'tab3', label: 'Third Tab' }
+];
+
+&lt;!-- Basic tabs --&gt;
+&lt;app-tabs [tabs]="tabs"&gt;
+  &lt;app-tab-content id="tab1"&gt;
+    Content for first tab
+  &lt;/app-tab-content&gt;
+  
+  &lt;app-tab-content id="tab2"&gt;
+    Content for second tab
+  &lt;/app-tab-content&gt;
+  
+  &lt;app-tab-content id="tab3"&gt;
+    Content for third tab
+  &lt;/app-tab-content&gt;
+&lt;/app-tabs&gt;
+
+&lt;!-- With different variant --&gt;
+&lt;app-tabs [tabs]="tabs" variant="pill"&gt;
+  &lt;!-- Tab contents --&gt;
+&lt;/app-tabs&gt;
+
+&lt;!-- With lazy loading --&gt;
+&lt;app-tabs [tabs]="tabs" [lazyLoad]="true"&gt;
+  &lt;!-- Tab contents --&gt;
+&lt;/app-tabs&gt;
+        </pre>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Tab Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">label</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Display text for the tab</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">key</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">required</td>
+                    <td class="px-4 py-2 border-b">Unique identifier for the tab, links to content component</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">leadingIcon</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Icon to display before the tab label</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">leadingStandardIcon</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Standard icon to display before the tab label</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">hidden</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Whether the tab should be hidden</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">group</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Group identifier for organizing tabs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Component Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">tabs</td>
+                    <td class="px-4 py-2 border-b">Tab[]</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Array of tab configurations</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">variant</td>
+                    <td class="px-4 py-2 border-b">'underline' | 'pill' | 'pill-square' | 'step'</td>
+                    <td class="px-4 py-2 border-b">'underline'</td>
+                    <td class="px-4 py-2 border-b">Visual style for the tabs</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">lazyLoad</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to only render tab content when it becomes active</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

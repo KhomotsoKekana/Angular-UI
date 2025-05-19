@@ -1,0 +1,98 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Card Component</h1>
+    <p class="mb-4">A flexible container for displaying content in a clear, concise format.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Card</h2>
+    <div class="max-w-md mb-6">
+        <app-card>
+            <div class="p-6">
+                <h3 class="text-lg font-medium mb-2">Card Title</h3>
+                <p class="text-gray-600">This is a simple card with some basic content. Cards can contain text, images, and other UI components.</p>
+            </div>
+        </app-card>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With Custom Classes</h2>
+    <div class="max-w-md mb-6">
+        <app-card class="border-2 border-blue-500 shadow-lg">
+            <div class="p-6">
+                <h3 class="text-lg font-medium mb-2">Styled Card</h3>
+                <p class="text-gray-600">This card has custom styling applied using the class input property.</p>
+            </div>
+        </app-card>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Card with Header and Footer</h2>
+    <div class="max-w-md mb-6">
+        <app-card>
+            <div class="border-b p-4 bg-gray-50 font-medium">Card Header</div>
+            <div class="p-6">
+                <p class="text-gray-600">This card includes a header and footer section to organize content.</p>
+            </div>
+            <div class="border-t p-4 bg-gray-50 flex justify-end">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Action</button>
+            </div>
+        </app-card>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Card with Image</h2>
+    <div class="max-w-md mb-6">
+        <app-card>
+            <img src="https://via.placeholder.com/400x200" alt="Placeholder" class="w-full h-48 object-cover" />
+            <div class="p-6">
+                <h3 class="text-lg font-medium mb-2">Card with Media</h3>
+                <p class="text-gray-600">Cards can include images or other media content alongside text.</p>
+            </div>
+        </app-card>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic card --&gt;
+&lt;app-card&gt;
+  &lt;div class="p-6"&gt;
+    &lt;h3 class="text-lg font-medium"&gt;Card Title&lt;/h3&gt;
+    &lt;p&gt;Card content goes here.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-card&gt;
+
+&lt;!-- Card with custom styling --&gt;
+&lt;app-card class="border-2 border-blue-500 shadow-lg"&gt;
+  &lt;div class="p-6"&gt;
+    &lt;h3 class="text-lg font-medium"&gt;Styled Card&lt;/h3&gt;
+    &lt;p&gt;This card has custom styling.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-card&gt;
+
+&lt;!-- Card with header and footer --&gt;
+&lt;app-card&gt;
+  &lt;div class="border-b p-4 bg-gray-50"&gt;Card Header&lt;/div&gt;
+  &lt;div class="p-6"&gt;Card content&lt;/div&gt;
+  &lt;div class="border-t p-4 bg-gray-50"&gt;Card Footer&lt;/div&gt;
+&lt;/app-card&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">class</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Custom CSS classes to apply to the card</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,355 @@
+<div class="p-6 space-y-6">
+    <h1 class="text-xl font-semibold">Drawer Component</h1>
+    <p class="mb-4">A versatile slide-in panel component that can appear from any edge of the screen. It supports customizable positioning, resizing, and backdrop controls.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Usage</h2>
+    <div class="mb-6 border p-4 rounded">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <flex-button (click)="toggleRightDrawer()">
+                {{ rightDrawerOpen ? 'Close' : 'Open' }} Right Drawer
+            </flex-button>
+            <flex-button (click)="toggleLeftDrawer()">
+                {{ leftDrawerOpen ? 'Close' : 'Open' }} Left Drawer
+            </flex-button>
+            <flex-button (click)="toggleTopDrawer()">
+                {{ topDrawerOpen ? 'Close' : 'Open' }} Top Drawer
+            </flex-button>
+            <flex-button (click)="toggleBottomDrawer()">
+                {{ bottomDrawerOpen ? 'Close' : 'Open' }} Bottom Drawer
+            </flex-button>
+        </div>
+        
+        <!-- Right Drawer -->
+        <app-drawer 
+            [isOpen]="rightDrawerOpen" 
+            position="right"
+            (closeDrawer)="rightDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Right Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer appears from the right side of the screen.</p>
+                <p class="text-sm text-gray-600 mt-2">Click outside or press Escape to close.</p>
+            </div>
+        </app-drawer>
+        
+        <!-- Left Drawer -->
+        <app-drawer 
+            [isOpen]="leftDrawerOpen" 
+            position="left"
+            (closeDrawer)="leftDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Left Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer appears from the left side of the screen.</p>
+                <p class="text-sm text-gray-600 mt-2">Click outside or press Escape to close.</p>
+            </div>
+        </app-drawer>
+        
+        <!-- Top Drawer -->
+        <app-drawer 
+            [isOpen]="topDrawerOpen" 
+            position="top"
+            (closeDrawer)="topDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Top Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer appears from the top of the screen.</p>
+                <p class="text-sm text-gray-600 mt-2">Click outside or press Escape to close.</p>
+            </div>
+        </app-drawer>
+        
+        <!-- Bottom Drawer -->
+        <app-drawer 
+            [isOpen]="bottomDrawerOpen" 
+            position="bottom"
+            (closeDrawer)="bottomDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Bottom Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer appears from the bottom of the screen.</p>
+                <p class="text-sm text-gray-600 mt-2">Click outside or press Escape to close.</p>
+            </div>
+        </app-drawer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Resizable Drawer</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleResizableDrawer()">
+            {{ resizableDrawerOpen ? 'Close' : 'Open' }} Resizable Drawer
+        </flex-button>
+        
+        <app-drawer 
+            [isOpen]="resizableDrawerOpen" 
+            position="right"
+            [resizable]="true"
+            [minSize]="200"
+            [maxSize]="800"
+            (closeDrawer)="resizableDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Resizable Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer can be resized by dragging its edge.</p>
+                <p class="text-sm text-gray-600 mt-2">The resize handle appears when you hover near the left edge.</p>
+                <p class="text-sm text-gray-600 mt-2">Size is constrained between 200px and 800px.</p>
+            </div>
+        </app-drawer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Custom Size</h2>
+    <div class="mb-6 border p-4 rounded">
+        <div class="flex flex-col gap-4 mb-4">
+            <div>
+                <label class="block text-sm font-medium mb-1">Drawer Size (px):</label>
+                <input type="range" min="200" max="800" [(ngModel)]="customSize" class="w-full">
+                <p class="text-sm text-gray-500">Current size: {{customSize}}px</p>
+            </div>
+            <flex-button (click)="toggleCustomSizeDrawer()">
+                {{ customSizeDrawerOpen ? 'Close' : 'Open' }} Custom Size Drawer
+            </flex-button>
+        </div>
+        
+        <app-drawer 
+            [isOpen]="customSizeDrawerOpen" 
+            position="right"
+            [size]="customSize"
+            (closeDrawer)="customSizeDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Custom Size Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer has a custom initial size of {{customSize}}px.</p>
+                <p class="text-sm text-gray-600 mt-2">You can adjust the size using the slider above.</p>
+            </div>
+        </app-drawer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">No Backdrop</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleNoBackdropDrawer()">
+            {{ noBackdropDrawerOpen ? 'Close' : 'Open' }} No Backdrop Drawer
+        </flex-button>
+        
+        <app-drawer 
+            [isOpen]="noBackdropDrawerOpen" 
+            position="right"
+            [enableBackdrop]="false"
+            (closeDrawer)="noBackdropDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">No Backdrop Drawer</h3>
+                <p class="text-sm text-gray-600">This drawer is displayed without a backdrop overlay.</p>
+                <p class="text-sm text-gray-600 mt-2">You can interact with the content behind the drawer.</p>
+                <p class="text-sm text-gray-600 mt-2">Press Escape or click the close button to dismiss.</p>
+            </div>
+        </app-drawer>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Form in Drawer</h2>
+    <div class="mb-6 border p-4 rounded">
+        <flex-button (click)="toggleFormDrawer()">
+            {{ formDrawerOpen ? 'Close' : 'Open' }} Form Drawer
+        </flex-button>
+        
+        <app-drawer 
+            [isOpen]="formDrawerOpen" 
+            position="right"
+            (closeDrawer)="formDrawerOpen = false">
+            <div class="h-full">
+                <h3 class="text-lg font-medium mb-4">Contact Form</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Name:</label>
+                        <app-input [(ngModel)]="formName" placeholder="Enter your name"></app-input>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email:</label>
+                        <app-input [(ngModel)]="formEmail" placeholder="Enter your email"></app-input>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Message:</label>
+                        <textarea [(ngModel)]="formMessage" 
+                            class="w-full h-32 px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                            placeholder="Type your message here..."></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-2 mt-4">
+                        <flex-button variant="secondary" (click)="formDrawerOpen = false">
+                            Cancel
+                        </flex-button>
+                        <flex-button variant="primary" (click)="submitForm()">
+                            Submit
+                        </flex-button>
+                    </div>
+                </div>
+            </div>
+        </app-drawer>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic drawer --&gt;
+&lt;app-drawer 
+  [isOpen]="isDrawerOpen" 
+  position="right"
+  (closeDrawer)="isDrawerOpen = false"&gt;
+  &lt;!-- Content goes here --&gt;
+  &lt;div class="h-full"&gt;
+    &lt;h3 class="text-lg font-medium"&gt;Drawer Title&lt;/h3&gt;
+    &lt;p&gt;Drawer content goes here...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-drawer&gt;
+
+&lt;!-- Resizable drawer --&gt;
+&lt;app-drawer 
+  [isOpen]="isResizableOpen" 
+  position="right"
+  [resizable]="true"
+  [minSize]="200"
+  [maxSize]="800"
+  (closeDrawer)="isResizableOpen = false"&gt;
+  &lt;div class="h-full"&gt;
+    &lt;h3&gt;Resizable Drawer&lt;/h3&gt;
+    &lt;p&gt;This drawer can be resized by dragging its edge.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/app-drawer&gt;
+        </pre>
+        
+        <div class="mt-4">
+            <p>In your component TypeScript file:</p>
+            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+import { Component } from '@angular/core';
+import { DrawerComponent } from 'path-to-your-ui-lib';
+
+@Component({
+  // ...component metadata
+})
+export class YourComponent {
+  isDrawerOpen = false;
+  isResizableOpen = false;
+  
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
+  
+  toggleResizableDrawer() {
+    this.isResizableOpen = !this.isResizableOpen;
+  }
+}
+            </pre>
+        </div>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Inputs</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Input</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">isOpen</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Controls the visibility of the drawer</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">position</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'right'</td>
+                    <td class="px-4 py-2 border-b">Determines which side of the screen the drawer appears from</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">size</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">450</td>
+                    <td class="px-4 py-2 border-b">Default width (for left/right) or height (for top/bottom) of the drawer in pixels</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">minSize</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">150</td>
+                    <td class="px-4 py-2 border-b">Minimum size when resizing</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">maxSize</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">800</td>
+                    <td class="px-4 py-2 border-b">Maximum size when resizing</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">resizable</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the drawer can be resized via drag handle</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">enableBackdrop</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">true</td>
+                    <td class="px-4 py-2 border-b">Whether to show a backdrop overlay behind the drawer</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">innerClass</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'p-6'</td>
+                    <td class="px-4 py-2 border-b">CSS classes to apply to the inner content container</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">preload</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to preload the drawer content even when closed</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">focusOnHover</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to show backdrop when hovering over drawer content (when enableBackdrop is false)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Outputs</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Output</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">closeDrawer</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;void&gt;</td>
+                    <td class="px-4 py-2 border-b">Emitted when the drawer is closed via close button, backdrop click, or Escape key</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Features</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Multiple positions - Can be positioned on any side of the screen (top, right, bottom, left)</li>
+            <li class="mb-1">Resizable - Can be resized by dragging when the resizable option is enabled</li>
+            <li class="mb-1">Backdrop - Optional semi-transparent overlay that blocks interaction with content behind the drawer</li>
+            <li class="mb-1">Keyboard navigation - Can be closed with the Escape key</li>
+            <li class="mb-1">Custom sizing - Configurable initial size and min/max size constraints</li>
+            <li class="mb-1">Content projection - Can contain any content through Angular's content projection</li>
+            <li class="mb-1">Animations - Smooth slide-in/slide-out animations</li>
+        </ul>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Best Practices</h2>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Use drawers for temporary content or forms that need more space than a modal dialog</li>
+            <li class="mb-1">Choose the appropriate position based on your content and UI layout</li>
+            <li class="mb-1">Enable resizing when users might benefit from adjusting the drawer size</li>
+            <li class="mb-1">Disable the backdrop when you want users to be able to interact with content behind the drawer</li>
+            <li class="mb-1">For mobile layouts, consider using 'left' or 'right' positions with full or near-full width</li>
+            <li class="mb-1">Ensure your drawer content is properly structured with clear headings and actions</li>
+            <li class="mb-1">Include clear close actions, like a close button or cancel/submit buttons for forms</li>
+        </ul>
+    </div>
+</div>

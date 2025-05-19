@@ -1,0 +1,190 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Radio Group Component</h1>
+    <p class="mb-4">A group of radio inputs that allows users to select a single option from a list.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Radio Group</h2>
+    <div class="mb-6">
+        <app-radio-group [(value)]="selectedOption1" (valueChange)="onSelectionChange($event)">
+            <div *ngFor="let option of options" class="flex items-center space-x-2">
+                <input 
+                    type="radio" 
+                    [id]="option.value" 
+                    [value]="option.value" 
+                    [checked]="selectedOption1 === option.value"
+                    (change)="selectedOption1 = option.value"
+                    class="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                />
+                <label [for]="option.value" class="block text-sm font-medium text-gray-700">{{ option.label }}</label>
+            </div>
+        </app-radio-group>
+        <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption1 }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Inline Layout</h2>
+    <div class="mb-6">
+        <app-radio-group [(value)]="selectedSize">
+            <div class="flex flex-row gap-4">
+                <div *ngFor="let option of inlineOptions" class="flex items-center space-x-2">
+                    <input 
+                        type="radio" 
+                        [id]="option.value" 
+                        [value]="option.value" 
+                        [checked]="selectedSize === option.value"
+                        (change)="selectedSize = option.value"
+                        class="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label [for]="option.value" class="block text-sm font-medium text-gray-700">{{ option.label }}</label>
+                </div>
+            </div>
+        </app-radio-group>
+        <p class="mt-2 text-sm text-gray-600">Selected size: {{ selectedSize }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Custom Styling</h2>
+    <div class="mb-6">
+        <app-radio-group [(value)]="selectedColor">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div *ngFor="let option of colorOptions" class="flex items-center space-x-2">
+                    <input 
+                        type="radio" 
+                        [id]="option.value" 
+                        [value]="option.value" 
+                        [checked]="selectedColor === option.value"
+                        (change)="selectedColor = option.value"
+                        class="h-5 w-5 border-2 border-gray-300 focus:ring-2 focus:ring-offset-1"
+                        [ngClass]="{
+                            'bg-red-500 checked:bg-red-600 text-white border-red-400 focus:ring-red-500': option.value === 'red',
+                            'bg-orange-500 checked:bg-orange-600 text-white border-orange-400 focus:ring-orange-500': option.value === 'orange',
+                            'bg-yellow-500 checked:bg-yellow-600 text-white border-yellow-400 focus:ring-yellow-500': option.value === 'yellow',
+                            'bg-green-500 checked:bg-green-600 text-white border-green-400 focus:ring-green-500': option.value === 'green',
+                            'bg-blue-500 checked:bg-blue-600 text-white border-blue-400 focus:ring-blue-500': option.value === 'blue',
+                            'bg-purple-500 checked:bg-purple-600 text-white border-purple-400 focus:ring-purple-500': option.value === 'purple'
+                        }"
+                    />
+                    <label [for]="option.value" 
+                           class="block text-sm font-medium"
+                           [ngClass]="{
+                               'text-red-700': option.value === 'red',
+                               'text-orange-700': option.value === 'orange',
+                               'text-yellow-700': option.value === 'yellow',
+                               'text-green-700': option.value === 'green',
+                               'text-blue-700': option.value === 'blue',
+                               'text-purple-700': option.value === 'purple'
+                           }">
+                        {{ option.label }}
+                    </label>
+                </div>
+            </div>
+        </app-radio-group>
+        <p class="mt-2 text-sm text-gray-600">Selected color: {{ selectedColor }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Disabled State</h2>
+    <div class="mb-6">
+        <app-radio-group [(value)]="selectedOption2">
+            <div *ngFor="let option of disabledOptions" class="flex items-center space-x-2">
+                <input 
+                    type="radio" 
+                    [id]="option.value" 
+                    [value]="option.value" 
+                    [checked]="selectedOption2 === option.value"
+                    (change)="selectedOption2 = option.value"
+                    [disabled]="option.disabled"
+                    class="h-4 w-4 border-gray-300 text-primary focus:ring-primary disabled:opacity-50"
+                />
+                <label [for]="option.value" class="block text-sm font-medium" 
+                       [ngClass]="option.disabled ? 'text-gray-400' : 'text-gray-700'">
+                    {{ option.label }}
+                </label>
+            </div>
+        </app-radio-group>
+        <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption2 || 'None' }}</p>
+    </div>
+    
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Import the components in your component.ts file --&gt;
+import { RadioGroupComponent } from 'path-to-components/radio-group.component';
+
+&lt;!-- In your component template --&gt;
+&lt;app-radio-group [(value)]="selectedValue" (valueChange)="onSelectionChange($event)"&gt;
+  &lt;div class="flex items-center space-x-2"&gt;
+    &lt;input 
+      type="radio" 
+      id="option1" 
+      value="option1" 
+      [checked]="selectedValue === 'option1'"
+      (change)="selectedValue = 'option1'"
+      class="h-4 w-4 text-primary"
+    /&gt;
+    &lt;label for="option1" class="text-sm"&gt;Option 1&lt;/label&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="flex items-center space-x-2"&gt;
+    &lt;input 
+      type="radio" 
+      id="option2" 
+      value="option2" 
+      [checked]="selectedValue === 'option2'"
+      (change)="selectedValue = 'option2'"
+      class="h-4 w-4 text-primary"
+    /&gt;
+    &lt;label for="option2" class="text-sm"&gt;Option 2&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/app-radio-group&gt;
+        </pre>
+    </div> -->
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">value</td>
+                    <td class="px-4 py-2 border-b">any</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">The currently selected value</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">valueChange</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;any&gt;</td>
+                    <td class="px-4 py-2 border-b">Emitted when the selected value changes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Accessibility Notes</h2>
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+            <li>Radio buttons should be wrapped in <code>&lt;fieldset&gt;</code> with a descriptive <code>&lt;legend&gt;</code> for screen readers when used in forms</li>
+            <li>Each radio input should have a proper <code>id</code> and associated <code>label</code> with matching <code>for</code> attribute</li>
+            <li>Use <code>aria-describedby</code> to reference additional descriptive text if needed</li>
+            <li>Focus states should be clearly visible for keyboard navigation</li>
+        </ul>
+    </div>
+</div>

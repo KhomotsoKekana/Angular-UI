@@ -1,0 +1,229 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Select Component</h1>
+    <p class="mb-4">A dropdown selection component that allows users to choose a single value from a list of options.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Select</h2>
+    <div class="max-w-md mb-6">
+        <app-select [(ngModel)]="selectedOption" placeholder="Select a fruit">
+            <app-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
+                {{ fruit.label }}
+            </app-select-item>
+        </app-select>
+        <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedOption || 'None' }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With Sections</h2>
+    <div class="max-w-md mb-6">
+        <app-select [(ngModel)]="selectedSection" placeholder="Select a category">
+            <app-select-section title="Fruits">
+                <app-select-item key="apple">Apple</app-select-item>
+                <app-select-item key="banana">Banana</app-select-item>
+                <app-select-item key="orange">Orange</app-select-item>
+            </app-select-section>
+            
+            <app-select-section title="Vegetables">
+                <app-select-item key="carrot">Carrot</app-select-item>
+                <app-select-item key="broccoli">Broccoli</app-select-item>
+                <app-select-item key="spinach">Spinach</app-select-item>
+            </app-select-section>
+        </app-select>
+        <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedSection || 'None' }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Searchable Select</h2>
+    <div class="max-w-md mb-6">
+        <app-select 
+            [(ngModel)]="selectedSearchable" 
+            placeholder="Search languages" 
+            [enableSearch]="true"
+            [isDynamicSearch]="true"
+            (searchValueChange)="onSearchChange($event)">
+            <app-select-item *ngFor="let item of filteredItems" [key]="item.key">
+                {{ item.label }}
+            </app-select-item>
+        </app-select>
+        <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedSearchable || 'None' }}</p>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With Icons</h2>
+    <div class="max-w-md mb-6">
+        <app-select icon="globe" placeholder="Select country">
+            <app-select-item key="us">United States</app-select-item>
+            <app-select-item key="ca">Canada</app-select-item>
+            <app-select-item key="uk">United Kingdom</app-select-item>
+            <app-select-item key="au">Australia</app-select-item>
+        </app-select>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Loading State</h2>
+    <div class="max-w-md mb-6">
+        <app-select [loading]="true" placeholder="Loading options...">
+        </app-select>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Disabled State</h2>
+    <div class="max-w-md mb-6">
+        <app-select [disabled]="true" placeholder="Select option (disabled)">
+            <app-select-item key="1">Option 1</app-select-item>
+            <app-select-item key="2">Option 2</app-select-item>
+            <app-select-item key="3">Option 3</app-select-item>
+        </app-select>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Action Items</h2>
+    <div class="max-w-md mb-6">
+        <app-select placeholder="Select with actions">
+            <app-select-item key="1">Option 1</app-select-item>
+            <app-select-item key="2">Option 2</app-select-item>
+            <app-select-item key="3">Option 3</app-select-item>
+            <app-select-action-item>Add new option...</app-select-action-item>
+        </app-select>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Multi-Select Component</h2>
+    <div class="max-w-md mb-6 border border-gray-200 rounded p-4">
+        <p class="text-sm text-gray-600 mb-4">The MultiSelect component allows users to select multiple values from a list.</p>
+        <app-multi-select 
+            [(ngModel)]="selectedMultiSelect" 
+            placeholder="Select languages"
+            label="Programming Languages">
+            <app-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
+                {{ fruit.label }}
+            </app-select-item>
+        </app-multi-select>
+        <p class="mt-2 text-sm text-gray-600">Selected values: {{ selectedMultiSelect.length ? selectedMultiSelect.join(', ') : 'None' }}</p>
+        
+        <!-- <div class="mt-4">
+            <h3 class="text-md font-medium mb-2">Max Selection Example</h3>
+            <app-multi-select 
+                [maxSelection]="2"
+                placeholder="Select up to 2 languages"
+                label="Limited Selection">
+                <app-select-item *ngFor="let lang of languages" [key]="lang.key">
+                    {{ lang.label }}
+                </app-select-item>
+            </app-multi-select>
+        </div> -->
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">placeholder</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'Select an option'</td>
+                    <td class="px-4 py-2 border-b">Text displayed when no item is selected</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">enableSearch</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Enables search functionality within the select</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">isDynamicSearch</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Disables client-side filtering, useful for server-side filtering</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">loading</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the select is in a loading state</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">disabled</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the select is disabled</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">icon</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Icon to display in the select</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">innerClass</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Additional classes for the inner select element</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">placement</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'bottom'</td>
+                    <td class="px-4 py-2 border-b">Dropdown menu placement relative to the select</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">maxSelectionDisplay</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">2</td>
+                    <td class="px-4 py-2 border-b">Max number of selected items to display before showing "+X more"</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">maxSelection</td>
+                    <td class="px-4 py-2 border-b">number | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Maximum number of items that can be selected. Null means unlimited.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">selectedItems</td>
+                    <td class="px-4 py-2 border-b">Array</td>
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Array of currently selected items</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">selectionChange</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;any[]&gt;</td>
+                    <td class="px-4 py-2 border-b">-</td>
+                    <td class="px-4 py-2 border-b">Emitted when selection changes, with an array of selected keys</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Payload</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">selectionChange</td>
+                    <td class="px-4 py-2 border-b">Emitted when an item is selected</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">searchValueChange</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">Emitted when the search input changes</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">change</td>
+                    <td class="px-4 py-2 border-b">Emitted when selection changes (alias for selectionChange)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">onClose</td>
+                    <td class="px-4 py-2 border-b">void</td>
+                    <td class="px-4 py-2 border-b">Emitted when the dropdown closes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

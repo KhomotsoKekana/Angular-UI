@@ -1,0 +1,186 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Input Component</h1>
+    <p class="mb-4">A form control that allows users to enter and edit text, numbers, dates and other data types.</p>
+
+    <h2 class="text-lg font-medium mb-2">Basic Text Input</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Username" placeholder="Enter your username" [value]="textValue">
+        </app-input>
+        <p class="mt-1 text-sm text-gray-600">Current value: {{textValue || 'Empty'}}</p>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">With Icons</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Search" placeholder="Search products..." leadingIcon="search">
+        </app-input>
+        <div class="mt-2"></div>
+        <app-input label="Email" placeholder="Email address" leadingText="@" type="email">
+        </app-input>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">With Error State</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Email address" placeholder="your@email.com" [value]="regexValue" [regex]="emailRegex">
+        </app-input>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">Password Input</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Password" type="password" placeholder="Enter your password" [value]="passwordValue"
+            [enablePasswordReveal]="true">
+        </app-input>
+    </div>
+
+    <!-- <h2 class="text-lg font-medium mb-2">Number Input</h2>
+    <div class="max-w-md mb-6">
+        <app-input 
+            label="Quantity" 
+            type="number" 
+            placeholder="0"
+            value="numberValue">
+        </app-input>
+    </div> -->
+
+    <!-- <h2 class="text-lg font-medium mb-2">Date Input</h2>
+    <div class="max-w-md mb-6">
+        <app-input 
+            label="Event Date" 
+            type="date" 
+            [value]="dateValue">
+        </app-input>
+    </div> -->
+
+    <h2 class="text-lg font-medium mb-2">Disabled Input</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Read only value" value="This input is disabled" [disabled]="true">
+        </app-input>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">With Trailing Button</h2>
+    <div class="max-w-md mb-6">
+        <app-input label="Verification code" placeholder="6-digit code" trailingButton="Verify">
+        </app-input>
+    </div>
+
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic input --&gt;
+&lt;app-input 
+  label="Username" 
+  placeholder="Enter your username" 
+  [(value)]="username"&gt;
+&lt;/app-input&gt;
+
+&lt;!-- With icons --&gt;
+&lt;app-input 
+  label="Search" 
+  placeholder="Search products..." 
+  leadingIcon="search"&gt;
+&lt;/app-input&gt;
+
+&lt;!-- Password with reveal button --&gt;
+&lt;app-input 
+  label="Password" 
+  type="password" 
+  placeholder="Enter your password" 
+  [enablePasswordReveal]="true"&gt;
+&lt;/app-input&gt;
+
+&lt;!-- With validation --&gt;
+&lt;app-input 
+  label="Email" 
+  placeholder="your@email.com"
+  [regex]="emailRegex"&gt;
+&lt;/app-input&gt;
+        </pre>
+    </div> -->
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">label</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">The label text for the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">type</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'text'</td>
+                    <td class="px-4 py-2 border-b">HTML input type (text, password, email, number, date, etc.)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">placeholder</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Placeholder text when the input is empty</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">value</td>
+                    <td class="px-4 py-2 border-b">string | number | Date</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Current input value, supports two-way binding</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">disabled</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the input is disabled</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">error</td>
+                    <td class="px-4 py-2 border-b">string | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Error message to display below the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">leadingIcon</td>
+                    <td class="px-4 py-2 border-b">string | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Icon name to show at the start of the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">leadingText</td>
+                    <td class="px-4 py-2 border-b">string | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Text to display at the start of the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">trailingIcon</td>
+                    <td class="px-4 py-2 border-b">string | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Icon name to show at the end of the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">trailingButton</td>
+                    <td class="px-4 py-2 border-b">string | null</td>
+                    <td class="px-4 py-2 border-b">null</td>
+                    <td class="px-4 py-2 border-b">Text for a button to show at the end of the input</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">enablePasswordReveal</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether to show a button to toggle password visibility</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">regex</td>
+                    <!-- <td class="px-4 py-2 border-b">{regex: string, message: string}</td> -->
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Regular expression pattern for validation with error message</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

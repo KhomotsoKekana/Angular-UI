@@ -1,0 +1,128 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Paginator Component</h1>
+    <p class="mb-4">A component to navigate through paginated data.</p>
+
+    <h2 class="text-lg font-medium mb-2">Basic Paginator</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-custom-paginator 
+            [totalItems]="100" 
+            [pageSize]="10" 
+            (pageChange)="onPageChange($event)">
+        </app-custom-paginator>
+        <div class="mt-4 bg-gray-50 p-4 rounded border">
+            <p>Current Page: {{ currentPage + 1 }}</p>
+            <p>Page Size: {{ currentPageSize }}</p>
+            <p>Total Items: 100</p>
+        </div>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">Paginator with Different Page Size Options</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-custom-paginator 
+            [totalItems]="75" 
+            [pageSize]="5" 
+            [pageSizeOptions]="[5, 15, 25]"
+            (pageChange)="onPageChangeWithOptions($event)">
+        </app-custom-paginator>
+        <div class="mt-4 bg-gray-50 p-4 rounded border">
+            <p>Current Page: {{ optionsCurrentPage + 1 }}</p>
+            <p>Page Size: {{ optionsCurrentPageSize }}</p>
+            <p>Total Items: 75</p>
+        </div>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">Paginator with Initial Page Set</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-custom-paginator 
+            #initialPagePaginator
+            [totalItems]="120" 
+            [pageSize]="20" 
+            (pageChange)="onPageChangeInitial($event)">
+        </app-custom-paginator>
+        <div class="mt-4">
+             <flex-button (click)="goToInitialPage(3)" class="mr-2">Go to Page 3</flex-button>
+        </div>
+        <div class="mt-4 bg-gray-50 p-4 rounded border">
+            <p>Current Page: {{ initialCurrentPage + 1 }}</p>
+            <p>Page Size: {{ initialCurrentPageSize }}</p>
+            <p>Total Items: 120</p>
+        </div>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties (app-custom-paginator)</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">totalItems</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">0</td>
+                    <td class="px-4 py-2 border-b">Total number of items to be paginated.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageSize</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">5</td>
+                    <td class="px-4 py-2 border-b">Number of items to display per page.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageSizeOptions</td>
+                    <td class="px-4 py-2 border-b">number[]</td>
+                    <td class="px-4 py-2 border-b">[5, 10, 25, 50, 75, 100]</td>
+                    <td class="px-4 py-2 border-b">Array of page size options for the user to select.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events (app-custom-paginator)</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Payload</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">pageChange</td>
+                    <!-- <td class="px-4 py-2 border-b">{ pageIndex: number, pageSize: number, previousPageIndex: number }</td> -->
+                    <td class="px-4 py-2 border-b">Emitted when the page index or page size changes.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage Example</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-custom-paginator 
+  [totalItems]="items.length" 
+  [pageSize]="currentpageSize" 
+  [pageSizeOptions]="[10, 20, 50]"
+  (pageChange)="handlePageEvent($event)"&gt;
+&lt;/app-custom-paginator&gt;
+
+// In your component.ts:
+// items = [...]; // Your array of data
+// currentpageSize = 10;
+// currentPage = 0;
+
+// handlePageEvent(event: { pageIndex: number, pageSize: number, previousPageIndex: number }) {
+//   this.currentPage = event.pageIndex;
+//   this.currentpageSize = event.pageSize;
+//   // Update your view with the new page of data
+// }
+        </pre>
+    </div> -->
+</div>

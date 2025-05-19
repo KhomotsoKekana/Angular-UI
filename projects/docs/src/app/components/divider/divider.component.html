@@ -1,0 +1,82 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Divider Component</h1>
+    <p class="mb-4">A component to visually separate content.</p>
+
+    <h2 class="text-lg font-medium mb-2">Horizontal Divider</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <p>Content above the divider.</p>
+        <app-divider></app-divider>
+        <p>Content below the divider.</p>
+    </div>
+    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;p&gt;Content above the divider.&lt;/p&gt;
+&lt;app-divider&gt;&lt;/app-divider&gt;
+&lt;p&gt;Content below the divider.&lt;/p&gt;
+    </pre>
+
+    <h2 class="text-lg font-medium mb-2">Vertical Divider</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <div class="flex h-20 items-center">
+            <p>Content to the left.</p>
+            <app-divider orientation="vertical" class="mx-4"></app-divider>
+            <p>Content to the right.</p>
+        </div>
+    </div>
+    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;div class="flex h-20 items-center"&gt;
+  &lt;p&gt;Content to the left.&lt;/p&gt;
+  &lt;app-divider orientation="vertical" class="mx-4"&gt;&lt;/app-divider&gt;
+  &lt;p&gt;Content to the right.&lt;/p&gt;
+&lt;/div&gt;
+    </pre>
+
+    <h2 class="text-lg font-medium mb-2">Custom Color</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-divider color="blue"></app-divider>
+    </div>
+    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-divider color="blue"&gt;&lt;/app-divider&gt;
+    </pre>
+
+    <h2 class="text-lg font-medium mb-2">Custom Class</h2>
+    <div class="max-w-2xl mb-6 border p-4 rounded">
+        <app-divider class="my-8"></app-divider>
+    </div>
+    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-divider class="my-8"&gt;&lt;/app-divider&gt;
+    </pre>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties (app-divider)</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">orientation</td>
+                    <td class="px-4 py-2 border-b">'horizontal' | 'vertical'</td>
+                    <td class="px-4 py-2 border-b">'horizontal'</td>
+                    <td class="px-4 py-2 border-b">The orientation of the divider.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">color</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'rgba(0, 0, 0, 0.1)'</td>
+                    <td class="px-4 py-2 border-b">The color of the divider.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">class</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Additional CSS classes to apply to the divider.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

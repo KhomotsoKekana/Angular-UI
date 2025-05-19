@@ -1,0 +1,4 @@
+<app-button variant="primary" size="medium">Primary Button</app-button>
+<app-button variant="secondary" size="small">Secondary Button</app-button>
+<app-button variant="danger" size="large">Danger Button</app-button>
+<app-button variant="primary" [disabled]="true">Disabled Button</app-button>

@@ -1,0 +1,8 @@
+/* Tailwind styles are used for smooth transitions */
+.w-16 {
+    width: 4rem; /* Collapsed width */
+  }
+  
+  .w-64 {
+    width: 16rem; /* Expanded width */
+  }

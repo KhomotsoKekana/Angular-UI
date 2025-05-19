@@ -1,0 +1,49 @@
+<div class="w-full flex flex-col gap-y-1">
+  <!-- Label -->
+  <label *ngIf="label" class="text-xs font-medium text-foreground select-none antialiased">
+    {{ label }}
+  </label>
+
+  <!-- Input Wrapper -->
+  <span [class]="innerClasses" [class.bg-gray-200]="disabled" [class.text-muted-foreground]="disabled"
+    [class.cursor-not-allowed]="disabled" (click)="handleClick()">
+    <!-- Leading Icon -->
+    <div *ngIf="leadingIcon" class="flex items-center mr-2">
+      <app-icon [icon]="leadingIcon" class="h-4 w-4 transition-colors duration-150" [ngClass]="{ 'text-primary': isFocused, 
+                  'text-muted-foreground':!isFocused
+                }"></app-icon>
+    </div>
+
+    <!-- Input Field -->
+    <input #inputField [disabled]="disabled" [type]="type" [placeholder]="placeholder" [value]="value"
+      (blur)="handleBlur()" [step]="step" (input)="onInput($event)" [name]="name"
+      class="flex-1 text-xs antialiased text-foreground bg-transparent border-none outline-none placeholder-muted-foreground" />
+
+    <!-- Trailing Text -->
+    <div *ngIf="trailingText" class="flex items-center ml-2">
+      <span class="text-xs text-muted-foreground">{{ trailingText }}</span>
+    </div>
+
+    <!-- Trailing Icon -->
+    <div *ngIf="trailingIcon" class="flex items-center ml-2">
+      <app-icon [icon]="trailingIcon" class="text-muted-foreground h-4 w-4"></app-icon>
+    </div>
+
+    <!-- Trailing Button -->
+    <button *ngIf="trailingButton" type="button" class="flex items-center ml-2 text-gray-500 hover:text-gray-700">
+      {{ trailingButton }}
+    </button>
+
+    <!-- Password Reveal Button -->
+    <button *ngIf="enablePasswordReveal" type="button"
+      class="flex items-center ml-2 text-muted-foreground hover:text-gray-700 cursor-pointer z-50"
+      (click)="togglePasswordVisibility()">
+      <app-icon class="h-4 w-4" [icon]="isPasswordVisible ? 'eyeClosed' : 'eye'"></app-icon>
+    </button>
+  </span>
+
+  <!-- Error Message -->
+  <p *ngIf="error" class="mt-0.5 mx-1 text-xs text-red-500">
+    {{ error }}
+  </p>
+</div>

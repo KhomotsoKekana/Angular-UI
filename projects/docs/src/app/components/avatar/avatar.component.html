@@ -1,0 +1,107 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Avatar Component</h1>
+    <p class="mb-4">A component to display user profile pictures or fallback initials.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Sizes</h2>
+    <div class="flex items-center gap-4 mb-6">
+        <app-avatar size="sm" src="https://i.pravatar.cc/150?img=1" alt="Small avatar" />
+        <app-avatar size="md" src="https://i.pravatar.cc/150?img=2" alt="Medium avatar" />
+        <app-avatar size="lg" src="https://i.pravatar.cc/150?img=3" alt="Large avatar" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Variants</h2>
+    <div class="flex items-center gap-4 mb-6">
+        <app-avatar variant="primary" name="John Doe" />
+        <app-avatar variant="secondary" name="Jane Smith" />
+        <app-avatar variant="primaryGhost" name="Alex Johnson" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">With Status</h2>
+    <div class="flex items-center gap-4 mb-6">
+        <app-avatar src="https://i.pravatar.cc/150?img=4" status="online" alt="User online" />
+        <app-avatar src="https://i.pravatar.cc/150?img=5" status="offline" alt="User offline" />
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Fallback with Initials</h2>
+    <div class="flex items-center gap-4 mb-6">
+        <app-avatar name="John Doe" />
+        <app-avatar name="Jane Smith" />
+        <app-avatar name="Alex Johnson" />
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- With image --&gt;
+&lt;app-avatar 
+  src="https://example.com/avatar.jpg" 
+  alt="User Avatar" 
+  size="md" 
+/&gt;
+
+&lt;!-- With name fallback (generates initials) --&gt;
+&lt;app-avatar 
+  name="John Doe" 
+  variant="primary" 
+/&gt;
+
+&lt;!-- With status indicator --&gt;
+&lt;app-avatar 
+  src="https://example.com/avatar.jpg" 
+  status="online" 
+/&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">src</td>
+                    <td class="px-4 py-2 border-b">string | undefined</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">URL for the avatar image</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">alt</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'Avatar'</td>
+                    <td class="px-4 py-2 border-b">Alternative text for accessibility</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">size</td>
+                    <td class="px-4 py-2 border-b">'sm' | 'md' | 'lg'</td>
+                    <td class="px-4 py-2 border-b">'md'</td>
+                    <td class="px-4 py-2 border-b">Size of the avatar</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">name</td>
+                    <td class="px-4 py-2 border-b">string | undefined</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Full name for generating fallback initials</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">status</td>
+                    <td class="px-4 py-2 border-b">'online' | 'offline' | undefined</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Optional status indicator</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">variant</td>
+                    <td class="px-4 py-2 border-b">'primary' | 'secondary' | 'primaryGhost'</td>
+                    <td class="px-4 py-2 border-b">'secondary'</td>
+                    <td class="px-4 py-2 border-b">Color variant of the avatar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

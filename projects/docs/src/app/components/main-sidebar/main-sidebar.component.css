@@ -1,0 +1,22 @@
+/* Add any specific styles for the documentation page here if needed */
+/* Ensure the demo sidebar is visible and takes up height */
+/* Styles for the documentation example to make the sidebar visible */
+/* You might need to adjust this based on your actual app-main-sidebar component's styling and structure */
+
+/* Placeholder for styles if specific documentation page styling is needed */
+/* The component itself is styled with Tailwind CSS */
+
+/* Ensure the demo area has enough height */
+.h-96 {
+    min-height: 24rem; /* 384px, adjust as needed */
+}
+
+/* If the sidebar component itself needs to be forced to display for the demo */
+/* This is highly dependent on the sidebar's own CSS. */
+/* app-main-sidebar { */
+    /* display: block !important;  You might need to force display if it's hidden by default or by parent styles */
+    /* position: relative !important; */
+    /* height: 100% !important; */
+/* } */
+
+/* Custom scrollbar styling is in the HTML file for broader component applicability */

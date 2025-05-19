@@ -1,0 +1,13 @@
+<div class="relative w-fit select-none p-1">
+  <!-- Dropdown Trigger -->
+  <div #trigger class="cursor-pointer" (click)="toggleDropdown()">
+    <ng-content select="app-dropdown-trigger"></ng-content>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <ng-template #menu>
+    <div class="p-0 min-w-60 bg-white shadow-surround border rounded mt-2 animate-slide-down">
+      <ng-content select="app-dropdown-menu"></ng-content>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,265 @@
+<!-- Date picker trigger -->
+<div class="flex flex-col gap-3">
+    <label class="text-xs font-medium text-foreground select-none antialiased">{{'UI_LIB.DATE_PICKER' |
+        translate}}</label>
+    <div #trigger (click)="toggleDatePicker()"
+        class="flex items-center justify-between px-2 py-2 gap-2 border rounded-lg shadow-xs cursor-pointer bg-input hover:bg-secondary">
+        <app-icon icon="dateRange" class="h-4 w-4" />
+        <span disabled type="text"
+            class="flex items-center w-fit text-xs text-foreground rounded-lg">{{selectedRange.start ?
+            formatDate(selectedRange.start) : 'DD / MM / YYYY'}}</span>
+        <app-icon icon="arrowRight" class="h-4 w-4" />
+        <span disabled type="text"
+            class="flex items-center w-fit me-2 text-xs text-foreground rounded-lg">{{selectedRange.end
+            ?
+            formatDate(selectedRange.end) : 'DD / MM / YYYY'}}</span>
+    </div>
+
+    <!-- Date picker dropdown -->
+    <ng-template #menu>
+        <div class="mt-2 overflow-hidden">
+            <div class="flex bg-card border rounded-lg">
+                <div class="py-4 border-r border-gray-100 overflow-auto">
+                    <!-- Preset options list remains unchanged -->
+                    <ul class="flex flex-col text-xs overflow-auto max-h-88">
+                        <li>
+                            <button (click)="selectLastHour()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'lastHour'"
+                                [class.text-primary-foreground]="activePreset === 'lastHour'"
+                                [class.rounded]="activePreset === 'lastHour'">
+                                {{'UI_LIB.LAST_HOUR' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast6Hours()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last6Hours'"
+                                [class.text-primary-foreground]="activePreset === 'last6Hours'"
+                                [class.rounded]="activePreset === 'last6Hours'">
+                                {{'UI_LIB.LAST_SIX_HOURS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast12Hours()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last12Hours'"
+                                [class.text-primary-foreground]="activePreset === 'last12Hours'"
+                                [class.rounded]="activePreset === 'last12Hours'">
+                                {{'UI_LIB.LAST_TWELVE_HOURS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectToday()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'today'"
+                                [class.text-primary-foreground]="activePreset === 'today'"
+                                [class.rounded]="activePreset === 'today'">
+                                {{'UI_LIB.TODAY' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectYesterday()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'yesterday'"
+                                [class.text-primary-foreground]="activePreset === 'yesterday'"
+                                [class.rounded]="activePreset === 'yesterday'">
+                                {{'UI_LIB.YESTERDAY' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast7Days()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last7Days'"
+                                [class.text-primary-foreground]="activePreset === 'last7Days'"
+                                [class.rounded]="activePreset === 'last7Days'">
+                                {{'UI_LIB.LAST_SEVEN_DAYS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast14Days()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last14Days'"
+                                [class.text-primary-foreground]="activePreset === 'last14Days'"
+                                [class.rounded]="activePreset === 'last14Days'">
+                                {{'UI_LIB.LAST_FOURTEEN_DAYS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectMonthToDate()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'monthToDate'"
+                                [class.text-primary-foreground]="activePreset === 'monthToDate'"
+                                [class.rounded]="activePreset === 'monthToDate'">
+                                {{'UI_LIB.MONTH_TO_DATE' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast3Months()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last3Months'"
+                                [class.text-primary-foreground]="activePreset === 'last3Months'"
+                                [class.rounded]="activePreset === 'last3Months'">
+                                {{'UI_LIB.LAST_THREE_MONTHS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectLast12Months()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'last12Months'"
+                                [class.text-primary-foreground]="activePreset === 'last12Months'"
+                                [class.rounded]="activePreset === 'last12Months'">
+                                {{'UI_LIB.LAST_TWELVE_MONTHS' | translate}}
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="selectCustomRange()"
+                                class="px-6 py-1.5 w-full leading-5 hover:bg-secondary hover:text-primary text-left"
+                                [class.bg-primary]="activePreset === 'custom'"
+                                [class.text-primary-foreground]="activePreset === 'custom'"
+                                [class.rounded]="activePreset === 'custom'">
+                                {{'UI_LIB.CUSTOM' | translate}}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex divide-x">
+                        <!-- First month calendar -->
+                        <div class="flex flex-col px-6 py-2 border-b border-gray-100">
+                            <div class="flex items-center justify-between">
+                                <button (click)="navigatePrevMonth(0)"
+                                    class="flex items-center justify-center p-2 rounded-xl hover:bg-gray-50">
+                                    <svg class="w-6 h-6 text-gray-900 stroke-current" fill="none">
+                                        <path d="M13.25 8.75L9.75 12l3.5 3.25" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="text-sm font-semibold">{{ displayMonths[0].monthName }} {{
+                                    displayMonths[0].year
+                                    }}
+                                </div>
+                                <button (click)="navigateNextMonth(0)"
+                                    class="flex items-center justify-center p-2 rounded-xl hover:bg-gray-50">
+                                    <svg class="w-6 h-6 text-gray-900 stroke-current" fill="none">
+                                        <path d="M10.75 8.75l3.5 3.25-3.5 3.25" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-7 text-xs text-center text-gray-900 py-1">
+                                <span *ngFor="let day of weekDays"
+                                    class="flex items-center justify-center w-9 h-9 font-semibold rounded-lg">
+                                    {{ day }}
+                                </span>
+
+                                <ng-container *ngFor="let day of displayMonths[0].days">
+                                    <span (click)="selectDate(day)"
+                                        class="flex items-center justify-center w-9 h-9 text-xs rounded-lg cursor-pointer hover:bg-primary/10"
+                                        [class.text-gray-700]="!day.isCurrentMonth"
+                                        [class.bg-primary]="day.isSelectionStart || day.isSelectionEnd"
+                                        [class.text-primary-foreground]="day.isSelectionStart || day.isSelectionEnd"
+                                        [class.bg-secondary]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.text-primary]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.font-semibold]="day.isInRange" [class.font-bold]="day.isToday"
+                                        [class.rounded-none]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.text-muted-foreground]="activePreset != 'custom'">
+                                        {{ day.dayNumber }}
+                                    </span>
+                                </ng-container>
+                            </div>
+                            <div *ngIf="showTimePicker" class="border-t mt-auto py-1 flex items-center justify-between">
+                                <label class="text-xs font-medium text-foreground select-none antialiased">{{'UI_LIB.START_TIME' | translate}}</label>
+                                <input type="time"
+                                    class="flex items-center px-3 py-2 text-xs text-gray-900 rounded-lg bg-secondary focus:bg-white focus:ring-1 focus:ring-cyan-600 focus:outline-none"
+                                    [value]="formatTime(selectedRange.start)" (change)="updateStartTime($event)" />
+                            </div>
+                        </div>
+
+                        <!-- Second month calendar -->
+                        <div class="flex flex-col px-6 py-2 border-b border-gray-100">
+                            <div class="flex items-center justify-between">
+                                <button (click)="navigatePrevMonth(1)"
+                                    class="flex items-center justify-center p-2 rounded-xl hover:bg-gray-50">
+                                    <svg class="w-6 h-6 text-gray-900 stroke-current" fill="none">
+                                        <path d="M13.25 8.75L9.75 12l3.5 3.25" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div class="text-sm font-semibold">{{ displayMonths[1].monthName }} {{
+                                    displayMonths[1].year
+                                    }}
+                                </div>
+                                <button (click)="navigateNextMonth(1)"
+                                    class="flex items-center justify-center p-2 rounded-xl hover:bg-gray-50">
+                                    <svg class="w-6 h-6 text-gray-900 stroke-current" fill="none">
+                                        <path d="M10.75 8.75l3.5 3.25-3.5 3.25" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-7 py-1 text-xs text-center text-gray-900">
+                                <span *ngFor="let day of weekDays"
+                                    class="flex items-center justify-center w-9 h-9 font-semibold rounded-lg">
+                                    {{ day }}
+                                </span>
+
+                                <ng-container *ngFor="let day of displayMonths[1].days">
+                                    <span (click)="selectDate(day)"
+                                        class="flex items-center justify-center w-9 h-9 rounded-lg cursor-pointer hover:bg-primary/10"
+                                        [class.text-gray-700]="!day.isCurrentMonth"
+                                        [class.bg-primary]="day.isSelectionStart || day.isSelectionEnd"
+                                        [class.text-primary-foreground]="day.isSelectionStart || day.isSelectionEnd"
+                                        [class.bg-secondary]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.text-primary]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.font-semibold]="day.isSelected || day.isInRange"
+                                        [class.rounded-none]="day.isInRange && !day.isSelectionStart && !day.isSelectionEnd"
+                                        [class.text-muted-foreground]="activePreset != 'custom'">
+                                        {{ day.dayNumber }}
+                                    </span>
+                                </ng-container>
+                            </div>
+                            <div *ngIf="showTimePicker" class="border-t mt-auto py-1 flex items-center justify-between">
+                                <label class="text-xs font-medium text-foreground select-none antialiased">{{'UI_LIB.END_TIME' | translate}}</label>
+                                <input type="time"
+                                    class="flex items-center w-fit px-3 py-2 text-xs text-gray-900 rounded-lg bg-secondary focus:bg-white focus:ring-1 focus:ring-cyan-600 focus:outline-none"
+                                    [value]="formatTime(selectedRange.end)" (change)="updateEndTime($event)" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2 mt-auto mb-auto">
+                        <div class="flex items-center gap-2">
+                            <!-- Start date and time -->
+                            <div class="flex flex-col gap-1">
+                                <app-input type="text" [value]="formatDate(selectedRange.start)"
+                                    (change)="updateStartDate($event)" placeholder="DD / MM / YYYY" />
+
+                            </div>
+                            <!-- Arrow between date/time groups -->
+                            <div class="p-1">
+                                <svg class="w-6 h-6 text-gray-900 stroke-current" fill="none">
+                                    <path d="M6.738 12.012h10.5m-4.476 4.25l4.5-4.25-4.5-4.25" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!-- End date and time -->
+                            <div class="flex flex-col gap-1">
+                                <app-input type="text" [value]="formatDate(selectedRange.end)"
+                                    (change)="updateEndDate($event)" placeholder="DD / MM / YYYY" />
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <flex-button (click)="cancelSelection()" variant="ghost">
+                                {{'UI_LIB.CANCEL' | translate}}
+                            </flex-button>
+                            <flex-button (click)="closeDatePicker()" variant="primary">
+                                {{'UI_LIB.DONE' | translate}}
+                            </flex-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

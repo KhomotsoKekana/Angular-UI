@@ -1,0 +1,92 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">OTP Input Component</h1>
+    <p class="mb-4">A form control that allows users to enter One-Time Passwords.</p>
+
+    <h2 class="text-lg font-medium mb-2">Basic OTP Input</h2>
+    <div class="max-w-md mb-6">
+        <app-otp-input [length]="6" (otpChange)="onOtpChange($event)"></app-otp-input>
+        <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValue || 'Empty'}}</p>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">OTP Input with Placeholder</h2>
+    <div class="max-w-md mb-6">
+        <app-otp-input [length]="4" placeholder="-" (otpChange)="onOtpChangeWithPlaceholder($event)"></app-otp-input>
+        <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValueWithPlaceholder || 'Empty'}}</p>
+    </div>
+
+    <h2 class="text-lg font-medium mb-2">Disabled OTP Input</h2>
+    <div class="max-w-md mb-6">
+        <app-otp-input [length]="6" [disabled]="true" (otpChange)="onOtpChange($event)"></app-otp-input>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">length</td>
+                    <td class="px-4 py-2 border-b">number</td>
+                    <td class="px-4 py-2 border-b">6</td>
+                    <td class="px-4 py-2 border-b">The number of input fields for the OTP.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">disabled</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the OTP input is disabled.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">placeholder</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Placeholder character for empty inputs.</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">className</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Custom CSS class for the component.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Payload</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">otpChange</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">Emitted when the OTP value changes. The payload is the complete OTP string.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;app-otp-input
+  [length]="6"
+  placeholder="*"
+  (otpChange)="handleOtpChange($event)"&gt;
+&lt;/app-otp-input&gt;
+        </pre>
+    </div>
+</div>

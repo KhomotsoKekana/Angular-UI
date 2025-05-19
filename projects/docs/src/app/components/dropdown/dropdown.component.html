@@ -1,0 +1,278 @@
+<div class="p-6 space-y-4">
+    <h1 class="text-xl font-semibold">Dropdown Component</h1>
+    <p class="mb-4">A dropdown component that displays a menu of options when triggered. It can be positioned in different directions and customized with icons and additional content.</p>
+    
+    <h2 class="text-lg font-medium mb-2">Basic Dropdown</h2>
+    <div class="mb-6 border p-4 rounded">
+        <app-dropdown>
+            <app-dropdown-trigger>
+                <flex-button variant="secondary">
+                    {{ selectedOption }}
+                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
+                </flex-button>
+            </app-dropdown-trigger>
+            <app-dropdown-menu>
+                <app-dropdown-item
+                    *ngFor="let item of basicItems"
+                    (click)="onSelectBasic(item)">
+                    {{ item }}
+                </app-dropdown-item>
+            </app-dropdown-menu>
+        </app-dropdown>
+        
+        <div class="mt-4">
+            <p>Selected: <strong>{{ selectedOption }}</strong></p>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Dropdown with Icons</h2>
+    <div class="mb-6 border p-4 rounded">
+        <app-dropdown>
+            <app-dropdown-trigger>
+                <flex-button>
+                    {{ selectedIconOption }}
+                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
+                </flex-button>
+            </app-dropdown-trigger>
+            <app-dropdown-menu>
+                <app-dropdown-item
+                    *ngFor="let item of iconItems"
+                    (click)="onSelectIconOption(item.label)">
+                    <app-icon [icon]="item.icon" class="mr-2 h-4 w-4"></app-icon>
+                    {{ item.label }}
+                </app-dropdown-item>
+            </app-dropdown-menu>
+        </app-dropdown>
+        
+        <div class="mt-4">
+            <p>Selected: <strong>{{ selectedIconOption }}</strong></p>
+        </div>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Dropdown Placement</h2>
+    <div class="mb-2">
+        <label class="block text-sm mb-1">Select placement:</label>
+        <select [(ngModel)]="selectedPlacement" class="border rounded px-2 py-1 mb-3">
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+        </select>
+    </div>
+    <div class="mb-6 border p-4 rounded flex justify-center items-center h-40">
+        <app-dropdown [placement]="selectedPlacement">
+            <app-dropdown-trigger>
+                <flex-button variant="primary">
+                    {{ selectedPlacement }} Placement
+                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
+                </flex-button>
+            </app-dropdown-trigger>
+            <app-dropdown-menu>
+                <app-dropdown-item>Option 1</app-dropdown-item>
+                <app-dropdown-item>Option 2</app-dropdown-item>
+                <app-dropdown-item>Option 3</app-dropdown-item>
+            </app-dropdown-menu>
+        </app-dropdown>
+    </div>
+    
+    <h2 class="text-lg font-medium mb-2">Custom Dropdown Items</h2>
+    <div class="mb-6 border p-4 rounded">
+        <app-dropdown>
+            <app-dropdown-trigger>
+                <flex-button>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span>Role: {{ selectedRole }}</span>
+                        <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
+                    </div>
+                </flex-button>
+            </app-dropdown-trigger>
+            <app-dropdown-menu>
+                <app-dropdown-item
+                    *ngFor="let role of roleItems"
+                    [active]="role.active"
+                    [disabled]="role.disabled"
+                    (click)="onSelectRole(role.label)">
+                    <div class="flex flex-col">
+                        <span>{{ role.label }}</span>
+                        <span class="text-xs text-gray-500">{{ role.description }}</span>
+                    </div>
+                </app-dropdown-item>
+            </app-dropdown-menu>
+        </app-dropdown>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Usage</h2>
+        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+&lt;!-- Basic dropdown --&gt;
+&lt;app-dropdown&gt;
+  &lt;app-dropdown-trigger&gt;
+    &lt;flex-button&gt;
+      Click me
+      &lt;app-icon icon="chevronDown" class="ml-2 h-4 w-4"&gt;&lt;/app-icon&gt;
+    &lt;/flex-button&gt;
+  &lt;/app-dropdown-trigger&gt;
+  &lt;app-dropdown-menu&gt;
+    &lt;app-dropdown-item (click)="handleAction()"&gt;Option 1&lt;/app-dropdown-item&gt;
+    &lt;app-dropdown-item&gt;Option 2&lt;/app-dropdown-item&gt;
+    &lt;app-dropdown-item&gt;Option 3&lt;/app-dropdown-item&gt;
+  &lt;/app-dropdown-menu&gt;
+&lt;/app-dropdown&gt;
+
+&lt;!-- Dropdown with placement --&gt;
+&lt;app-dropdown placement="top"&gt;
+  &lt;!-- trigger and menu content --&gt;
+&lt;/app-dropdown&gt;
+
+&lt;!-- Dropdown with icons and custom content --&gt;
+&lt;app-dropdown&gt;
+  &lt;app-dropdown-trigger&gt;
+    &lt;flex-button&gt;Select an option&lt;/flex-button&gt;
+  &lt;/app-dropdown-trigger&gt;
+  &lt;app-dropdown-menu&gt;
+    &lt;app-dropdown-item&gt;
+      &lt;app-icon icon="user" class="mr-2 h-4 w-4"&gt;&lt;/app-icon&gt;
+      User profile
+    &lt;/app-dropdown-item&gt;
+    &lt;app-dropdown-item [disabled]="true"&gt;Disabled option&lt;/app-dropdown-item&gt;
+    &lt;app-dropdown-item [active]="true"&gt;Active option&lt;/app-dropdown-item&gt;
+  &lt;/app-dropdown-menu&gt;
+&lt;/app-dropdown&gt;
+        </pre>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">DropdownComponent Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">placement</td>
+                    <td class="px-4 py-2 border-b">'top' | 'bottom' | 'left' | 'right'</td>
+                    <td class="px-4 py-2 border-b">'bottom'</td>
+                    <td class="px-4 py-2 border-b">Position of the dropdown menu relative to the trigger element</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">options</td>
+                    <!-- <td class="px-4 py-2 border-b">{ label: string; value: any }[]</td> -->
+                    <td class="px-4 py-2 border-b">[]</td>
+                    <td class="px-4 py-2 border-b">Options for the dropdown (alternative to using dropdown-item)</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">placeholder</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">'Select an option'</td>
+                    <td class="px-4 py-2 border-b">Placeholder text when no option is selected</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">disabled</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the dropdown is disabled</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">dynamicLookup</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Enable dynamic lookup functionality</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">dynamicLookupLoading</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Loading state for dynamic lookup</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">DropdownComponent Events</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Event</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">selectionChange</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;any&gt;</td>
+                    <td class="px-4 py-2 border-b">Emitted when an option is selected</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">dynamicLookupValueChange</td>
+                    <td class="px-4 py-2 border-b">EventEmitter&lt;string&gt;</td>
+                    <td class="px-4 py-2 border-b">Emitted when the value changes in dynamic lookup mode</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">DropdownItemComponent Properties</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b text-left">Property</th>
+                    <th class="px-4 py-2 border-b text-left">Type</th>
+                    <th class="px-4 py-2 border-b text-left">Default</th>
+                    <th class="px-4 py-2 border-b text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 border-b">label</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Text label for the dropdown item</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">description</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Optional description text</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">active</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">false</td>
+                    <td class="px-4 py-2 border-b">Whether the item is active/selected</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">disabled</td>
+                    <td class="px-4 py-2 border-b">boolean</td>
+                    <td class="px-4 py-2 border-b">undefined</td>
+                    <td class="px-4 py-2 border-b">Whether the item is disabled</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border-b">class</td>
+                    <td class="px-4 py-2 border-b">string</td>
+                    <td class="px-4 py-2 border-b">''</td>
+                    <td class="px-4 py-2 border-b">Additional CSS classes to apply to the item</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="mt-8">
+        <h2 class="text-lg font-medium mb-2">Accessibility</h2>
+        <p>The Dropdown component follows accessibility best practices:</p>
+        <ul class="list-disc ml-6 mt-2">
+            <li class="mb-1">Uses proper focus management</li>
+            <li class="mb-1">Keyboard navigation support</li>
+            <li class="mb-1">ARIA attributes for screen readers</li>
+            <li class="mb-1">Visual indicators for active and disabled states</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div
+  class="relative inline-flex items-center cursor-pointer"
+  [ngClass]="{ 'opacity-50 pointer-events-none': disabled }"
+  (click)="toggleSwitch()"
+>
+  <!-- Switch Track -->
+  <div
+    class="w-12 h-7 rounded-full transition-all duration-300"
+    [ngClass]="{
+      'bg-cyan-600': checked,
+      'bg-gray-300': !checked
+    }"
+  ></div>
+
+  <!-- Switch Circle -->
+  <span
+    class="absolute w-5 h-5 bg-white rounded-full shadow transition-transform duration-300"
+    [ngClass]="{
+      'translate-x-6': checked,
+      'translate-x-1': !checked
+    }"
+  ></span>
+
+  <!-- Projected Content -->
+  <ng-content></ng-content>
+</div>
