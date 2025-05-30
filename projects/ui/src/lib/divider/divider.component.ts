@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-divider',
+  selector: 'flex-divider',
   standalone: true,
   imports: [CommonModule],
   template: '',

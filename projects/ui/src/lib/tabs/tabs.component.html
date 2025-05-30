@@ -44,8 +44,8 @@
                 <!-- Regular Tabs -->
                 <ng-template #regularTab>
                     <div class="flex items-center gap-x-2">
-                        <app-standard-icon *ngIf="tab.leadingStandardIcon" [icon]="tab.leadingStandardIcon" class="w-5 h-5" />
-                        <app-icon *ngIf="tab.leadingIcon" [icon]="tab.leadingIcon" class="h-5 w-5" />
+                        <flex-standard-icon *ngIf="tab.leadingStandardIcon" [icon]="tab.leadingStandardIcon" class="w-5 h-5" />
+                        <flex-icon *ngIf="tab.leadingIcon" [icon]="tab.leadingIcon" class="h-5 w-5" />
                         {{ tab.label }}
                     </div>
                 </ng-template>
@@ -54,10 +54,10 @@
     </div>
 
     <!-- Connecting Line for Step Variant -->
-    <div *ngIf="variant === 'step'" class="absolute w-full h-[2px] top-4 bg-gray-300">
+     <div *ngIf="variant === 'step'" class="relative w-100 h-[2px] top-4 bg-gray-300">
         <div #stepLine class="absolute h-full bg-primary transition-all duration-300" [style.width]="stepLineWidth">
         </div>
-    </div>
+    </div> 
 
     <!-- Tab Content -->
     <ng-container *ngFor="let content of tabContents">

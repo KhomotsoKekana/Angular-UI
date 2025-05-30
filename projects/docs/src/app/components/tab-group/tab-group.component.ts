@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TabGroupComponent } from '../../../../../ui/src/lib/tab-group/tab-group.component';
 import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, TabGroupComponent, IconComponent],
+  imports: [CommonModule, FormsModule, TabGroupComponent, CodeBlockComponent],
   templateUrl: './tab-group.component.html',
 })
 export class DocsTabGroupComponent {

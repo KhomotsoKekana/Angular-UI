@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomPaginatorComponent } from '../../../../../ui/src/lib/paginator/paginator.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -10,7 +11,8 @@ import { ButtonComponent } from '../../../../../ui/src/lib/button/button.compone
     CommonModule, 
     FormsModule, 
     CustomPaginatorComponent,
-    ButtonComponent
+    ButtonComponent,
+    CodeBlockComponent
   ],
   templateUrl: './paginator.component.html',
 })

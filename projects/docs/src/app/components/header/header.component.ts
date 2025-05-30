@@ -4,10 +4,11 @@ import { HeaderComponent } from '../../../../../ui/src/lib/header/header.compone
 import { HeaderCenterComponent } from "../../../../../ui/src/lib/header/header-center.component";
 import { HeaderLeftComponent } from "../../../../../ui/src/lib/header/header-left.component";
 import { HeaderRightComponent } from "../../../../../ui/src/lib/header/header-right.component";
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, HeaderComponent, HeaderCenterComponent, HeaderLeftComponent, HeaderRightComponent],
+  imports: [CommonModule, HeaderComponent, HeaderCenterComponent, HeaderLeftComponent, HeaderRightComponent,CodeBlockComponent],
   templateUrl: './header.component.html',
 })
 export class DocsHeaderComponent {}

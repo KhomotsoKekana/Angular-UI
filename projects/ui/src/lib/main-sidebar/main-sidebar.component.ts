@@ -9,7 +9,7 @@ import { SimpleChanges, OnChanges } from '@angular/core';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-main-sidebar',
+  selector: 'flex-main-sidebar',
   standalone: true,
   imports: [CommonModule, IconComponent, ButtonComponent, RouterLink, TooltipModule, TranslateModule],
   templateUrl: './main-sidebar.component.html',

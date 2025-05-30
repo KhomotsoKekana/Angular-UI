@@ -1,52 +1,91 @@
 <div class="p-6 space-y-4">
     <h1 class="text-xl font-semibold">Avatar Component</h1>
     <p class="mb-4">A component to display user profile pictures or fallback initials.</p>
-    
-    <h2 class="text-lg font-medium mb-2">Sizes</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-avatar size="sm" src="https://i.pravatar.cc/150?img=1" alt="Small avatar" />
-        <app-avatar size="md" src="https://i.pravatar.cc/150?img=2" alt="Medium avatar" />
-        <app-avatar size="lg" src="https://i.pravatar.cc/150?img=3" alt="Large avatar" />
+    <flex-code-block [code]="`
+    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+            &lt;flex-avatar size=&quot;sm&quot; src=&quot;https://i.pravatar.cc/150?img=1&quot; alt=&quot;Small avatar&quot; />
+            &lt;flex-avatar size=&quot;md&quot; src=&quot;https://i.pravatar.cc/150?img=2&quot; alt=&quot;Medium avatar&quot; />
+            &lt;flex-avatar size=&quot;lg&quot; src=&quot;https://i.pravatar.cc/150?img=3&quot; alt=&quot;Large avatar&quot; />
     </div>
+    `">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Sizes</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <flex-avatar size="sm" src="https://i.pravatar.cc/150?img=1" alt="Small avatar" />
+                <flex-avatar size="md" src="https://i.pravatar.cc/150?img=2" alt="Medium avatar" />
+                <flex-avatar size="lg" src="https://i.pravatar.cc/150?img=3" alt="Large avatar" />
+            </div>
+        </div>
+    </flex-code-block>
     
-    <h2 class="text-lg font-medium mb-2">Variants</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-avatar variant="primary" name="John Doe" />
-        <app-avatar variant="secondary" name="Jane Smith" />
-        <app-avatar variant="primaryGhost" name="Alex Johnson" />
+    <flex-code-block [code]="`
+    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+            <flex-avatar variant=&quot;primary&quot; name=&quot;John Doe&quot; />
+            <flex-avatar variant=&quot;secondary&quot; name=&quot;Jane Smith&quot; />
+            <flex-avatar variant=&quot;primaryGhost&quot; name=&quot;Alex Johnson&quot; />
     </div>
+    `">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Variants</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <flex-avatar variant="primary" name="John Doe" />
+                <flex-avatar variant="secondary" name="Jane Smith" />
+                <flex-avatar variant="primaryGhost" name="Alex Johnson" />
+            </div>
+        </div>
+    </flex-code-block>
     
-    <h2 class="text-lg font-medium mb-2">With Status</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-avatar src="https://i.pravatar.cc/150?img=4" status="online" alt="User online" />
-        <app-avatar src="https://i.pravatar.cc/150?img=5" status="offline" alt="User offline" />
+    <flex-code-block [code]="`
+    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+            <flex-avatar src=&quot;https://i.pravatar.cc/150?img=4&quot; status=&quot;online&quot; alt=&quot;User online&quot; />
+            <flex-avatar src=&quot;https://i.pravatar.cc/150?img=5&quot; status=&quot;offline&quot; alt=&quot;User offline&quot; />
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Fallback with Initials</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-avatar name="John Doe" />
-        <app-avatar name="Jane Smith" />
-        <app-avatar name="Alex Johnson" />
+         `">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">With Status</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <flex-avatar src="https://i.pravatar.cc/150?img=4" status="online" alt="User online" />
+                <flex-avatar src="https://i.pravatar.cc/150?img=5" status="offline" alt="User offline" />
+            </div>
+         </div>
+    </flex-code-block>
+
+    <flex-code-block [code]="`
+  
+    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+            <flex-avatar name=&quot;John Doe&quot; />
+            <flex-avatar name=&quot;Jane Smith&quot; />
+            <flex-avatar name=&quot;Alex Johnson&quot; />
     </div>
+    `">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Fallback with Initials</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <flex-avatar name="John Doe" />
+                <flex-avatar name="Jane Smith" />
+                <flex-avatar name="Alex Johnson" />
+            </div>
+        </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- With image --&gt;
-&lt;app-avatar 
+&lt;flex-avatar 
   src="https://example.com/avatar.jpg" 
   alt="User Avatar" 
   size="md" 
 /&gt;
 
 &lt;!-- With name fallback (generates initials) --&gt;
-&lt;app-avatar 
+&lt;flex-avatar 
   name="John Doe" 
   variant="primary" 
 /&gt;
 
 &lt;!-- With status indicator --&gt;
-&lt;app-avatar 
+&lt;flex-avatar 
   src="https://example.com/avatar.jpg" 
   status="online" 
 /&gt;

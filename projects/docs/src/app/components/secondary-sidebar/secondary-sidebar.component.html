@@ -2,7 +2,7 @@
     <header class="mb-8">
         <h1 class="text-3xl font-bold text-gray-800">Secondary Sidebar Component</h1>
         <p class="text-lg text-gray-600 mt-2">
-            The <code>&lt;app-secondary-sidebar&gt;</code> provides a vertical navigation menu, typically used for sub-sections within a larger page or module (e.g., settings pages). It supports nested navigation items and displays a title.
+            The <code>&lt;flex-secondary-sidebar&gt;</code> provides a vertical navigation menu, typically used for sub-sections within a larger page or module (e.g., settings pages). It supports nested navigation items and displays a title.
         </p>
     </header>
 
@@ -14,7 +14,7 @@
             The <code>title</code> input sets the header for the sidebar, and <code>navItems</code> provides the links.
         </p>
         <div class="border border-gray-300 rounded-lg bg-gray-50 flex" style="min-height: 300px;">
-            <app-secondary-sidebar [navItems]="basicNavItems" [title]="'SIDEBAR.ACCOUNT' | translate"></app-secondary-sidebar>
+            <flex-secondary-sidebar [navItems]="basicNavItems" [title]="'SIDEBAR.ACCOUNT' | translate"></flex-secondary-sidebar>
             <div class="p-4 text-sm text-gray-500 flex-grow">
                 <!-- Simulated content area -->
                 <p>Content for the selected section would appear here.</p>
@@ -42,7 +42,7 @@ basicNavItems = [
             The active state is managed based on the current route or manual interaction.
         </p>
         <div class="border border-gray-300 rounded-lg bg-gray-50 flex" style="min-height: 400px;">
-            <app-secondary-sidebar [navItems]="navItemsWithSub" [title]="'CUSTOM_TITLE' | translate"></app-secondary-sidebar>
+            <flex-secondary-sidebar [navItems]="navItemsWithSub" [title]="'CUSTOM_TITLE' | translate"></flex-secondary-sidebar>
             <div class="p-4 text-sm text-gray-500 flex-grow">
                 <!-- Simulated content area -->
                 <p>Content for the selected sub-section would appear here.</p>
@@ -81,7 +81,7 @@ navItemsWithSub = [
 
     <!-- Component Inputs -->
     <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Inputs (<code>&lt;app-secondary-sidebar&gt;</code>)</h2>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Inputs (<code>&lt;flex-secondary-sidebar&gt;</code>)</h2>
         <div class="overflow-x-auto custom-scrollbar">
             <table class="min-w-full bg-white border border-gray-300 rounded-md">
                 <thead class="bg-gray-100">
@@ -206,7 +206,7 @@ navItemsWithSub = [
     <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
         <h2 class="text-xl font-semibold text-gray-700 mb-4">Styling and Customization</h2>
         <p class="text-gray-600 mb-4">
-            The secondary sidebar's appearance is primarily controlled by Tailwind CSS classes within its own component structure and the <code>app-button</code> component it uses internally.
+            The secondary sidebar's appearance is primarily controlled by Tailwind CSS classes within its own component structure and the <code>flex-button</code> component it uses internally.
             Active states are highlighted (e.g., text color, background).
             The component is designed to fit within a layout container and will take the height of its parent.
             Ensure your application's icon set (via <code>IconComponent</code>) includes any icons specified in <code>NavItem.icon</code>.

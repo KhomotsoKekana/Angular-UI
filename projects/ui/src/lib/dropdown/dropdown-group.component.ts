@@ -12,12 +12,12 @@ import { CommonModule } from '@angular/common';
 import { DropdownService } from './dropdown.service';
 
 @Component({
-  selector: 'app-dropdown-group',
+  selector: 'flex-dropdown-group',
   imports: [CommonModule],
   template: `
     <div class="relative group" #groupTrigger>
       <!-- Trigger -->
-      <ng-content select="app-dropdown-group-trigger"></ng-content>
+      <ng-content select="flex-dropdown-group-trigger"></ng-content>
 
       <!-- Sub-Dropdown -->
       <div

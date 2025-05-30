@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-ill-customer-profile',
+    selector: 'flex-ill-customer-profile',
     imports:[CommonModule],
     standalone: true,
     templateUrl: './customer-profile-illustration.component.html'

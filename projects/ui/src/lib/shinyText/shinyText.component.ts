@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-animated-shiny-text',
+  selector: 'flex-animated-shiny-text',
   template: `
     <span class="shiny-text {{ className }}">
       <ng-content></ng-content>

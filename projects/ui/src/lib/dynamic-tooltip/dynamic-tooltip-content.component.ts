@@ -1,7 +1,7 @@
 import { Component, Input, HostListener, ElementRef } from '@angular/core';
 
 @Component({
-    selector: 'app-dynamic-tooltip-content',
+    selector: 'flex-dynamic-tooltip-content',
     template: `<ng-content></ng-content>`
 })
 export class DynamicTooltipContentComponent {

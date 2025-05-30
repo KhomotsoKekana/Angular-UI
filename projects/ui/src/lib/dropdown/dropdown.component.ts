@@ -5,7 +5,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { DropdownService } from './dropdown.service';
 
 @Component({
-  selector: 'app-dropdown',
+  selector: 'flex-dropdown',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './dropdown.component.html',

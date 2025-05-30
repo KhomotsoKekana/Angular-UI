@@ -5,11 +5,11 @@
         <li *ngFor="let item of navItems" class="rounded-lg p-1" [ngClass]="{'bg-primary/10': isActive(item)}">
 
             <!-- Parent Navigation Item -->
-            <app-button variant="ghost" (click)="item?.subItems?.length == 0 && navigateTo(item.url)"
+            <flex-button variant="ghost" (click)="item?.subItems?.length == 0 && navigateTo(item.url)"
                 class="flex items-center justify-between w-full p-2 rounded-md"
                 (click)="!isActive(item) && item.isActive = !item.isActive" [ngClass]="{'text-primary': item.isActive}">
                 <div class="flex w-full items-center gap-x-2">
-                    <app-icon [icon]="item.icon" class="w-5 h-5"></app-icon>
+                    <flex-icon [icon]="item.icon" class="w-5 h-5"></flex-icon>
                     <span class="font-medium text-sm">{{ item.title | translate }}</span>
                 </div>
                 <!-- Expand/Collapse Icon -->
@@ -18,7 +18,7 @@
                     [class.rotate-180]="item.isActive">
                     {{ item.isActive ? '−' : '+' }}
                 </span>
-            </app-button>
+            </flex-button>
 
             <!-- Sub-Items -->
             <ul *ngIf="item.isActive"

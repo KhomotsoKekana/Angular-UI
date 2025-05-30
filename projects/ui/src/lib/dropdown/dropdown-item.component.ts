@@ -4,13 +4,13 @@ import { DropdownService } from './dropdown.service';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-dropdown-item',
+  selector: 'flex-dropdown-item',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
 
   <ng-content></ng-content>
-  <app-icon *ngIf="this.active" class="text-primary ms-auto h-4 w-4" icon="check"/>
+  <flex-icon *ngIf="this.active" class="text-primary ms-auto h-4 w-4" icon="check"/>
         
   `,
 })

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { TabsComponent } from '../../../../../ui/src/lib/tabs/tabs.component';
 import { TabContentComponent } from '../../../../../ui/src/lib/tabs/tab-content/tab-content.component';
 import { FormsModule } from '@angular/forms';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TabsComponent, TabContentComponent, FormsModule],
+  imports: [CommonModule, TabsComponent, TabContentComponent, FormsModule,CodeBlockComponent],
   templateUrl: './tabs.component.html',
 })
 export class DocsTabsComponent {

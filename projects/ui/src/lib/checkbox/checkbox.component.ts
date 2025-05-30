@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/cor
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkbox',
+  selector: 'flex-checkbox',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './checkbox.component.html',

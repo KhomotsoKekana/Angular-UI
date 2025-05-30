@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-card-header',
+  selector: 'flex-card-header',
   standalone:true, 
   imports: [CommonModule],
   template: `

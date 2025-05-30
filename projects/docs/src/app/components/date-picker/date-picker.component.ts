@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DatePickerComponent } from '../../../../../ui/src/lib/date-picker/date-picker.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -10,7 +11,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     CommonModule, 
     FormsModule, 
     DatePickerComponent,
-    TranslateModule
+    TranslateModule,
+    CodeBlockComponent
   ],
   templateUrl: './date-picker.component.html',
 })

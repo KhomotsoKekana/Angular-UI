@@ -4,7 +4,7 @@ import { HeaderCenterComponent } from './header-center.component';
 import { HeaderRightComponent } from './header-right.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'flex-header',
   standalone: true,
   imports: [],
   templateUrl: './header.component.html'

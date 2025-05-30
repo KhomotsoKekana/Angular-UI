@@ -3,22 +3,35 @@
     <p class="mb-4">A form control that allows users to enter One-Time Passwords.</p>
 
     <h2 class="text-lg font-medium mb-2">Basic OTP Input</h2>
-    <div class="max-w-md mb-6">
-        <app-otp-input [length]="6" (otpChange)="onOtpChange($event)"></app-otp-input>
-        <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValue || 'Empty'}}</p>
-    </div>
+    <flex-code-block code="
+    <flex-otp-input [length]=&quot;6&quot; (otpChange)=&quot;onOtpChange($event)&quot;></flex-otp-input>
+    <p class=&quot;mt-1 text-sm text-gray-600&quot;>Current OTP: {{otpValue || 'Empty'}}</p>
+    ">
+        <div preview>
+            <flex-otp-input [length]="6" (otpChange)="onOtpChange($event)"></flex-otp-input>
+            <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValue || 'Empty'}}</p>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">OTP Input with Placeholder</h2>
-    <div class="max-w-md mb-6">
-        <app-otp-input [length]="4" placeholder="-" (otpChange)="onOtpChangeWithPlaceholder($event)"></app-otp-input>
-        <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValueWithPlaceholder || 'Empty'}}</p>
-    </div>
+    <flex-code-block code="
+    <flex-otp-input [length]=&quot;4&quot; placeholder=&quot;-&quot; (otpChange)=&quot;onOtpChangeWithPlaceholder($event)&quot;></flex-otp-input>
+    p class=&quot;mt-1 text-sm text-gray-600&quot;>Current OTP: {{otpValueWithPlaceholder || 'Empty'}}</p>
+    ">
+        <div preview>
+            <flex-otp-input [length]="4" placeholder="-" (otpChange)="onOtpChangeWithPlaceholder($event)"></flex-otp-input>
+            <p class="mt-1 text-sm text-gray-600">Current OTP: {{otpValueWithPlaceholder || 'Empty'}}</p>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Disabled OTP Input</h2>
-    <div class="max-w-md mb-6">
-        <app-otp-input [length]="6" [disabled]="true" (otpChange)="onOtpChange($event)"></app-otp-input>
-    </div>
-
+    <flex-code-block code="
+    <flex-otp-input [length]=&quot;6&quot; [disabled]=&quot;true&quot; (otpChange)=&quot;onOtpChange($event)&quot;></flex-otp-input>">
+        <div preview>
+            <flex-otp-input [length]="6" [disabled]="true" (otpChange)="onOtpChange($event)"></flex-otp-input>
+        </div>
+    </flex-code-block>
+    
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Properties</h2>
         <table class="min-w-full bg-white border border-gray-200">
@@ -82,11 +95,11 @@
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;app-otp-input
+&lt;flex-otp-input
   [length]="6"
   placeholder="*"
   (otpChange)="handleOtpChange($event)"&gt;
-&lt;/app-otp-input&gt;
+&lt;/flex-otp-input&gt;
         </pre>
     </div>
 </div>

@@ -4,7 +4,7 @@ import { InputComponent } from "../input/input.component";
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-otp-input',
+  selector: 'flex-otp-input',
   imports: [CommonModule],
   templateUrl: './otp-input.component.html',
   styleUrl: './otp-input.component.css',

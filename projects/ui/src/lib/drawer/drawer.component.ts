@@ -12,11 +12,10 @@ import {
 } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-drawer',
+  selector: 'flex-drawer',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './drawer.component.html',

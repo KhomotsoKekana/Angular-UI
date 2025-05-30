@@ -3,35 +3,130 @@
     <p class="mb-4">A flexible charting component that supports various chart types including bar, line, area, donut, and pie charts. Built on top of ApexCharts, it provides extensive customization options and responsive design.</p>
     
     <h2 class="text-lg font-medium mb-2">Chart Types</h2>
-    <div class="mb-2">
-        <div class="flex items-center gap-4 mb-2">
+    <flex-code-block code = "
+    <div class=&quot;mb-2&quot;>
+        <div class=&quot;flex items-center gap-4 mb-2&quot;>
             <div>
-                <label class="block text-sm mb-1">Select chart type:</label>
-                <select [(ngModel)]="selectedChartType" class="border rounded px-2 py-1">
-                    <option value="bar">Bar Chart</option>
-                    <option value="line">Line Chart</option>
-                    <option value="area">Area Chart</option>
-                    <option value="donut">Donut Chart</option>
-                    <option value="pie">Pie Chart</option>
+                <label class=&quot;block text-sm mb-1&quot;>Select chart type:</label>
+                <select [(ngModel)]=&quot;selectedChartType&quot; class=&quot;border rounded px-2 py-1&quot;>
+                <option value=&quot;bar&quot;>Bar Chart</option>
+                <option value=&quot;line&quot;>Line Chart</option>
+                <option value=&quot;area&quot;>Area Chart</option>
+                <option value=&quot;donut&quot;>Donut Chart</option>
+                <option value=&quot;pie&quot;>Pie Chart</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm mb-1">Theme:</label>
-                <select [(ngModel)]="selectedTheme" class="border rounded px-2 py-1">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
+                <label class=&quot;block text-sm mb-1&quot;>Theme:</label>
+                <select [(ngModel)]=&quot;selectedTheme&quot; class=&quot;border rounded px-2 py-1&quot;>
+                    <option value=&quot;light&quot;>Light</option>
+                    <option value=&quot;dark&quot;>Dark</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm mb-1">Data Labels:</label>
-                <input type="checkbox" [(ngModel)]="enableDataLabels" class="mr-2">Show data labels
+                <label class=&quot;block text-sm mb-1&quot;>Data Labels:</label>
+                <input type=&quot;checkbox&quot; [(ngModel)]=&quot;enableDataLabels&quot; class=&quot;mr-2&quot;>Show data labels
             </div>
         </div>
     </div>
     
+    <div class=&quot;mb-6 border p-4 rounded&quot; [ngClass]=&quot;{'bg-gray-800': selectedTheme === 'dark'}&quot;>
+        <!-- Axis charts (bar, line, area) -->
+        <flex-chart *ngIf=&quot;['bar', 'line', 'area'].includes(selectedChartType)&quot;
+            [type]=&quot;selectedChartType&quot;
+            [series]=&quot;getSeriesForSelectedChart()&quot;
+            [categories]=&quot;getCategoriesForSelectedChart()&quot;
+            [height]=&quot;chartHeight&quot;
+            [theme]=&quot;selectedTheme&quot;
+            [enableDataLabels]=&quot;enableDataLabels&quot;
+            [title]=&quot;selectedChartType.charAt(0).toUpperCase() + selectedChartType.slice(1) + ' Chart'&quot;
+            [legendPosition]=&quot;legendPosition&quot;>
+        </flex-chart>
+        
+        <!-- Donut chart -->
+        <flex-chart *ngIf=&quot;selectedChartType === 'donut'&quot;
+            [type]=&quot;'donut'&quot;
+            [values]=&quot;donutChartValues&quot;
+            [labels]=&quot;donutChartLabels&quot;
+            [height]=&quot;chartHeight&quot;
+            [theme]=&quot;selectedTheme&quot;
+            [enableDataLabels]=&quot;enableDataLabels&quot;
+            [title]=&quot;'Donut Chart'&quot;
+            [centerLabel]=&quot;donutCenterLabel&quot;
+            [centerValue]=&quot;donutCenterValue&quot;
+            [cornerRadius]=&quot;cornerRadius&quot;
+            [legendPosition]=&quot;legendPosition&quot;>
+        </flex-chart>
+        
+        <!-- Pie chart -->
+        <flex-chart *ngIf=&quot;selectedChartType === 'pie'&quot;
+            [type]=&quot;'pie'&quot;
+            [values]=&quot;pieChartValues&quot;
+            [labels]=&quot;pieChartLabels&quot;
+            [height]=&quot;chartHeight&quot;
+            [theme]=&quot;selectedTheme&quot;
+            [enableDataLabels]=&quot;enableDataLabels&quot;
+            [title]=&quot;'Pie Chart'&quot;
+            [cornerRadius]=&quot;cornerRadius&quot;
+            [legendPosition]=&quot;legendPosition&quot;>
+        </flex-chart>
+    </div>
+    
+    <h2 class=&quot;text-lg font-medium mb-2&quot;>Chart Customization</h2>
+    <div class=&quot;mb-2&quot;>
+        <div class=&quot;grid grid-cols-2 gap-4 mb-2&quot;>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Chart Height:</label>
+                <input type=&quot;range&quot; min=&quot;200&quot; max=&quot;500&quot; step=&quot;10&quot; [(ngModel)]=&quot;chartHeight&quot; class=&quot;w-full&quot;>
+                <span class=&quot;text-xs&quot;>{{ chartHeight }}px</span>
+            </div>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Corner Radius (for pie/donut):</label>
+                <input type=&quot;range&quot; min=&quot;0&quot; max=&quot;30&quot; step=&quot;1&quot; [(ngModel)]=&quot;cornerRadius&quot; class=&quot;w-full&quot;>
+                <span class=&quot;text-xs&quot;>{{ cornerRadius }}px</span>
+            </div>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Legend Position:</label>
+                <select [(ngModel)]=&quot;legendPosition&quot; class=&quot;border rounded px-2 py-1&quot;>
+                    <option value=&quot;top&quot;>Top</option>
+                    <option value=&quot;bottom&quot;>Bottom</option>
+                    <option value=&quot;left&quot;>Left</option>
+                    <option value=&quot;right&quot;>Right</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    ">
+        <div preview>
+            <div class="mb-2">
+                <div class="flex items-center gap-4 mb-2">
+                    <div>
+                        <label class="block text-sm mb-1">Select chart type:</label>
+                        <select [(ngModel)]="selectedChartType" class="border rounded px-2 py-1">
+                            <option value="bar">Bar Chart</option>
+                            <option value="line">Line Chart</option>
+                            <option value="area">Area Chart</option>
+                            <option value="donut">Donut Chart</option>
+                            <option value="pie">Pie Chart</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1">Theme:</label>
+                        <select [(ngModel)]="selectedTheme" class="border rounded px-2 py-1">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-1">Data Labels:</label>
+                        <input type="checkbox" [(ngModel)]="enableDataLabels" class="mr-2">Show data labels
+                    </div>
+                </div>
+            </div>
+    
     <div class="mb-6 border p-4 rounded" [ngClass]="{'bg-gray-800': selectedTheme === 'dark'}">
         <!-- Axis charts (bar, line, area) -->
-        <app-chart *ngIf="['bar', 'line', 'area'].includes(selectedChartType)"
+        <flex-chart *ngIf="['bar', 'line', 'area'].includes(selectedChartType)"
             [type]="selectedChartType"
             [series]="getSeriesForSelectedChart()"
             [categories]="getCategoriesForSelectedChart()"
@@ -40,10 +135,10 @@
             [enableDataLabels]="enableDataLabels"
             [title]="selectedChartType.charAt(0).toUpperCase() + selectedChartType.slice(1) + ' Chart'"
             [legendPosition]="legendPosition">
-        </app-chart>
+        </flex-chart>
         
         <!-- Donut chart -->
-        <app-chart *ngIf="selectedChartType === 'donut'"
+        <flex-chart *ngIf="selectedChartType === 'donut'"
             [type]="'donut'"
             [values]="donutChartValues"
             [labels]="donutChartLabels"
@@ -55,10 +150,10 @@
             [centerValue]="donutCenterValue"
             [cornerRadius]="cornerRadius"
             [legendPosition]="legendPosition">
-        </app-chart>
+        </flex-chart>
         
         <!-- Pie chart -->
-        <app-chart *ngIf="selectedChartType === 'pie'"
+        <flex-chart *ngIf="selectedChartType === 'pie'"
             [type]="'pie'"
             [values]="pieChartValues"
             [labels]="pieChartLabels"
@@ -68,7 +163,7 @@
             [title]="'Pie Chart'"
             [cornerRadius]="cornerRadius"
             [legendPosition]="legendPosition">
-        </app-chart>
+        </flex-chart>
     </div>
     
     <h2 class="text-lg font-medium mb-2">Chart Customization</h2>
@@ -95,93 +190,103 @@
             </div>
         </div>
     </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Value Formatting</h2>
-    <div class="mb-6 border p-4 rounded">
-        <div class="grid grid-cols-2 gap-4">
+    <flex-code-block code="
+    div class=&quot;mb-6 border p-4 rounded&quot;>
+        <div class=&quot;grid grid-cols-2 gap-4&quot;>
             <div>
-                <h3 class="font-medium mb-2">Percentage Formatter</h3>
-                <app-chart
-                    [type]="'donut'"
-                    [values]="[25.2, 37.5, 15.8, 21.5]"
-                    [labels]="['Category A', 'Category B', 'Category C', 'Category D']"
-                    [height]="250"
-                    [theme]="'light'"
-                    [valueFormatter]="percentageFormatter"
-                    [enableDataLabels]="true">
-                </app-chart>
+                <h3 class=&quot;font-medium mb-2&quot;>Percentage Formatter</h3>
+                <flex-chart
+                    [type]=&quot;'donut'&quot;
+                    [values]=&quot;[25.2, 37.5, 15.8, 21.5]&quot;
+                    [labels]=&quot;['Category A', 'Category B', 'Category C', 'Category D']&quot;
+                    [height]=&quot;250&quot;
+                    [theme]=&quot;'light'&quot;
+                    [valueFormatter]=&quot;percentageFormatter&quot;
+                    [enableDataLabels]=&quot;true&quot;>
+                </flex-chart>
             </div>
-            <div>
-                <h3 class="font-medium mb-2">Currency Formatter</h3>
-                <app-chart
-                    [type]="'bar'"
-                    [series]="[{name: 'Revenue', data: [12500, 8700, 19600, 14300]}]"
-                    [categories]="['Q1', 'Q2', 'Q3', 'Q4']"
-                    [height]="250"
-                    [theme]="'light'"
-                    [valueFormatter]="currencyFormatter"
-                    [enableDataLabels]="true">
-                </app-chart>
-            </div>
+        <div>
+        <h3 class=&quot;font-medium mb-2&quot;>Currency Formatt</h3>
+        <flex-chart
+                [type]=&quot;'bar'&quot;
+                [series]=&quot;[{name: 'Revenue', data: [12500, 8700, 19600, 14300]}]&quot;
+                [categories]=&quot;['Q1', 'Q2', 'Q3', 'Q4']&quot;
+                [height]=&quot;250&quot;
+                [theme]=&quot;'light'&quot;
+                [valueFormatter]=&quot;currencyFormatter&quot;
+                [enableDataLabels]=&quot;true&quot;>
+            </flex-chart>
         </div>
     </div>
+    </div>
+
+    ">
+        <div preview>
+            <div class="mb-6 border p-4 rounded">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="font-medium mb-2">Percentage Formatter</h3>
+                        <flex-chart
+                            [type]="'donut'"
+                            [values]="[25.2, 37.5, 15.8, 21.5]"
+                            [labels]="['Category A', 'Category B', 'Category C', 'Category D']"
+                            [height]="250"
+                            [theme]="'light'"
+                            [valueFormatter]="percentageFormatter"
+                            [enableDataLabels]="true">
+                        </flex-chart>
+                    </div>
+                    <div>
+                        <h3 class="font-medium mb-2">Currency Formatter</h3>
+                        <flex-chart
+                            [type]="'bar'"
+                            [series]="[{name: 'Revenue', data: [12500, 8700, 19600, 14300]}]"
+                            [categories]="['Q1', 'Q2', 'Q3', 'Q4']"
+                            [height]="250"
+                            [theme]="'light'"
+                            [valueFormatter]="currencyFormatter"
+                            [enableDataLabels]="true">
+                        </flex-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Dynamic Data Updates</h2>
-    <div class="mb-6 border p-4 rounded">
-        <button (click)="updateChartData()" class="mb-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+    <flex-code-block code="
+    <div class=&quot;mb-6 border p-4 rounded&quot;>
+        <button (click)=&quot;updateChartData()&quot; class=&quot;mb-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded&quot;>
             Update Chart Data
         </button>
-        <app-chart
-            [type]="'bar'"
-            [series]="[{name: 'Live Updates', data: liveUpdateData}]"
-            [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
-            [height]="250">
-        </app-chart>
-        <p class="mt-2 text-sm text-gray-600">Click the button to update the chart data with random values.</p>
-    </div>
-    
-    <!-- <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic bar chart --&gt;
-&lt;app-chart
-  [type]="'bar'"
-  [series]="[{name: 'Sales', data: [44, 55, 57, 56, 61, 58]}]"
-  [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
-  [height]="320"
-  [title]="'Monthly Sales'"&gt;
-&lt;/app-chart&gt;
-
-&lt;!-- Line chart --&gt;
-&lt;app-chart
-  [type]="'line'"
-  [series]="lineChartSeries"
-  [categories]="lineChartCategories"
-  [height]="320"
-  [title]="'Weekly Traffic'"&gt;
-&lt;/app-chart&gt;
-
-&lt;!-- Donut chart with custom center label --&gt;
-&lt;app-chart
-  [type]="'donut'"
-  [values]="[44, 55, 13, 33]"
-  [labels]="['Team A', 'Team B', 'Team C', 'Team D']"
-  [centerLabel]="'Total'"
-  [centerValue]="'145'"
-  [height]="320"&gt;
-&lt;/app-chart&gt;
-
-&lt;!-- Pie chart with custom formatting --&gt;
-&lt;app-chart
-  [type]="'pie'"
-  [values]="pieChartValues"
-  [labels]="pieChartLabels"
-  [valueFormatter]="percentageFormatter"
-  [enableDataLabels]="true"
-  [height]="320"&gt;
-&lt;/app-chart&gt;
-        </pre>
-    </div> -->
+        <flex-chart
+            [type]=&quot;'bar'&quot;
+            [series]=&quot;[{name: 'Live Updates', data: liveUpdateData}]&quot;
+            [categories]=&quot;['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']&quot;
+            [height]=&quot;250&quot;>
+        </flex-chart>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Click the button to update the chart data with random values.</p>
+    </div> 
+        ">
+        <div preview>
+            <div class="mb-6 border p-4 rounded">
+                <button (click)="updateChartData()" class="mb-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                    Update Chart Data
+                </button>
+                <flex-chart
+                    [type]="'bar'"
+                    [series]="[{name: 'Live Updates', data: liveUpdateData}]"
+                    [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
+                    [height]="250">
+                </flex-chart>
+                <p class="mt-2 text-sm text-gray-600">Click the button to update the chart data with random values.</p>
+            </div>
+        </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Common Properties</h2>

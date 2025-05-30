@@ -12,7 +12,7 @@ import {
   import { ScrollingModule, CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
   
   @Component({
-    selector: 'app-virtual-scroll-paginator',
+    selector: 'flex-virtual-scroll-paginator',
     standalone: true,
     imports: [CommonModule, ScrollingModule],
     template: `

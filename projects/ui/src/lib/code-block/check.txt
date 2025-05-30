@@ -1,0 +1,70 @@
+<div class="mb-6 border p-4 rounded">
+  <flex-tab-group 
+    [tabs]="basicTabs" 
+    [activeTabId]="activeTabId"
+    (tabChange)="onTabChange($event)">
+  </flex-tab-group>
+
+<div class=" mt-4 bg-gray-50 p-4 rounded border">
+  <ng-container *ngIf="activeTabId === 'preview'; else codeContent">
+    <div #previewContainer [ngClass]="isDark ? 'bg-gray-900 text-white-200' : 'bg-gray-50 text-gray-900'" class="flex items-center justify-between py-4 px-4 transition-colors duration-300 rounded-b">
+      <ng-content select="[preview]"> </ng-content>
+    </div>
+          
+    <div class="flex items-center justify-between py-2 mt-2 border-t rounded-b">
+      <button (click)="toggleDark()" class="text-xs px-3 py-1 border rounded cursor-pointer">
+        <ng-container *ngIf="isDark; else sunIcon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+          </svg>
+        </ng-container>
+        <ng-template #sunIcon>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71-.71M21 12h-1M4 12H3m16.66 4.95l-.71-.71M4.05 4.05l-.71.71M12 7a5 5 0 100 10 5 5 0 000-10z" />
+          </svg>
+          </ng-template>
+          <span class="sr-only">Toggle Dark Mode</span>
+      </button>
+    </div>       
+  </ng-container>
+    <ng-template #codeContent>  
+      <div class="">
+        <!-- <pre [ngClass]="isDark ? 'bg-gray-900 text-green-200' : 'bg-gray-50 text-gray-900'" class="transition-colors duration-300 [border-radius:5px] p-2 rounded-b overflow-auto"> -->
+        <pre class="transition-colors duration-300 [border-radius:5px] p-2 rounded-b overflow-auto bg-gray-900 text-green-200">
+          <code>{{ code }}</code>
+           <!-- <code [innerHTML]="code"></code> -->
+        </pre>
+        <div class="flex items-center justify-between py-2 mt-2 border-t rounded-b">
+          <div class="flex gap-2">
+            <!-- <button (click)="toggleDark()" class="text-xs px-3 py-1 border rounded cursor-pointer">
+              <ng-container *ngIf="isDark; else sunIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                </svg>
+              </ng-container>
+              <ng-template #sunIcon>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71-.71M21 12h-1M4 12H3m16.66 4.95l-.71-.71M4.05 4.05l-.71.71M12 7a5 5 0 100 10 5 5 0 000-10z" />
+                </svg>
+              </ng-template>
+              <span class="sr-only">Toggle Dark Mode</span>
+            </button> -->
+          </div>
+
+          <button (click)="copyCode()" class="text-xs px-3 py-1 border rounded cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M16 2H8c-1.1 0-2 .9-2 2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-2c0-1.1-.9-2-2-2zm-4 2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm6 16H6V6h2v2h8V6h2v14z"/>
+            </svg>
+            <span class="ml-2" *ngIf="!copySuccess">Copy</span>
+            <span class="ml-2" *ngIf="copySuccess">Copied</span>
+          </button>
+        </div>
+      </div>
+
+    </ng-template>
+  </div>
+</div> 

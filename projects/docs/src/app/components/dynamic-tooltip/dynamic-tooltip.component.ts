@@ -5,6 +5,7 @@ import { DynamicTooltipComponent } from '../../../../../ui/src/lib/dynamic-toolt
 import { DynamicTooltipTriggerComponent } from '../../../../../ui/src/lib/dynamic-tooltip/dynamic-tooltip-trigger.component';
 import { DynamicTooltipContentComponent } from '../../../../../ui/src/lib/dynamic-tooltip/dynamic-tooltip-content.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component'; // If you use flex-button or similar
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -14,7 +15,7 @@ import { ButtonComponent } from '../../../../../ui/src/lib/button/button.compone
     DynamicTooltipComponent,
     DynamicTooltipTriggerComponent,
     DynamicTooltipContentComponent,
-    ButtonComponent // Ensure this is imported if used in the HTML template
+    CodeBlockComponent
   ],
   templateUrl: './dynamic-tooltip.component.html',
 })

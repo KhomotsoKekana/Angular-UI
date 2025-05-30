@@ -10,7 +10,7 @@
               tooltipVariant="primary" *ngIf="item.position != 'bottom' && !item.hidden"
               [variant]="item.isActive ? 'primaryGhost' : 'ghost'" [routerLink]="item.url"
               class="flex items-center w-full h-10 p-2 gap-x-4" [ngClass]="{ 'justify-center': collapsed}">
-              <app-icon icon={{item.icon}} class="h-6 w-6" />
+              <flex-icon icon={{item.icon}} class="h-6 w-6" />
               <span *ngIf="!collapsed" class="text-sm">{{ item.title | translate}}</span>
               <span *ngIf="item.badge && item.badge > 0" class="absolute -top-1 -right-2 bg-red-600 text-white text-[9px] px-1 h-4 w-4 flex items-center justify-center py-1 rounded-full">
                 {{ item.badge }}
@@ -26,7 +26,7 @@
               [appTooltip]="item.title | translate" tooltipVariant="primary" [routerLink]="item.url"
               class="flex items-center w-full h-10 p-2 gap-x-4"
               [variant]="item.isActive ? 'primary' : 'ghost'" [ngClass]="{'justify-center': collapsed}">
-              <app-icon icon={{item.icon}} class="h-6 w-6" />
+              <flex-icon icon={{item.icon}} class="h-6 w-6" />
               <span *ngIf="!collapsed" class="text-sm">{{ item.title | translate }}</span>
             </flex-button>
           </li>
@@ -39,8 +39,8 @@
   <div class="p-2 border-t flex items-center justify-center gap-x-2 overflow-hidden w-full relative">
     <flex-button tooltipPosition="right" [appTooltip]="'SIDEBAR.TOGGLE_SIDEBAR' | translate" tooltipVariant="primary"
       class="w-full flex items-center justify-center" variant="ghost" (click)="toggleSidebar()">
-      <app-icon *ngIf="!collapsed" icon="layoutSidebarClose"></app-icon>
-      <app-icon *ngIf="collapsed" icon="layoutSidebarExpand"></app-icon>
+      <flex-icon *ngIf="!collapsed" icon="layoutSidebarClose"></flex-icon>
+      <flex-icon *ngIf="collapsed" icon="layoutSidebarExpand"></flex-icon>
       <span *ngIf="!collapsed"
         class="text-sm font-medium transition-all ease-in-out animate-fade-in duration-500">{{'SIDEBAR.TOGGLE_SIDEBAR' |
         translate}}</span>
@@ -57,7 +57,7 @@
         [appTooltip]="item.title | translate" tooltipVariant="primary" [routerLink]="item.url"
         class="flex items-center justify-center w-full h-full rounded-none"
         [variant]="item.isActive ? 'primary' : 'ghost'">
-        <app-icon [icon]="item.icon" class="h-4 w-4" />
+        <flex-icon [icon]="item.icon" class="h-4 w-4" />
         <!-- Optionally show text below the icon -->
         <span class="text-xs">{{ item.title | translate }}</span>
       </flex-button>

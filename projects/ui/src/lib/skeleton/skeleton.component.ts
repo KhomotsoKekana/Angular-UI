@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-skeleton',
+  selector: 'flex-skeleton',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './skeleton.component.html',

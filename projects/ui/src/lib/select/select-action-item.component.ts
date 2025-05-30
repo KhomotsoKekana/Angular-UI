@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ContentChild, ElementRef, EventEmitter, HostListener, Input, Output, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'app-select-action-item',
+  selector: 'flex-select-action-item',
   standalone: true,
   imports: [CommonModule],
   template: `

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataTableComponent, ColumnTemplateDirective, Column, PageEvent, Sort } from '../../../../../ui/src/lib/data-table/data-table.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, DataTableComponent, ColumnTemplateDirective],
+  imports: [CommonModule, DataTableComponent, ColumnTemplateDirective,CodeBlockComponent],
   templateUrl: './data-table.component.html',
 })
 export class DocsDataTableComponent {

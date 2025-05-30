@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-custom-paginator',
+  selector: 'flex-custom-paginator',
   templateUrl: './paginator.component.html',
   imports: [CommonModule, FormsModule, IconComponent],
 })

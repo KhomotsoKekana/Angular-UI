@@ -6,6 +6,7 @@ import { CustomerProfileIllustration } from '../../../../../ui/src/lib/illustrat
 import { IllustrationNoData } from '../../../../../ui/src/lib/illustrations/no-data-illustration.component';
 import { IllustrationServer } from '../../../../../ui/src/lib/illustrations/server-illustration.component';
 import { IllustrationWarning } from '../../../../../ui/src/lib/illustrations/warning-illustration.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -16,7 +17,8 @@ import { IllustrationWarning } from '../../../../../ui/src/lib/illustrations/war
     CustomerProfileIllustration,
     IllustrationNoData,
     IllustrationServer,
-    IllustrationWarning
+    IllustrationWarning,
+    CodeBlockComponent
   ],
   templateUrl: './illustrations.component.html',
 })

@@ -1,7 +1,7 @@
 import { Component, HostListener, Output, EventEmitter, ContentChild, TemplateRef, Input, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'app-popover-trigger',
+  selector: 'flex-popover-trigger',
   standalone:true,
   template: `<ng-content></ng-content>`,
 })

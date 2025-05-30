@@ -26,7 +26,7 @@ export type ButtonVariant = 'default' | 'primary' | 'primaryGhost' | 'secondary'
         [disabled]="disabled"
         [class]="getButtonClasses()"
         (click)="onToggle()">
-        <app-icon *ngIf="loading" icon="loading" class="animate-spin rounded-full h-4 w-4" />
+        <flex-icon *ngIf="loading" icon="loading" class="animate-spin rounded-full h-4 w-4" />
         <ng-content></ng-content>
       </button>
     </div>

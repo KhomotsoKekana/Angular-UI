@@ -5,7 +5,7 @@ import { IconComponent } from '../icons/icon.component';
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-input',
+  selector: 'flex-input',
   standalone: true,
   imports: [IconComponent, CommonModule, FormsModule],
   templateUrl: './input.component.html',

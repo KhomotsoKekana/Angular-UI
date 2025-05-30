@@ -21,7 +21,7 @@ interface TabRender extends Tab {
 
 
 @Component({
-  selector: 'app-tabs',
+  selector: 'flex-tabs',
   standalone: true,
   imports: [CommonModule, IconComponent, StandardIconComponent],
   templateUrl: './tabs.component.html',

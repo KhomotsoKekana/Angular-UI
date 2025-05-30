@@ -3,108 +3,201 @@
     <p class="mb-4">A dropdown selection component that allows users to choose a single value from a list of options.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Select</h2>
-    <div class="max-w-md mb-6">
-        <app-select [(ngModel)]="selectedOption" placeholder="Select a fruit">
-            <app-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
-                {{ fruit.label }}
-            </app-select-item>
-        </app-select>
-        <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedOption || 'None' }}</p>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select [(ngModel)]=&quot;selectedOption&quot; placeholder=&quot;Select a fruit&quot;>
+            <flex-select-item *ngFor=&quot;let fruit of fruits&quot; [key]=&quot;fruit.key&quot;>
+                {{ &quot;fruit.label }}
+            </flex-select-item>
+        </flex-select>
+        <p class=&quot;mt-1 text-sm text-gray-600&quot;>Selected value: {{ selectedOption || 'None' }}</p>
     </div>
+    ">
+        <div class="max-w-md mb-6" preview>
+            <flex-select [(ngModel)]="selectedOption" placeholder="Select a fruit">
+                <flex-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
+                    {{ fruit.label }}
+                </flex-select-item>
+            </flex-select>
+            <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedOption || 'None' }}</p>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">With Sections</h2>
-    <div class="max-w-md mb-6">
-        <app-select [(ngModel)]="selectedSection" placeholder="Select a category">
-            <app-select-section title="Fruits">
-                <app-select-item key="apple">Apple</app-select-item>
-                <app-select-item key="banana">Banana</app-select-item>
-                <app-select-item key="orange">Orange</app-select-item>
-            </app-select-section>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select [(ngModel)]=&quot;selectedSection&quot; placeholder=&quot;Select a category&quot;>
+            <flex-select-section title=&quot;Fruits&quot;>
+                <flex-select-item key=&quot;apple&quot;>Apple</flex-select-item>
+                <flex-select-item key=&quot;banana&quot;>Banana</flex-select-item>
+                <flex-select-item key=&quot;orange&quot;>Orange</flex-select-item>
+            </flex-select-section>
             
-            <app-select-section title="Vegetables">
-                <app-select-item key="carrot">Carrot</app-select-item>
-                <app-select-item key="broccoli">Broccoli</app-select-item>
-                <app-select-item key="spinach">Spinach</app-select-item>
-            </app-select-section>
-        </app-select>
+            <flex-select-section title=&quot;Vegetables&quot;>
+                <flex-select-item key=&quot;carrot&quot;>Carrot</flex-select-item>
+                <flex-select-item key=&quot;broccoli&quot;>Broccoli</flex-select-item>
+                <flex-select-item key=&quot;spinach&quot;>Spinach</flex-select-item>
+            </flex-select-section>
+        </flex-select>
+        <p class=&quot;mt-1 text-sm text-gray-600&quot;>Selected value: {{ selectedSection || 'None' }}</p>
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select [(ngModel)]="selectedSection" placeholder="Select a category">
+            <flex-select-section title="Fruits">
+                <flex-select-item key="apple">Apple</flex-select-item>
+                <flex-select-item key="banana">Banana</flex-select-item>
+                <flex-select-item key="orange">Orange</flex-select-item>
+            </flex-select-section>
+            
+            <flex-select-section title="Vegetables">
+                <flex-select-item key="carrot">Carrot</flex-select-item>
+                <flex-select-item key="broccoli">Broccoli</flex-select-item>
+                <flex-select-item key="spinach">Spinach</flex-select-item>
+            </flex-select-section>
+        </flex-select>
         <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedSection || 'None' }}</p>
     </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Searchable Select</h2>
-    <div class="max-w-md mb-6">
-        <app-select 
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select 
+            [(ngModel)]=&quot;selectedSearchable&quot; 
+            placeholder=&quot;Search languages&quot; 
+            [enableSearch]=&quot;true&quot;
+            [isDynamicSearch]=&quot;true&quot;
+            (searchValueChange)=&quot;onSearchChange($event)&quot;>
+            <flex-select-item *ngFor=&quot;let item of filteredItems&quot; [key]=&quot;item.key&quot;>
+                {{ &quot;item.label }}
+            </flex-select-item>
+        </flex-select>
+        <p class=&quot;mt-1 text-sm text-gray-600&quot;>Selected value: {{ selectedSearchable || 'None' }}</p>
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select 
             [(ngModel)]="selectedSearchable" 
             placeholder="Search languages" 
             [enableSearch]="true"
             [isDynamicSearch]="true"
             (searchValueChange)="onSearchChange($event)">
-            <app-select-item *ngFor="let item of filteredItems" [key]="item.key">
+            <flex-select-item *ngFor="let item of filteredItems" [key]="item.key">
                 {{ item.label }}
-            </app-select-item>
-        </app-select>
+            </flex-select-item>
+        </flex-select>
         <p class="mt-1 text-sm text-gray-600">Selected value: {{ selectedSearchable || 'None' }}</p>
     </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">With Icons</h2>
-    <div class="max-w-md mb-6">
-        <app-select icon="globe" placeholder="Select country">
-            <app-select-item key="us">United States</app-select-item>
-            <app-select-item key="ca">Canada</app-select-item>
-            <app-select-item key="uk">United Kingdom</app-select-item>
-            <app-select-item key="au">Australia</app-select-item>
-        </app-select>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select icon=&quot;globe&quot; placeholder=&quot;Select country&quot;>
+            <flex-select-item key=&quot;us&quot;>United States</flex-select-item>
+            <flex-select-item key=&quot;ca&quot;>Canada</flex-select-item>
+            <flex-select-item key=&quot;uk&quot;>United Kingdom</flex-select-item>
+            <flex-select-item key=&quot;au&quot;>Australia</flex-select-item>
+        </flex-select>
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select icon="globe" placeholder="Select country">
+            <flex-select-item key="us">United States</flex-select-item>
+            <flex-select-item key="ca">Canada</flex-select-item>
+            <flex-select-item key="uk">United Kingdom</flex-select-item>
+            <flex-select-item key="au">Australia</flex-select-item>
+        </flex-select>
     </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Loading State</h2>
-    <div class="max-w-md mb-6">
-        <app-select [loading]="true" placeholder="Loading options...">
-        </app-select>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select [loading]=&quot;true&quot; placeholder=&quot;Loading options...&quot;>
+        </flex-select>
+    <p class=&quot;mt-1 text-sm text-gray-600&quot;>Loading state selector</p>
+
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select [loading]="true" placeholder="Loading options...">
+        </flex-select>
+    <p class="mt-1 text-sm text-gray-600">Loading state selector</p>
+
     </div>
+    
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Disabled State</h2>
-    <div class="max-w-md mb-6">
-        <app-select [disabled]="true" placeholder="Select option (disabled)">
-            <app-select-item key="1">Option 1</app-select-item>
-            <app-select-item key="2">Option 2</app-select-item>
-            <app-select-item key="3">Option 3</app-select-item>
-        </app-select>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select [disabled]=&quot;true&quot; placeholder=&quot;Select option (disabled)&quot;>
+            <flex-select-item key=&quot;1&quot;>Option 1</flex-select-item>
+            <flex-select-item key=&quot;2&quot;>Option 2</flex-select-item>
+            <flex-select-item key=&quot;3&quot;>Option 3</flex-select-item>
+        </flex-select>
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select [disabled]="true" placeholder="Select option (disabled)">
+            <flex-select-item key="1">Option 1</flex-select-item>
+            <flex-select-item key="2">Option 2</flex-select-item>
+            <flex-select-item key="3">Option 3</flex-select-item>
+        </flex-select>
     </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Action Items</h2>
-    <div class="max-w-md mb-6">
-        <app-select placeholder="Select with actions">
-            <app-select-item key="1">Option 1</app-select-item>
-            <app-select-item key="2">Option 2</app-select-item>
-            <app-select-item key="3">Option 3</app-select-item>
-            <app-select-action-item>Add new option...</app-select-action-item>
-        </app-select>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-select placeholder=&quot;Select with actions&quot;>
+            <flex-select-item key=&quot;1&quot;>Option 1</flex-select-item>
+            <flex-select-item key=&quot;2&quot;>Option 2</flex-select-item>
+            <flex-select-item key=&quot;3&quot;>Option 3</flex-select-item>
+            <flex-select-action-item>Add new option...</flex-select-action-item>
+        </flex-select>
+    </div>    
+    ">
+    <div class="max-w-md mb-6" preview>
+        <flex-select placeholder="Select with actions">
+            <flex-select-item key="1">Option 1</flex-select-item>
+            <flex-select-item key="2">Option 2</flex-select-item>
+            <flex-select-item key="3">Option 3</flex-select-item>
+            <flex-select-action-item>Add new option...</flex-select-action-item>
+        </flex-select>
     </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Multi-Select Component</h2>
-    <div class="max-w-md mb-6 border border-gray-200 rounded p-4">
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6 border border-gray-200 rounded p-4&quot;>
+        <p class=&quot;text-sm text-gray-600 mb-4&quot;>The MultiSelect component allows users to select multiple values from a list.</p>
+        <flex-multi-select 
+            [(ngModel)]=&quot;selectedMultiSelect&quot; 
+            placeholder=&quot;Select languages&quot;
+            label=&quot;Programming Languages&quot;>
+            <flex-select-item *ngFor=&quot;let fruit of fruits&quot; [key]=&quot;fruit.key&quot;>
+                {{ &quot;fruit.label }}
+            </flex-select-item>
+        </flex-multi-select>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Selected values: {{ selectedMultiSelect.length ? selectedMultiSelect.join(', ') : 'None' }}</p>
+    </div>    
+    ">
+    <div class="max-w-md mb-6 border border-gray-200 rounded p-4" preview>
         <p class="text-sm text-gray-600 mb-4">The MultiSelect component allows users to select multiple values from a list.</p>
-        <app-multi-select 
+        <flex-multi-select 
             [(ngModel)]="selectedMultiSelect" 
             placeholder="Select languages"
             label="Programming Languages">
-            <app-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
+            <flex-select-item *ngFor="let fruit of fruits" [key]="fruit.key">
                 {{ fruit.label }}
-            </app-select-item>
-        </app-multi-select>
+            </flex-select-item>
+        </flex-multi-select>
         <p class="mt-2 text-sm text-gray-600">Selected values: {{ selectedMultiSelect.length ? selectedMultiSelect.join(', ') : 'None' }}</p>
-        
-        <!-- <div class="mt-4">
-            <h3 class="text-md font-medium mb-2">Max Selection Example</h3>
-            <app-multi-select 
-                [maxSelection]="2"
-                placeholder="Select up to 2 languages"
-                label="Limited Selection">
-                <app-select-item *ngFor="let lang of languages" [key]="lang.key">
-                    {{ lang.label }}
-                </app-select-item>
-            </app-multi-select>
-        </div> -->
     </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Properties</h2>

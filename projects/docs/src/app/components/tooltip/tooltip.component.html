@@ -3,103 +3,208 @@
     <p class="mb-4">A small pop-up element that appears when the user hovers over or focuses on an element, providing additional information.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Tooltip</h2>
-    <div class="mb-6 flex items-center gap-4">
-        <div class="relative inline-flex">
-            <flex-button #tooltipTrigger1 (mouseenter)="tooltip1.visible = true" (mouseleave)="tooltip1.visible = false">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6 flex items-center gap-4&quot;>
+        <div class=&quot;relative inline-flex&quot;>
+            <flex-button #tooltipTrigger1 (mouseenter)=&quot;tooltip1.visible = true&quot; (mouseleave)=&quot;tooltip1.visible = false&quot;>
                 Hover Me
             </flex-button>
-            <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
-                <app-tooltip #tooltip1 text="This is a basic tooltip"></app-tooltip>
+            <div class=&quot;absolute&quot; [ngClass]=&quot;{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}&quot;>
+                <flex-tooltip #tooltip1 text=&quot;This is a basic tooltip&quot;></flex-tooltip>
             </div>
         </div>
-        <div class="relative inline-flex">
-            <flex-button #tooltipTrigger2 variant="outline" (mouseenter)="tooltip2.visible = true" (mouseleave)="tooltip2.visible = false" (click)="tooltip2.visible = !tooltip2.visible">
+        <div class=&quot;relative inline-flex&quot;>
+            <flex-button #tooltipTrigger2 variant=&quot;outline&quot; (mouseenter)=&quot;tooltip2.visible = true&quot; (mouseleave)=&quot;tooltip2.visible = false&quot; (click)=&quot;tooltip2.visible = !tooltip2.visible&quot;>
                 Click or Hover Me
             </flex-button>
-            <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
-                <app-tooltip #tooltip2 text="Click or hover interaction"></app-tooltip>
+            <div class=&quot;absolute&quot; [ngClass]=&quot;{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}&quot;>
+                <flex-tooltip #tooltip2 text=&quot;Click or hover interaction&quot;></flex-tooltip>
             </div>
         </div>
-    </div>
+    </div>    
+    `">
+        <div class="mb-6 flex items-center gap-4" preview>
+            <div class="relative inline-flex">
+                <flex-button #tooltipTrigger1 (mouseenter)="tooltip1.visible = true" (mouseleave)="tooltip1.visible = false">
+                    Hover Me
+                </flex-button>
+                <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
+                    <flex-tooltip #tooltip1 text="This is a basic tooltip"></flex-tooltip>
+                </div>
+            </div>
+            <div class="relative inline-flex">
+                <flex-button #tooltipTrigger2 variant="outline" (mouseenter)="tooltip2.visible = true" (mouseleave)="tooltip2.visible = false" (click)="tooltip2.visible = !tooltip2.visible">
+                    Click or Hover Me
+                </flex-button>
+                <div class="absolute" [ngClass]="{'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': true}">
+                    <flex-tooltip #tooltip2 text="Click or hover interaction"></flex-tooltip>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Positions</h2>
-    <div class="mb-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-            <div *ngFor="let position of positions" class="relative inline-flex">
-                <flex-button (mouseenter)="positionTooltip.visible = true; selectedPosition = position" 
-                             (mouseleave)="positionTooltip.visible = false">
+    <flex-code-block [code]="`
+    <div class=&quotmb-6&quot>
+        <div class=&quotgrid grid-cols-2 md:grid-cols-4 gap-4 mb-4&quot>
+            <div *ngFor=&quotlet position of positions&quot class=&quotrelative inline-flex&quot>
+                <flex-button (mouseenter)=&quotpositionTooltip.visible = true; selectedPosition = position&quot 
+                             (mouseleave)=&quotpositionTooltip.visible = false&quot>
                     {{ position }}
                 </flex-button>
-                <div class="absolute" [ngClass]="{
+                <div class=&quotabsolute&quot [ngClass]=&quot{
                     'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': position === 'top',
                     'bottom-0 left-1/2 -translate-x-1/2 translate-y-full mt-2': position === 'bottom',
                     'top-1/2 left-0 -translate-y-1/2 -translate-x-full mr-2': position === 'left',
                     'top-1/2 right-0 -translate-y-1/2 translate-x-full ml-2': position === 'right'
-                }">
-                    <app-tooltip #positionTooltip [position]="selectedPosition" [text]="'Tooltip on ' + selectedPosition"></app-tooltip>
+                }&quot>
+                    <flex-tooltip #positionTooltip [position]=&quotselectedPosition&quot [text]=&quot'Tooltip on ' + selectedPosition&quot></flex-tooltip>
                 </div>
             </div>
         </div>
     </div>
-    
+    `">
+        <div class="mb-6" preview>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div *ngFor="let position of positions" class="relative inline-flex">
+                    <flex-button (mouseenter)="positionTooltip.visible = true; selectedPosition = position" 
+                                (mouseleave)="positionTooltip.visible = false">
+                        {{ position }}
+                    </flex-button>
+                    <div class="absolute" [ngClass]="{
+                        'top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2': position === 'top',
+                        'bottom-0 left-1/2 -translate-x-1/2 translate-y-full mt-2': position === 'bottom',
+                        'top-1/2 left-0 -translate-y-1/2 -translate-x-full mr-2': position === 'left',
+                        'top-1/2 right-0 -translate-y-1/2 translate-x-full ml-2': position === 'right'
+                    }">
+                        <flex-tooltip #positionTooltip [position]="selectedPosition" [text]="'Tooltip on ' + selectedPosition"></flex-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
+
     <h2 class="text-lg font-medium mb-2">Variants</h2>
-    <div class="mb-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div *ngFor="let variant of variants" class="relative inline-flex">
-                <flex-button [variant]="variant === 'default' ? 'primary' : variant" 
-                             (mouseenter)="variantTooltip.visible = true; selectedVariant = variant" 
-                             (mouseleave)="variantTooltip.visible = false">
+    <flex-code-block [code]="`
+    <div class=&quot; mb-6&quot; >
+        <div class=&quot; grid grid-cols-2 md:grid-cols-4 gap-4&quot; >
+            <div *ngFor=&quot; let variant of variants&quot;  class=&quot; relative inline-flex&quot; >
+                <flex-button [variant]=&quot; variant === 'default' ? 'primary' : variant&quot;  
+                             (mouseenter)=&quot; variantTooltip.visible = true; selectedVariant = variant&quot;  
+                             (mouseleave)=&quot; variantTooltip.visible = false&quot; >
                     {{ variant }}
                 </flex-button>
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
-                    <app-tooltip #variantTooltip [variant]="selectedVariant" [text]="variant + ' variant'"></app-tooltip>
+                <div class=&quot; absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2&quot; >
+                    <flex-tooltip #variantTooltip [variant]=&quot; selectedVariant&quot;  [text]=&quot; variant + ' variant'&quot; ></flex-tooltip>
                 </div>
             </div>
         </div>
     </div>
+    `">
+        <div class="mb-6" preview>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div *ngFor="let variant of variants" class="relative inline-flex">
+                    <flex-button [variant]="variant === 'default' ? 'primary' : variant" 
+                                (mouseenter)="variantTooltip.visible = true; selectedVariant = variant" 
+                                (mouseleave)="variantTooltip.visible = false">
+                        {{ variant }}
+                    </flex-button>
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                        <flex-tooltip #variantTooltip [variant]="selectedVariant" [text]="variant + ' variant'"></flex-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Custom Styling</h2>
-    <div class="mb-6">
-        <div class="mb-4 flex flex-wrap gap-6">
+    <flex-code-block [code]="`
+     <div class=&quot;mb-6&quot;>
+        <div class=&quot;mb-4 flex flex-wrap gap-6&quot;>
             <div>
-                <label class="block text-sm font-medium mb-1">Background Color</label>
-                <input type="color" [(ngModel)]="customBgColor" class="p-1 border rounded">
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Background Color</label>
+                <input type=&quot;color&quot; [(ngModel)]=&quot;customBgColor&quot; class=&quot;p-1 border rounded&quot;>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Text Color</label>
-                <input type="color" [(ngModel)]="customTextColor" class="p-1 border rounded">
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Text Color</label>
+                <input type=&quot;color&quot; [(ngModel)]=&quot;customTextColor&quot; class=&quot;p-1 border rounded&quot;>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Max Width</label>
-                <input type="text" [(ngModel)]="customMaxWidth" class="p-1 border rounded w-24">
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Max Width</label>
+                <input type=&quot;text&quot; [(ngModel)]=&quot;customMaxWidth&quot; class=&quot;p-1 border rounded w-24&quot;>
             </div>
         </div>
-        <div class="relative inline-flex">
-            <flex-button (mouseenter)="customTooltip.visible = true" (mouseleave)="customTooltip.visible = false">
+        <div class=&quot;relative inline-flex&quot;>
+            <flex-button (mouseenter)=&quot;customTooltip.visible = true&quot; (mouseleave)=&quot;customTooltip.visible = false&quot;>
                 Custom Tooltip
             </flex-button>
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
-                <app-tooltip #customTooltip 
-                    text="This tooltip has custom styling applied to it"
-                    [bgColor]="customBgColor"
-                    [textColor]="customTextColor"
-                    [maxWidth]="customMaxWidth">
-                </app-tooltip>
+            <div class=&quot;absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2&quot;>
+                <flex-tooltip #customTooltip 
+                    text=&quot;This tooltip has custom styling applied to it&quot;
+                    [bgColor]=&quot;customBgColor&quot;
+                    [textColor]=&quot;customTextColor&quot;
+                    [maxWidth]=&quot;customMaxWidth&quot;>
+                </flex-tooltip>
             </div>
         </div>
     </div>
     
+    `">
+        <div class="mb-6" preview>
+            <div class="mb-4 flex flex-wrap gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Background Color</label>
+                    <input type="color" [(ngModel)]="customBgColor" class="p-1 border rounded">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Text Color</label>
+                    <input type="color" [(ngModel)]="customTextColor" class="p-1 border rounded">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Max Width</label>
+                    <input type="text" [(ngModel)]="customMaxWidth" class="p-1 border rounded w-24">
+                </div>
+            </div>
+            <div class="relative inline-flex">
+                <flex-button (mouseenter)="customTooltip.visible = true" (mouseleave)="customTooltip.visible = false">
+                    Custom Tooltip
+                </flex-button>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                    <flex-tooltip #customTooltip 
+                        text="This tooltip has custom styling applied to it"
+                        [bgColor]="customBgColor"
+                        [textColor]="customTextColor"
+                        [maxWidth]="customMaxWidth">
+                    </flex-tooltip>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
+
     <h2 class="text-lg font-medium mb-2">Long Content</h2>
-    <div class="mb-6">
-        <div class="relative inline-flex">
-            <flex-button variant="outline" (mouseenter)="longTooltip.visible = true" (mouseleave)="longTooltip.visible = false">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;relative inline-flex&quot;>
+            <flex-button variant=&quot;outline&quot; (mouseenter)=&quot;longTooltip.visible = true&quot; (mouseleave)=&quot;longTooltip.visible = false&quot;>
                 Hover for Details
             </flex-button>
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
-                <app-tooltip #longTooltip text="This tooltip contains a longer explanation which will be constrained by the maxWidth property and will wrap to multiple lines if necessary." maxWidth="250px"></app-tooltip>
+            <div class=&quot;absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2&quot;>
+                <flex-tooltip #longTooltip text=&quot;This tooltip contains a longer explanation which will be constrained by the maxWidth property and will wrap to multiple lines if necessary.&quot; maxWidth=&quot;250px&quot;></flex-tooltip>
             </div>
         </div>
     </div>
+    `">
+        <div class="mb-6" preview>
+            <div class="relative inline-flex">
+                <flex-button variant="outline" (mouseenter)="longTooltip.visible = true" (mouseleave)="longTooltip.visible = false">
+                    Hover for Details
+                </flex-button>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2">
+                    <flex-tooltip #longTooltip text="This tooltip contains a longer explanation which will be constrained by the maxWidth property and will wrap to multiple lines if necessary." maxWidth="250px"></flex-tooltip>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
@@ -115,11 +220,11 @@
   &lt;!-- Container for positioning the tooltip --&gt;
   &lt;div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full"&gt;
     &lt;!-- The tooltip component itself --&gt;
-    &lt;app-tooltip #tooltip 
+    &lt;flex-tooltip #tooltip 
       text="This is a tooltip"
       position="top"
       variant="default"&gt;
-    &lt;/app-tooltip&gt;
+    &lt;/flex-tooltip&gt;
   &lt;/div&gt;
 &lt;/div&gt;
         </pre>

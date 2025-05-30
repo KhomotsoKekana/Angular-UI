@@ -11,8 +11,8 @@
     [disabled]="tab.disabled" [tabIndex]="isActive(tab.id) ? 0 : -1" (click)="selectTab(tab)">
 
     <!-- Icon -->
-    <app-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 sm:h-4 sm:w-4 flex-shrink-0"
-      [icon]="tab.icon"></app-icon>
+    <flex-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 sm:h-4 sm:w-4 flex-shrink-0"
+      [icon]="tab.icon"></flex-icon>
 
     <!-- Label with optional translation -->
     <span class="text-xs sm:text-sm">
@@ -22,33 +22,33 @@
 </div>
 
 <div *ngIf="isMobile && responsive" class="block sm:hidden">
-  <app-dropdown>
-    <app-dropdown-trigger
+  <flex-dropdown>
+    <flex-dropdown-trigger
       class="w-full flex items-center justify-between px-3 gap-2 py-1.5 text-sm font-medium border-b hover:border-primary bg-background hover:bg-muted/50 transition-colors">
-      <app-icon icon="layoutList" class="h-3 w-3 text-foreground" />
+      <flex-icon icon="layoutList" class="h-3 w-3 text-foreground" />
 
       <div class="flex items-center">
-        <app-icon *ngIf="currentActiveTab?.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0"
-          [icon]="currentActiveTab?.icon"></app-icon>
+        <flex-icon *ngIf="currentActiveTab?.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0"
+          [icon]="currentActiveTab?.icon"></flex-icon>
         <span class="text-sm font-medium">
           {{currentActiveTab?.translationKey ? (currentActiveTab?.translationKey | translate) :
           currentActiveTab?.label}}
         </span>
       </div>
-      <app-icon icon="chevronDown" class="h-4 w-4 text-foreground" />
-    </app-dropdown-trigger>
-    <app-dropdown-menu>
-      <app-dropdown-item *ngFor="let tab of visibleTabs; trackBy: trackByTabId" (click)="selectTab(tab)"
+      <flex-icon icon="chevronDown" class="h-4 w-4 text-foreground" />
+    </flex-dropdown-trigger>
+    <flex-dropdown-menu>
+      <flex-dropdown-item *ngFor="let tab of visibleTabs; trackBy: trackByTabId" (click)="selectTab(tab)"
         [disabled]="tab.disabled">
-        <app-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0" [icon]="tab.icon"></app-icon>
+        <flex-icon *ngIf="tab.icon && showIcons" class="mr-2 h-4 w-4 flex-shrink-0" [icon]="tab.icon"></flex-icon>
 
         <span class="text-sm">
           {{ tab.translationKey ? (tab.translationKey | translate) : tab.label }}
         </span>
 
-        <app-icon *ngIf="isActive(tab.id)" class="ms-auto h-4 w-4 text-primary flex-shrink-0"
-          [icon]="'check'"></app-icon>
-      </app-dropdown-item>
-    </app-dropdown-menu>
-  </app-dropdown>
+        <flex-icon *ngIf="isActive(tab.id)" class="ms-auto h-4 w-4 text-primary flex-shrink-0"
+          [icon]="'check'"></flex-icon>
+      </flex-dropdown-item>
+    </flex-dropdown-menu>
+  </flex-dropdown>
 </div>

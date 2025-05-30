@@ -3,65 +3,119 @@
     <p class="mb-4">A flexible tooltip component that appears when a trigger element is hovered or clicked. The content of the tooltip is dynamically projected.</p>
 
     <h2 class="text-lg font-medium mb-2">Basic Hover Tooltip</h2>
-    <div class="max-w-md mb-6">
-        <app-dynamic-tooltip tooltipPosition="top">
-            <app-dynamic-tooltip-trigger>
-                <button class="p-2 border rounded">Hover for Top Tooltip</button>
-            </app-dynamic-tooltip-trigger>
-            <app-dynamic-tooltip-content>
-                <div class="p-2 bg-gray-700 text-white rounded shadow-lg">
-                    This is a tooltip shown on top!
-                </div>
-            </app-dynamic-tooltip-content>
-        </app-dynamic-tooltip>
-    </div>
+    <flex-code-block code = "
+        <flex-dynamic-tooltip tooltipPosition=&quot;top&quot;>
+        <flex-dynamic-tooltip-trigger>
+                    <button class=&quot;p-2 border rounded&quot;>Hover for Top Tooltip</button>
+                </flex-dynamic-tooltip-trigger>
+                <flex-dynamic-tooltip-content>
+                    <div class=&quot;p-2 bg-gray-700 text-white rounded shadow-lg&quot;>
+                        This is a tooltip shown on top!
+                    </div>
+                </flex-dynamic-tooltip-content>
+            </flex-dynamic-tooltip>
+    ">
+        <div preview>
+            <flex-dynamic-tooltip tooltipPosition="top">
+                <flex-dynamic-tooltip-trigger>
+                    <button class="p-2 border rounded">Hover for Top Tooltip</button>
+                </flex-dynamic-tooltip-trigger>
+                <flex-dynamic-tooltip-content>
+                    <div class="p-2 bg-gray-700 text-white rounded shadow-lg">
+                        This is a tooltip shown on top!
+                    </div>
+                </flex-dynamic-tooltip-content>
+            </flex-dynamic-tooltip>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Click Tooltip with Custom Content</h2>
-    <div class="max-w-md mb-6">
-        <app-dynamic-tooltip trigger="click" tooltipPosition="right">
-            <app-dynamic-tooltip-trigger>
-                <button class="p-2 border rounded">Click for Right Tooltip</button>
-            </app-dynamic-tooltip-trigger>
-            <app-dynamic-tooltip-content>
-                <div class="p-4 bg-blue-500 text-white rounded shadow-xl">
-                    <h3 class="font-bold">Information</h3>
-                    <p>This tooltip appears on click and has custom HTML content.</p>
-                    <button class="mt-2 p-1 bg-white text-blue-500 rounded">Action</button>
-                </div>
-            </app-dynamic-tooltip-content>
-        </app-dynamic-tooltip>
-    </div>
+    <flex-code-block code="
+    <flex-dynamic-tooltip trigger=&quot;click&quot; tooltipPosition=&quot;right&quot;>
+        <flex-dynamic-tooltip-trigger>
+            button class=&quot;p-2 border rounded&quot;>Click for Right Tooltip</button>
+        </flex-dynamic-tooltip-trigger>
+        <flex-dynamic-tooltip-content>
+        <div class=&quot;p-4 bg-blue-500 text-white rounded shadow-xl&quot;>
+            <h3 class=&quot;font-bold&quot;>Information</h3>
+            <p>This tooltip appears on click and has custom HTML content.</p>
+            <button class=&quot;mt-2 p-1 bg-white text-blue-500 rounded&quot;>Action</button>
+        </div>
+        </flex-dynamic-tooltip-content>
+    </flex-dynamic-tooltip>
+    ">
+        <div preview>
+            <flex-dynamic-tooltip trigger="click" tooltipPosition="right">
+                <flex-dynamic-tooltip-trigger>
+                    <button class="p-2 border rounded">Click for Right Tooltip</button>
+                </flex-dynamic-tooltip-trigger>
+                <flex-dynamic-tooltip-content>
+                    <div class="p-4 bg-blue-500 text-white rounded shadow-xl">
+                        <h3 class="font-bold">Information</h3>
+                        <p>This tooltip appears on click and has custom HTML content.</p>
+                        <button class="mt-2 p-1 bg-white text-blue-500 rounded">Action</button>
+                    </div>
+                </flex-dynamic-tooltip-content>
+            </flex-dynamic-tooltip>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Tooltip with Delay</h2>
-    <div class="max-w-md mb-6">
-        <app-dynamic-tooltip tooltipPosition="bottom" [showDelay]="500" [hideDelay]="200">
-            <app-dynamic-tooltip-trigger>
-                <button class="p-2 border rounded">Hover for Delayed Tooltip (Bottom)</button>
-            </app-dynamic-tooltip-trigger>
-            <app-dynamic-tooltip-content>
-                <div class="p-2 bg-green-600 text-white rounded shadow-md">
-                    Appears after 500ms, hides after 200ms.
-                </div>
-            </app-dynamic-tooltip-content>
-        </app-dynamic-tooltip>
-    </div>
+    <flex-code-block code="
+    <flex-dynamic-tooltip tooltipPosition=&quot;bottom&quot; [showDelay]=&quot;500&quot; [hideDelay]=&quot;200&quot;>
+        <flex-dynamic-tooltip-trigger>
+            <button class=&quot;p-2 border rounded&quot;>Hover for Delayed Tooltip (Bottom)</button>
+        </flex-dynamic-tooltip-trigger>
+        <flex-dynamic-tooltip-content>
+            <div class=&quot;p-2 bg-green-600 text-white rounded shadow-md&quot;>
+                Appears after 500ms, hides after 200ms.
+            </div>
+        </flex-dynamic-tooltip-content>
+    </flex-dynamic-tooltip>
+    ">
+        <div preview>
+            <flex-dynamic-tooltip tooltipPosition="bottom" [showDelay]="500" [hideDelay]="200">
+                <flex-dynamic-tooltip-trigger>
+                    <button class="p-2 border rounded">Hover for Delayed Tooltip (Bottom)</button>
+                </flex-dynamic-tooltip-trigger>
+                <flex-dynamic-tooltip-content>
+                    <div class="p-2 bg-green-600 text-white rounded shadow-md">
+                        Appears after 500ms, hides after 200ms.
+                    </div>
+                </flex-dynamic-tooltip-content>
+            </flex-dynamic-tooltip>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Tooltip with Max Width</h2>
-    <div class="max-w-md mb-6">
-        <app-dynamic-tooltip tooltipPosition="left" maxWidth="150px">
-            <app-dynamic-tooltip-trigger>
-                <button class="p-2 border rounded">Hover for Left Tooltip (Constrained Width)</button>
-            </app-dynamic-tooltip-trigger>
-            <app-dynamic-tooltip-content>
-                <div class="p-2 bg-purple-600 text-white rounded shadow-lg">
-                   This tooltip has a maximum width of 150px, so this long text will wrap.
-                </div>
-            </app-dynamic-tooltip-content>
-        </app-dynamic-tooltip>
-    </div>
+    <flex-code-block code="
+    <flex-dynamic-tooltip tooltipPosition=&quot;left&quot; maxWidth=&quot;150px&quot;>
+        <flex-dynamic-tooltip-trigger>
+            <button class=&quot;p-2 border rounded&quot;>Hover for Left Tooltip (Constrained Width)</button>
+        </flex-dynamic-tooltip-trigger>
+        <flex-dynamic-tooltip-content>
+            <div class=&quot;p-2 bg-purple-600 text-white rounded shadow-lg&quot;>
+                This tooltip has a maximum width of 150px, so this long text will wrap.
+            </div>
+        </flex-dynamic-tooltip-content>
+    </flex-dynamic-tooltip>
+    ">
+        <div preview>
+            <flex-dynamic-tooltip tooltipPosition="left" maxWidth="150px">
+                <flex-dynamic-tooltip-trigger>
+                    <button class="p-2 border rounded">Hover for Left Tooltip (Constrained Width)</button>
+                </flex-dynamic-tooltip-trigger>
+                <flex-dynamic-tooltip-content>
+                    <div class="p-2 bg-purple-600 text-white rounded shadow-lg">
+                    This tooltip has a maximum width of 150px, so this long text will wrap.
+                    </div>
+                </flex-dynamic-tooltip-content>
+            </flex-dynamic-tooltip>
+        </div>
+    </flex-code-block>
 
     <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Properties (app-dynamic-tooltip)</h2>
+        <h2 class="text-lg font-medium mb-2">Properties (flex-dynamic-tooltip)</h2>
         <table class="min-w-full bg-white border border-gray-200">
             <thead>
                 <tr>
@@ -116,25 +170,25 @@
         <h2 class="text-lg font-medium mb-2">Structure</h2>
         <p>The dynamic tooltip is composed of three parts:</p>
         <ul class="list-disc list-inside ml-4">
-            <li><code>&lt;app-dynamic-tooltip&gt;</code>: The main wrapper component that orchestrates the tooltip behavior.</li>
-            <li><code>&lt;app-dynamic-tooltip-trigger&gt;</code>: Wraps the element that will trigger the tooltip.</li>
-            <li><code>&lt;app-dynamic-tooltip-content&gt;</code>: Wraps the content that will be displayed inside the tooltip. You can put any HTML structure here.</li>
+            <li><code>&lt;flex-dynamic-tooltip&gt;</code>: The main wrapper component that orchestrates the tooltip behavior.</li>
+            <li><code>&lt;flex-dynamic-tooltip-trigger&gt;</code>: Wraps the element that will trigger the tooltip.</li>
+            <li><code>&lt;flex-dynamic-tooltip-content&gt;</code>: Wraps the content that will be displayed inside the tooltip. You can put any HTML structure here.</li>
         </ul>
     </div>
 
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage Example</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;app-dynamic-tooltip tooltipPosition="bottom" trigger="click" [showDelay]="100"&gt;
-  &lt;app-dynamic-tooltip-trigger&gt;
+&lt;flex-dynamic-tooltip tooltipPosition="bottom" trigger="click" [showDelay]="100"&gt;
+  &lt;flex-dynamic-tooltip-trigger&gt;
     &lt;button&gt;Click Me!&lt;/button&gt;
-  &lt;/app-dynamic-tooltip-trigger&gt;
-  &lt;app-dynamic-tooltip-content&gt;
+  &lt;/flex-dynamic-tooltip-trigger&gt;
+  &lt;flex-dynamic-tooltip-content&gt;
     &lt;div class="custom-tooltip-style"&gt;
       This is a &lt;strong&gt;dynamically&lt;/strong&gt; rendered tooltip.
     &lt;/div&gt;
-  &lt;/app-dynamic-tooltip-content&gt;
-&lt;/app-dynamic-tooltip&gt;
+  &lt;/flex-dynamic-tooltip-content&gt;
+&lt;/flex-dynamic-tooltip&gt;
         </pre>
     </div>
     

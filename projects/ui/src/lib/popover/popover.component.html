@@ -2,7 +2,7 @@
     <!-- Trigger -->
     <div *ngIf="!this.triggerId" #trigger (click)="isOpen !== undefined ? null : togglePopover()"
         [ngClass]="{ 'opacity-50 pointer-events-none': disabled }">
-        <ng-content select="app-popover-trigger"></ng-content>
+        <ng-content select="flex-popover-trigger"></ng-content>
     </div>
 
     <!-- Popover Content -->
@@ -12,10 +12,10 @@
             <!-- Arrow -->
             <div class="absolute w-2 h-2 bg-inherit transform rotate-45 border-t border-l" [ngClass]="arrowClasses"
                 [style.backgroundColor]="bgColor" *ngIf="showArrow"></div>
-            <!-- Animated Wrapper -->
-            <span class="hover:text-primary absolute right-3 top-3 cursor-pointer" (click)="togglePopover()"><app-icon
-                    *ngIf="showCloseButton" icon="x" class="h-5 w-5 "></app-icon></span>
-            <ng-content select="app-popover-content"></ng-content>
+            <!-- Animated flexer -->
+            <span class="hover:text-primary absolute right-3 top-3 cursor-pointer" (click)="togglePopover()"><flex-icon
+                    *ngIf="showCloseButton" icon="x" class="h-5 w-5 "></flex-icon></span>
+            <ng-content select="flex-popover-content"></ng-content>
         </div>
     </ng-template>
 

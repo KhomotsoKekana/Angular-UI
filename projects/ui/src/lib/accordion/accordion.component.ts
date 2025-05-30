@@ -3,7 +3,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-accordion',
+  selector: 'flex-accordion',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './accordion.component.html',

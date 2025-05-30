@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-switch',
+  selector: 'flex-switch',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './switch.component.html',

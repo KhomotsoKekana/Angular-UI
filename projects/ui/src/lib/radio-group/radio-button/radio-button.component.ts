@@ -3,7 +3,7 @@ import { RadioGroupComponent } from '../radio-group.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-radio-button',
+    selector: 'flex-radio-button',
     templateUrl: './radio-button.component.html',
     standalone: true,
     imports: [CommonModule]

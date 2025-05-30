@@ -7,7 +7,7 @@
   <!-- Trigger Button when search not enabled or when dropdown is closed -->
   <div [class]="innerClasses">
     <div  class="px-2">
-      <app-icon *ngIf="icon" [icon]="icon" class="h-3 w-3 text-muted-foreground"></app-icon>
+      <flex-icon *ngIf="icon" [icon]="icon" class="h-3 w-3 text-muted-foreground"></flex-icon>
     </div>
     <div *ngIf="!enableSearch || (enableSearch && !isOpen)"
       class="flex items-center justify-between pe-3 sm:py-2 py-1.5 w-full h-full" (click)="toggleDropdown()">
@@ -49,20 +49,20 @@
       [style.width.px]="menuWidth">
       <!-- Search Bar -->
       <!-- <div *ngIf="enableSearch" class="sticky top-0 bg-white py-2 z-10">
-        <app-input type="text" innerClass="py-2" class="h-4" [(ngModel)]="searchQuery" (ngModelChange)="filterItems()"
+        <flex-input type="text" innerClass="py-2" class="h-4" [(ngModel)]="searchQuery" (ngModelChange)="filterItems()"
           placeholder="Search...">
-        </app-input>
+        </flex-input>
       </div> -->
 
       <!-- Content Projection -->
       <div class="flex flex-col gap-y-1">
         <div *ngIf="loading" class="flex flex-col gap-2 pb-1">
-          <!-- <app-skeleton class="w-full rounded h-6"></app-skeleton>
-          <app-skeleton class="w-full rounded h-6"></app-skeleton> -->
-          <app-select-item [disabled]="true">Loading...</app-select-item>
+          <!-- <flex-skeleton class="w-full rounded h-6"></flex-skeleton>
+          <flex-skeleton class="w-full rounded h-6"></flex-skeleton> -->
+          <flex-select-item [disabled]="true">Loading...</flex-select-item>
         </div>
         <div *ngIf="!loading && !items.length" class="flex flex-col gap-2">
-          <app-select-item [disabled]="true">No items found</app-select-item>
+          <flex-select-item [disabled]="true">No items found</flex-select-item>
         </div>
         <ng-content *ngIf="!loading"></ng-content>
       </div>

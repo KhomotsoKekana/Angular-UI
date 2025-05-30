@@ -8,21 +8,23 @@ import { SelectActionItemComponent } from '../../../../../ui/src/lib/select/sele
 import { SelectRefactoredComponent } from '../../../../../ui/src/lib/select/select-refactored.component';
 import { MultiSelectComponent } from '../../../../../ui/src/lib/select/multi-select.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
+import { CodeBlockComponent } from "../../../../../ui/src/lib/code-block/code-block.component";
 
 @Component({
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SelectComponent, 
-    SelectItemComponent, 
-    SelectSectionComponent, 
+    SelectComponent,
+    SelectItemComponent,
+    SelectSectionComponent,
     SelectActionItemComponent,
     SelectRefactoredComponent,
     MultiSelectComponent,
-    ButtonComponent
-  ],
+    ButtonComponent,
+    CodeBlockComponent
+],
   templateUrl: './select.component.html',
 })
 export class DocsSelectComponent {

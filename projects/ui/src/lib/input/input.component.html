@@ -9,9 +9,9 @@
     [class.cursor-not-allowed]="disabled" (click)="handleClick()">
     <!-- Leading Icon -->
     <div *ngIf="leadingIcon" class="flex items-center mr-2">
-      <app-icon [icon]="leadingIcon" class="h-4 w-4 transition-colors duration-150" [ngClass]="{ 'text-primary': isFocused, 
+      <flex-icon [icon]="leadingIcon" class="h-4 w-4 transition-colors duration-150" [ngClass]="{ 'text-primary': isFocused, 
                   'text-muted-foreground':!isFocused
-                }"></app-icon>
+                }"></flex-icon>
     </div>
 
     <!-- Input Field -->
@@ -26,7 +26,7 @@
 
     <!-- Trailing Icon -->
     <div *ngIf="trailingIcon" class="flex items-center ml-2">
-      <app-icon [icon]="trailingIcon" class="text-muted-foreground h-4 w-4"></app-icon>
+      <flex-icon [icon]="trailingIcon" class="text-muted-foreground h-4 w-4"></flex-icon>
     </div>
 
     <!-- Trailing Button -->
@@ -38,7 +38,7 @@
     <button *ngIf="enablePasswordReveal" type="button"
       class="flex items-center ml-2 text-muted-foreground hover:text-gray-700 cursor-pointer z-50"
       (click)="togglePasswordVisibility()">
-      <app-icon class="h-4 w-4" [icon]="isPasswordVisible ? 'eyeClosed' : 'eye'"></app-icon>
+      <flex-icon class="h-4 w-4" [icon]="isPasswordVisible ? 'eyeClosed' : 'eye'"></flex-icon>
     </button>
   </span>
 

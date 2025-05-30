@@ -1,0 +1,25 @@
+<header class="h-18 bg-white dark:bg-gray-800 flex items-center justify-between px-6 shadow">
+  <div class="flex items-center space-x-4">
+    <img src="https://cdn.prod.website-files.com/64be25300499d4b9ed6946af/65003f69d101e433e23f25f1_navbar-logo.svg" alt="Logo" class="h-8" />
+    <span class="text-xl font-semibold text-gray-800 dark:text-white"></span>
+  </div>
+  <button 
+  (click)="toggleTheme()" 
+  class="p-4 cursor-pointer rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+  aria-label="Toggle dark mode"
+>
+  <svg-icon 
+    *ngIf="!isDarkMode" 
+    src="assets/icons/moon.svg" 
+    class="w-6 h-6 text-black"
+  ></svg-icon>
+
+  <svg-icon 
+    *ngIf="isDarkMode" 
+    src="assets/icons/sun.svg" 
+    class="w-6 h-6 text-yellow-400"
+  ></svg-icon>
+</button>
+
+
+</header>

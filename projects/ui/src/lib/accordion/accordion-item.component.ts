@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-accordion-item',
+  selector: 'flex-accordion-item',
   standalone: true,
   imports: [CommonModule],
   template: `

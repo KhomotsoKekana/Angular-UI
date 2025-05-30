@@ -2,56 +2,86 @@
     <header class="mb-8">
         <h1 class="text-3xl font-bold text-gray-800">Header Component</h1>
         <p class="text-lg text-gray-600 mt-2">
-            The <code>&lt;app-header&gt;</code> is a highly versatile container designed for building various header structures.
-            It utilizes named content projection slots: <code>&lt;app-header-left&gt;</code>, <code>&lt;app-header-center&gt;</code>,
-            and <code>&lt;app-header-right&gt;</code>, allowing for precise placement and complex layouts of your header content.
+            The <code>&lt;flex-header&gt;</code> is a highly versatile container designed for building various header structures.
+            It utilizes named content projection slots: <code>&lt;flex-header-left&gt;</code>, <code>&lt;flex-header-center&gt;</code>,
+            and <code>&lt;flex-header-right&gt;</code>, allowing for precise placement and complex layouts of your header content.
         </p>
     </header>
 
     <!-- Example 1: Simple Title Header -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+
+ 
         <h2 class="text-xl font-semibold text-gray-700 mb-4">1. Simple Title Header</h2>
-        <p class="text-gray-600 mb-4">A straightforward header, often used for page titles or simple section headings, with the title occupying the central area.</p>
-        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50">
-            <app-header class="py-3">
-                <app-header-center>
+        <flex-code-block code="
+    &lt;flex-header class=&quot;py-3&quot;&gt;
+        &lt;flex-header-center&gt;
+        &lt;h1 class=&quot;text-xl font-medium text-gray-700&quot;&gt;Page Title&lt;/h1&gt;
+        &lt;/flex-header-center&gt;
+    &lt;/flex-header&gt;">
+           <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
+             <p class="text-gray-600 mb-4">A straightforward header, often used for page titles or simple section headings, with the title occupying the central area.</p>
+            <flex-header class="py-3">
+                <flex-header-center>
                     <h1 class="text-xl font-medium text-gray-700">Page Title</h1>
-                </app-header-center>
-            </app-header>
-        </div>
-        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
-&lt;app-header class="py-3"&gt;
-  &lt;app-header-center&gt;
-    &lt;h1 class="text-xl font-medium text-gray-700"&gt;Page Title&lt;/h1&gt;
-  &lt;/app-header-center&gt;
-&lt;/app-header&gt;
-        </pre>
-    </section>
+                </flex-header-center>
+            </flex-header>
+           </section>
+>   </flex-code-block>
 
     <!-- Example 2: Full Application Header -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <!-- <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"> -->
         <h2 class="text-xl font-semibold text-gray-700 mb-4">2. Full Application Header</h2>
+        <flex-code-block code="
+        &lt;flex-header class=&quot;bg-gradient-to-r from-neutral-800 to-neutral-900 text-white p-4 items-center&quot;&gt;
+  &lt;flex-header-left&gt;
+    &lt;div class=&quot;flex items-center&quot;&gt;
+      &lt;!-- Your Logo SVG or img tag --&gt;
+      &lt;svg class=&quot;h-9 w-9 mr-3 text-sky-400&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot;&gt; &lt;!-- ... path ... --&gt; &lt;/svg&gt;
+      &lt;span class=&quot;text-2xl font-bold tracking-tight&quot;&gt;FlexUI Corp&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;flex-header-left&gt;
+  &lt;flex-header-center&gt;
+    &lt;div class=&quot;flex items-center justify-center space-x-2 px-4 py-2 bg-neutral-700/50 rounded-md text-sm&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;hover:text-sky-300 px-3 py-1 rounded-md&quot;&gt;Dashboard&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;hover:text-sky-300 px-3 py-1 rounded-md&quot;&gt;Projects&lt;/a&gt;
+      &lt;input type=&quot;search&quot; placeholder=&quot;Search...&quot; class=&quot;px-3 py-1.5 rounded-md bg-neutral-600 text-white placeholder-gray-400 text-xs w-48 focus:ring-sky-500 focus:border-sky-500&quot;/&gt;
+    &lt;/div&gt;
+  &lt;/flex-header-center&gt;
+  &lt;flex-header-right&gt;
+    &lt;div class=&quot;flex items-center space-x-4&quot;&gt;
+      &lt;button aria-label=&quot;Notifications&quot; class=&quot;relative hover:text-sky-300&quot;&gt;
+        &lt;svg class=&quot;h-6 w-6&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot;&gt; &lt;!-- ... path ... --&gt; &lt;/svg&gt;
+        &lt;span class=&quot;absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-neutral-900 bg-red-500&quot;&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class=&quot;flex items-center&quot;&gt;
+        &lt;span class=&quot;text-sm mr-2 hidden md:inline&quot;&gt;Jane Doe&lt;/span&gt;
+        &lt;img class=&quot;h-9 w-9 rounded-full border-2 border-sky-400&quot; src=&quot;https://i.pravatar.cc/150?u=jane_doe&quot; alt=&quot;User avatar&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/flex-header-right&gt;
+&lt;/flex-header&gt;
+        ">
+        <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
         <p class="text-gray-600 mb-4">
             A comprehensive header typical for main application layouts. It demonstrates using all three slots:
             left for logo and brand, center for navigation or search, and right for user-specific controls.
         </p>
-        <div class="border border-gray-300 rounded-lg overflow-hidden">
-            <app-header class="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white p-4 items-center">
-                <app-header-left>
+            <flex-header class="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white p-4 items-center">
+                <flex-header-left>
                     <div class="flex items-center">
                         <svg class="h-9 w-9 mr-3 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                         <span class="text-2xl font-bold tracking-tight">FlexUI Corp</span>
                     </div>
-                </app-header-left>
-                <app-header-center>
+                </flex-header-left>
+                <flex-header-center>
                     <div class="flex items-center justify-center space-x-2 px-4 py-2 bg-neutral-700/50 rounded-md text-sm">
                         <!-- Placeholder for Nav Links or Search Bar -->
                         <a href="#" class="hover:text-sky-300 px-3 py-1 rounded-md">Dashboard</a>
                         <a href="#" class="hover:text-sky-300 px-3 py-1 rounded-md">Projects</a>
                         <input type="search" placeholder="Search..." class="px-3 py-1.5 rounded-md bg-neutral-600 text-white placeholder-gray-400 text-xs w-48 focus:ring-sky-500 focus:border-sky-500"/>
                     </div>
-                </app-header-center>
-                <app-header-right>
+                </flex-header-center>
+                <flex-header-right>
                     <div class="flex items-center space-x-4">
                         <button aria-label="Notifications" class="relative hover:text-sky-300">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
@@ -62,54 +92,49 @@
                             <img class="h-9 w-9 rounded-full border-2 border-sky-400" src="https://i.pravatar.cc/150?u=jane_doe" alt="User avatar">
                         </div>
                     </div>
-                </app-header-right>
-            </app-header>
-        </div>
+                </flex-header-right>
+            </flex-header>
+        </section>
         <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
-&lt;app-header class="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white p-4 items-center"&gt;
-  &lt;app-header-left&gt;
-    &lt;div class="flex items-center"&gt;
-      &lt;!-- Your Logo SVG or img tag --&gt;
-      &lt;svg class="h-9 w-9 mr-3 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt; &lt;!-- ... path ... --&gt; &lt;/svg&gt;
-      &lt;span class="text-2xl font-bold tracking-tight"&gt;FlexUI Corp&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;app-header-left&gt;
-  &lt;app-header-center&gt;
-    &lt;div class="flex items-center justify-center space-x-2 px-4 py-2 bg-neutral-700/50 rounded-md text-sm"&gt;
-      &lt;a href="#" class="hover:text-sky-300 px-3 py-1 rounded-md"&gt;Dashboard&lt;/a&gt;
-      &lt;a href="#" class="hover:text-sky-300 px-3 py-1 rounded-md"&gt;Projects&lt;/a&gt;
-      &lt;input type="search" placeholder="Search..." class="px-3 py-1.5 rounded-md bg-neutral-600 text-white placeholder-gray-400 text-xs w-48 focus:ring-sky-500 focus:border-sky-500"/&gt;
-    &lt;/div&gt;
-  &lt;/app-header-center&gt;
-  &lt;app-header-right&gt;
-    &lt;div class="flex items-center space-x-4"&gt;
-      &lt;button aria-label="Notifications" class="relative hover:text-sky-300"&gt;
-        &lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt; &lt;!-- ... path ... --&gt; &lt;/svg&gt;
-        &lt;span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-neutral-900 bg-red-500"&gt;&lt;/span&gt;
-      &lt;/button&gt;
-      &lt;div class="flex items-center"&gt;
-        &lt;span class="text-sm mr-2 hidden md:inline"&gt;Jane Doe&lt;/span&gt;
-        &lt;img class="h-9 w-9 rounded-full border-2 border-sky-400" src="https://i.pravatar.cc/150?u=jane_doe" alt="User avatar"&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/app-header-right&gt;
-&lt;/app-header&gt;
+
         </pre>
-    </section>
+    </flex-code-block>
+    <!-- </section> -->
 
     <!-- Example 3: Dashboard/Page Section Header -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <!-- <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"> -->
         <h2 class="text-xl font-semibold text-gray-700 mb-4">3. Page Section Header with Actions</h2>
+    <flex-code-block code="
+    &lt;flex-header class=&quot;py-3 items-center&quot;&gt;
+    &lt;flex-header-left&gt;
+        &lt;div&gt;
+        &lt;h2 class=&quot;text-xl font-semibold text-gray-800&quot;&gt;Customer Overview&lt;/h2&gt;
+        &lt;p class=&quot;text-xs text-gray-500&quot;&gt;Home / Customers / Overview&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/flex-header-left&gt;
+    &lt;flex-header-right&gt;
+        &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
+        &lt;button class=&quot;px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50&quot;&gt;
+            Filters
+        &lt;/button&gt;
+        &lt;button class=&quot;px-3 py-1.5 text-xs font-medium text-white bg-sky-600 border border-transparent rounded-md shadow-sm hover:bg-sky-700 &quot;&gt;
+            Add Customer
+        &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/flex-header-right&gt;
+    &lt;/flex-header&gt;
+    ">
+        <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
         <p class="text-gray-600 mb-4">Ideal for headers within a page, such as for dashboards or data tables. Typically includes a title and breadcrumbs/subtitles on the left, and action buttons on the right.</p>
-        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50">
-            <app-header class="py-3 items-center">
-                <app-header-left>
+        
+            <flex-header class="py-3 items-center">
+                <flex-header-left>
                     <div>
                         <h2 class="text-xl font-semibold text-gray-800">Customer Overview</h2>
                         <p class="text-xs text-gray-500">Home / Customers / Overview</p>
                     </div>
-                </app-header-left>
-                <app-header-right>
+                </flex-header-left>
+                <flex-header-right>
                     <div class="flex items-center space-x-2">
                         <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                             Filters
@@ -118,96 +143,82 @@
                             Add Customer
                         </button>
                     </div>
-                </app-header-right>
-            </app-header>
-        </div>
+                </flex-header-right>
+            </flex-header>
+        </section>
         <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
-&lt;app-header class="py-3 items-center"&gt;
-  &lt;app-header-left&gt;
-    &lt;div&gt;
-      &lt;h2 class="text-xl font-semibold text-gray-800"&gt;Customer Overview&lt;/h2&gt;
-      &lt;p class="text-xs text-gray-500"&gt;Home / Customers / Overview&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/app-header-left&gt;
-  &lt;app-header-right&gt;
-    &lt;div class="flex items-center space-x-2"&gt;
-      &lt;button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50"&gt;
-        Filters
-      &lt;/button&gt;
-      &lt;button class="px-3 py-1.5 text-xs font-medium text-white bg-sky-600 border border-transparent rounded-md shadow-sm hover:bg-sky-700 "&gt;
-        Add Customer
-      &lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/app-header-right&gt;
-&lt;/app-header&gt;
+
         </pre>
-    </section>
+    </flex-code-block>
 
     <!-- Example 4: Modal Dialog Header -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <!-- <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"> -->
         <h2 class="text-xl font-semibold text-gray-700 mb-4">4. Modal Dialog Header</h2>
-        <p class="text-gray-600 mb-4">A compact header for use in modal dialogs, usually containing a title and a close button.</p>
-        <div class="border border-gray-300 rounded-t-lg overflow-hidden">
-             <app-header class="bg-gray-100 p-3 border-b border-gray-300 items-center">
-                <app-header-left>
+        <flex-code-block code="
+        &lt;flex-header class=&quot;bg-gray-100 p-3 border-b border-gray-300 items-center&quot;&gt;
+            &lt;flex-header-left&gt;
+                &lt;h3 class=&quot;text-lg font-medium text-gray-800&quot;&gt;Edit Item&lt;/h3&gt;
+            &lt;/flex-header-left&gt;
+            &lt;flex-header-right&gt;
+                &lt;button aria-label=&quot;Close modal&quot; class=&quot;text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200&quot;&gt;
+                &lt;svg class=&quot;h-5 w-5&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 20 20&quot;&gt;&lt;!-- ... path ... --&gt;&lt;/svg&gt;
+                &lt;/button&gt;
+            &lt;/flex-header-right&gt;
+        &lt;/flex-header&gt;
+        ">
+        <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
+            <p class="text-gray-600 mb-4">A compact header for use in modal dialogs, usually containing a title and a close button.</p>
+
+             <flex-header class="bg-gray-100 p-3 border-b border-gray-300 items-center">
+                <flex-header-left>
                     <h3 class="text-lg font-medium text-gray-800">Edit Item</h3>
-                </app-header-left>
-                <app-header-right>
+                </flex-header-left>
+                <flex-header-right>
                     <button aria-label="Close modal" class="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                     </button>
-                </app-header-right>
-            </app-header>
+                </flex-header-right>
+            </flex-header>
             <div class="p-4 text-sm text-gray-600 bg-white">Modal content area...</div>
-        </div>
-        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
-&lt;app-header class="bg-gray-100 p-3 border-b border-gray-300 items-center"&gt;
-  &lt;app-header-left&gt;
-    &lt;h3 class="text-lg font-medium text-gray-800"&gt;Edit Item&lt;/h3&gt;
-  &lt;/app-header-left&gt;
-  &lt;app-header-right&gt;
-    &lt;button aria-label="Close modal" class="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200"&gt;
-      &lt;svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;!-- ... path ... --&gt;&lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/app-header-right&gt;
-&lt;/app-header&gt;
-        </pre>
-    </section>
+        </section>
+    </flex-code-block>
 
     <!-- Example 5: Card Header -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <!-- <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"> -->
         <h2 class="text-xl font-semibold text-gray-700 mb-4">5. Card Header</h2>
+    <flex-code-block code="
+    &lt;flex-header class=&quot;p-3 border-b border-gray-200 bg-gray-50/75 rounded-t-lg items-center&quot;&gt;
+        &lt;flex-header-left&gt;
+            &lt;h4 class=&quot;text-md font-semibold text-gray-700&quot;&gt;Activity Feed&lt;/h4&gt;
+        &lt;/flex-header-left&gt;
+        &lt;flex-header-right&gt;
+            &lt;button aria-label=&quot;Options&quot; class=&quot;text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200&quot;&gt;
+            &lt;svg class=&quot;h-5 w-5&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 20 20&quot;&gt;&lt;!-- ... path ... --&gt;&lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/flex-header-right&gt;
+    &lt;/flex-header&gt;    
+        ">
+        <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
         <p class="text-gray-600 mb-4">A simple header often used within card components, displaying a title and optional actions (e.g., a kebab menu).</p>
         <div class="max-w-sm border border-gray-300 rounded-lg shadow-md">
-            <app-header class="p-3 border-b border-gray-200 bg-gray-50/75 rounded-t-lg items-center">
-                <app-header-left>
+            <flex-header class="p-3 border-b border-gray-200 bg-gray-50/75 rounded-t-lg items-center">
+                <flex-header-left>
                     <h4 class="text-md font-semibold text-gray-700">Activity Feed</h4>
-                </app-header-left>
-                <app-header-right>
+                </flex-header-left>
+                <flex-header-right>
                     <button aria-label="Options" class="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
                     </button>
-                </app-header-right>
-            </app-header>
+                </flex-header-right>
+            </flex-header>
             <div class="p-4 text-sm text-gray-600">Card content goes here...</div>
         </div>
-        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
-&lt;app-header class="p-3 border-b border-gray-200 bg-gray-50/75 rounded-t-lg items-center"&gt;
-  &lt;app-header-left&gt;
-    &lt;h4 class="text-md font-semibold text-gray-700"&gt;Activity Feed&lt;/h4&gt;
-  &lt;/app-header-left&gt;
-  &lt;app-header-right&gt;
-    &lt;button aria-label="Options" class="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-200"&gt;
-      &lt;svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;!-- ... path ... --&gt;&lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/app-header-right&gt;
-&lt;/app-header&gt;
-        </pre>
-    </section>
+        </section>
+    </flex-code-block>
 
     <!-- Properties Table -->
     <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Properties (<code>&lt;app-header&gt;</code>)</h2>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Properties (<code>&lt;flex-header&gt;</code>)</h2>
         <div class="overflow-x-auto custom-scrollbar">
             <table class="min-w-full bg-white border border-gray-300 rounded-md">
                 <thead class="bg-gray-100">
@@ -224,7 +235,7 @@
                         <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>string</code></td>
                         <td class="px-5 py-3 whitespace-nowrap text-sm text-gray-500"><code>''</code> (empty string)</td>
                         <td class="px-5 py-3 text-sm text-gray-600">
-                            Standard Angular property. Allows custom CSS classes (e.g., Tailwind CSS) to be applied directly to the host <code>&lt;app-header&gt;</code> element for flexible styling and layout control (like padding, background, flex properties, etc.).
+                            Standard Angular property. Allows custom CSS classes (e.g., Tailwind CSS) to be applied directly to the host <code>&lt;flex-header&gt;</code> element for flexible styling and layout control (like padding, background, flex properties, etc.).
                         </td>
                     </tr>
                 </tbody>
@@ -237,26 +248,26 @@
         <h2 class="text-xl font-semibold text-gray-700 mb-4">Content Projection Slots</h2>
         <p class="text-gray-600 mb-3">
             The header component uses named slots for precise content placement. Wrap your HTML or Angular components
-            within these custom elements inside <code>&lt;app-header&gt;</code>:
+            within these custom elements inside <code>&lt;flex-header&gt;</code>:
         </p>
         <div class="space-y-3">
             <div>
-                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;app-header-left&gt; ... &lt;/app-header-left&gt;</code>
+                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;flex-header-left&gt; ... &lt;/flex-header-left&gt;</code>
                 <p class="text-sm text-gray-600 mt-1 ml-2">Content placed here will be aligned to the left side of the header.</p>
             </div>
             <div>
-                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;app-header-center&gt; ... &lt;/app-header-center&gt;</code>
+                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;flex-header-center&gt; ... &lt;/flex-header-center&gt;</code>
                 <p class="text-sm text-gray-600 mt-1 ml-2">Content placed here will be aligned to the center of the header.</p>
             </div>
             <div>
-                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;app-header-right&gt; ... &lt;/app-header-right&gt;</code>
+                <code class="px-2 py-1 text-sm bg-sky-100 text-sky-700 rounded-md">&lt;flex-header-right&gt; ... &lt;/flex-header-right&gt;</code>
                 <p class="text-sm text-gray-600 mt-1 ml-2">Content placed here will be aligned to the right side of the header.</p>
             </div>
         </div>
         <p class="text-gray-600 mt-4">
             The header component internally uses flexbox to arrange these slots. You have full control over the
             appearance and layout of the content within each slot using standard HTML and CSS (Tailwind CSS is heavily utilized in these examples).
-            The <code>class</code> property on the <code>&lt;app-header&gt;</code> itself can be used to control the alignment of these slots (e.g., <code>items-center</code>).
+            The <code>class</code> property on the <code>&lt;flex-header&gt;</code> itself can be used to control the alignment of these slots (e.g., <code>items-center</code>).
         </p>
     </section>
 </div>

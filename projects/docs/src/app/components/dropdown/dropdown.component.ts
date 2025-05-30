@@ -7,6 +7,7 @@ import { DropdownMenuComponent } from '../../../../../ui/src/lib/dropdown/dropdo
 import { DropdownItemComponent } from '../../../../../ui/src/lib/dropdown/dropdown-item.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
 import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -18,7 +19,8 @@ import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
     DropdownMenuComponent,
     DropdownItemComponent,
     ButtonComponent,
-    IconComponent
+    IconComponent,
+    CodeBlockComponent
   ],
   templateUrl: './dropdown.component.html',
 })

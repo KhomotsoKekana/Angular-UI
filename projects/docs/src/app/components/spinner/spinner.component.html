@@ -3,126 +3,237 @@
     <p class="mb-4">A customizable loading spinner used to indicate that content is loading or an action is being processed.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Spinner</h2>
-    <div class="mb-6 flex items-center space-x-4">
-        <app-spinner></app-spinner>
-        <p class="text-sm text-gray-600">Default spinner with medium size and blue color</p>
-    </div>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6 flex items-center space-x-4&quot;>
+        <flex-spinner></flex-spinner>
+        <p class=&quot;text-sm text-gray-600&quot;>Default spinner with medium size and blue color</p>
+    </div>    
+    `">
+        <div class="mb-6 flex items-center space-x-4" preview>
+            <flex-spinner></flex-spinner>
+            <p class="text-sm text-gray-600">Default spinner with medium size and blue color</p>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Sizes</h2>
-    <div class="mb-6">
-        <div class="flex flex-wrap items-center gap-6">
-            <div *ngFor="let size of sizes" class="flex flex-col items-center gap-2">
-                <app-spinner [size]="size"></app-spinner>
-                <span class="text-sm text-gray-600">{{ size }}</span>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;flex flex-wrap items-center gap-6&quot;>
+            <div *ngFor=&quot;let size of sizes&quot; class=&quot;flex flex-col items-center gap-2&quot;>
+                <flex-spinner [size]=&quot;size&quot;></flex-spinner>
+                <span class=&quot;text-sm text-gray-600&quot;>{{ size }}</span>
             </div>
         </div>
     </div>
+    `">
+        <div class="mb-6" preview>
+            <div class="flex flex-wrap items-center gap-6">
+                <div *ngFor="let size of sizes" class="flex flex-col items-center gap-2">
+                    <flex-spinner [size]="size"></flex-spinner>
+                    <span class="text-sm text-gray-600">{{ size }}</span>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Colors</h2>
-    <div class="mb-6">
-        <div class="flex flex-wrap items-center gap-6">
-            <div *ngFor="let color of colors" class="flex flex-col items-center gap-2">
-                <app-spinner [color]="color"></app-spinner>
-                <span class="text-sm text-gray-600">{{ color }}</span>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;flex flex-wrap items-center gap-6&quot;>
+            <div *ngFor=&quot;let color of colors&quot; class=&quot;flex flex-col items-center gap-2&quot;>
+                <flex-spinner [color]=&quot;color&quot;></flex-spinner>
+                <span class=&quot;text-sm text-gray-600&quot;>{{ color }}</span>
             </div>
         </div>
-    </div>
+    </div>    
+    `">
+        <div class="mb-6" preview>
+            <div class="flex flex-wrap items-center gap-6">
+                <div *ngFor="let color of colors" class="flex flex-col items-center gap-2">
+                    <flex-spinner [color]="color"></flex-spinner>
+                    <span class="text-sm text-gray-600">{{ color }}</span>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Speeds</h2>
-    <div class="mb-6">
-        <div class="flex flex-wrap items-center gap-6">
-            <div *ngFor="let speed of speeds" class="flex flex-col items-center gap-2">
-                <app-spinner [speed]="speed"></app-spinner>
-                <span class="text-sm text-gray-600">{{ speed }}</span>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;flex flex-wrap items-center gap-6&quot;>
+            <div *ngFor=&quot;let speed of speeds&quot; class=&quot;flex flex-col items-center gap-2&quot;>
+                <flex-spinner [speed]=&quot;speed&quot;></flex-spinner>
+                <span class=&quot;text-sm text-gray-600&quot;>{{ speed }}</span>
             </div>
         </div>
-    </div>
+    </div>    
+    `">
+        <div class="mb-6" preview>
+            <div class="flex flex-wrap items-center gap-6">
+                <div *ngFor="let speed of speeds" class="flex flex-col items-center gap-2">
+                    <flex-spinner [speed]="speed"></flex-spinner>
+                    <span class="text-sm text-gray-600">{{ speed }}</span>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Variants</h2>
-    <div class="mb-6">
-        <div class="flex flex-wrap items-center gap-6">
-            <div *ngFor="let variant of variants" class="flex flex-col items-center gap-2">
-                <app-spinner [variant]="variant"></app-spinner>
-                <span class="text-sm text-gray-600">{{ variant }}</span>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;flex flex-wrap items-center gap-6&quot;>
+            <div *ngFor=&quot;let variant of variants&quot; class=&quot;flex flex-col items-center gap-2&quot;>
+                <flex-spinner [variant]=&quot;variant&quot;></flex-spinner>
+                <span class=&quot;text-sm text-gray-600&quot;>{{ variant }}</span>
             </div>
         </div>
-    </div>
+    </div>    
+    `">
+        <div class="mb-6" preview>
+            <div class="flex flex-wrap items-center gap-6">
+                <div *ngFor="let variant of variants" class="flex flex-col items-center gap-2">
+                    <flex-spinner [variant]="variant"></flex-spinner>
+                    <span class="text-sm text-gray-600">{{ variant }}</span>
+                </div>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Customizable Spinner</h2>
-    <div class="mb-6">
-        <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;mb-4 grid grid-cols-1 md:grid-cols-2 gap-4&quot;>
             <div>
-                <label class="block text-sm font-medium mb-1">Size:</label>
-                <select [(ngModel)]="selectedSize" class="block w-full rounded border-gray-300 shadow-sm p-2">
-                    <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Size:</label>
+                <select [(ngModel)]=&quot;selectedSize&quot; class=&quot;block w-full rounded border-gray-300 shadow-sm p-2&quot;>
+                    <option *ngFor=&quot;let size of sizes&quot; [value]=&quot;size&quot;>{{ size }}</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Color:</label>
-                <select [(ngModel)]="selectedColor" class="block w-full rounded border-gray-300 shadow-sm p-2">
-                    <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Color:</label>
+                <select [(ngModel)]=&quot;selectedColor&quot; class=&quot;block w-full rounded border-gray-300 shadow-sm p-2&quot;>
+                    <option *ngFor=&quot;let color of colors&quot; [value]=&quot;color&quot;>{{ color }}</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Speed:</label>
-                <select [(ngModel)]="selectedSpeed" class="block w-full rounded border-gray-300 shadow-sm p-2">
-                    <option *ngFor="let speed of speeds" [value]="speed">{{ speed }}</option>
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Speed:</label>
+                <select [(ngModel)]=&quot;selectedSpeed&quot; class=&quot;block w-full rounded border-gray-300 shadow-sm p-2&quot;>
+                    <option *ngFor=&quot;let speed of speeds&quot; [value]=&quot;speed&quot;>{{ speed }}</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Variant:</label>
-                <select [(ngModel)]="selectedVariant" class="block w-full rounded border-gray-300 shadow-sm p-2">
-                    <option *ngFor="let variant of variants" [value]="variant">{{ variant }}</option>
+                <label class=&quot;block text-sm font-medium mb-1&quot;>Variant:</label>
+                <select [(ngModel)]=&quot;selectedVariant&quot; class=&quot;block w-full rounded border-gray-300 shadow-sm p-2&quot;>
+                    <option *ngFor=&quot;let variant of variants&quot; [value]=&quot;variant&quot;>{{ variant }}</option>
                 </select>
             </div>
         </div>
-        <div class="mt-4 flex flex-col items-center gap-4">
-            <app-spinner 
-                [size]="selectedSize" 
-                [color]="selectedColor" 
-                [speed]="selectedSpeed" 
-                [variant]="selectedVariant">
-            </app-spinner>
-            <p class="text-sm text-gray-600">
-                Selected options: size="{{ selectedSize }}", color="{{ selectedColor }}", speed="{{ selectedSpeed }}", variant="{{ selectedVariant }}"
+        <div class=&quot;mt-4 flex flex-col items-center gap-4&quot;>
+            <flex-spinner 
+                [size]=&quot;selectedSize&quot; 
+                [color]=&quot;selectedColor&quot; 
+                [speed]=&quot;selectedSpeed&quot; 
+                [variant]=&quot;selectedVariant&quot;>
+            </flex-spinner>
+            <p class=&quot;text-sm text-gray-600&quot;>
+                Selected options: size=&quot;{{ selectedSize }}&quot;, color=&quot;{{ selectedColor }}&quot;, speed=&quot;{{ selectedSpeed }}&quot;, variant=&quot;{{ selectedVariant }}&quot;
             </p>
         </div>
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Conditional Loading Example</h2>
-    <div class="mb-6">
-        <div class="mb-4 p-6 border rounded-md bg-gray-50 flex flex-col items-center justify-center min-h-[200px]">
-            <div *ngIf="isLoading" class="flex flex-col items-center gap-4">
-                <app-spinner size="lg" color="primary"></app-spinner>
-                <p class="text-gray-500">Loading content...</p>
+        
+    `">
+        <div class="mb-6" preview>
+            <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Size:</label>
+                    <select [(ngModel)]="selectedSize" class="block w-full rounded border-gray-300 shadow-sm p-2">
+                        <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Color:</label>
+                    <select [(ngModel)]="selectedColor" class="block w-full rounded border-gray-300 shadow-sm p-2">
+                        <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Speed:</label>
+                    <select [(ngModel)]="selectedSpeed" class="block w-full rounded border-gray-300 shadow-sm p-2">
+                        <option *ngFor="let speed of speeds" [value]="speed">{{ speed }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Variant:</label>
+                    <select [(ngModel)]="selectedVariant" class="block w-full rounded border-gray-300 shadow-sm p-2">
+                        <option *ngFor="let variant of variants" [value]="variant">{{ variant }}</option>
+                    </select>
+                </div>
             </div>
-            <div *ngIf="!isLoading" class="text-center">
-                <p class="text-lg font-medium">Content Loaded!</p>
-                <p class="text-sm text-gray-600">This content appears after loading is complete</p>
+            <div class="mt-4 flex flex-col items-center gap-4">
+                <flex-spinner 
+                    [size]="selectedSize" 
+                    [color]="selectedColor" 
+                    [speed]="selectedSpeed" 
+                    [variant]="selectedVariant">
+                </flex-spinner>
+                <p class="text-sm text-gray-600">
+                    Selected options: size="{{ selectedSize }}", color="{{ selectedColor }}", speed="{{ selectedSpeed }}", variant="{{ selectedVariant }}"
+                </p>
             </div>
         </div>
-        <button (click)="toggleLoading()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+    </flex-code-block>
+
+    <h2 class="text-lg font-medium mb-2">Conditional Loading Example</h2>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <div class=&quot;mb-4 p-6 border rounded-md bg-gray-50 flex flex-col items-center justify-center min-h-[200px]&quot;>
+            <div *ngIf=&quot;isLoading&quot; class=&quot;flex flex-col items-center gap-4&quot;>
+                <flex-spinner size=&quot;lg&quot; color=&quot;primary&quot;></flex-spinner>
+                <p class=&quot;text-gray-500&quot;>Loading content...</p>
+            </div>
+            <div *ngIf=&quot;!isLoading&quot; class=&quot;text-center&quot;>
+                <p class=&quot;text-lg font-medium&quot;>Content Loaded!</p>
+                <p class=&quot;text-sm text-gray-600&quot;>This content appears after loading is complete</p>
+            </div>
+        </div>
+        <button (click)=&quot;toggleLoading()&quot; class=&quot;px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600&quot;>
             {{ isLoading ? 'Finish Loading' : 'Start Loading Again' }}
         </button>
     </div>
-    
+    `">
+        <div class="mb-6" preview>
+            <div class="mb-4 p-6 border rounded-md bg-gray-50 flex flex-col items-center justify-center min-h-[200px]">
+                <div *ngIf="isLoading" class="flex flex-col items-center gap-4">
+                    <flex-spinner size="lg" color="primary"></flex-spinner>
+                    <p class="text-gray-500">Loading content...</p>
+                </div>
+                <div *ngIf="!isLoading" class="text-center">
+                    <p class="text-lg font-medium">Content Loaded!</p>
+                    <p class="text-sm text-gray-600">This content appears after loading is complete</p>
+                </div>
+            </div>
+            <button (click)="toggleLoading()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                {{ isLoading ? 'Finish Loading' : 'Start Loading Again' }}
+            </button>
+        </div>
+    </flex-code-block>
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic usage --&gt;
-&lt;app-spinner&gt;&lt;/app-spinner&gt;
+&lt;flex-spinner&gt;&lt;/flex-spinner&gt;
 
 &lt;!-- With custom properties --&gt;
-&lt;app-spinner 
+&lt;flex-spinner 
   size="lg"
   color="primary"
   speed="fast"
   variant="linear"&gt;
-&lt;/app-spinner&gt;
+&lt;/flex-spinner&gt;
 
 &lt;!-- In a loading state context --&gt;
 &lt;div *ngIf="isLoading" class="flex justify-center"&gt;
-  &lt;app-spinner&gt;&lt;/app-spinner&gt;
+  &lt;flex-spinner&gt;&lt;/flex-spinner&gt;
 &lt;/div&gt;
         </pre>
     </div>

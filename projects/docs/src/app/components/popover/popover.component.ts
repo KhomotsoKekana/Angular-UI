@@ -6,6 +6,7 @@ import { PopoverTriggerComponent } from '../../../../../ui/src/lib/popover/popov
 import { PopoverContentComponent } from '../../../../../ui/src/lib/popover/popover-content.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
 import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -16,7 +17,8 @@ import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
     PopoverTriggerComponent, 
     PopoverContentComponent,
     ButtonComponent,
-    IconComponent
+    IconComponent,
+    CodeBlockComponent
   ],
   templateUrl: './popover.component.html',
 })

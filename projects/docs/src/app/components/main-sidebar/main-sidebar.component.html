@@ -2,14 +2,33 @@
     <header class="mb-8">
         <h1 class="text-3xl font-bold text-gray-800">Main Sidebar Component</h1>
         <p class="text-lg text-gray-600 mt-2">
-            The <code>&lt;app-main-sidebar&gt;</code> provides a collapsible navigation sidebar for applications.
+            The <code>&lt;flex-main-sidebar&gt;</code> provides a collapsible navigation sidebar for applications.
             It supports icons, text labels, badges, and can be positioned on the left side of the screen.
             It also includes a responsive horizontal navigation bar for smaller screens.
         </p>
     </header>
 
     <!-- Example 1: Basic Sidebar -->
-    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <flex-code-block code="
+    &lt;!-- app.component.html or your layout component --&gt;
+        &lt;div class=&quot;flex h-screen&quot;&gt;
+        &lt;flex-main-sidebar [navItems]=&quot;navItems&quot; [width]=&quot;256&quot; [collapsedWidth]=&quot;56&quot;&gt;&lt;/flex-main-sidebar&gt;
+        &lt;main class=&quot;flex-grow p-4&quot;&gt;
+            &lt;!-- Your page content --&gt;
+            &lt;router-outlet&gt;&lt;/router-outlet&gt;
+        &lt;/main&gt;
+        &lt;/div&gt;
+
+        &lt;!-- component.ts --&gt;
+        import &#123; MainSidebarItem &#125; from '...'; // Adjust path as needed
+
+        navItems: MainSidebarItem[] = [
+        &#123; title: 'Dashboard', url: '/dashboard', icon: 'home', isActive: true, allowMobile: true &#125;,
+        &#123; title: 'Analytics', url: '/analytics', icon: 'chartBar', isActive: false, allowMobile: true &#125;,
+        &#123; title: 'Settings', url: '/settings', icon: 'settings', isActive: false, allowMobile: true, position: 'bottom' &#125;,
+        ];
+    ">
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200" preview>
         <h2 class="text-xl font-semibold text-gray-700 mb-4">1. Basic Sidebar</h2>
         <p class="text-gray-600 mb-4">
             A simple sidebar configuration with a few navigation items.
@@ -18,14 +37,14 @@
         <div class="border border-gray-300 p-4 rounded-lg bg-gray-50 h-96 relative">
             <!-- NOTE: For demonstration, we simulate the sidebar. In a real app, it would be part of the main layout. -->
             <div class="absolute top-0 left-0 h-full">
-                 <app-main-sidebar [navItems]="basicNavItems" [collapsedWidth]="56" [width]="250"></app-main-sidebar>
+                 <flex-main-sidebar [navItems]="basicNavItems" [collapsedWidth]="56" [width]="250"></flex-main-sidebar>
             </div>
             <p class="text-sm text-gray-500 pl-16">Main content area next to the sidebar...</p>
         </div>
-        <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
+        <!-- <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 overflow-x-auto text-sm custom-scrollbar">
 &lt;!-- app.component.html or your layout component --&gt;
 &lt;div class="flex h-screen"&gt;
-  &lt;app-main-sidebar [navItems]="navItems" [width]="256" [collapsedWidth]="56"&gt;&lt;/app-main-sidebar&gt;
+  &lt;flex-main-sidebar [navItems]="navItems" [width]="256" [collapsedWidth]="56"&gt;&lt;/flex-main-sidebar&gt;
   &lt;main class="flex-grow p-4"&gt;
     &lt;!-- Your page content --&gt;
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -40,16 +59,17 @@ navItems: MainSidebarItem[] = [
   &#123; title: 'Analytics', url: '/analytics', icon: 'chartBar', isActive: false, allowMobile: true &#125;,
   &#123; title: 'Settings', url: '/settings', icon: 'settings', isActive: false, allowMobile: true, position: 'bottom' &#125;,
 ];
-        </pre>
+        </pre> -->
         <p class="text-gray-600 mt-4">
             The sidebar's state (collapsed/expanded) is managed internally by default but can be controlled.
             The <code>navItems</code> input takes an array of <code>MainSidebarItem</code> objects.
         </p>
     </section>
+</flex-code-block>
 
     <!-- Properties Table: MainSidebarComponent -->
     <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Inputs (<code>&lt;app-main-sidebar&gt;</code>)</h2>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Inputs (<code>&lt;flex-main-sidebar&gt;</code>)</h2>
         <div class="overflow-x-auto custom-scrollbar">
             <table class="min-w-full bg-white border border-gray-300 rounded-md">
                 <thead class="bg-gray-100">
@@ -150,7 +170,7 @@ navItems: MainSidebarItem[] = [
 
     <!-- Component Outputs -->
     <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Outputs (<code>&lt;app-main-sidebar&gt;</code>)</h2>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Component Outputs (<code>&lt;flex-main-sidebar&gt;</code>)</h2>
         <div class="overflow-x-auto custom-scrollbar">
             <table class="min-w-full bg-white border border-gray-300 rounded-md">
                 <thead class="bg-gray-100">
@@ -177,7 +197,7 @@ navItems: MainSidebarItem[] = [
         <p class="text-gray-600 mb-4">
             The sidebar's appearance is primarily controlled by Tailwind CSS classes within its own component structure.
             You can customize the icons, colors (via button variants on nav items), and dimensions through its inputs.
-            The <code>app-button</code> component is used for individual navigation items, allowing for consistent styling.
+            The <code>flex-button</code> component is used for individual navigation items, allowing for consistent styling.
             The active state is highlighted using the <code>primaryGhost</code> or <code>primary</code> variant of the button.
         </p>
         <p class="text-gray-600">
@@ -206,7 +226,7 @@ navItems: MainSidebarItem[] = [
     background: #a1a1a1;
 }
 /* Ensure the demo sidebar is visible */
-app-main-sidebar {
+flex-main-sidebar {
     display: block; /* Or flex, depending on its internal structure if it's not showing */
     height: 100%;
 }

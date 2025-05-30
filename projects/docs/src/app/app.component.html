@@ -1,45 +1,51 @@
-<div class="flex h-screen overflow-hidden">
-  <aside class="w-64 bg-gray-100 p-4 border-r flex flex-col h-full overflow-hidden">
-    <h2 class="font-bold text-lg mb-4">Aheeva Flex UI</h2>
-    <nav class="flex flex-col space-y-2 overflow-auto">
-      <a routerLink="/accordion" class="hover:underline text-blue-600">Accordion</a>
-      <a routerLink="/anchor" class="hover:underline text-blue-600">Anchor</a>
-      <a routerLink="/avatar" class="hover:underline text-blue-600">Avatar</a>
-      <a routerLink="/badge" class="hover:underline text-blue-600">Badge</a>
-      <a routerLink="/button" class="hover:underline text-blue-600">Button</a>
-      <a routerLink="/breadcrumb" class="hover:underline text-blue-600">Breadcrumb</a>
-      <a routerLink="/card" class="hover:underline text-blue-600">Card</a>
-      <a routerLink="/chart" class="hover:underline text-blue-600">Chart</a>
-      <a routerLink="/checkbox" class="hover:underline text-blue-600">Checkbox</a>
-      <a routerLink="/data-table" class="hover:underline text-blue-600">Data Table</a>
-      <a routerLink="/date-picker" class="hover:underline text-blue-600">Date Picker</a>
-      <a routerLink="/divider" class="hover:underline text-blue-600">Divider</a>
-      <a routerLink="/docked-composer" class="hover:underline text-blue-600">Docked Composer</a>
-      <a routerLink="/drawer" class="hover:underline text-blue-600">Drawer</a>
-      <a routerLink="/dropdown" class="hover:underline text-blue-600">Dropdown</a>
-      <a routerLink="/dynamic-tooltip" class="hover:underline text-blue-600">Dynamic Tooltip</a>
-      <a routerLink="/header" class="hover:underline text-blue-600">Header</a>
-      <a routerLink="/illustrations" class="hover:underline text-blue-600">Illustrations</a>
-      <a routerLink="/input" class="hover:underline text-blue-600">Input</a>
-      <a routerLink="/main-sidebar" class="hover:underline text-blue-600">Main Sidebar</a>
-      <a routerLink="/modal" class="hover:underline text-blue-600">Modal</a>
-      <a routerLink="/otp-input" class="hover:underline text-blue-600">OTP Input</a>
-      <a routerLink="/paginator" class="hover:underline text-blue-600">Paginator</a>
-      <a routerLink="/popover" class="hover:underline text-blue-600">Popover</a>
-      <a routerLink="/radio-group" class="hover:underline text-blue-600">Radio Group</a>
-      <a routerLink="/secondary-sidebar" class="hover:underline text-blue-600">Secondary Sidebar</a>
-      <a routerLink="/select" class="hover:underline text-blue-600">Select</a>
-      <a routerLink="/shiny-text" class="hover:underline text-blue-600">Shiny Text</a>
-      <a routerLink="/skeleton" class="hover:underline text-blue-600">Skeleton</a>
-      <a routerLink="/sonner" class="hover:underline text-blue-600">Sonner</a>
-      <a routerLink="/spinner" class="hover:underline text-blue-600">Spinner</a>
-      <a routerLink="/switch" class="hover:underline text-blue-600">Switch</a>
-      <a routerLink="/tab-group" class="hover:underline text-blue-600">Tab Group</a>
-      <a routerLink="/tabs" class="hover:underline text-blue-600">Tabs</a>
-      <a routerLink="/tooltip" class="hover:underline text-blue-600">Tooltip</a>
-    </nav>
-  </aside>
-  <main class="flex-1 p-6 overflow-auto">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+<body class="h-screen w-screen relative flex flex-col overflow-hidden">
+  <app-header></app-header> 
+  <div class="flex h-full overflow-hidden">
+    <aside class="w-64 bg-gray-100 p-4 border-r flex flex-col h-full overflow-hidden">
+      <h2 class="font-bold text-lg mb-4 text-xl tracking-wide text-gray-700">Aheeva Flex UI</h2>
+      <nav class="flex flex-col space-y-2 overflow-auto">
+        <a routerLink="/accordion" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform rounded m-2">Accordion</a>
+        <a routerLink="/anchor" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Anchor</a>
+        <a routerLink="/avatar" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Avatar</a>
+        <a routerLink="/badge" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Badge</a>
+        <a routerLink="/button" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Button</a>
+        <a routerLink="/breadcrumb" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Breadcrumb</a>
+        <a routerLink="/card" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Card</a>
+        <a routerLink="/chart" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Chart</a>
+        <a routerLink="/checkbox" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Checkbox</a>
+
+        <a routerLink="/code-block" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Code-Block</a>
+        
+        <a routerLink="/data-table" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Data Table</a>
+        <a routerLink="/date-picker" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Date Picker</a>
+        <a routerLink="/divider" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Divider</a>
+        <a routerLink="/docked-composer" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Docked Composer</a>
+        <a routerLink="/drawer" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Drawer</a>
+        <a routerLink="/dropdown" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Dropdown</a>
+        <a routerLink="/dynamic-tooltip" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Dynamic Tooltip</a>
+        <a routerLink="/header" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Header</a>
+        <a routerLink="/illustrations" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Illustrations</a>
+        <a routerLink="/input" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Input</a>
+        <a routerLink="/main-sidebar" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Main Sidebar</a>
+        <a routerLink="/modal" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Modal</a>
+        <a routerLink="/otp-input" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">OTP Input</a>
+        <a routerLink="/paginator" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Paginator</a>
+        <a routerLink="/popover" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Popover</a>
+        <a routerLink="/radio-group" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Radio Group</a>
+        <a routerLink="/secondary-sidebar" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Secondary Sidebar</a>
+        <a routerLink="/select" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Select</a>
+        <a routerLink="/shiny-text" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Shiny Text</a>
+        <a routerLink="/skeleton" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Skeleton</a>
+        <a routerLink="/sonner" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Sonner</a>
+        <a routerLink="/spinner" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Spinner</a>
+        <a routerLink="/switch" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Switch</a>
+        <a routerLink="/tab-group" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Tab Group</a>
+        <a routerLink="/tabs" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Tabs</a>
+        <a routerLink="/tooltip" class="text-black hover:text-gray-500 hover:bg-gray-100 hover:translate-x-2 transition-all duration-300 transform  m-2">Tooltip</a>
+      </nav>
+    </aside>
+    <main class="flex-1 p-6 overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</body>

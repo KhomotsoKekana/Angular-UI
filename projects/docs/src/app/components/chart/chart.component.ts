@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChartComponent } from '../../../../../ui/src/lib/chart/chart.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, ChartComponent],
+  imports: [CommonModule, FormsModule, ChartComponent,CodeBlockComponent],
   templateUrl: './chart.component.html',
 })
 export class DocsChartComponent {

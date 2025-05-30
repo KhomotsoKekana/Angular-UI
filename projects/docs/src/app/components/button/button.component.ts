@@ -3,10 +3,11 @@ import { ButtonComponent } from '../../../../../ui/src/lib/button/button.compone
 import { ToggleButtonComponent } from '../../../../../ui/src/lib/button/toggle-button.component';
 import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
 import { CommonModule } from '@angular/common';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [ButtonComponent, ToggleButtonComponent, IconComponent, CommonModule],
+  imports: [ButtonComponent, ToggleButtonComponent, IconComponent, CommonModule,CodeBlockComponent],
   templateUrl: './button.component.html',
 })
 export class DocsButtonComponent {

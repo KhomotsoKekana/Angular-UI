@@ -18,7 +18,7 @@ import {
 } from 'ng-apexcharts';
 
 @Component({
-    selector: 'app-chart',
+    selector: 'flex-chart',
     imports: [NgApexchartsModule],
     template: `
     <apx-chart

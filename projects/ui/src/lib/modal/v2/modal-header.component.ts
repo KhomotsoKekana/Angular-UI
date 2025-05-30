@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-modal-header',
+    selector: 'flex-modal-header',
     imports: [CommonModule],
     template: `
         <div class="p-3 w-full flex items-center text-base font-medium {{getVariantClass()}}">

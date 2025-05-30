@@ -1,57 +1,134 @@
 <div class="p-6 space-y-4">
     <h1 class="text-xl font-semibold">Badge Component</h1>
     <p class="mb-4">A small label that highlights status, count, or contextual information.</p>
-    
-    <h2 class="text-lg font-medium mb-2">Variants</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-6">
-        <app-badge variant="success" text="Success" />
-        <app-badge variant="warning" text="Warning" />
-        <app-badge variant="error" text="Error" />
-        <app-badge variant="neutral" text="Neutral" />
-        <app-badge variant="info" text="Info" />
-        <app-badge variant="primary" text="Primary" />
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge variant=&quot;success&quot; text=&quot;Success&quot; />
+        <flex-badge variant=&quot;warning&quot; text=&quot;Warning&quot; />
+        <flex-badge variant=&quot;error&quot; text=&quot;Error&quot; />
+        <flex-badge variant=&quot;neutral&quot; text=&quot;Neutral&quot; />
+        <flex-badge variant=&quot;info&quot; text=&quot;Info&quot; />
+        <flex-badge variant=&quot;primary&quot; text=&quot;Primary&quot; />
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Sizes</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-6">
-        <app-badge size="xs" text="Extra small" />
-        <app-badge size="sm" text="Small" />
-        <app-badge size="md" text="Medium" />
-        <app-badge size="lg" text="Large" />
+    ">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Variants</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge variant="success" text="Success" />
+                <flex-badge variant="warning" text="Warning" />
+                <flex-badge variant="error" text="Error" />
+                <flex-badge variant="neutral" text="Neutral" />
+                <flex-badge variant="info" text="Info" />
+                <flex-badge variant="primary" text="Primary" />
+            </div>
+        </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge variant=&quot;success&quot; text=&quot;Success&quot; />
+        <flex-badge variant=&quot;warning&quot; text=&quot;Warning&quot; />
+        <flex-badge variant=&quot;error&quot; text=&quot;Error&quot; />
+        <flex-badge variant=&quot;neutral&quot; text=&quot;Neutral&quot; />
+        <flex-badge variant=&quot;info&quot; text=&quot;Info&quot; />
+        <flex-badge variant=&quot;primary&quot; text=&quot;Primary&quot; />
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Closable</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-6">
-        <app-badge variant="success" text="Closable Badge" [closable]="true" (onClose)="closeHandler()" />
-        <app-badge variant="warning" text="Click X to close" [closable]="true" (onClose)="closeHandler()" />
-        <app-badge variant="error" text="Dismissible" [closable]="true" (onClose)="closeHandler()" />
+    ">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Variants</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge variant="success" text="Success" />
+                <flex-badge variant="warning" text="Warning" />
+                <flex-badge variant="error" text="Error" />
+                <flex-badge variant="neutral" text="Neutral" />
+                <flex-badge variant="info" text="Info" />
+                <flex-badge variant="primary" text="Primary" />
+            </div>
+        </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge size=&quot;xs&quot; text=&quot;Extra small&quot; />
+        <flex-badge size=&quot;sm&quot; text=&quot;Small&quot; />
+        <flex-badge size=&quot;md&quot; text=&quot;Medium&quot; />
+        <flex-badge size=&quot;lg&quot; text=&quot;Large&quot; />
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">With Numbers</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-6">
-        <app-badge variant="primary" [text]="5" />
-        <app-badge variant="info" [text]="42" />
-        <app-badge variant="success" [text]="100" />
+    ">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">Sizes</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge size="xs" text="Extra small" />
+                <flex-badge size="sm" text="Small" />
+                <flex-badge size="md" text="Medium" />
+                <flex-badge size="lg" text="Large" />
+            </div>
+        </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge variant=&quot;success&quot; text=&quot;Closable Badge&quot; [closable]=&quot;true&quot; (onClose)=&quot;closeHandler()&quot; />
+        <flex-badge variant=&quot;warning&quot; text=&quot;Click X to close&quot; [closable]=&quot;true&quot; (onClose)=&quot;closeHandler()&quot; />
+        <flex-badge variant=&quot;error&quot; text=&quot;Dismissible&quot; [closable]=&quot;true&quot; (onClose)=&quot;closeHandler()&quot; />
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Used as Wrapper</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-6">
-        <app-badge variant="primary" [isWrapper]="true">
-            <span class="px-2">Custom Content</span>
-        </app-badge>
+    ">
+        <div preview>      
+            <h2 class="text-lg font-medium mb-2">Closable</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge variant="success" text="Closable Badge" [closable]="true" (onClose)="closeHandler()" />
+                <flex-badge variant="warning" text="Click X to close" [closable]="true" (onClose)="closeHandler()" />
+                <flex-badge variant="error" text="Dismissible" [closable]="true" (onClose)="closeHandler()" />
+            </div>
+        </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge variant=&quot;primary&quot; [text]=&quot;5&quot; />
+        <flex-badge variant=&quot;info&quot; [text]=&quot;42&quot; />
+        <flex-badge variant=&quot;success&quot; [text]=&quot;100&quot; />
     </div>
+    ">
+        <div preview>
+            <h2 class="text-lg font-medium mb-2">With Numbers</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge variant="primary" [text]="5" />
+                <flex-badge variant="info" [text]="42" />
+                <flex-badge variant="success" [text]="100" />
+            </div>
+        </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-4 mb-6&quot;>
+        <flex-badge variant=&quot;primary&quot;[isWrapper]=&quot;true&quot;>
+            <span class=&quot;px-2&quot;>Custom Content</span>
+        </flex-badge>
+    </div>
+    ">
+        <div preview>           
+            <h2 class="text-lg font-medium mb-2">Used as Wrapper</h2>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+                <flex-badge variant="primary" [isWrapper]="true">
+                    <span class="px-2">Custom Content</span>
+                </flex-badge>
+            </div> 
+        </div>
+    </flex-code-block>
+
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic badge --&gt;
-&lt;app-badge 
+&lt;flex-badge 
   variant="success" 
   text="New Feature" 
 /&gt;
 
 &lt;!-- Closable badge --&gt;
-&lt;app-badge 
+&lt;flex-badge 
   variant="error" 
   text="Outdated" 
   [closable]="true"
@@ -59,18 +136,18 @@
 /&gt;
 
 &lt;!-- Number badge --&gt;
-&lt;app-badge 
+&lt;flex-badge 
   variant="info" 
   [text]="unreadCount" 
 /&gt;
 
 &lt;!-- Badge as wrapper --&gt;
-&lt;app-badge 
+&lt;flex-badge 
   variant="primary" 
   [isWrapper]="true"
 &gt;
   &lt;span&gt;Custom content&lt;/span&gt;
-&lt;/app-badge&gt;
+&lt;/flex-badge&gt;
         </pre>
     </div>
     

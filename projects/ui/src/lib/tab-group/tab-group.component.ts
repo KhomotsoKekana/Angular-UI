@@ -36,7 +36,7 @@ export interface Tab {
 }
 
 @Component({
-  selector: 'app-tab-group',
+  selector: 'flex-tab-group',
   standalone: true,
   imports: [CommonModule, TranslateModule, IconComponent, DropdownComponent, DropdownTriggerComponent, DropdownMenuComponent, DropdownItemComponent],
   templateUrl: './tab-group.component.html',

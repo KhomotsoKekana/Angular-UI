@@ -5,7 +5,7 @@ import { ButtonComponent } from "../button/button.component";
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-    selector: 'app-docked-composer',
+    selector: 'flex-docked-composer',
     imports: [CommonModule, IconComponent, DragDropModule, ButtonComponent],
     templateUrl: './docked-composer.component.html',
 })

@@ -10,7 +10,7 @@ import { ModalHeaderComponent } from './modal-header.component';
 
 
 @Component({
-    selector: 'app-custom-modal-container',
+    selector: 'flex-custom-modal-container',
     templateUrl: './modal.component.html',
     // Add Tailwind classes directly in the template
     changeDetection: ChangeDetectionStrategy.OnPush,

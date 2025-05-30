@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-badge',
+  selector: 'flex-badge',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './badge.component.html',

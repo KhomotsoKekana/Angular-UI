@@ -7,7 +7,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-popover',
+  selector: 'flex-popover',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './popover.component.html',

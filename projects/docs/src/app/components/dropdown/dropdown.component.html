@@ -3,142 +3,238 @@
     <p class="mb-4">A dropdown component that displays a menu of options when triggered. It can be positioned in different directions and customized with icons and additional content.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Dropdown</h2>
-    <div class="mb-6 border p-4 rounded">
-        <app-dropdown>
-            <app-dropdown-trigger>
-                <flex-button variant="secondary">
-                    {{ selectedOption }}
-                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
-                </flex-button>
-            </app-dropdown-trigger>
-            <app-dropdown-menu>
-                <app-dropdown-item
-                    *ngFor="let item of basicItems"
-                    (click)="onSelectBasic(item)">
-                    {{ item }}
-                </app-dropdown-item>
-            </app-dropdown-menu>
-        </app-dropdown>
-        
-        <div class="mt-4">
-            <p>Selected: <strong>{{ selectedOption }}</strong></p>
-        </div>
+    <flex-code-block code="
+     <flex-dropdown>
+        <flex-dropdown-trigger>
+            <flex-button variant=&quot;secondary&quot;>
+                {{ selectedOption }}
+                <flex-icon icon=&quot;chevronDown&quot; class=&quot;ml-2 h-4 w-4&quot;></flex-icon>
+            </flex-button>
+        </flex-dropdown-trigger>
+        <flex-dropdown-menu>
+            <flex-dropdown-item
+                *ngFor=&quot;let item of basicItems&quot;
+                (click)=&quot;onSelectBasic(item)&quot;>
+                {{ &quot;item }}
+            </flex-dropdown-item>
+        </flex-dropdown-menu>
+    </flex-dropdown>
+            
+    <div class=&qoutmt-4&qout>
+        <p>Selected: <strong>{{ selectedOption }}</strong></p>
     </div>
-    
+    ">
+        <div preview>
+            <flex-dropdown>
+                <flex-dropdown-trigger>
+                    <flex-button variant="secondary">
+                        {{ selectedOption }}
+                        <flex-icon icon="chevronDown" class="ml-2 h-4 w-4"></flex-icon>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item
+                        *ngFor="let item of basicItems"
+                        (click)="onSelectBasic(item)">
+                        {{ item }}
+                    </flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+            
+            <div class="mt-4">
+                <p>Selected: <strong>{{ selectedOption }}</strong></p>
+            </div>
+        </div>
+    </flex-code-block>
+        
     <h2 class="text-lg font-medium mb-2">Dropdown with Icons</h2>
-    <div class="mb-6 border p-4 rounded">
-        <app-dropdown>
-            <app-dropdown-trigger>
-                <flex-button>
-                    {{ selectedIconOption }}
-                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
-                </flex-button>
-            </app-dropdown-trigger>
-            <app-dropdown-menu>
-                <app-dropdown-item
-                    *ngFor="let item of iconItems"
-                    (click)="onSelectIconOption(item.label)">
-                    <app-icon [icon]="item.icon" class="mr-2 h-4 w-4"></app-icon>
-                    {{ item.label }}
-                </app-dropdown-item>
-            </app-dropdown-menu>
-        </app-dropdown>
-        
-        <div class="mt-4">
-            <p>Selected: <strong>{{ selectedIconOption }}</strong></p>
+    <flex-code-block code="
+                <flex-dropdown>
+                <flex-dropdown-trigger>
+                    <flex-button>
+                        {{ selectedIconOption }}
+                        <flex-icon icon=&quot;chevronDown&quot; class=&quot;ml-2 h-4 w-4&quot;></flex-icon>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item
+                        *ngFor=&quot;let item of iconItems&quot;
+                        (click)=&quot;onSelectIconOption(item.label)&quot;>
+                        <flex-icon [icon]=&quot;item.icon&quot; class=&quot;mr-2 h-4 w-4&quot;></flex-icon>
+                        {{ &quot;item.label }}
+                    </flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+            
+            <div class=&quot;mt-4&quot;>
+                <p>Selected: <strong>{{ selectedIconOption }}</strong></p>
+            </div>
+    ">
+        <div preview>
+            <flex-dropdown>
+                <flex-dropdown-trigger>
+                    <flex-button>
+                        {{ selectedIconOption }}
+                        <flex-icon icon="chevronDown" class="ml-2 h-4 w-4"></flex-icon>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item
+                        *ngFor="let item of iconItems"
+                        (click)="onSelectIconOption(item.label)">
+                        <flex-icon [icon]="item.icon" class="mr-2 h-4 w-4"></flex-icon>
+                        {{ item.label }}
+                    </flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+            
+            <div class="mt-4">
+                <p>Selected: <strong>{{ selectedIconOption }}</strong></p>
+            </div>
         </div>
-    </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Dropdown Placement</h2>
-    <div class="mb-2">
-        <label class="block text-sm mb-1">Select placement:</label>
-        <select [(ngModel)]="selectedPlacement" class="border rounded px-2 py-1 mb-3">
-            <option value="top">Top</option>
-            <option value="bottom">Bottom</option>
-            <option value="left">Left</option>
-            <option value="right">Right</option>
-        </select>
-    </div>
-    <div class="mb-6 border p-4 rounded flex justify-center items-center h-40">
-        <app-dropdown [placement]="selectedPlacement">
-            <app-dropdown-trigger>
-                <flex-button variant="primary">
-                    {{ selectedPlacement }} Placement
-                    <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
-                </flex-button>
-            </app-dropdown-trigger>
-            <app-dropdown-menu>
-                <app-dropdown-item>Option 1</app-dropdown-item>
-                <app-dropdown-item>Option 2</app-dropdown-item>
-                <app-dropdown-item>Option 3</app-dropdown-item>
-            </app-dropdown-menu>
-        </app-dropdown>
-    </div>
+    <flex-code-block code="
+                <label class=&quot;block text-sm mb-1&quot;>Select placement:</label>
+            <select [(ngModel)]=&quot;selectedPlacement&quot; class=&quot;border rounded px-2 py-1 mb-3&quot;>
+                <option value=&quot;top&quot;>Top</option>
+                <option value=&quot;bottom&quot;>Bottom</option>
+                <option value=&quot;left&quot;>Left</option>
+                <option value=&quot;right&quot;>Right</option>
+            </select>
+        </div>
+        <div class=&quot;mb-6 border p-4 rounded flex justify-center items-center h-40&quot;>
+            <flex-dropdown [placement]=&quot;selectedPlacement&quot;>
+                <flex-dropdown-trigger>
+                    <flex-button variant=&quot;primary&quot;>
+                        {{ selectedPlacement }} Placement
+                        <flex-icon icon=&quot;chevronDown&quot; class=&quot;ml-2 h-4 w-4&quot;></flex-icon>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item>Option 1</flex-dropdown-item>
+                    <flex-dropdown-item>Option 2</flex-dropdown-item>
+                    <flex-dropdown-item>Option 3</flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+    ">
+        <div preview>
+            <label class="block text-sm mb-1">Select placement:</label>
+            <select [(ngModel)]="selectedPlacement" class="border rounded px-2 py-1 mb-3">
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select>
+        </div>
+        <div class="mb-6 border p-4 rounded flex justify-center items-center h-40">
+            <flex-dropdown [placement]="selectedPlacement">
+                <flex-dropdown-trigger>
+                    <flex-button variant="primary">
+                        {{ selectedPlacement }} Placement
+                        <flex-icon icon="chevronDown" class="ml-2 h-4 w-4"></flex-icon>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item>Option 1</flex-dropdown-item>
+                    <flex-dropdown-item>Option 2</flex-dropdown-item>
+                    <flex-dropdown-item>Option 3</flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Custom Dropdown Items</h2>
-    <div class="mb-6 border p-4 rounded">
-        <app-dropdown>
-            <app-dropdown-trigger>
-                <flex-button>
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        <span>Role: {{ selectedRole }}</span>
-                        <app-icon icon="chevronDown" class="ml-2 h-4 w-4"></app-icon>
-                    </div>
-                </flex-button>
-            </app-dropdown-trigger>
-            <app-dropdown-menu>
-                <app-dropdown-item
-                    *ngFor="let role of roleItems"
-                    [active]="role.active"
-                    [disabled]="role.disabled"
-                    (click)="onSelectRole(role.label)">
-                    <div class="flex flex-col">
-                        <span>{{ role.label }}</span>
-                        <span class="text-xs text-gray-500">{{ role.description }}</span>
-                    </div>
-                </app-dropdown-item>
-            </app-dropdown-menu>
-        </app-dropdown>
-    </div>
-    
+    <flex-code-block code="
+    <flex-dropdown>
+                <flex-dropdown-trigger>
+                    <flex-button>
+                        <div class=&quoflex items-center gap-2&quo>
+                            <div class=&quow-3 h-3 rounded-full bg-green-500&quo></div>
+                            <span>Role: {{ selectedRole }}</span>
+                            <flex-icon icon=&quochevronDown&quo class=&quoml-2 h-4 w-4&quo></flex-icon>
+                        </div>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item
+                        *ngFor=&quolet role of roleItems&quo
+                        [active]=&quorole.active&quo
+                        [disabled]=&quorole.disabled&quo
+                        (click)=&quoonSelectRole(role.label)&quo>
+                        <div class=&quoflex flex-col&quo>
+                            <span>{{ &quot;role.label }}</span>
+                            <span class=&quotext-xs text-gray-500&quo>{{ role.description }}</span>
+                        </div>
+                    </flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+    ">
+        <div preview>
+            <flex-dropdown>
+                <flex-dropdown-trigger>
+                    <flex-button>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span>Role: {{ selectedRole }}</span>
+                            <flex-icon icon="chevronDown" class="ml-2 h-4 w-4"></flex-icon>
+                        </div>
+                    </flex-button>
+                </flex-dropdown-trigger>
+                <flex-dropdown-menu>
+                    <flex-dropdown-item
+                        *ngFor="let role of roleItems"
+                        [active]="role.active"
+                        [disabled]="role.disabled"
+                        (click)="onSelectRole(role.label)">
+                        <div class="flex flex-col">
+                            <span>{{ role.label }}</span>
+                            <span class="text-xs text-gray-500">{{ role.description }}</span>
+                        </div>
+                    </flex-dropdown-item>
+                </flex-dropdown-menu>
+            </flex-dropdown>
+        </div>
+    </flex-code-block>
+        
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic dropdown --&gt;
-&lt;app-dropdown&gt;
-  &lt;app-dropdown-trigger&gt;
+&lt;flex-dropdown&gt;
+  &lt;flex-dropdown-trigger&gt;
     &lt;flex-button&gt;
       Click me
-      &lt;app-icon icon="chevronDown" class="ml-2 h-4 w-4"&gt;&lt;/app-icon&gt;
+      &lt;flex-icon icon="chevronDown" class="ml-2 h-4 w-4"&gt;&lt;/flex-icon&gt;
     &lt;/flex-button&gt;
-  &lt;/app-dropdown-trigger&gt;
-  &lt;app-dropdown-menu&gt;
-    &lt;app-dropdown-item (click)="handleAction()"&gt;Option 1&lt;/app-dropdown-item&gt;
-    &lt;app-dropdown-item&gt;Option 2&lt;/app-dropdown-item&gt;
-    &lt;app-dropdown-item&gt;Option 3&lt;/app-dropdown-item&gt;
-  &lt;/app-dropdown-menu&gt;
-&lt;/app-dropdown&gt;
+  &lt;/flex-dropdown-trigger&gt;
+  &lt;flex-dropdown-menu&gt;
+    &lt;flex-dropdown-item (click)="handleAction()"&gt;Option 1&lt;/flex-dropdown-item&gt;
+    &lt;flex-dropdown-item&gt;Option 2&lt;/flex-dropdown-item&gt;
+    &lt;flex-dropdown-item&gt;Option 3&lt;/flex-dropdown-item&gt;
+  &lt;/flex-dropdown-menu&gt;
+&lt;/flex-dropdown&gt;
 
 &lt;!-- Dropdown with placement --&gt;
-&lt;app-dropdown placement="top"&gt;
+&lt;flex-dropdown placement="top"&gt;
   &lt;!-- trigger and menu content --&gt;
-&lt;/app-dropdown&gt;
+&lt;/flex-dropdown&gt;
 
 &lt;!-- Dropdown with icons and custom content --&gt;
-&lt;app-dropdown&gt;
-  &lt;app-dropdown-trigger&gt;
+&lt;flex-dropdown&gt;
+  &lt;flex-dropdown-trigger&gt;
     &lt;flex-button&gt;Select an option&lt;/flex-button&gt;
-  &lt;/app-dropdown-trigger&gt;
-  &lt;app-dropdown-menu&gt;
-    &lt;app-dropdown-item&gt;
-      &lt;app-icon icon="user" class="mr-2 h-4 w-4"&gt;&lt;/app-icon&gt;
+  &lt;/flex-dropdown-trigger&gt;
+  &lt;flex-dropdown-menu&gt;
+    &lt;flex-dropdown-item&gt;
+      &lt;flex-icon icon="user" class="mr-2 h-4 w-4"&gt;&lt;/flex-icon&gt;
       User profile
-    &lt;/app-dropdown-item&gt;
-    &lt;app-dropdown-item [disabled]="true"&gt;Disabled option&lt;/app-dropdown-item&gt;
-    &lt;app-dropdown-item [active]="true"&gt;Active option&lt;/app-dropdown-item&gt;
-  &lt;/app-dropdown-menu&gt;
-&lt;/app-dropdown&gt;
+    &lt;/flex-dropdown-item&gt;
+    &lt;flex-dropdown-item [disabled]="true"&gt;Disabled option&lt;/flex-dropdown-item&gt;
+    &lt;flex-dropdown-item [active]="true"&gt;Active option&lt;/flex-dropdown-item&gt;
+  &lt;/flex-dropdown-menu&gt;
+&lt;/flex-dropdown&gt;
         </pre>
     </div>
     

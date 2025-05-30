@@ -1,7 +1,7 @@
 import { AfterContentInit, Component, ContentChild, HostBinding, Input, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-tab-content',
+  selector: 'flex-tab-content',
   standalone: true,
   template: `<ng-template #content><ng-content></ng-content></ng-template>`
 })

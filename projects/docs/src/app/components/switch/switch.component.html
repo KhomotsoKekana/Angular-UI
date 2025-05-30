@@ -3,57 +3,96 @@
     <p class="mb-4">A toggle control that allows users to select between two states.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Switch</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-switch [checked]="switchState1" (checkedChange)="onSwitchChange($event)"></app-switch>
+    <flex-code-block [code]="`
+    <div class=&quot;flex items-center gap-4 mb-6&quot; preview>
+        <flex-switch [checked]=&quot;switchState1&quot; (checkedChange)=&quot;onSwitchChange($event)&quot;></flex-switch>
         <span>State: {{ switchState1 ? 'On' : 'Off' }}</span>
     </div>
-    
+    `">
+        <div class="flex items-center gap-4 mb-6" preview>
+            <flex-switch [checked]="switchState1" (checkedChange)="onSwitchChange($event)"></flex-switch>
+            <span>State: {{ switchState1 ? 'On' : 'Off' }}</span>
+        </div>
+    </flex-code-block>
+
     <h2 class="text-lg font-medium mb-2">Default Checked</h2>
-    <div class="flex items-center gap-4 mb-6">
-        <app-switch [checked]="true"></app-switch>
+    <flex-code-block [code]="`
+    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+        <flex-switch [checked]=&quot;true&quot;></flex-switch>
         <span>Default On</span>
     </div>
-    
+    `">
+        <div class="flex items-center gap-4 mb-6" preview>
+            <flex-switch [checked]="true"></flex-switch>
+            <span>Default On</span>
+        </div>
+    </flex-code-block>
+
     <h2 class="text-lg font-medium mb-2">Disabled State</h2>
-    <div class="flex flex-col space-y-4 mb-6">
-        <div class="flex items-center gap-4">
-            <app-switch [disabled]="true" [checked]="false"></app-switch>
+    <flex-code-block [code]="`
+    <div class=&quot;flex flex-col space-y-4 mb-6&quot;>
+        <div class=&quot;flex items-center gap-4&quot;>
+            <flex-switch [disabled]=&quot;true&quot; [checked]=&quot;false&quot;></flex-switch>
             <span>Disabled Off</span>
         </div>
-        <div class="flex items-center gap-4">
-            <app-switch [disabled]="true" [checked]="true"></app-switch>
+        <div class=&quot;flex items-center gap-4&quot;>
+            <flex-switch [disabled]=&quot;true&quot; [checked]=&quot;true&quot;></flex-switch>
             <span>Disabled On</span>
         </div>
     </div>
+    `">
+        <div class="flex flex-col space-y-4 mb-6" preview>
+            <div class="flex items-center gap-4">
+                <flex-switch [disabled]="true" [checked]="false"></flex-switch>
+                <span>Disabled Off</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <flex-switch [disabled]="true" [checked]="true"></flex-switch>
+                <span>Disabled On</span>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Two-way Binding</h2>
-    <div class="flex flex-col space-y-4 mb-6">
-        <div class="flex items-center gap-4">
-            <app-switch [(checked)]="switchState2"></app-switch>
+    <flex-code-block [code]="`
+    <div class=&quot;flex flex-col space-y-4 mb-6&quot;>
+        <div class=&quot;flex items-center gap-4&quot;>
+            <flex-switch [(checked)]=&quot;switchState2&quot;></flex-switch>
             <span>Current state: {{ switchState2 ? 'On' : 'Off' }}</span>
         </div>
-        <button class="px-4 py-2 bg-blue-500 text-white rounded w-32" (click)="switchState2 = !switchState2">
+        <button class=&quot;px-4 py-2 bg-blue-500 text-white rounded w-32&quot; (click)=&quot;switchState2 = !switchState2&quot;>
             Toggle
         </button>
     </div>
+    `">
+        <div class="flex flex-col space-y-4 mb-6" preview>
+            <div class="flex items-center gap-4">
+                <flex-switch [(checked)]="switchState2"></flex-switch>
+                <span>Current state: {{ switchState2 ? 'On' : 'Off' }}</span>
+            </div>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded w-32" (click)="switchState2 = !switchState2">
+                Toggle
+            </button>
+        </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic switch --&gt;
-&lt;app-switch 
+&lt;flex-switch 
   [checked]="isEnabled" 
   (checkedChange)="onSwitchChange($event)"&gt;
-&lt;/app-switch&gt;
+&lt;/flex-switch&gt;
 
 &lt;!-- Disabled switch --&gt;
-&lt;app-switch 
+&lt;flex-switch 
   [checked]="isEnabled" 
   [disabled]="true"&gt;
-&lt;/app-switch&gt;
+&lt;/flex-switch&gt;
 
 &lt;!-- Two-way binding --&gt;
-&lt;app-switch [(checked)]="isEnabled"&gt;&lt;/app-switch&gt;
+&lt;flex-switch [(checked)]="isEnabled"&gt;&lt;/flex-switch&gt;
         </pre>
     </div>
     

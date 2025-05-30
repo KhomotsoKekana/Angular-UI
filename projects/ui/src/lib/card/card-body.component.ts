@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-card-body',
+  selector: 'flex-card-body',
   standalone:true,
   imports: [CommonModule],
   template: `

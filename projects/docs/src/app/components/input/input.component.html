@@ -3,96 +3,124 @@
     <p class="mb-4">A form control that allows users to enter and edit text, numbers, dates and other data types.</p>
 
     <h2 class="text-lg font-medium mb-2">Basic Text Input</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Username" placeholder="Enter your username" [value]="textValue">
-        </app-input>
-        <p class="mt-1 text-sm text-gray-600">Current value: {{textValue || 'Empty'}}</p>
+    <flex-code-block code = "
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-input label=&quot;Username&quot; placeholder=&quot;Enter your username&quot; [value]=&quot;textValue&quot;>
+        </flex-input>
+        <p class=&quot;mt-1 text-sm text-gray-600&quot;>Current value: {{textValue || 'Empty'}}</p>
     </div>
+    ">
+        <div preview>
+        <div class="max-w-md mb-6">
+            <flex-input label="Username" placeholder="Enter your username" [value]="textValue">
+            </flex-input>
+            <p class="mt-1 text-sm text-gray-600">Current value: {{textValue || 'Empty'}}</p>
+        </div>
+    </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">With Icons</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Search" placeholder="Search products..." leadingIcon="search">
-        </app-input>
-        <div class="mt-2"></div>
-        <app-input label="Email" placeholder="Email address" leadingText="@" type="email">
-        </app-input>
+    <flex-code-block code = "
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-input label=&quot;Search&quot; placeholder=&quot;Search products...&quot; leadingIcon=&quot;search&quot;>
+        </flex-input>
+        <div class=&quot;mt-2&quot;></div>
+        <flex-input label=&quot;Email&quot; placeholder=&quot;Email address&quot; leadingText=&quot;@&quot; type=&quot;email&quot;>
+        </flex-input>
     </div>
+    ">
+        <div preview>
+            <div class="max-w-md mb-6">
+                <flex-input label="Search" placeholder="Search products..." leadingIcon="search">
+                </flex-input>
+                <div class="mt-2"></div>
+                <flex-input label="Email" placeholder="Email address" leadingText="@" type="email">
+                </flex-input>
+            </div>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">With Error State</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Email address" placeholder="your@email.com" [value]="regexValue" [regex]="emailRegex">
-        </app-input>
-    </div>
+    <flex-code-block code = "
+                  <flex-input label=&quot;Email address&quot; placeholder=&quot;your@email.com&quot; [value]=&quot;regexValue&quot; [regex]=&quot;emailRegex&quot;>
+                </flex-input>
+    ">
+        <div preview>
+            <div class="max-w-md mb-6">
+                <flex-input label="Email address" placeholder="your@email.com" [value]="regexValue" [regex]="emailRegex">
+                </flex-input>
+            </div>
+        </div>
+    </flex-code-block>    
 
     <h2 class="text-lg font-medium mb-2">Password Input</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Password" type="password" placeholder="Enter your password" [value]="passwordValue"
-            [enablePasswordReveal]="true">
-        </app-input>
-    </div>
-
-    <!-- <h2 class="text-lg font-medium mb-2">Number Input</h2>
-    <div class="max-w-md mb-6">
-        <app-input 
-            label="Quantity" 
-            type="number" 
-            placeholder="0"
-            value="numberValue">
-        </app-input>
-    </div> -->
-
-    <!-- <h2 class="text-lg font-medium mb-2">Date Input</h2>
-    <div class="max-w-md mb-6">
-        <app-input 
-            label="Event Date" 
-            type="date" 
-            [value]="dateValue">
-        </app-input>
-    </div> -->
+    <flex-code-block code = "
+    <flex-input label=&quot;Password&quot; type=&quot;password&quot; placeholder=&quot;Enter your password&quot; [value]=&quot;passwordValue&quot;
+        [enablePasswordReveal]=&quot;true&quot;>
+    </flex-input>
+    ">
+        <div preview>
+            <div class="max-w-md mb-6">
+                <flex-input label="Password" type="password" placeholder="Enter your password" [value]="passwordValue"
+                    [enablePasswordReveal]="true">
+                </flex-input>
+            </div>
+        </div>
+        </flex-code-block>
+        
 
     <h2 class="text-lg font-medium mb-2">Disabled Input</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Read only value" value="This input is disabled" [disabled]="true">
-        </app-input>
+    <flex-code-block code="
+    <div class=&quot;max-w-md mb-6&quot;>
+        <flex-input label=&quot;Read only value&quot; value=&quot;This input is disabled&quot; [disabled]=&quot;true&quot;>
+        </flex-input>
     </div>
+    ">
+        <div preview>
+            <div class="max-w-md mb-6">
+                <flex-input label="Read only value" value="This input is disabled" [disabled]="true">
+                </flex-input>
+            </div>
 
-    <h2 class="text-lg font-medium mb-2">With Trailing Button</h2>
-    <div class="max-w-md mb-6">
-        <app-input label="Verification code" placeholder="6-digit code" trailingButton="Verify">
-        </app-input>
-    </div>
+            <h2 class="text-lg font-medium mb-2">With Trailing Button</h2>
+            <div class="max-w-md mb-6">
+                <flex-input label="Verification code" placeholder="6-digit code" trailingButton="Verify">
+                </flex-input>
+            </div>
+        </div>
+    </flex-code-block>
 
     <!-- <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic input --&gt;
-&lt;app-input 
+&lt;flex-input 
   label="Username" 
   placeholder="Enter your username" 
   [(value)]="username"&gt;
-&lt;/app-input&gt;
+&lt;/flex-input&gt;
 
 &lt;!-- With icons --&gt;
-&lt;app-input 
+&lt;flex-input 
   label="Search" 
   placeholder="Search products..." 
   leadingIcon="search"&gt;
-&lt;/app-input&gt;
+&lt;/flex-input&gt;
 
 &lt;!-- Password with reveal button --&gt;
-&lt;app-input 
+&lt;flex-input 
   label="Password" 
   type="password" 
   placeholder="Enter your password" 
   [enablePasswordReveal]="true"&gt;
-&lt;/app-input&gt;
+&lt;/flex-input&gt;
 
 &lt;!-- With validation --&gt;
-&lt;app-input 
+&lt;flex-input 
   label="Email" 
   placeholder="your@email.com"
   [regex]="emailRegex"&gt;
-&lt;/app-input&gt;
+&lt;/flex-input&gt;
         </pre>
     </div> -->
 

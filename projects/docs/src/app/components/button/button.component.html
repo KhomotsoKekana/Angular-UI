@@ -1,70 +1,173 @@
 <div class="p-6 space-y-6">
   <h1 class="text-xl font-semibold">Button Components</h1>
-
-  <div class="space-y-4">
-    <h2 class="text-lg font-medium">Standard Buttons</h2>
-    <div class="flex flex-wrap items-center gap-2">
+  <!-- <div class="space-y-4"> -->
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-2&quot;>
       <flex-button>Default</flex-button>
-      <flex-button variant="primary">Primary</flex-button>
-      <flex-button variant="danger">Danger</flex-button>
-      <flex-button variant="success">Success</flex-button>
-      <flex-button variant="warning">Warning</flex-button>
-      <flex-button variant="secondary">Secondary</flex-button>
-      <flex-button variant="ghost">Ghost</flex-button>
-      <flex-button variant="outline">Outline</flex-button>
-      <flex-button variant="neutral">Neutral</flex-button>
-      <flex-button variant="primaryGhost">Primary Ghost</flex-button>
-      <flex-button variant="default" [loading]="true">Loading</flex-button>
+      <flex-button variant=&quot;primary&quot;>Primary</flex-button>
+      <flex-button variant=&quot;danger&quot;>Danger</flex-button>
+      <flex-button variant=&quot;success&quot;>Success</flex-button>
+      <flex-button variant=&quot;warning&quot;>Warning</flex-button>
+      <flex-button variant=&quot;secondary&quot;>Secondary</flex-button>
+      <flex-button variant=&quot;ghost&quot;>Ghost</flex-button>
+      <flex-button variant=&quot;outline&quot;>Outline</flex-button>
+      <flex-button variant=&quot;neutral&quot;>Neutral</flex-button>
+      <flex-button variant=&quot;primaryGhost&quot;>Primary Ghost</flex-button>
+      <flex-button variant=&quot;default&quot; [loading]=&quot;true&quot;>Loading</flex-button>
     </div>
+    ">
+      <div preview>
+        <h2 class="text-lg font-medium">Standard Buttons</h2>
+        <div class="flex flex-wrap items-center gap-2">
+          <flex-button>Default</flex-button>
+          <flex-button variant="primary">Primary</flex-button>
+          <flex-button variant="danger">Danger</flex-button>
+          <flex-button variant="success">Success</flex-button>
+          <flex-button variant="warning">Warning</flex-button>
+          <flex-button variant="secondary">Secondary</flex-button>
+          <flex-button variant="ghost">Ghost</flex-button>
+          <flex-button variant="outline">Outline</flex-button>
+          <flex-button variant="neutral">Neutral</flex-button>
+          <flex-button variant="primaryGhost">Primary Ghost</flex-button>
+          <flex-button variant="default" [loading]="true">Loading</flex-button>
+        </div>
+      </div>
+    </flex-code-block>
 
-    <h2 class="text-lg font-medium mt-8">Toggle Buttons</h2>
-    <div class="space-y-4">
-      <div class="flex flex-wrap items-center gap-2">
-        <flex-toggle-button [(checked)]="favoriteToggle">
-          <span class="flex items-center gap-1">
-            <app-icon *ngIf="favoriteToggle" icon="heart" class="h-4 w-4 text-red-500"></app-icon>
-            <app-icon *ngIf="!favoriteToggle" icon="heart" class="h-4 w-4"></app-icon>
-            Favorite
+    <flex-code-block code="
+    <div class=&quot;space-y-4&quot;>
+      <div class=&quot;flex flex-wrap items-center gap-2&quot;>
+        <flex-toggle-button [(checked)]=&quot;favoriteToggle&quot;>
+          <span class=&quot;flex items-center gap-1&quot;>
+            <flex-icon *ngIf=&quot;favoriteToggle&quot; icon=&quot;heart&quot; class=&quot;h-4 w-4 text-red-500&quot;></flex-icon>
+            <flex-icon *ngIf=&quot;!favoriteToggle&quot; icon=&quot;heart&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+              Favorite
           </span>
         </flex-toggle-button>
-
-        <flex-toggle-button [(checked)]="playToggle" activeVariant="success" inactiveVariant="outline">
-          <span class="flex items-center gap-1">
-            <app-icon *ngIf="playToggle" icon="pause" class="h-4 w-4"></app-icon>
-            <app-icon *ngIf="!playToggle" icon="play" class="h-4 w-4"></app-icon>
-            {{playToggle ? 'Pause' : 'Play'}}
+        <flex-toggle-button [(checked)]=&quot;playToggle&quot; activeVariant=&quot;success&quot; inactiveVariant=&quot;outline&quot;>
+          <span class=&quot;flex items-center gap-1&quot;>
+            <flex-icon *ngIf=&quot;playToggle&quot; icon=&quot;pause&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+            <flex-icon *ngIf=&quot;!playToggle&quot; icon=&quot;play&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+              {{playToggle ? 'Pause' : 'Play'}}
           </span>
         </flex-toggle-button>
-
-        <flex-toggle-button [(checked)]="muteToggle" activeVariant="danger" inactiveVariant="ghost">
-          <span class="flex items-center gap-1">
-            <app-icon *ngIf="muteToggle" icon="volumeX" class="h-4 w-4"></app-icon>
-            <app-icon *ngIf="!muteToggle" icon="volume2" class="h-4 w-4"></app-icon>
-            {{muteToggle ? 'Unmute' : 'Mute'}}
+        <flex-toggle-button [(checked)]=&quot;muteToggle&quot; activeVariant=&quot;danger&quot; inactiveVariant=&quot;ghost&quot;>
+          <span class=&quot;flex items-center gap-1&quot;>
+            <flex-icon *ngIf=&quot;muteToggle&quot; icon=&quot;volumeX&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+            <flex-icon *ngIf=&quot;!muteToggle&quot; icon=&quot;volume2&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+              {{muteToggle ? 'Unmute' : 'Mute'}}
           </span>
         </flex-toggle-button>
-
-        <flex-toggle-button [(checked)]="notificationToggle" [disabled]="true">
-          <span class="flex items-center gap-1">
-            <app-icon icon="bell" class="h-4 w-4"></app-icon>
-            Notifications
+        <flex-toggle-button [(checked)]=&quot;notificationToggle&quot; [disabled]=&quot;true&quot;>
+          <span class=&quot;flex items-center gap-1&quot;>
+            <flex-icon icon=&quot;bell&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+              Notifications
           </span>
         </flex-toggle-button>
       </div>
+    </div>
+    ">
+      <div preview>
+        <h2 class="text-lg font-medium mt-8">Toggle Buttons</h2>
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <flex-toggle-button [(checked)]="favoriteToggle">
+              <span class="flex items-center gap-1">
+                <flex-icon *ngIf="favoriteToggle" icon="heart" class="h-4 w-4 text-red-500"></flex-icon>
+                <flex-icon *ngIf="!favoriteToggle" icon="heart" class="h-4 w-4"></flex-icon>
+                Favorite
+              </span>
+            </flex-toggle-button>
 
+            <flex-toggle-button [(checked)]="playToggle" activeVariant="success" inactiveVariant="outline">
+              <span class="flex items-center gap-1">
+                <flex-icon *ngIf="playToggle" icon="pause" class="h-4 w-4"></flex-icon>
+                <flex-icon *ngIf="!playToggle" icon="play" class="h-4 w-4"></flex-icon>
+                {{playToggle ? 'Pause' : 'Play'}}
+              </span>
+            </flex-toggle-button>
+
+            <flex-toggle-button [(checked)]="muteToggle" activeVariant="danger" inactiveVariant="ghost">
+              <span class="flex items-center gap-1">
+                <flex-icon *ngIf="muteToggle" icon="volumeX" class="h-4 w-4"></flex-icon>
+                <flex-icon *ngIf="!muteToggle" icon="volume2" class="h-4 w-4"></flex-icon>
+                {{muteToggle ? 'Unmute' : 'Mute'}}
+              </span>
+            </flex-toggle-button>
+
+            <flex-toggle-button [(checked)]="notificationToggle" [disabled]="true">
+              <span class="flex items-center gap-1">
+                <flex-icon icon="bell" class="h-4 w-4"></flex-icon>
+                Notifications
+              </span>
+            </flex-toggle-button>
+          </div>
+        </div>
+      </div>
+    </flex-code-block>
+
+    <flex-code-block code="
+    <div class=&quot;flex flex-wrap items-center gap-2&quot;>
+      <!-- Single variant example -->
+      <flex-toggle-button [(checked)]=&quot;singleVariantToggle&quot; variant=&quot;primary&quot;>
+        <span class=&quot;flex items-center gap-1&quot;>
+          <flex-icon icon=&quot;zap&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+          Single Variant
+        </span>
+      </flex-toggle-button>
+
+      <flex-toggle-button [(checked)]=&quot;singleVariantToggle&quot; variant=&quot;primaryGhost&quot;>
+        <span class=&quot;flex items-center gap-1&quot;>
+          <flex-icon icon=&quot;zap&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+          Single Variant
+        </span>
+      </flex-toggle-button>
+
+      <!-- Fully rounded toggle -->
+      <flex-toggle-button [(checked)]=&quot;fullRoundedToggle&quot; shape=&quot;full&quot; variant=&quot;success&quot;>
+        <span class=&quot;flex items-center gap-1&quot;>
+          <flex-icon icon=&quot;circle&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+          Rounded
+        </span>
+      </flex-toggle-button>
+
+      <!-- Solid danger example -->
+      <flex-toggle-button [(checked)]=&quot;dangerToggle&quot; activeVariant=&quot;danger&quot; inactiveVariant=&quot;danger&quot;
+        activeStyle=&quot;solid&quot; inactiveStyle=&quot;outline&quot;>
+        <span class=&quot;flex items-center gap-1&quot;>
+          <flex-icon icon=&quot;alertCircle&quot; class=&quot;h-4 w-4&quot;></flex-icon>
+          Danger
+        </span>
+      </flex-toggle-button>
+    </div>
+
+    <div class=&quot;text-sm mt-4&quot;>
+      Current toggle states:
+      <ul class=&quot;list-disc list-inside mt-2&quot;>
+        <li>Favorite: {{favoriteToggle ? 'On' : 'Off'}}</li>
+        <li>Play/Pause: {{playToggle ? 'Playing' : 'Paused'}}</li>
+        <li>Mute: {{muteToggle ? 'Muted' : 'Unmuted'}}</li>
+        <li>Notifications (disabled): {{notificationToggle ? 'On' : 'Off'}}</li>
+        <li>Single Variant: {{singleVariantToggle ? 'On' : 'Off'}}</li>
+        <li>Rounded: {{fullRoundedToggle ? 'On' : 'Off'}}</li>
+        <li>Danger: {{dangerToggle ? 'On' : 'Off'}}</li>
+      </ul>
+    </div>
+    ">
+      <div preview>
       <h3 class="text-md font-medium mt-4">New Features</h3>
       <div class="flex flex-wrap items-center gap-2">
         <!-- Single variant example -->
         <flex-toggle-button [(checked)]="singleVariantToggle" variant="primary">
           <span class="flex items-center gap-1">
-            <app-icon icon="zap" class="h-4 w-4"></app-icon>
+            <flex-icon icon="zap" class="h-4 w-4"></flex-icon>
             Single Variant
           </span>
         </flex-toggle-button>
 
         <flex-toggle-button [(checked)]="singleVariantToggle" variant="primaryGhost">
           <span class="flex items-center gap-1">
-            <app-icon icon="zap" class="h-4 w-4"></app-icon>
+            <flex-icon icon="zap" class="h-4 w-4"></flex-icon>
             Single Variant
           </span>
         </flex-toggle-button>
@@ -72,7 +175,7 @@
         <!-- Fully rounded toggle -->
         <flex-toggle-button [(checked)]="fullRoundedToggle" shape="full" variant="success">
           <span class="flex items-center gap-1">
-            <app-icon icon="circle" class="h-4 w-4"></app-icon>
+            <flex-icon icon="circle" class="h-4 w-4"></flex-icon>
             Rounded
           </span>
         </flex-toggle-button>
@@ -81,7 +184,7 @@
         <flex-toggle-button [(checked)]="dangerToggle" activeVariant="danger" inactiveVariant="danger"
           activeStyle="solid" inactiveStyle="outline">
           <span class="flex items-center gap-1">
-            <app-icon icon="alertCircle" class="h-4 w-4"></app-icon>
+            <flex-icon icon="alertCircle" class="h-4 w-4"></flex-icon>
             Danger
           </span>
         </flex-toggle-button>
@@ -100,13 +203,26 @@
         </ul>
       </div>
     </div>
-
-    <h2 class="text-lg font-medium mt-8">Button Sizes</h2>
-    <div class="flex flex-wrap items-center gap-2">
-      <!-- <flex-button size="xs">Extra Small</flex-button> -->
-      <flex-button size="small">Small</flex-button>
-      <flex-button size="medium">Medium</flex-button>
-      <flex-button size="large">Large</flex-button>
+    </flex-code-block>
+    
+    <flex-code-block code = "
+    <div class==&quot;flex flex-wrap items-center gap-2=&quot;>
+      <flex-button size==&quot;xs=&quot;>Extra Small</flex-button>
+      <flex-button size==&quot;small=&quot;>Small</flex-button>
+      <flex-button size==&quot;medium=&quot;>Medium</flex-button>
+      <flex-button size==&quot;large=&quot;>Large</flex-button>
     </div>
-  </div>
+    ">
+      <div preview >       
+        <h2 class="text-lg font-medium mt-8">Button Sizes</h2>
+        <div class="flex flex-wrap items-center gap-2">
+          <flex-button size="xs">Extra Small</flex-button>
+          <flex-button size="small">Small</flex-button>
+          <flex-button size="medium">Medium</flex-button>
+          <flex-button size="large">Large</flex-button>
+        </div>
+      </div>
+    </flex-code-block>
+
+  <!-- </div> -->
 </div>

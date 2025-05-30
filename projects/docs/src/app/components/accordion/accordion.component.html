@@ -1,43 +1,67 @@
-<div class="p-6 space-y-4">
+<div class="p-6 space-y-4 ">
     <h1 class="text-xl font-semibold">Accordion Component</h1>
     <p class="mb-4">An expandable panel component that can show and hide content.</p>
-    
-    <div class="max-w-md">
-        <app-accordion>
-            <app-accordion-item title="First Section" subTitle="Click to expand">
-                <p>This is the content of the first section. You can place any content here.</p>
-            </app-accordion-item>
-            
-            <app-accordion-item title="Second Section" subTitle="With default open property" [defaultOpen]="true">
-                <p>This accordion item is opened by default using the [defaultOpen] property.</p>
-                <p class="mt-2">You can add multiple paragraphs or any other components inside.</p>
-            </app-accordion-item>
-            
-            <app-accordion-item title="Third Section" subTitle="Another example">
-                <div class="p-2 bg-gray-100 rounded">
-                    <p>You can even include styled content within accordion items.</p>
+
+    <flex-code-block [code]="`
+    <div class=&quot;max-w-md&quot;>
+        <flex-accordion>
+            <flex-accordion-item title=&quot;First Section&quot; subTitle=&quot;Click to expand&quot;>
+                <p>This is the content of the first section. You can place any content her</p>
+            </flex-accordion-item>
+                    
+            <flex-accordion-item title=&quot;Second Section&quot; subTitle=&quot;With default open property&quot; [defaultOpen]=&quot;true&quot;>
+                <p>This accordion item is opened by default using the [defaultOpen] propert</p>
+                <p class=&quot;mt-2&quot;>You can add multiple paragraphs or any other components insid</p>
+            </flex-accordion-item>
+                    
+            <flex-accordion-item title=&quot;Third Section&quot; subTitle=&quot;Another example&quot;>
+                <div class=&quot;p-2 bg-gray-100 rounded&quot;>
+                    <p>You can even include styled content within accordion item</p>
                 </div>
-            </app-accordion-item>
-        </app-accordion>
+            </flex-accordion-item>
+        </flex-accordion>
     </div>
+    `">
+        <div preview>
+            <div class="max-w-md">
+                <flex-accordion>
+                    <flex-accordion-item title="First Section" subTitle="Click to expand">
+                        <p>This is the content of the first section. You can place any content here.</p>
+                    </flex-accordion-item>
+                    
+                    <flex-accordion-item title="Second Section" subTitle="With default open property" [defaultOpen]="true">
+                        <p>This accordion item is opened by default using the [defaultOpen] property.</p>
+                        <p class="mt-2">You can add multiple paragraphs or any other components inside.</p>
+                    </flex-accordion-item>
+                    
+                    <flex-accordion-item title="Third Section" subTitle="Another example">
+                        <div class="p-2 bg-gray-100 rounded">
+                            <p>You can even include styled content within accordion items.</p>
+                        </div>
+                    </flex-accordion-item>
+                </flex-accordion>
+            </div>
+        </div>
+    </flex-code-block>
     
-    <div class="mt-8">
+    
+    <!-- <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;app-accordion&gt;
-  &lt;app-accordion-item title="Section Title" subTitle="Optional subtitle"&gt;
+&lt;flex-accordion&gt;
+  &lt;flex-accordion-item title="Section Title" subTitle="Optional subtitle"&gt;
     Content goes here
-  &lt;/app-accordion-item&gt;
+  &lt;/flex-accordion-item&gt;
   
-  &lt;app-accordion-item 
+  &lt;flex-accordion-item 
     title="Another Section" 
     subTitle="With default open property" 
     [defaultOpen]="true"&gt;
     This section is open by default
-  &lt;/app-accordion-item&gt;
-&lt;/app-accordion&gt;
+  &lt;/flex-accordion-item&gt;
+&lt;/flex-accordion&gt;
         </pre>
-    </div>
+    </div> -->
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Properties</h2>
@@ -72,4 +96,12 @@
             </tbody>
         </table>
     </div>
+
+    <!-- <div>
+        <flex-code-block> 
+            <div id="my-example" preview> 
+                <button class="bg-blue-600 text-white px-4 py-2 rounded"> Click me</button>
+            </div>
+        </flex-code-block>
+    </div> -->
 </div>

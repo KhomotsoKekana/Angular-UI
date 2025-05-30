@@ -4,7 +4,7 @@ import { IconRegistryService } from './icon-registry.service';
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'flex-icon',
   standalone: true,
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.css'],

@@ -3,7 +3,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-ill-no-data',
+    selector: 'flex-ill-no-data',
     imports:[CommonModule],
     standalone: true,
     templateUrl: './no-data-illustration.component.html'

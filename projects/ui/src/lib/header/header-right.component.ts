@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header-right',
+  selector: 'flex-header-right',
   standalone:true,
   template: `
     <div class="flex items-center justify-end gap-x-6">

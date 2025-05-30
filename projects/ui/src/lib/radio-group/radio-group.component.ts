@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-radio-group',
+  selector: 'flex-radio-group',
   standalone: true,
   imports: [],
   templateUrl: './radio-group.component.html',

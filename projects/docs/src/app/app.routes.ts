@@ -35,6 +35,7 @@ import { DocsTabsComponent } from './components/tabs/tabs.component';
 import { DocsTooltipComponent } from './components/tooltip/tooltip.component';
 import { DrawerDocsComponent } from './components/drawer/drawer.component';
 import { MainSidebarDocumentationComponent } from './components/main-sidebar/main-sidebar.component';
+import { DocsCodeBlockComponent } from './components/code-block/code-block.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'anchor', pathMatch: 'full' },
@@ -48,6 +49,7 @@ export const routes: Routes = [
     { path: 'card', component: DocsCardComponent },
     { path: 'chart', component: DocsChartComponent },
     { path: 'checkbox', component: DocsCheckboxComponent },
+    { path: 'code-block', component: DocsCodeBlockComponent },
     { path: 'data-table', component: DocsDataTableComponent },
     { path: 'date-picker', component: DocsDatePickerComponent },
     { path: 'divider', component: DocsDividerComponent },

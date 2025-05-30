@@ -5,7 +5,7 @@
             <div *ngFor="let col of columns; trackBy: trackByColumn">
                 <div *ngIf="col.filterable" class="me-2" [class]="getColumnVisibilityClass(col)">
                     <div class="relative">
-                        <app-input type="text" [placeholder]="'Filter by ' + col.header"
+                        <flex-input type="text" [placeholder]="'Filter by ' + col.header"
                             (input)="onInputFilter(col.name, $event)" [value]="activeFilters[col.name] || ''"
                             leadingIcon="magnifyGlass" />
                     </div>
@@ -34,14 +34,14 @@
                     <thead>
                         <tr class="border-b">
                             <th *ngFor="let column of columns; trackBy: trackByColumn" class="px-4 py-2.5" [class]="getColumnVisibilityClass(column)">
-                                <app-skeleton class="h-6 rounded"></app-skeleton>
+                                <flex-skeleton class="h-6 rounded"></flex-skeleton>
                             </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y">
                         <tr *ngFor="let i of [1,2,3,4,5,6,7,8]; trackBy: trackByIndex">
                             <td *ngFor="let column of columns; trackBy: trackByColumn" class="px-3 py-2" [class]="getColumnVisibilityClass(column)">
-                                <app-skeleton class="h-6 rounded-md"></app-skeleton>
+                                <flex-skeleton class="h-6 rounded-md"></flex-skeleton>
                             </td>
                         </tr>
                     </tbody>
@@ -110,7 +110,7 @@
                                 No data available
                             </div> -->
                             <div class="flex flex-col gap-3 items-center justify-center">
-                                <app-ill-no-data variant="secondary" class="h-44" />
+                                <flex-ill-no-data variant="secondary" class="h-44" />
                                 <div class="flex flex-col gap-1">
                                     <span class="text-base">No data available</span>
                                     <span class="text-sm">Please refine your search criteria to view
@@ -163,13 +163,13 @@
         </div>
 
         <div class="flex flex-row items-center gap-4">
-            <app-select class="sm:w-40 w-16" (change)="onSelectPageSize($event)" [(ngModel)]="pageSize"
+            <flex-select class="sm:w-40 w-16" (change)="onSelectPageSize($event)" [(ngModel)]="pageSize"
                 [placement]="'top'" innerClass="border-none shadow-none" name="pageSize">
-                <app-select-item *ngFor="let size of pageSizeOptions; trackBy: trackByPageSize" [key]="size">
+                <flex-select-item *ngFor="let size of pageSizeOptions; trackBy: trackByPageSize" [key]="size">
                     {{ size }} 
                     <!-- <span class="hidden sm:block">per page</span> -->
-                </app-select-item>
-            </app-select>
+                </flex-select-item>
+            </flex-select>
 
             <div class="flex items-center space-x-2">
                 <!-- Page navigation controls with clearer visual grouping -->

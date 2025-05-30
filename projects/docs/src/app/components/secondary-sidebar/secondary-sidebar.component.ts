@@ -5,17 +5,19 @@ import { TranslateModule } from '@ngx-translate/core'; // Assuming you use ngx-t
 import { RouterModule } from '@angular/router'; // For routerLink in examples
 import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component'; // If icons are used in examples directly
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component'; // If buttons are used in examples directly
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
-  selector: 'app-doc-secondary-sidebar',
+  selector: 'flex-doc-secondary-sidebar',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule, // Added for routerLink in example templates
     UiSecondarySidebarComponent,
     TranslateModule,
-    IconComponent, // Added if needed for examples
-    ButtonComponent // Added if needed for examples
+    // IconComponent, // Added if needed for examples
+    // ButtonComponent, // Added if needed for examples
+    CodeBlockComponent
   ],
   templateUrl: './secondary-sidebar.component.html',
   // styleUrls: ['./secondary-sidebar.component.css'] // Add if specific styles are needed

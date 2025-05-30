@@ -1,4 +1,4 @@
-<div class="p-6 space-y-4">
+<!-- <div class="p-6 space-y-4">
     <h1 class="text-xl font-semibold">Anchor Component</h1>
     <div class="flex items-center gap-2">
       <flex-anchor>Enter the Garden</flex-anchor>
@@ -8,4 +8,26 @@
       <flex-anchor variant="neutral">Neutral</flex-anchor>
       <flex-anchor [isUnderlined]="true">Underlined</flex-anchor>
     </div>
-  </div>
+  </div> -->
+
+ <flex-code-block [code]="`
+  <div class=&quot;flex items-center gap-2&quot;>
+      &lt;flex-anchor&gt;Enter the Garden&lt;/flex-anchor&gt;
+      &lt;flex-anchor variant=&quot;success&quot;&gt;Success&lt;/flex-anchor&gt;
+      &lt;flex-anchor variant=&quot;warning&quot;&gt;Warning&lt;/flex-anchor&gt;
+      &lt;flex-anchor variant=&quot;danger&quot;&gt;Danger&lt;/flex-anchor&gt;
+      &lt;flex-anchor variant=&quot;neutral&quot;&gt;Neutral&lt;/flex-anchor&gt;
+      &lt;flex-anchor [isUnderlined]=&quot;true&quot;&gt;Underlined&lt;/flex-anchor&gt;
+  </div>;
+`">
+    <div preview class="p-6 space-y-4">
+      <div class="flex items-center gap-2">
+        <flex-anchor>Enter the Garden</flex-anchor>
+        <flex-anchor variant="success">Success</flex-anchor>
+        <flex-anchor variant="warning">Warning</flex-anchor>
+        <flex-anchor variant="danger">Danger</flex-anchor>
+        <flex-anchor variant="neutral">Neutral</flex-anchor>
+        <flex-anchor [isUnderlined]="true">Underlined</flex-anchor>
+      </div>
+    </div>
+  </flex-code-block> 

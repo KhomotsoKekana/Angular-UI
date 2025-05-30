@@ -27,7 +27,7 @@ interface Day {
 }
 
 @Component({
-    selector: 'app-date-picker',
+    selector: 'flex-date-picker',
     standalone: true,
     imports: [CommonModule, ButtonComponent, IconComponent, TranslateModule, InputComponent],
     templateUrl: './date-picker.component.html',

@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { DrawerComponent } from '../../../../../ui/src/lib/drawer/drawer.component';
 import { ButtonComponent } from '../../../../../ui/src/public-api';
 import { InputComponent } from '../../../../../ui/src/lib/input/input.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   selector: 'app-drawer-docs',
   standalone: true,
-  imports: [CommonModule, FormsModule, DrawerComponent, ButtonComponent, InputComponent],
+  imports: [CommonModule, FormsModule, DrawerComponent, ButtonComponent, InputComponent,CodeBlockComponent],
   templateUrl: './drawer.component.html',
 })
 export class DrawerDocsComponent {

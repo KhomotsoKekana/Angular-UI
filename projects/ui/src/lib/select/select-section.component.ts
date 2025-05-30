@@ -2,7 +2,7 @@ import { Component, Input, ContentChildren, QueryList, AfterContentInit, Content
 import { SelectItemComponent } from './select-item.component';
 
 @Component({
-  selector: 'app-select-section',
+  selector: 'flex-select-section',
   standalone: true,
   template: `
    <div class="py-2">

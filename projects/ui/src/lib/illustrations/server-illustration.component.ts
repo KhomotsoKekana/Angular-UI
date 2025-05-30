@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-ill-server',
+    selector: 'flex-ill-server',
     imports:[CommonModule],
     standalone: true,
     templateUrl: './server-illustration.component.html'

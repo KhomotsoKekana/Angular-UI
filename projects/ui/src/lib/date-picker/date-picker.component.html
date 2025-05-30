@@ -4,11 +4,11 @@
         translate}}</label>
     <div #trigger (click)="toggleDatePicker()"
         class="flex items-center justify-between px-2 py-2 gap-2 border rounded-lg shadow-xs cursor-pointer bg-input hover:bg-secondary">
-        <app-icon icon="dateRange" class="h-4 w-4" />
+        <flex-icon icon="dateRange" class="h-4 w-4" />
         <span disabled type="text"
             class="flex items-center w-fit text-xs text-foreground rounded-lg">{{selectedRange.start ?
             formatDate(selectedRange.start) : 'DD / MM / YYYY'}}</span>
-        <app-icon icon="arrowRight" class="h-4 w-4" />
+        <flex-icon icon="arrowRight" class="h-4 w-4" />
         <span disabled type="text"
             class="flex items-center w-fit me-2 text-xs text-foreground rounded-lg">{{selectedRange.end
             ?
@@ -232,7 +232,7 @@
                         <div class="flex items-center gap-2">
                             <!-- Start date and time -->
                             <div class="flex flex-col gap-1">
-                                <app-input type="text" [value]="formatDate(selectedRange.start)"
+                                <flex-input type="text" [value]="formatDate(selectedRange.start)"
                                     (change)="updateStartDate($event)" placeholder="DD / MM / YYYY" />
 
                             </div>
@@ -245,7 +245,7 @@
                             </div>
                             <!-- End date and time -->
                             <div class="flex flex-col gap-1">
-                                <app-input type="text" [value]="formatDate(selectedRange.end)"
+                                <flex-input type="text" [value]="formatDate(selectedRange.end)"
                                     (change)="updateEndDate($event)" placeholder="DD / MM / YYYY" />
                             </div>
                         </div>

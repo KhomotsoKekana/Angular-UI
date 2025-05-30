@@ -13,7 +13,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ViewContainerRef } from '@angular/core';
 
 @Component({
-  selector: 'app-multi-select',
+  selector: 'flex-multi-select',
   standalone: true,
   imports: [CommonModule, FormsModule, SelectItemComponent, IconComponent, DropdownDirective],
   template: `
@@ -26,7 +26,7 @@ import { ViewContainerRef } from '@angular/core';
       <!-- Trigger Button -->
       <div [class]="innerClasses">
         <div class="px-2">
-          <app-icon *ngIf="icon" [icon]="icon" class="h-3 w-3 text-muted-foreground"></app-icon>
+          <flex-icon *ngIf="icon" [icon]="icon" class="h-3 w-3 text-muted-foreground"></flex-icon>
         </div>
         <div 
           *ngIf="!enableSearch || (enableSearch && !isOpen)"
@@ -91,7 +91,7 @@ import { ViewContainerRef } from '@angular/core';
       </ng-template>
 
       <!-- Dropdown Directive -->
-      <div appDropdown
+      <div flexDropdown
            [triggerElement]="this.trigger"
            [dropdownTemplate]="menu"
            [placement]="placement"

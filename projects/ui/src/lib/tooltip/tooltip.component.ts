@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-tooltip',
+  selector: 'flex-tooltip',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tooltip.component.html',

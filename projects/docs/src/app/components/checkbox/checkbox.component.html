@@ -3,44 +3,83 @@
     <p class="mb-4">A form control that allows users to select one or multiple options from a set.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Checkbox</h2>
-    <div class="flex flex-col space-y-2 mb-6">
-        <app-checkbox id="basic-checkbox" [checked]="checked" (change)="onCheckboxChange($event)">Basic Checkbox</app-checkbox>
-        <p class="text-sm text-gray-600">Current value: {{ checked ? 'Checked' : 'Unchecked' }}</p>
-    </div>
+    <flex-code-block code="
+            <div class=&quot;flex flex-col space-y-2 mb-6&quot;>
+                <flex-checkbox id=&quot;basic-checkbox&quot; [checked]=&quot;checked&quot; (change)=&quot;onCheckboxChange($event)&quot;>Basic Checkbox</flex-checkbox>
+                <p class=&quot;text-sm text-gray-600&quot;>Current value: {{ checked ? 'Checked' : 'Unchecked' }}</p>
+            </div>
+    ">
+        <div preview>
+            <div class="flex flex-col space-y-2 mb-6">
+                <flex-checkbox id="basic-checkbox" [checked]="checked" (change)="onCheckboxChange($event)">Basic Checkbox</flex-checkbox>
+                <p class="text-sm text-gray-600">Current value: {{ checked ? 'Checked' : 'Unchecked' }}</p>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Default Checked</h2>
-    <div class="flex flex-col space-y-2 mb-6">
-        <app-checkbox id="default-checked" [checked]="true">Default Checked</app-checkbox>
+    <flex-code-block code="
+    <div class=&quot;flex flex-col space-y-2 mb-6&quot;>
+        <flex-checkbox id=&quot;default-checked&quot; [checked]=&quot;true&quot;>Default Checked</flex-checkbox>
     </div>
+    ">
+        <div preview>
+            <div class="flex flex-col space-y-2 mb-6">
+                <flex-checkbox id="default-checked" [checked]="true">Default Checked</flex-checkbox>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">With NgModel Integration</h2>
-    <div class="flex flex-col space-y-2 mb-6">
-        <app-checkbox id="ngmodel-checkbox" [(ngModel)]="formModelValue">NgModel Binding</app-checkbox>
-        <p class="text-sm text-gray-600">Model value: {{ formModelValue ? 'Checked' : 'Unchecked' }}</p>
-        <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded w-32" (click)="formModelValue = !formModelValue">
+    <flex-code-block code="
+    <div class=&quot;flex flex-col space-y-2 mb-6&quot;>
+        <flex-checkbox id=&quot;ngmodel-checkbox&quot; [(ngModel)]=&quot;formModelValue&quot;>NgModel Binding</flex-checkbox>
+        <p class=&quot;text-sm text-gray-600&quot;>Model value: {{ formModelValue ? 'Checked' : 'Unchecked' }}</p>
+        <button class=&quot;mt-2 px-4 py-2 bg-blue-500 text-white rounded w-32&quot; (click)=&quot;formModelValue = !formModelValue&quot;>
             Toggle
         </button>
     </div>
+    ">
+        <div preview>
+            <div class="flex flex-col space-y-2 mb-6">
+                <flex-checkbox id="ngmodel-checkbox" [(ngModel)]="formModelValue">NgModel Binding</flex-checkbox>
+                <p class="text-sm text-gray-600">Model value: {{ formModelValue ? 'Checked' : 'Unchecked' }}</p>
+                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded w-32" (click)="formModelValue = !formModelValue">
+                    Toggle
+                </button>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Multiple Checkboxes</h2>
-    <div class="flex flex-col space-y-2 mb-6">
-        <app-checkbox id="option1">Option 1</app-checkbox>
-        <app-checkbox id="option2">Option 2</app-checkbox>
-        <app-checkbox id="option3">Option 3</app-checkbox>
+    <flex-code-block code="
+    <div class=&quot;flex flex-col space-y-2 mb-6&quot;>
+        <flex-checkbox id=&quot;option1&quot;>Option 1</flex-checkbox>
+        <flex-checkbox id=&quot;option2&quot;>Option 2</flex-checkbox>
+        <flex-checkbox id=&quot;option3&quot;>Option 3</flex-checkbox>
     </div>
+    ">
+        <div preview>
+            <div class="flex flex-col space-y-2 mb-6">
+                <flex-checkbox id="option1">Option 1</flex-checkbox>
+                <flex-checkbox id="option2">Option 2</flex-checkbox>
+                <flex-checkbox id="option3">Option 3</flex-checkbox>
+            </div>
+        </div>
+    </flex-code-block>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
 <pre ngNonBindable class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic checkbox --&gt;
-&lt;app-checkbox id="my-checkbox" [checked]="isChecked" (change)="onCheckboxChange($event)"&gt;
+&lt;flex-checkbox id="my-checkbox" [checked]="isChecked" (change)="onCheckboxChange($event)"&gt;
   Checkbox Label
-&lt;/app-checkbox&gt;
+&lt;/flex-checkbox&gt;
 
 &lt;!-- NgModel binding --&gt;
-&lt;app-checkbox id="model-checkbox" [(ngModel)]="formValue"&gt;
+&lt;flex-checkbox id="model-checkbox" [(ngModel)]="formValue"&gt;
   Two-way binding
-&lt;/app-checkbox&gt;
+&lt;/flex-checkbox&gt;
 </pre>
     </div>
     

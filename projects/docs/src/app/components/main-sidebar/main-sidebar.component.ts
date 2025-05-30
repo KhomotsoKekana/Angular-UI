@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MainSidebarComponent as UiMainSidebarComponent } from '../../../../../ui/src/lib/main-sidebar/main-sidebar.component'; // Assuming library path
 import { TranslateModule } from '@ngx-translate/core';
 import { MainSidebarItem } from '../../../../../ui/src/lib/main-sidebar/main-sidebar.model';
+import { CodeBlockComponent } from "../../../../../ui/src/lib/code-block/code-block.component";
 
 @Component({
   selector: 'app-doc-main-sidebar',
   standalone: true,
-  imports: [CommonModule, UiMainSidebarComponent, TranslateModule],
+  imports: [CommonModule, UiMainSidebarComponent, TranslateModule, CodeBlockComponent],
   templateUrl: './main-sidebar.component.html',
   styleUrls: ['./main-sidebar.component.css']
 })

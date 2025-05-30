@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RadioGroupComponent } from '../../../../../ui/src/lib/radio-group/radio-group.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, RadioGroupComponent],
+  imports: [CommonModule, FormsModule, RadioGroupComponent,CodeBlockComponent],
   templateUrl: './radio-group.component.html',
 })
 export class DocsRadioGroupComponent {

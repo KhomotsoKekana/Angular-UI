@@ -11,7 +11,7 @@ import { IconComponent } from '../icons/icon.component';
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-select',
+  selector: 'flex-select',
   standalone: true,
   imports: [CommonModule, FormsModule, SelectItemComponent, IconComponent],
   templateUrl: './select.component.html',

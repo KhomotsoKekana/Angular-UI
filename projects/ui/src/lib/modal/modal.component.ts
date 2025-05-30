@@ -4,7 +4,7 @@ import { ButtonComponent } from "../button/button.component";
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'flex-modal',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './modal.component.html',

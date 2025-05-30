@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { IconComponent } from '../icons/icon.component';
 
 @Component({
-  selector: 'app-avatar',
+  selector: 'flex-avatar',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './avatar.component.html',

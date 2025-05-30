@@ -3,103 +3,206 @@
     <p class="mb-4">A group of radio inputs that allows users to select a single option from a list.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Radio Group</h2>
-    <div class="mb-6">
-        <app-radio-group [(value)]="selectedOption1" (valueChange)="onSelectionChange($event)">
-            <div *ngFor="let option of options" class="flex items-center space-x-2">
+    <flex-code-block code="
+     <div class=&quot;mb-6&quot;>
+        <flex-radio-group [(value)]=&quot;selectedOption1&quot; (valueChange)=&quot;onSelectionChange($event)&quot;>
+            <div *ngFor=&quot;let option of options&quot; class=&quot;flex items-center space-x-2&quot;>
                 <input 
-                    type="radio" 
-                    [id]="option.value" 
-                    [value]="option.value" 
-                    [checked]="selectedOption1 === option.value"
-                    (change)="selectedOption1 = option.value"
-                    class="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                    type=&quot;radio&quot; 
+                    [id]=&quot;option.value&quot; 
+                    [value]=&quot;option.value&quot; 
+                    [checked]=&quot;selectedOption1 === option.value&quot;
+                    (change)=&quot;selectedOption1 = option.value&quot;
+                    class=&quot;h-4 w-4 border-gray-300 text-primary focus:ring-primary&quot;
                 />
-                <label [for]="option.value" class="block text-sm font-medium text-gray-700">{{ option.label }}</label>
+                <label [for]=&quot;option.value&quot; class=&quot;block text-sm font-medium text-gray-700&quot;>{{ &quot;option.label }}</label>
             </div>
-        </app-radio-group>
-        <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption1 }}</p>
-    </div>
-    
-    <h2 class="text-lg font-medium mb-2">Inline Layout</h2>
-    <div class="mb-6">
-        <app-radio-group [(value)]="selectedSize">
-            <div class="flex flex-row gap-4">
-                <div *ngFor="let option of inlineOptions" class="flex items-center space-x-2">
+        </flex-radio-group>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Selected: {{ selectedOption1 }}</p>
+    </div>   
+    ">
+        <div class="mb-6" preview>
+            <flex-radio-group [(value)]="selectedOption1" (valueChange)="onSelectionChange($event)">
+                <div *ngFor="let option of options" class="flex items-center space-x-2">
                     <input 
                         type="radio" 
                         [id]="option.value" 
                         [value]="option.value" 
-                        [checked]="selectedSize === option.value"
-                        (change)="selectedSize = option.value"
+                        [checked]="selectedOption1 === option.value"
+                        (change)="selectedOption1 = option.value"
                         class="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
                     />
                     <label [for]="option.value" class="block text-sm font-medium text-gray-700">{{ option.label }}</label>
                 </div>
+            </flex-radio-group>
+            <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption1 }}</p>
+        </div>
+    </flex-code-block>
+    
+    <h2 class="text-lg font-medium mb-2">Inline Layout</h2>
+    <flex-code-block code="
+    <div class=&quot;mb-6&quot;>
+        <flex-radio-group [(value)]=&quot;selectedSize&quot;>
+            <div class=&quot;flex flex-row gap-4&quot;>
+                <div *ngFor=&quot;let option of inlineOptions&quot; class=&quot;flex items-center space-x-2&quot;>
+                    <input 
+                        type=&quot;radio&quot; 
+                        [id]=&quot;option.value&quot; 
+                        [value]=&quot;option.value&quot; 
+                        [checked]=&quot;selectedSize === option.value&quot;
+                        (change)=&quot;selectedSize = option.value&quot;
+                        class=&quot;h-4 w-4 border-gray-300 text-primary focus:ring-primary&quot;
+                    />
+                    <label [for]=&quot;option.value&quot; class=&quot;block text-sm font-medium text-gray-700&quot;>{{ &quot;option.label }}</label>
+                </div>
             </div>
-        </app-radio-group>
-        <p class="mt-2 text-sm text-gray-600">Selected size: {{ selectedSize }}</p>
+        </flex-radio-group>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Selected size: {{ selectedSize }}</p>
     </div>
+    ">
+        <div class="mb-6" preview>
+            <flex-radio-group [(value)]="selectedSize">
+                <div class="flex flex-row gap-4">
+                    <div *ngFor="let option of inlineOptions" class="flex items-center space-x-2">
+                        <input 
+                            type="radio" 
+                            [id]="option.value" 
+                            [value]="option.value" 
+                            [checked]="selectedSize === option.value"
+                            (change)="selectedSize = option.value"
+                            class="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                        />
+                        <label [for]="option.value" class="block text-sm font-medium text-gray-700">{{ option.label }}</label>
+                    </div>
+                </div>
+            </flex-radio-group>
+            <p class="mt-2 text-sm text-gray-600">Selected size: {{ selectedSize }}</p>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Custom Styling</h2>
-    <div class="mb-6">
-        <app-radio-group [(value)]="selectedColor">
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                <div *ngFor="let option of colorOptions" class="flex items-center space-x-2">
+    <flex-code-block code="
+    <div class=&quot;mb-6&quot;>
+        <flex-radio-group [(value)]=&quot;selectedColor&quot;>
+            <div class=&quot;grid grid-cols-2 md:grid-cols-3 gap-3&quot;>
+                <div *ngFor=&quot;let option of colorOptions&quot; class=&quot;flex items-center space-x-2&quot;>
                     <input 
-                        type="radio" 
-                        [id]="option.value" 
-                        [value]="option.value" 
-                        [checked]="selectedColor === option.value"
-                        (change)="selectedColor = option.value"
-                        class="h-5 w-5 border-2 border-gray-300 focus:ring-2 focus:ring-offset-1"
-                        [ngClass]="{
+                        type=&quot;radio&quot; 
+                        [id]=&quot;option.value&quot; 
+                        [value]=&quot;option.value&quot; 
+                        [checked]=&quot;selectedColor === option.value&quot;
+                        (change)=&quot;selectedColor = option.value&quot;
+                        class=&quot;h-5 w-5 border-2 border-gray-300 focus:ring-2 focus:ring-offset-1&quot;
+                        [ngClass]=&quot;{
                             'bg-red-500 checked:bg-red-600 text-white border-red-400 focus:ring-red-500': option.value === 'red',
                             'bg-orange-500 checked:bg-orange-600 text-white border-orange-400 focus:ring-orange-500': option.value === 'orange',
                             'bg-yellow-500 checked:bg-yellow-600 text-white border-yellow-400 focus:ring-yellow-500': option.value === 'yellow',
                             'bg-green-500 checked:bg-green-600 text-white border-green-400 focus:ring-green-500': option.value === 'green',
                             'bg-blue-500 checked:bg-blue-600 text-white border-blue-400 focus:ring-blue-500': option.value === 'blue',
                             'bg-purple-500 checked:bg-purple-600 text-white border-purple-400 focus:ring-purple-500': option.value === 'purple'
-                        }"
+                        }&quot;
                     />
-                    <label [for]="option.value" 
-                           class="block text-sm font-medium"
-                           [ngClass]="{
+                    <label [for]=&quot;option.value&quot; 
+                           class=&quot;block text-sm font-medium&quot;
+                           [ngClass]=&quot;{
                                'text-red-700': option.value === 'red',
                                'text-orange-700': option.value === 'orange',
                                'text-yellow-700': option.value === 'yellow',
                                'text-green-700': option.value === 'green',
                                'text-blue-700': option.value === 'blue',
                                'text-purple-700': option.value === 'purple'
-                           }">
-                        {{ option.label }}
+                           }&quot;>
+                        {{ &quot;option.label }}
                     </label>
                 </div>
             </div>
-        </app-radio-group>
-        <p class="mt-2 text-sm text-gray-600">Selected color: {{ selectedColor }}</p>
-    </div>
+        </flex-radio-group>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Selected color: {{ selectedColor }}</p>
+    </div>    
+    ">
+        <div class="mb-6" preview>
+            <flex-radio-group [(value)]="selectedColor">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div *ngFor="let option of colorOptions" class="flex items-center space-x-2">
+                        <input 
+                            type="radio" 
+                            [id]="option.value" 
+                            [value]="option.value" 
+                            [checked]="selectedColor === option.value"
+                            (change)="selectedColor = option.value"
+                            class="h-5 w-5 border-2 border-gray-300 focus:ring-2 focus:ring-offset-1"
+                            [ngClass]="{
+                                'bg-red-500 checked:bg-red-600 text-white border-red-400 focus:ring-red-500': option.value === 'red',
+                                'bg-orange-500 checked:bg-orange-600 text-white border-orange-400 focus:ring-orange-500': option.value === 'orange',
+                                'bg-yellow-500 checked:bg-yellow-600 text-white border-yellow-400 focus:ring-yellow-500': option.value === 'yellow',
+                                'bg-green-500 checked:bg-green-600 text-white border-green-400 focus:ring-green-500': option.value === 'green',
+                                'bg-blue-500 checked:bg-blue-600 text-white border-blue-400 focus:ring-blue-500': option.value === 'blue',
+                                'bg-purple-500 checked:bg-purple-600 text-white border-purple-400 focus:ring-purple-500': option.value === 'purple'
+                            }"
+                        />
+                        <label [for]="option.value" 
+                            class="block text-sm font-medium"
+                            [ngClass]="{
+                                'text-red-700': option.value === 'red',
+                                'text-orange-700': option.value === 'orange',
+                                'text-yellow-700': option.value === 'yellow',
+                                'text-green-700': option.value === 'green',
+                                'text-blue-700': option.value === 'blue',
+                                'text-purple-700': option.value === 'purple'
+                            }">
+                            {{ option.label }}
+                        </label>
+                    </div>
+                </div>
+            </flex-radio-group>
+            <p class="mt-2 text-sm text-gray-600">Selected color: {{ selectedColor }}</p>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Disabled State</h2>
-    <div class="mb-6">
-        <app-radio-group [(value)]="selectedOption2">
-            <div *ngFor="let option of disabledOptions" class="flex items-center space-x-2">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <flex-radio-group [(value)]=&quot;selectedOption2&quot;>
+            <div *ngFor=&quot;let option of disabledOptions&quot; class=&quot;flex items-center space-x-2&quot;>
                 <input 
-                    type="radio" 
-                    [id]="option.value" 
-                    [value]="option.value" 
-                    [checked]="selectedOption2 === option.value"
-                    (change)="selectedOption2 = option.value"
-                    [disabled]="option.disabled"
-                    class="h-4 w-4 border-gray-300 text-primary focus:ring-primary disabled:opacity-50"
+                    type=&quot;radio&quot; 
+                    [id]=&quot;option.value&quot; 
+                    [value]=&quot;option.value&quot; 
+                    [checked]=&quot;selectedOption2 === option.value&quot;
+                    (change)=&quot;selectedOption2 = option.value&quot;
+                    [disabled]=&quot;option.disabled&quot;
+                    class=&quot;h-4 w-4 border-gray-300 text-primary focus:ring-primary disabled:opacity-50&quot;
                 />
-                <label [for]="option.value" class="block text-sm font-medium" 
-                       [ngClass]="option.disabled ? 'text-gray-400' : 'text-gray-700'">
+                <label [for]=&quot;option.value&quot; class=&quot;block text-sm font-medium&quot; 
+                       [ngClass]=&quot;option.disabled ? 'text-gray-400' : 'text-gray-700'&quot;>
                     {{ option.label }}
                 </label>
             </div>
-        </app-radio-group>
-        <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption2 || 'None' }}</p>
-    </div>
+        </flex-radio-group>
+        <p class=&quot;mt-2 text-sm text-gray-600&quot;>Selected: {{ selectedOption2 || 'None' }}</p>
+    </div>    
+    `">
+        <div class="mb-6" preview>
+            <flex-radio-group [(value)]="selectedOption2">
+                <div *ngFor="let option of disabledOptions" class="flex items-center space-x-2">
+                    <input 
+                        type="radio" 
+                        [id]="option.value" 
+                        [value]="option.value" 
+                        [checked]="selectedOption2 === option.value"
+                        (change)="selectedOption2 = option.value"
+                        [disabled]="option.disabled"
+                        class="h-4 w-4 border-gray-300 text-primary focus:ring-primary disabled:opacity-50"
+                    />
+                    <label [for]="option.value" class="block text-sm font-medium" 
+                        [ngClass]="option.disabled ? 'text-gray-400' : 'text-gray-700'">
+                        {{ option.label }}
+                    </label>
+                </div>
+            </flex-radio-group>
+            <p class="mt-2 text-sm text-gray-600">Selected: {{ selectedOption2 || 'None' }}</p>
+        </div>
+    </flex-code-block>
     
     <!-- <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
@@ -108,7 +211,7 @@
 import { RadioGroupComponent } from 'path-to-components/radio-group.component';
 
 &lt;!-- In your component template --&gt;
-&lt;app-radio-group [(value)]="selectedValue" (valueChange)="onSelectionChange($event)"&gt;
+&lt;flex-radio-group [(value)]="selectedValue" (valueChange)="onSelectionChange($event)"&gt;
   &lt;div class="flex items-center space-x-2"&gt;
     &lt;input 
       type="radio" 
@@ -132,7 +235,7 @@ import { RadioGroupComponent } from 'path-to-components/radio-group.component';
     /&gt;
     &lt;label for="option2" class="text-sm"&gt;Option 2&lt;/label&gt;
   &lt;/div&gt;
-&lt;/app-radio-group&gt;
+&lt;/flex-radio-group&gt;
         </pre>
     </div> -->
     

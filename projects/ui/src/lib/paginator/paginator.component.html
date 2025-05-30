@@ -23,28 +23,28 @@
                     [disabled]="pageIndex === 0"
                     class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
                     title="First page">
-                <app-icon icon="chevronDoubleLeft" class="h-4 w-4"></app-icon>
+                <flex-icon icon="chevronDoubleLeft" class="h-4 w-4"></flex-icon>
             </button>
 
             <button (click)="previousPage()"
                     [disabled]="pageIndex === 0"
                     class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
                     title="Previous page">
-                <app-icon icon="chevronLeft" class="h-4 w-4"></app-icon>
+                <flex-icon icon="chevronLeft" class="h-4 w-4"></flex-icon>
             </button>
 
             <button (click)="nextPage()"
                     [disabled]="pageIndex === totalPages - 1"
                     class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
                     title="Next page">
-                <app-icon icon="chevronRight" class="h-4 w-4"></app-icon>
+                <flex-icon icon="chevronRight" class="h-4 w-4"></flex-icon>
             </button>
 
             <button (click)="lastPage()"
                     [disabled]="pageIndex === totalPages - 1"
                     class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
                     title="Last page">
-                <app-icon icon="chevronDoubleRight" class="h-4 w-4"></app-icon>
+                <flex-icon icon="chevronDoubleRight" class="h-4 w-4"></flex-icon>
             </button>
         </div>
     </div>

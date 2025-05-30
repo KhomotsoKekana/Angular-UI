@@ -11,7 +11,7 @@ interface SubNavItem {
 }
 
 @Component({
-  selector: 'app-secondary-sidebar',
+  selector: 'flex-secondary-sidebar',
   standalone: true,
   templateUrl: './secondary-sidebar.component.html',
   styleUrls: ['./secondary-sidebar.component.css'],

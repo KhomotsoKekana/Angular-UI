@@ -3,51 +3,69 @@
     <p class="mb-4">A component to visually separate content.</p>
 
     <h2 class="text-lg font-medium mb-2">Horizontal Divider</h2>
-    <div class="max-w-2xl mb-6 border p-4 rounded">
-        <p>Content above the divider.</p>
-        <app-divider></app-divider>
-        <p>Content below the divider.</p>
-    </div>
-    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;p&gt;Content above the divider.&lt;/p&gt;
-&lt;app-divider&gt;&lt;/app-divider&gt;
-&lt;p&gt;Content below the divider.&lt;/p&gt;
-    </pre>
+    <flex-code-block code="
+    &lt;p&gt;Content above the divider.&lt;/p&gt;
+    &lt;flex-divider&gt;&lt;/flex-divider&gt;
+    &lt;p&gt;Content below the divider.&lt;/p&gt;
+    ">
+        <div preview>
+            <div class="max-w-2xl mb-6 border p-4 rounded">
+                <p>Content above the divider.</p>
+                <flex-divider></flex-divider>
+                <p>Content below the divider.</p>
+            </div>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Vertical Divider</h2>
-    <div class="max-w-2xl mb-6 border p-4 rounded">
-        <div class="flex h-20 items-center">
-            <p>Content to the left.</p>
-            <app-divider orientation="vertical" class="mx-4"></app-divider>
-            <p>Content to the right.</p>
+    <flex-code-block code="
+      &lt;div class=&quot;flex h-20 items-center&quot;&gt;
+        &lt;p&gt;Content to the left.&lt;/p&gt;
+        &lt;flex-divider orientation=&quot;vertical&quot; class=&quot;mx-4&quot;&gt;&lt;/flex-divider&gt;
+        &lt;p&gt;Content to the right.&lt;/p&gt;
+        &lt;/div&gt;
+    ">
+        <div preview>
+            <div class="max-w-2xl mb-6 border p-4 rounded">
+                <div class="flex h-20 items-center">
+                    <p>Content to the left.</p>
+                    <flex-divider orientation="vertical" class="mx-4"></flex-divider>
+                    <p>Content to the right.</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;div class="flex h-20 items-center"&gt;
-  &lt;p&gt;Content to the left.&lt;/p&gt;
-  &lt;app-divider orientation="vertical" class="mx-4"&gt;&lt;/app-divider&gt;
-  &lt;p&gt;Content to the right.&lt;/p&gt;
-&lt;/div&gt;
-    </pre>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Custom Color</h2>
+    <flex-code-block code="
+    &lt;flex-divider color=&quot;blue&quot;&gt;&lt;/flex-divider&gt;
+    ">
+        <div preview>
     <div class="max-w-2xl mb-6 border p-4 rounded">
-        <app-divider color="blue"></app-divider>
+        <flex-divider color="blue"></flex-divider>
     </div>
     <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;app-divider color="blue"&gt;&lt;/app-divider&gt;
+&lt;flex-divider color="blue"&gt;&lt;/flex-divider&gt;
     </pre>
+        </div>
+    </flex-code-block>
 
     <h2 class="text-lg font-medium mb-2">Custom Class</h2>
-    <div class="max-w-2xl mb-6 border p-4 rounded">
-        <app-divider class="my-8"></app-divider>
-    </div>
-    <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;app-divider class="my-8"&gt;&lt;/app-divider&gt;
-    </pre>
+    <flex-code-block code="
+    &lt;flex-divider class=&quot;my-8&quot;&gt;&lt;/flex-divider&gt;
+    ">
+        <div preview>
+            <div class="max-w-2xl mb-6 border p-4 rounded">
+                <flex-divider class="my-8"></flex-divider>
+            </div>
+            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+        &lt;flex-divider class="my-8"&gt;&lt;/flex-divider&gt;
+            </pre>
+        </div>
+    </flex-code-block>
 
     <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Properties (app-divider)</h2>
+        <h2 class="text-lg font-medium mb-2">Properties (flex-divider)</h2>
         <table class="min-w-full bg-white border border-gray-200">
             <thead>
                 <tr>

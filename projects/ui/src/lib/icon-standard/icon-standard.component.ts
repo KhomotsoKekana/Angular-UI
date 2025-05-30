@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { ClassCombinePipe } from '../core/class-combine.pipe';
 
 @Component({
-  selector: 'app-standard-icon',
+  selector: 'flex-standard-icon',
   imports: [CommonModule],
   providers: [ClassCombinePipe],
   template: `

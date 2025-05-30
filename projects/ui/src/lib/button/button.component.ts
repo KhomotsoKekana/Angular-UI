@@ -7,7 +7,7 @@ import { ButtonDirective } from './button.directive';
 @Component({
   selector: 'flex-button',
   standalone: true,
-  imports: [CommonModule, IconComponent, ButtonDirective],
+  imports: [CommonModule, IconComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.css',
   providers: [ClassCombinePipe],

@@ -4,7 +4,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { Subscription } from 'rxjs';
 
 @Directive({
-    selector: '[appDropdown]',
+    selector: '[flexDropdown]',
     standalone: true,
 })
 export class DropdownDirective implements AfterViewInit, OnDestroy {

@@ -3,7 +3,7 @@ import { MainSidebarComponent } from "../main-sidebar/main-sidebar.component";
 import { MainSidebarContentComponent } from "../main-sidebar/main-sidebar-content/main-sidebar-content.component";
 
 @Component({
-  selector: 'app-custom-navigator',
+  selector: 'flex-custom-navigator',
   templateUrl: './navigation.component.html',
   imports: [],
 })
@@ -23,7 +23,7 @@ export class NavigationComponent {
     const sidebarWidth = this.sidebar.getCurrentWidth();
 
     const contentElement = this.el.nativeElement.querySelector(
-      'app-main-sidebar-content'
+      'flex-main-sidebar-content'
     );
 
     this.renderer.setStyle(

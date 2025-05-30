@@ -3,144 +3,259 @@
     <p class="mb-4">A navigation component that organizes content into different views that can be switched between.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Tabs</h2>
-    <div class="mb-6">
-        <app-tabs [tabs]="basicTabs">
-            <app-tab-content id="account">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <flex-tabs [tabs]=&quot;basicTabs&quot;>
+            <flex-tab-content id=&quot;account&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Account Settings</h3>
                     <p>This tab contains account settings and preferences.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="password">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Password Management</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;password&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Password Management</h3>
                     <p>Update your password and security settings here.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="settings">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">General Settings</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;settings&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>General Settings</h3>
                     <p>Configure application settings and preferences.</p>
                 </div>
-            </app-tab-content>
-        </app-tabs>
+            </flex-tab-content>
+        </flex-tabs>
     </div>
+    `">
+        <div class="mb-6" preview>
+            <flex-tabs [tabs]="basicTabs">
+                <flex-tab-content id="account">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+                        <p>This tab contains account settings and preferences.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="password">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Password Management</h3>
+                        <p>Update your password and security settings here.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="settings">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">General Settings</h3>
+                        <p>Configure application settings and preferences.</p>
+                    </div>
+                </flex-tab-content>
+            </flex-tabs>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Tabs with Icons</h2>
-    <div class="mb-6">
-        <app-tabs [tabs]="iconTabs">
-            <app-tab-content id="profile">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">User Profile</h3>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <flex-tabs [tabs]=&quot;iconTabs&quot;>
+            <flex-tab-content id=&quot;profile&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>User Profile</h3>
                     <p>Manage your profile information and preferences.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="notifications">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Notification Settings</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;notifications&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Notification Settings</h3>
                     <p>Configure your notification preferences.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="security">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Security Settings</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;security&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Security Settings</h3>
                     <p>Manage security preferences and access control.</p>
                 </div>
-            </app-tab-content>
-        </app-tabs>
-    </div>
+            </flex-tab-content>
+        </flex-tabs>
+    </div>    
+    `">
+        <div class="mb-6" preview>
+            <flex-tabs [tabs]="iconTabs">
+                <flex-tab-content id="profile">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">User Profile</h3>
+                        <p>Manage your profile information and preferences.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="notifications">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Notification Settings</h3>
+                        <p>Configure your notification preferences.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="security">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Security Settings</h3>
+                        <p>Manage security preferences and access control.</p>
+                    </div>
+                </flex-tab-content>
+            </flex-tabs>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Tab Variants</h2>
-    <div class="mb-2">
-        <label class="block text-sm mb-1">Select variant:</label>
-        <select [(ngModel)]="selectedVariant" class="border rounded px-2 py-1 mb-3">
-            <option value="underline">Underline</option>
-            <option value="pill">Pill</option>
-            <option value="pill-square">Pill Square</option>
-            <option value="step">Step</option>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-2&quot;>
+        <label class=&quot;block text-sm mb-1&quot;>Select variant:</label>
+        <select [(ngModel)]=&quot;selectedVariant&quot; class=&quot;border rounded px-2 py-1 mb-3&quot;>
+            <option value=&quot;underline&quot;>Underline</option>
+            <option value=&quot;pill&quot;>Pill</option>
+            <option value=&quot;pill-square&quot;>Pill Square</option>
+            <option value=&quot;step&quot;>Step</option>
         </select>
     </div>
-    <div class="mb-6">
-        <app-tabs [tabs]="basicTabs" [variant]="selectedVariant">
-            <app-tab-content id="account">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+    <div class=&quot;mb-6&quot;>
+        <flex-tabs [tabs]=&quot;basicTabs&quot; [variant]=&quot;selectedVariant&quot;>
+            <flex-tab-content id=&quot;account&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Account Settings</h3>
                     <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="password">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Password Management</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;password&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Password Management</h3>
                     <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="settings">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">General Settings</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;settings&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>General Settings</h3>
                     <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
                 </div>
-            </app-tab-content>
-        </app-tabs>
+            </flex-tab-content>
+        </flex-tabs>
     </div>
-    
+    `">
+        <div class="mb-2" preview>
+            <label class="block text-sm mb-1">Select variant:</label>
+            <select [(ngModel)]="selectedVariant" class="border rounded px-2 py-1 mb-3">
+                <option value="underline">Underline</option>
+                <option value="pill">Pill</option>
+                <option value="pill-square">Pill Square</option>
+                <option value="step">Step</option>
+            </select>
+        </div>
+        <div class="mb-6">
+            <flex-tabs [tabs]="basicTabs" [variant]="selectedVariant">
+                <flex-tab-content id="account">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Account Settings</h3>
+                        <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="password">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Password Management</h3>
+                        <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="settings">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">General Settings</h3>
+                        <p>This tab demonstrates the {{ selectedVariant }} variant.</p>
+                    </div>
+                </flex-tab-content>
+            </flex-tabs>
+        </div>
+    </flex-code-block>
+
     <h2 class="text-lg font-medium mb-2">Step Tabs</h2>
-    <div class="mb-6">
-        <app-tabs [tabs]="stepTabs" variant="step">
-            <app-tab-content id="details">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Step 1: Details</h3>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6&quot;>
+        <flex-tabs [tabs]=&quot;stepTabs&quot; variant=&quot;step&quot;>
+            <flex-tab-content id=&quot;details&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Step 1: Details</h3>
                     <p>Enter your personal details.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="address">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Step 2: Address</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;address&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Step 2: Address</h3>
                     <p>Enter your address information.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="payment">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Step 3: Payment</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;payment&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Step 3: Payment</h3>
                     <p>Enter your payment details.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="confirm">
-                <div class="p-4 bg-gray-50 rounded-b border border-t-0">
-                    <h3 class="text-lg font-medium mb-2">Step 4: Confirmation</h3>
+            </flex-tab-content>
+            <flex-tab-content id=&quot;confirm&quot;>
+                <div class=&quot;p-4 bg-gray-50 rounded-b border border-t-0&quot;>
+                    <h3 class=&quot;text-lg font-medium mb-2&quot;>Step 4: Confirmation</h3>
                     <p>Confirm your submission.</p>
                 </div>
-            </app-tab-content>
-        </app-tabs>
+            </flex-tab-content>
+        </flex-tabs>
     </div>
+    `">
+        <div class="mb-6" preview>
+            <flex-tabs [tabs]="stepTabs" variant="step">
+                <flex-tab-content id="details">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Step 1: Details</h3>
+                        <p>Enter your personal details.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="address">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Step 2: Address</h3>
+                        <p>Enter your address information.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="payment">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Step 3: Payment</h3>
+                        <p>Enter your payment details.</p>
+                    </div>
+                </flex-tab-content>
+                <flex-tab-content id="confirm">
+                    <div class="p-4 bg-gray-50 rounded-b border border-t-0">
+                        <h3 class="text-lg font-medium mb-2">Step 4: Confirmation</h3>
+                        <p>Confirm your submission.</p>
+                    </div>
+                </flex-tab-content>
+            </flex-tabs>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Grouped Tabs</h2>
     <div class="mb-6">
-        <app-tabs [tabs]="groupedTabs">
-            <app-tab-content id="general">
+        <flex-tabs [tabs]="groupedTabs">
+            <flex-tab-content id="general">
                 <div class="p-4 bg-gray-50 rounded-b border border-t-0">
                     <h3 class="text-lg font-medium mb-2">General Settings</h3>
                     <p>Configure general application settings.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="appearance">
+            </flex-tab-content>
+            <flex-tab-content id="appearance">
                 <div class="p-4 bg-gray-50 rounded-b border border-t-0">
                     <h3 class="text-lg font-medium mb-2">Appearance Settings</h3>
                     <p>Customize the application appearance.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="advanced">
+            </flex-tab-content>
+            <flex-tab-content id="advanced">
                 <div class="p-4 bg-gray-50 rounded-b border border-t-0">
                     <h3 class="text-lg font-medium mb-2">Advanced Settings</h3>
                     <p>Configure advanced application options.</p>
                 </div>
-            </app-tab-content>
-            <app-tab-content id="developer">
+            </flex-tab-content>
+            <flex-tab-content id="developer">
                 <div class="p-4 bg-gray-50 rounded-b border border-t-0">
                     <h3 class="text-lg font-medium mb-2">Developer Settings</h3>
                     <p>Developer tools and configuration options.</p>
                 </div>
-            </app-tab-content>
-        </app-tabs>
+            </flex-tab-content>
+        </flex-tabs>
     </div>
     
     <!-- <div class="mt-8">
@@ -154,29 +269,29 @@ tabs = [
 ];
 
 &lt;!-- Basic tabs --&gt;
-&lt;app-tabs [tabs]="tabs"&gt;
-  &lt;app-tab-content id="tab1"&gt;
+&lt;flex-tabs [tabs]="tabs"&gt;
+  &lt;flex-tab-content id="tab1"&gt;
     Content for first tab
-  &lt;/app-tab-content&gt;
+  &lt;/flex-tab-content&gt;
   
-  &lt;app-tab-content id="tab2"&gt;
+  &lt;flex-tab-content id="tab2"&gt;
     Content for second tab
-  &lt;/app-tab-content&gt;
+  &lt;/flex-tab-content&gt;
   
-  &lt;app-tab-content id="tab3"&gt;
+  &lt;flex-tab-content id="tab3"&gt;
     Content for third tab
-  &lt;/app-tab-content&gt;
-&lt;/app-tabs&gt;
+  &lt;/flex-tab-content&gt;
+&lt;/flex-tabs&gt;
 
 &lt;!-- With different variant --&gt;
-&lt;app-tabs [tabs]="tabs" variant="pill"&gt;
+&lt;flex-tabs [tabs]="tabs" variant="pill"&gt;
   &lt;!-- Tab contents --&gt;
-&lt;/app-tabs&gt;
+&lt;/flex-tabs&gt;
 
 &lt;!-- With lazy loading --&gt;
-&lt;app-tabs [tabs]="tabs" [lazyLoad]="true"&gt;
+&lt;flex-tabs [tabs]="tabs" [lazyLoad]="true"&gt;
   &lt;!-- Tab contents --&gt;
-&lt;/app-tabs&gt;
+&lt;/flex-tabs&gt;
         </pre>
     </div> -->
     

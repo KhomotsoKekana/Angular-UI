@@ -17,16 +17,16 @@
         </div>
         <div class="flex">
             <flex-button variant="ghost" class="hover:text-primary hover:bg-primary/10" (click)="toggleMinimize()">
-                <app-icon *ngIf="!isMinimized" icon="minus" class="h-4 w-4" />
-                <app-icon *ngIf="isMinimized" icon="plus" class="h-4 w-4" />
+                <flex-icon *ngIf="!isMinimized" icon="minus" class="h-4 w-4" />
+                <flex-icon *ngIf="isMinimized" icon="plus" class="h-4 w-4" />
             </flex-button>
             <flex-button variant="ghost" class="hover:text-primary hover:bg-primary/10" *ngIf="!isMinimized"
                 (click)="toggleFullScreen()">
-                <app-icon *ngIf="!isFullScreen" icon="maximize" class="h-4 w-4" />
-                <app-icon *ngIf="isFullScreen" icon="minimize" class="h-4 w-4" />
+                <flex-icon *ngIf="!isFullScreen" icon="maximize" class="h-4 w-4" />
+                <flex-icon *ngIf="isFullScreen" icon="minimize" class="h-4 w-4" />
             </flex-button>
             <flex-button variant="ghost" class="hover:text-destructive hover:bg-destructive/10" (click)="close()">
-                <app-icon icon="x" class="h-5 w-5" />
+                <flex-icon icon="x" class="h-5 w-5" />
             </flex-button>
         </div>
     </div>

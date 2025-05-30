@@ -50,7 +50,7 @@ export interface Sort {
 }
 
 @Component({
-    selector: 'app-data-table',
+    selector: 'flex-data-table',
     imports: [CommonModule, InputComponent, SelectComponent, SelectItemComponent, ButtonComponent, FormsModule, IllustrationNoData, SkeletonComponent, TranslateModule],
     templateUrl: './data-table.component.html',
     standalone: true,

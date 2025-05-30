@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DockedComposerComponent } from '../../../../../ui/src/lib/docked-composer/docked-composer.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
 import { InputComponent } from '../../../../../ui/src/lib/input/input.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
@@ -12,7 +13,8 @@ import { InputComponent } from '../../../../../ui/src/lib/input/input.component'
     FormsModule,
     DockedComposerComponent,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    CodeBlockComponent
   ],
   templateUrl: './docked-composer.component.html',
 })

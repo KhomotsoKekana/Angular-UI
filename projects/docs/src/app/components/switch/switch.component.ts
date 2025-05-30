@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwitchComponent } from '../../../../../ui/src/lib/switch/switch.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, SwitchComponent],
+  imports: [CommonModule, SwitchComponent,CodeBlockComponent],
   templateUrl: './switch.component.html',
 })
 export class DocsSwitchComponent {

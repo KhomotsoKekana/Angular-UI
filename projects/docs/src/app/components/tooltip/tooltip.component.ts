@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TooltipComponent } from '../../../../../ui/src/lib/tooltip/tooltip.component';
 import { ButtonComponent } from '../../../../../ui/src/lib/button/button.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, TooltipComponent, ButtonComponent],
+  imports: [CommonModule, FormsModule, TooltipComponent, ButtonComponent,CodeBlockComponent],
   templateUrl: './tooltip.component.html',
 })
 export class DocsTooltipComponent {

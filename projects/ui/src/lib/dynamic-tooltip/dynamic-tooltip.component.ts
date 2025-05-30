@@ -6,7 +6,7 @@ import { TooltipService } from './dynamic-tooltip.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-dynamic-tooltip',
+    selector: 'flex-dynamic-tooltip',
     templateUrl: './dynamic-tooltip.component.html',
 })
 export class DynamicTooltipComponent {

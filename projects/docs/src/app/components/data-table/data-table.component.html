@@ -4,32 +4,53 @@
         pagination.</p>
 
     <h2 class="text-lg font-medium mb-2">Client-side Data Processing</h2>
-    <div class="mb-6 overflow-x-auto">
-        <app-data-table [data]="tableData" [columns]="tableColumns" [rowClickable]="true"
-            (rowClick)="onRowClick($event)">
-        </app-data-table>
+    <flex-code-block code="
+    <div class=&quot;mb-6 overflow-x-auto&quot;>
+        <flex-data-table [data]=&quot;tableData&quot; [columns]=&quot;tableColumns&quot; [rowClickable]=&quot;true&quot;
+            (rowClick)=&quot;onRowClick($event)&quot;>
+        </flex-data-table>
     </div>
-
+    ">
+        <div preview>
+            <div class="mb-6 overflow-x-auto">
+                <flex-data-table [data]="tableData" [columns]="tableColumns" [rowClickable]="true"
+                    (rowClick)="onRowClick($event)">
+                </flex-data-table>
+            </div>
+        </div>
+    </flex-code-block>
     <h2 class="text-lg font-medium mb-2">Server-side Data Processing</h2>
-    <div class="mb-6 overflow-x-auto">
-        <app-data-table [data]="serverData" [columns]="tableColumns" [isServerSide]="true" [loading]="loading"
-            [totalItems]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage"
-            (pageChange)="onPageChange($event)" (sortChange)="onSortChange($event)"
-            (filterChange)="onFilterChange($event)">
-        </app-data-table>
+    <flex-code-block code="
+    <div class=&quot;mb-6 overflow-x-auto&quot;>
+        <flex-data-table [data]=&quot;serverData&quot; [columns]=&quot;tableColumns&quot; [isServerSide]=&quot;true&quot; [loading]=&quot;loading&quot;
+            [totalItems]=&quot;totalItems&quot; [pageSize]=&quot;pageSize&quot; [pageIndex]=&quot;currentPage&quot;
+            (pageChange)=&quot;onPageChange($event)&quot; (sortChange)=&quot;onSortChange($event)&quot;
+            (filterChange)=&quot;onFilterChange($event)&quot;>
+        </flex-data-table>
     </div>
+    ">
+        <div preview>
+            <div class="mb-6 overflow-x-auto">
+                <flex-data-table [data]="serverData" [columns]="tableColumns" [isServerSide]="true" [loading]="loading"
+                    [totalItems]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage"
+                    (pageChange)="onPageChange($event)" (sortChange)="onSortChange($event)"
+                    (filterChange)="onFilterChange($event)">
+                </flex-data-table>
+            </div>
+        </div>
+    </flex-code-block>
 
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto" ngNonBindable>
 &lt;!-- Basic client-side table --&gt;
-&lt;app-data-table
+&lt;flex-data-table
   [data]="yourDataArray"
   [columns]="yourColumnsArray"&gt;
-&lt;/app-data-table&gt;
+&lt;/flex-data-table&gt;
 
 &lt;!-- Server-side data processing with pagination, sorting, and filtering --&gt;
-&lt;app-data-table
+&lt;flex-data-table
   [data]="serverData"
   [columns]="tableColumns"
   [isServerSide]="true"
@@ -40,16 +61,16 @@
   (pageChange)="onPageChange($event)"
   (sortChange)="onSortChange($event)"
   (filterChange)="onFilterChange($event)"&gt;
-&lt;/app-data-table&gt;
+&lt;/flex-data-table&gt;
 
 &lt;!-- With custom column templates --&gt;
-&lt;app-data-table [data]="data" [columns]="columns"&gt;
-  &lt;ng-template appColumnTemplate columnName="status" let-element&gt;
+&lt;flex-data-table [data]="data" [columns]="columns"&gt;
+  &lt;ng-template flexColumnTemplate columnName="status" let-element&gt;
     &lt;span class="badge" [ngClass]="element.status === 'Active' ? 'bg-green-500' : 'bg-red-500'"&gt;
       {{ element.status }}
     &lt;/span&gt;
   &lt;/ng-template&gt;
-&lt;/app-data-table&gt;
+&lt;/flex-data-table&gt;
         </pre>
     </div>
 

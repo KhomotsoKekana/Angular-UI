@@ -2,7 +2,7 @@ import { Component, HostBinding, HostListener, Input } from '@angular/core';
 import { DropdownComponent } from './dropdown.component';
 
 @Component({
-  selector: 'app-dropdown-trigger',
+  selector: 'flex-dropdown-trigger',
   standalone: true,
   template: `<ng-content></ng-content>`,
 })

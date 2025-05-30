@@ -3,11 +3,19 @@
     <p class="mb-4">A placeholder loading state that can be used while content is being loaded. The skeleton component uses a pulsing animation to indicate a loading state.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Skeleton</h2>
-    <div class="mb-6 space-y-2">
-        <app-skeleton class="w-full h-6 rounded"></app-skeleton>
-        <app-skeleton class="w-3/4 h-6 rounded"></app-skeleton>
-        <app-skeleton class="w-1/2 h-6 rounded"></app-skeleton>
-    </div>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6 space-y-2&quot; preview>
+        <flex-skeleton class=&quot;w-full h-6 rounded&quot;></flex-skeleton>
+        <flex-skeleton class=&quot;w-3/4 h-6 rounded&quot;></flex-skeleton>
+        <flex-skeleton class=&quot;w-1/2 h-6 rounded&quot;></flex-skeleton>
+    </div>    
+    `">
+        <div class="mb-6 space-y-2" preview>
+            <flex-skeleton class="w-full h-6 rounded"></flex-skeleton>
+            <flex-skeleton class="w-3/4 h-6 rounded"></flex-skeleton>
+            <flex-skeleton class="w-1/2 h-6 rounded"></flex-skeleton>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Customized Skeleton</h2>
     <div class="mb-2">
@@ -41,12 +49,12 @@
         </div>
     </div>
     <div class="mb-6 border p-4 rounded">
-        <app-skeleton [class]="selectedWidth + ' ' + selectedHeight + ' ' + selectedRounded"></app-skeleton>
+        <flex-skeleton [class]="selectedWidth + ' ' + selectedHeight + ' ' + selectedRounded"></flex-skeleton>
     </div>
     
     <h2 class="text-lg font-medium mb-2">Donut Chart Skeleton</h2>
     <div class="mb-6">
-        <app-skeleton type="donut-chart" class="w-40 h-40"></app-skeleton>
+        <flex-skeleton type="donut-chart" class="w-40 h-40"></flex-skeleton>
     </div>
     
     <h2 class="text-lg font-medium mb-2">Content Loading Example</h2>
@@ -61,16 +69,16 @@
             <div *ngIf="isLoading; else loadedContent">
                 <!-- Profile card skeleton -->
                 <div class="flex items-center space-x-4">
-                    <app-skeleton class="w-12 h-12 rounded-full"></app-skeleton>
+                    <flex-skeleton class="w-12 h-12 rounded-full"></flex-skeleton>
                     <div class="space-y-2 flex-1">
-                        <app-skeleton class="h-4 w-1/4 rounded"></app-skeleton>
-                        <app-skeleton class="h-3 w-1/3 rounded"></app-skeleton>
+                        <flex-skeleton class="h-4 w-1/4 rounded"></flex-skeleton>
+                        <flex-skeleton class="h-3 w-1/3 rounded"></flex-skeleton>
                     </div>
                 </div>
                 <div class="mt-4 space-y-2">
-                    <app-skeleton class="h-4 w-full rounded"></app-skeleton>
-                    <app-skeleton class="h-4 w-full rounded"></app-skeleton>
-                    <app-skeleton class="h-4 w-3/4 rounded"></app-skeleton>
+                    <flex-skeleton class="h-4 w-full rounded"></flex-skeleton>
+                    <flex-skeleton class="h-4 w-full rounded"></flex-skeleton>
+                    <flex-skeleton class="h-4 w-3/4 rounded"></flex-skeleton>
                 </div>
             </div>
             
@@ -94,12 +102,12 @@
     <h2 class="text-lg font-medium mb-2">Card Loading Example</h2>
     <div class="mb-6">
         <div class="border rounded overflow-hidden">
-            <app-skeleton class="w-full h-48"></app-skeleton>
+            <flex-skeleton class="w-full h-48"></flex-skeleton>
             <div class="p-4 space-y-2">
-                <app-skeleton class="h-6 w-3/4 rounded"></app-skeleton>
-                <app-skeleton class="h-4 w-full rounded"></app-skeleton>
-                <app-skeleton class="h-4 w-full rounded"></app-skeleton>
-                <app-skeleton class="h-4 w-2/3 rounded"></app-skeleton>
+                <flex-skeleton class="h-6 w-3/4 rounded"></flex-skeleton>
+                <flex-skeleton class="h-4 w-full rounded"></flex-skeleton>
+                <flex-skeleton class="h-4 w-full rounded"></flex-skeleton>
+                <flex-skeleton class="h-4 w-2/3 rounded"></flex-skeleton>
             </div>
         </div>
     </div>
@@ -108,21 +116,21 @@
         <h2 class="text-lg font-medium mb-2">Usage</h2>
         <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
 &lt;!-- Basic skeleton --&gt;
-&lt;app-skeleton class="w-full h-6 rounded"&gt;&lt;/app-skeleton&gt;
+&lt;flex-skeleton class="w-full h-6 rounded"&gt;&lt;/flex-skeleton&gt;
 
 &lt;!-- Multiple skeletons for text content --&gt;
 &lt;div class="space-y-2"&gt;
-  &lt;app-skeleton class="w-full h-4 rounded"&gt;&lt;/app-skeleton&gt;
-  &lt;app-skeleton class="w-3/4 h-4 rounded"&gt;&lt;/app-skeleton&gt;
-  &lt;app-skeleton class="w-1/2 h-4 rounded"&gt;&lt;/app-skeleton&gt;
+  &lt;flex-skeleton class="w-full h-4 rounded"&gt;&lt;/flex-skeleton&gt;
+  &lt;flex-skeleton class="w-3/4 h-4 rounded"&gt;&lt;/flex-skeleton&gt;
+  &lt;flex-skeleton class="w-1/2 h-4 rounded"&gt;&lt;/flex-skeleton&gt;
 &lt;/div&gt;
 
 &lt;!-- Donut chart skeleton --&gt;
-&lt;app-skeleton type="donut-chart" class="w-40 h-40"&gt;&lt;/app-skeleton&gt;
+&lt;flex-skeleton type="donut-chart" class="w-40 h-40"&gt;&lt;/flex-skeleton&gt;
 
 &lt;!-- Conditional skeleton loading state --&gt;
 &lt;div *ngIf="isLoading; else loadedContent"&gt;
-  &lt;app-skeleton class="w-full h-24 rounded"&gt;&lt;/app-skeleton&gt;
+  &lt;flex-skeleton class="w-full h-24 rounded"&gt;&lt;/flex-skeleton&gt;
 &lt;/div&gt;
 &lt;ng-template #loadedContent&gt;
   &lt;!-- Your actual content --&gt;

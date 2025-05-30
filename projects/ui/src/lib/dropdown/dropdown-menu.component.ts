@@ -3,7 +3,7 @@ import { DropdownComponent } from './dropdown.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-dropdown-menu',
+  selector: 'flex-dropdown-menu',
   standalone: true,
   imports:[CommonModule],
   template: `

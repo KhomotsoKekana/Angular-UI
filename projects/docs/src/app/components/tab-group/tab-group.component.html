@@ -3,111 +3,183 @@
     <p class="mb-4">A tabbed navigation component that organizes content into different tabs that can be switched between. The tab-group component provides multiple styling variants, orientation options, and responsive behavior.</p>
     
     <h2 class="text-lg font-medium mb-2">Basic Tab Group</h2>
-    <div class="mb-6 border p-4 rounded">
-        <app-tab-group 
-            [tabs]="basicTabs" 
-            [activeTabId]="activeTabId"
-            (tabChange)="onTabChange($event)">
-        </app-tab-group>
-        <div class="mt-4 bg-gray-50 p-4 rounded border">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6 border p-4 rounded&quot;>
+        <flex-tab-group 
+            [tabs]=&quot;basicTabs&quot; 
+            [activeTabId]=&quot;activeTabId&quot;
+            (tabChange)=&quot;onTabChange($event)&quot;>
+        </flex-tab-group>
+        <div class=&quot;mt-4 bg-gray-50 p-4 rounded border&quot;>
             <p>Content for the active tab would be displayed here. Active tab ID: <strong>{{ activeTabId }}</strong></p>
         </div>
     </div>
+    `">
+        <div class="mb-6 border p-4 rounded" preview>
+            <flex-tab-group 
+                [tabs]="basicTabs" 
+                [activeTabId]="activeTabId"
+                (tabChange)="onTabChange($event)">
+            </flex-tab-group>
+            <div class="mt-4 bg-gray-50 p-4 rounded border">
+                <p>Content for the active tab would be displayed here. Active tab ID: <strong>{{ activeTabId }}</strong></p>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Tabs with Icons</h2>
-    <div class="mb-6 border p-4 rounded">
-        <app-tab-group 
-            [tabs]="iconTabs" 
-            [activeTabId]="activeIconTabId"
-            (tabChange)="activeIconTabId = $event.id">
-        </app-tab-group>
-        <div class="mt-4 bg-gray-50 p-4 rounded border">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-6 border p-4 rounded&quot;>
+        <flex-tab-group 
+            [tabs]=&quot;iconTabs&quot; 
+            [activeTabId]=&quot;activeIconTabId&quot;
+            (tabChange)=&quot;activeIconTabId = $event.id&quot;>
+        </flex-tab-group>
+        <div class=&quot;mt-4 bg-gray-50 p-4 rounded border&quot;>
             <p>Example content for the active tab with icon. Active tab ID: <strong>{{ activeIconTabId }}</strong></p>
         </div>
-    </div>
+    </div>    
+    `">
+        <div class="mb-6 border p-4 rounded" preview>
+            <flex-tab-group 
+                [tabs]="iconTabs" 
+                [activeTabId]="activeIconTabId"
+                (tabChange)="activeIconTabId = $event.id">
+            </flex-tab-group>
+            <div class="mt-4 bg-gray-50 p-4 rounded border">
+                <p>Example content for the active tab with icon. Active tab ID: <strong>{{ activeIconTabId }}</strong></p>
+            </div>
+        </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Tab Variants</h2>
-    <div class="mb-2">
-        <label class="block text-sm mb-1">Select variant:</label>
-        <select [(ngModel)]="selectedVariant" class="border rounded px-2 py-1 mb-3">
-            <option value="default">Default</option>
-            <option value="minimal">Minimal</option>
-            <option value="button">Button</option>
-            <option value="pills">Pills</option>
-            <option value="underlined">Underlined</option>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-2&quot;>
+        <label class=&quot;block text-sm mb-1&quot;>Select variant</label>
+        <select [(ngModel)]=&quot;selectedVariant&quot; class=&quot;border rounded px-2 py-1 mb-3&quot;>
+            <option value=&quot;default&quot;>Default</option>
+            <option value=&quot;minimal&quot;>Minimal</option
+            <option value=&quot;button&quot;>Button</option>
+            <option value=&quot;pills&quot;>Pills</option>
+            <option value=&quot;underlined&quot;>Underlined<option>
         </select>
     </div>
-    <div class="mb-6 border p-4 rounded">
-        <app-tab-group 
-            [tabs]="demoTabs" 
-            [activeTabId]="activeVariantTabId"
-            [variant]="selectedVariant"
-            (tabChange)="activeVariantTabId = $event.id">
-        </app-tab-group>
-        <div class="mt-4 bg-gray-50 p-4 rounded border">
+    <div class=&quot;mb-6 border p-4 rounded&quot;>
+        <flex-tab-group 
+            [tabs]=&quot;demoTabs&quot; 
+            [activeTabId]=&quot;activeVariantTabId&quot;
+            [variant]=&quot;selectedVariant&quot;
+            (tabChange)=&quot;activeVariantTabId = $event.id&quot;>
+        </flex-tab-group>
+        <div class=&quot;mt-4 bg-gray-50 p-4 rounded border&quot;>
             <p>This example demonstrates the <strong>{{ selectedVariant }}</strong> variant.</p>
         </div>
     </div>
+    `">
+    <div preview>
+        <div class="mb-2">
+            <label class="block text-sm mb-1">Select variant:</label>
+            <select [(ngModel)]="selectedVariant" class="border rounded px-2 py-1 mb-3">
+                <option value="default">Default</option>
+                <option value="minimal">Minimal</option>
+                <option value="button">Button</option>
+                <option value="pills">Pills</option>
+                <option value="underlined">Underlined</option>
+            </select>
+        </div>
+        <div class="mb-6 border p-4 rounded">
+            <flex-tab-group 
+                [tabs]="demoTabs" 
+                [activeTabId]="activeVariantTabId"
+                [variant]="selectedVariant"
+                (tabChange)="activeVariantTabId = $event.id">
+            </flex-tab-group>
+            <div class="mt-4 bg-gray-50 p-4 rounded border">
+                <p>This example demonstrates the <strong>{{ selectedVariant }}</strong> variant.</p>
+            </div>
+        </div>
+    </div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Orientation</h2>
-    <div class="mb-2">
-        <label class="block text-sm mb-1">Select orientation:</label>
-        <select [(ngModel)]="selectedOrientation" class="border rounded px-2 py-1 mb-3">
-            <option value="horizontal">Horizontal</option>
-            <option value="vertical">Vertical</option>
+    <flex-code-block [code]="`
+    <div class=&quot;mb-2&quot;>
+        <label class=&quot;block text-sm mb-1&quot;>Select orientation:</label>
+        <select [(ngModel)]=&quot;selectedOrientation&quot; class=&quot;border rounded px-2 py-1 mb-3&quot;>
+            <option value=&quot;horizontal&quot;>Horizontal</option>
+            <option value=&quot;vertical&quot;>Vertical</option>
         </select>
     </div>
+    `">
+        <div class="mb-2" preview>
+            <label class="block text-sm mb-1">Select orientation:</label>
+            <select [(ngModel)]="selectedOrientation" class="border rounded px-2 py-1 mb-3">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
     <!-- <div class="mb-6 border p-4 rounded flex" [class.flex-col]="selectedOrientation === 'horizontal'" [class.flex-row]="selectedOrientation === 'vertical'">
         <div [class.w-full]="selectedOrientation === 'horizontal'" [class.w-1/4]="selectedOrientation === 'vertical'">
-            <app-tab-group 
+            <flex-tab-group 
                 [tabs]="demoTabs" 
                 [activeTabId]="activeOrientationTabId"
                 [orientation]="selectedOrientation"
                 [variant]="'underlined'"
                 (tabChange)="activeOrientationTabId = $event.id">
-            </app-tab-group>
+            </flex-tab-group>
         </div>
         <div [class.mt-4]="selectedOrientation === 'horizontal'" [class.ml-4]="selectedOrientation === 'vertical'" class="bg-gray-50 p-4 rounded border" [class.flex-1]="selectedOrientation === 'vertical'">
             <p>This example demonstrates <strong>{{ selectedOrientation }}</strong> orientation.</p>
         </div>
     </div> -->
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Responsive Behavior</h2>
-    <div class="mb-6 border p-4 rounded">
-        <p class="mb-2">The Tab Group component automatically switches to a dropdown menu on mobile devices. Resize your browser window to see this behavior in action.</p>
-        <app-tab-group 
-            [tabs]="demoTabs" 
-            [activeTabId]="'general'"
-            [responsive]="true">
-        </app-tab-group>
-    </div>
-    
-    <!-- <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Define tabs array in component --&gt;
-tabs = [
-  { id: 'tab1', label: 'First Tab' },
-  { id: 'tab2', label: 'Second Tab', icon: 'star' },
-  { id: 'tab3', label: 'Third Tab', disabled: true }
-];
+    <flex-code-block [code]="`
+    <div class=quot;mb-6 border p-4 roundedquot; preview>
+        <p class=quot;mb-2quot;>The Tab Group component automatically switches to a dropdown menu on mobile devices. Resize your browser window to see this behavior in action.</p>
+        <flex-tab-group 
+            [tabs]=quot;demoTabsquot; 
+            [activeTabId]=quot;'general'quot;
+            [responsive]=quot;truequot;>
+        </flex-tab-group>
+    </div>    
+   `">
+        <div class="mb-6 border p-4 rounded" preview>
+            <p class="mb-2">The Tab Group component automatically switches to a dropdown menu on mobile devices. Resize your browser window to see this behavior in action.</p>
+            <flex-tab-group 
+                [tabs]="demoTabs" 
+                [activeTabId]="'general'"
+                [responsive]="true">
+            </flex-tab-group>
+        </div>
+        
+        <!-- <div class="mt-8">
+            <h2 class="text-lg font-medium mb-2">Usage</h2>
+            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
+    &lt;!-- Define tabs array in component --&gt;
+    tabs = [
+    { id: 'tab1', label: 'First Tab' },
+    { id: 'tab2', label: 'Second Tab', icon: 'star' },
+    { id: 'tab3', label: 'Third Tab', disabled: true }
+    ];
 
-&lt;!-- Basic tab group --&gt;
-&lt;app-tab-group 
-  [tabs]="tabs"
-  [activeTabId]="activeTabId"
-  (tabChange)="handleTabChange($event)"&gt;
-&lt;/app-tab-group&gt;
+    &lt;!-- Basic tab group --&gt;
+    &lt;flex-tab-group 
+    [tabs]="tabs"
+    [activeTabId]="activeTabId"
+    (tabChange)="handleTabChange($event)"&gt;
+    &lt;/flex-tab-group&gt;
 
-&lt;!-- With custom variant and orientation --&gt;
-&lt;app-tab-group 
-  [tabs]="tabs" 
-  [variant]="'pills'"
-  [orientation]="'vertical'"&gt;
-&lt;/app-tab-group&gt;
-        </pre>
-    </div> -->
-    
+    &lt;!-- With custom variant and orientation --&gt;
+    &lt;flex-tab-group 
+    [tabs]="tabs" 
+    [variant]="'pills'"
+    [orientation]="'vertical'"&gt;
+    &lt;/flex-tab-group&gt;
+            </pre>
+        </div> -->
+    </flex-code-block>    
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Tab Properties</h2>
         <table class="min-w-full bg-white border border-gray-200">

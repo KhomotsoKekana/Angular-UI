@@ -1,7 +1,14 @@
 <div class="p-6 space-y-4">
     <h1 class="text-xl font-semibold">Button Component</h1>
-    <div class="flex items-center gap-2">
-      <flex-button (click)="showSuccessMessage()" variant="primary">Primary</flex-button>
-      <flex-button (click)="showErrorMessage()" variant="danger">Danger</flex-button>
+    <flex-code-block [code] = "`
+    <div class=&quot;flex items-center gap-2&quot;>
+      <flex-button (click)=&quot;showSuccessMessage()&quot; variant=&quot;primary&quot;>Primary</flex-button>
+      <flex-button (click)=&quot;showErrorMessage()&quot; variant=&quot;danger&quot;>Danger</flex-button>
     </div>
+    `">
+      <div class="flex items-center gap-2" preview>
+        <flex-button (click)="showSuccessMessage()" variant="primary">Primary</flex-button>
+        <flex-button (click)="showErrorMessage()" variant="danger">Danger</flex-button>
+      </div>
+    </flex-code-block>
   </div>
