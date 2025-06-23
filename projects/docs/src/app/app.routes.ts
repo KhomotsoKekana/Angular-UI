@@ -36,6 +36,7 @@ import { DocsTooltipComponent } from './components/tooltip/tooltip.component';
 import { DrawerDocsComponent } from './components/drawer/drawer.component';
 import { MainSidebarDocumentationComponent } from './components/main-sidebar/main-sidebar.component';
 import { DocsCodeBlockComponent } from './components/code-block/code-block.component';
+import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'anchor', pathMatch: 'full' },
@@ -76,4 +77,5 @@ export const routes: Routes = [
     { path: 'tab-group', component: DocsTabGroupComponent },
     { path: 'tabs', component: DocsTabsComponent },
     { path: 'tooltip', component: DocsTooltipComponent },
+    {path: 'virtual-scroll', component: VirtualScrollComponent}
 ];

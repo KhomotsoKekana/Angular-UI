@@ -20,6 +20,6 @@
   //   "compilationMode": "partial"
   // },
   "exclude": [
-    "**/*.spec.ts"
+    // "**/*.spec.ts"
   ]
 }

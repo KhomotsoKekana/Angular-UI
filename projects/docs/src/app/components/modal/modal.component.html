@@ -1,4 +1,4 @@
-<!-- <div class="p-6 space-y-4">
+ <div class="p-6 space-y-4">
     <h1 class="text-xl font-semibold">Modal Component</h1>
     <p class="mb-4">A dialog box/popup that overlays the application and requires user interaction.</p>
     
@@ -7,199 +7,37 @@
         <flex-button (click)="openBasicModal()">Open Basic Modal</flex-button>
         
         <flex-modal [(isOpen)]="isBasicModalOpen">
-            <div #modal-header class="px-6 py-4 border-b">
+            <div class="px-6 py-4 border-b">
                 <h3 class="text-lg font-medium">Basic Modal</h3>
             </div>
             <div class="px-6 py-4">
                 <p>This is a basic modal with header and footer sections. The modal can be closed by clicking the X button, clicking outside the modal, or pressing the Escape key.</p>
             </div>
-            <div #modal-footer class="px-6 py-4 border-t flex justify-end gap-2">
+            <flex-modal-footer class="bg-blue-50">          
                 <flex-button variant="neutral" (click)="isBasicModalOpen = false">Cancel</flex-button>
                 <flex-button variant="primary" (click)="isBasicModalOpen = false">Confirm</flex-button>
-            </div>
+            </flex-modal-footer>  
         </flex-modal>
     </div>
-    
-    <h2 class="text-lg font-medium mb-2">Modal Sizes</h2>
-    <div class="flex flex-wrap gap-2 mb-6">
-        <flex-button (click)="openSizesModal('sm')">Small Modal</flex-button>
-        <flex-button (click)="openSizesModal('md')">Medium Modal</flex-button>
-        <flex-button (click)="openSizesModal('lg')">Large Modal</flex-button>
-        
-        <flex-modal [(isOpen)]="isSizesModalOpen" [size]="modalSize">
-            <div #modal-header class="px-6 py-4 border-b">
-                <h3 class="text-lg font-medium">{{ modalSize === 'sm' ? 'Small' : modalSize === 'md' ? 'Medium' : 'Large' }} Modal</h3>
-            </div>
-            <div class="px-6 py-4">
-                <p>This modal demonstrates the {{ modalSize }} size option. The modal comes in three predefined sizes: sm, md, and lg.</p>
-            </div>
-            <div #modal-footer class="px-6 py-4 border-t flex justify-end">
-                <flex-button variant="primary" (click)="isSizesModalOpen = false">Close</flex-button>
-            </div>
-        </flex-modal>
-    </div>
-    
-    <h2 class="text-lg font-medium mb-2">Custom Modal</h2>
-    <div class="mb-6">
-        <flex-button (click)="openCustomModal()">Open Custom Modal</flex-button>
-        
-        <flex-modal 
-            [(isOpen)]="isCustomModalOpen" 
-            modalClass="bg-blue-50 border-blue-500"
-            modalWidth="600px"
-            backdropVariant="light"
-            bodyClass="px-8 py-6">
-            <div class="px-8 py-6">
-                <h3 class="text-xl font-bold text-blue-800 mb-4">Custom Styled Modal</h3>
-                <p class="mb-4">This modal has custom styling applied through the modalClass, modalWidth, and bodyClass properties.</p>
-                <p class="mb-4">It also uses a light backdrop variant and doesn't use the predefined header and footer sections.</p>
-                <div class="flex justify-end mt-8">
-                    <flex-button variant="primary" (click)="isCustomModalOpen = false">Got it!</flex-button>
-                </div>
-            </div>
-        </flex-modal>
-    </div>
-    
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic modal with header, body, and footer --&gt;
-&lt;flex-modal [(isOpen)]="isModalVisible"&gt;
-  &lt;div #modal-header class="px-6 py-4 border-b"&gt;
-    &lt;h3 class="text-lg font-medium"&gt;Modal Title&lt;/h3&gt;
-  &lt;/div&gt;
-  
-  &lt;div class="px-6 py-4"&gt;
-    &lt;p&gt;Modal content goes here.&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div #modal-footer class="px-6 py-4 border-t flex justify-end gap-2"&gt;
-    &lt;flex-button variant="neutral" (click)="isModalVisible = false"&gt;Cancel&lt;/flex-button&gt;
-    &lt;flex-button variant="primary" (click)="confirmAction()"&gt;Confirm&lt;/flex-button&gt;
-  &lt;/div&gt;
-&lt;/flex-modal&gt;
 
-&lt;!-- Custom sized modal --&gt;
-&lt;flex-modal [(isOpen)]="isModalVisible" size="lg"&gt;
-  &lt;!-- Modal content --&gt;
-&lt;/flex-modal&gt;
+    <flex-button (click) = "openCustomModal()">Delete</flex-button>
+    <flex-code-block [code] = "`
+    <flex-modal-header>
+        Confirm Delete
+    </flex-modal-header>
+    <flex-modal-body>
+        <span> 
+            <flex-icon icon=&quot;trash&quot;></flex-icon>
+        </span> 
+        Are you sure?
+    </flex-modal-body>
+    <flex-modal-footer>
+        <flex-button variant=&quot;neutral&quot; (click)=&quot;cancel()&quot;>Cancel</flex-button>
+        <flex-button variant=&quot;danger&quot; (click)=&quot;deleteItem()&quot;>Delete</flex-button>
+    </flex-modal-footer>
+    
+    `">
+        <flex-button (click) = "openCustomModal()" preview>Delete</flex-button>
+    </flex-code-block>
 
-&lt;!-- Modal with custom styling --&gt;
-&lt;flex-modal 
-  [(isOpen)]="isModalVisible"
-  modalClass="bg-blue-50 border-blue-500"
-  modalWidth="600px"
-  backdropVariant="light"&gt;
-  &lt;!-- Modal content --&gt;
-&lt;/flex-modal&gt;
-        </pre>
-    </div>
-    
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Properties</h2>
-        <table class="min-w-full bg-white border border-gray-200">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 border-b text-left">Property</th>
-                    <th class="px-4 py-2 border-b text-left">Type</th>
-                    <th class="px-4 py-2 border-b text-left">Default</th>
-                    <th class="px-4 py-2 border-b text-left">Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 border-b">isOpen</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">false</td>
-                    <td class="px-4 py-2 border-b">Controls the visibility of the modal</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">closeOnBackdrop</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">true</td>
-                    <td class="px-4 py-2 border-b">Whether clicking on the backdrop closes the modal</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">showCloseButton</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">true</td>
-                    <td class="px-4 py-2 border-b">Whether to show the close (X) button</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">size</td>
-                    <td class="px-4 py-2 border-b">'sm' | 'md' | 'lg'</td>
-                    <td class="px-4 py-2 border-b">'md'</td>
-                    <td class="px-4 py-2 border-b">Predefined size of the modal</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">ariaLabelledBy</td>
-                    <td class="px-4 py-2 border-b">string</td>
-                    <td class="px-4 py-2 border-b">undefined</td>
-                    <td class="px-4 py-2 border-b">ID of the element that labels the modal for accessibility</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">modalClass</td>
-                    <td class="px-4 py-2 border-b">string</td>
-                    <td class="px-4 py-2 border-b">''</td>
-                    <td class="px-4 py-2 border-b">Custom CSS classes for the modal container</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">modalWidth</td>
-                    <td class="px-4 py-2 border-b">string</td>
-                    <td class="px-4 py-2 border-b">'auto'</td>
-                    <td class="px-4 py-2 border-b">Custom width for the modal</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">modalHeight</td>
-                    <td class="px-4 py-2 border-b">string</td>
-                    <td class="px-4 py-2 border-b">'auto'</td>
-                    <td class="px-4 py-2 border-b">Custom height for the modal</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">bodyClass</td>
-                    <td class="px-4 py-2 border-b">string</td>
-                    <td class="px-4 py-2 border-b">'px-6 py-4'</td>
-                    <td class="px-4 py-2 border-b">Custom CSS classes for the modal body</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">allowClose</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">true</td>
-                    <td class="px-4 py-2 border-b">Whether the modal can be closed</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">modalTransparent</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">false</td>
-                    <td class="px-4 py-2 border-b">Whether the modal has a transparent background</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">backdropVariant</td>
-                    <td class="px-4 py-2 border-b">'light' | 'dark'</td>
-                    <td class="px-4 py-2 border-b">'dark'</td>
-                    <td class="px-4 py-2 border-b">The style variant for the backdrop overlay</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Events</h2>
-        <table class="min-w-full bg-white border border-gray-200">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 border-b text-left">Event</th>
-                    <th class="px-4 py-2 border-b text-left">Payload</th>
-                    <th class="px-4 py-2 border-b text-left">Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 border-b">isOpenChange</td>
-                    <td class="px-4 py-2 border-b">boolean</td>
-                    <td class="px-4 py-2 border-b">Emitted when the modal opens or closes</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->
+</div>

@@ -32,6 +32,13 @@ export class PopoverComponent implements AfterViewInit, OnDestroy, OnChanges {
   private overlayRef!: OverlayRef;
   private _isOpen: boolean = false; // Internal state if parent state is not provided
 
+  get isOpenInternal(): boolean {
+    return this._isOpen;
+  }
+  getOverlayRef(): OverlayRef {
+    return this.overlayRef;
+  }
+
   public popoverWidth: number = 0;
 
   @ViewChild('trigger') trigger!: ElementRef; // Reference to the trigger element

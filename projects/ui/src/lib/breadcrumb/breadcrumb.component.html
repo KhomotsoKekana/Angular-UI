@@ -1,12 +1,52 @@
-<nav class="breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb-list">
-    <li *ngFor="let item of items; let last = last" class="breadcrumb-item" [class.breadcrumb-item-active]="last">
-      <ng-container *ngIf="!last && item.url">
-        <a [href]="item.url">{{ item.label }}</a>
-      </ng-container>
-      <ng-container *ngIf="last || !item.url">
-        {{ item.label }}
-      </ng-container>
-    </li>
-  </ol>
-</nav>
+<div class="w-full bg-blue-50 p-2"> 
+  <nav class="flex items-center text-gray-600 text-base" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center space-x-2">
+      <li *ngFor="let item of items; let last = last" class="flex items-center" [class.text-gray-900]="last">
+        <ng-container>
+          <a *ngIf="!last && item.url" [href]="item.url" class="flex items-center hover:underline">
+            <flex-icon *ngIf="item.icon" [icon]="item.icon" class="w-4 h-4 mr-1"></flex-icon>
+            <span *ngIf="item.label">{{ item.label }}</span>
+          </a>
+
+          <span *ngIf="last || !item.url" class="flex items-center">
+            <flex-icon *ngIf="item.icon" [icon]="item.icon" class="w-4 h-4 mr-1"></flex-icon>
+            <span *ngIf="item.label">{{ item.label }}</span>
+          </span>
+        </ng-container>
+
+        <span *ngIf="!last" class="mx-2 text-gray-400">›</span>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- <div>
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb-list">
+      <li
+        *ngFor="let item of items; let last = last"
+        class="breadcrumb-item"
+        [class.breadcrumb-item-active]="last"
+      >
+        <ng-container *ngIf="item.label === 'Home'; else textItem">
+          <a *ngIf="!last && item.url" [href]="item.url" aria-label="Home">
+            <flex-icon icon="home" class="icon-home"></flex-icon>
+          </a>
+          <span *ngIf="last || !item.url" aria-label="Home">
+            <flex-icon icon="home" class="icon-home"></flex-icon>
+          </span>
+        </ng-container>
+
+        <ng-template #textItem>
+          <a *ngIf="!last && item.url" [href]="item.url">{{ item.label }}</a>
+          <span *ngIf="last || !item.url">{{ item.label }}</span>
+        </ng-template>
+
+        <span *ngIf="!last" class="separator">›</span>
+      </li>
+    </ol>
+  </nav>
+</div> -->
+
+
+

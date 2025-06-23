@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService, TranslatePipe, TranslateStore, MissingTranslationHandlerParams } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideAnimations } from '@angular/platform-browser/animations'
 
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams) {
@@ -38,6 +39,6 @@ export const appConfig: ApplicationConfig = {
     TranslateService,
     TranslatePipe,
     TranslateStore,
-
+    provideAnimations()
   ]
 };

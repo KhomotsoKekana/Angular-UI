@@ -27,22 +27,6 @@ export class CodeBlockComponent  {
 
   constructor(private host: ElementRef) {}
 
-  // ngAfterViewInit() {
-  //   setTimeout(() => {
-  //     if (this.previewContainer) {
-  //       let html = this.previewContainer.nativeElement.innerHTML;
-  //       this.code = this.formatHtml(html);
-  //     }
-  //   });
-  // }
-
-  // ngAfterContentInit() {
-  //   setTimeout(() => {
-  //     const innerHtml = this.host.nativeElement.querySelector('ng-content')?.innerHTML || '';
-  //     this.code = this.formatHtml(innerHtml.trim());
-  //   });
-  // }
-
   onTabChange(tab: any): void {
     console.log('Tab changed: ', tab);
     this.activeTabId = tab.id;
@@ -69,8 +53,5 @@ export class CodeBlockComponent  {
     });
   }
 
-// private formatHtml(html: string): string {
-//   return html.trim();
-// }
 
 }

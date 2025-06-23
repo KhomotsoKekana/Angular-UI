@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild,HostListener } from '@angular/core';
 import {
     ApexAxisChartSeries,
     ApexChart,
@@ -52,6 +52,55 @@ export class ChartComponent implements OnInit, OnChanges {
 
     @ViewChild('chart') chart: any;
 
+    @HostListener('window:resize')
+    onResize() {
+    this.resizeCenterTitle();
+    }
+
+private resizeCenterTitle(): void {
+    console.log("this function is called");
+  if (!this.chart || !this.chart.chart || this.type !== 'donut') return;
+
+    console.log("checking if it's returning early!");
+    const chartEl = this.chart.chart.el as HTMLElement;
+    if (!chartEl) return;
+
+    const width = chartEl.clientWidth;
+    const hideCenter = width < 1000;
+
+    const totalValue = this.values.reduce((sum, val) => sum + val, 0);
+    const formattedTotal = this.valueFormatter ? this.valueFormatter(totalValue) : totalValue.toString();
+
+    this.chart.updateOptions({
+        chart: {
+        animations: { enabled: false }
+        },
+        plotOptions: {
+        pie: {
+            donut: {
+            labels: {
+                show: !hideCenter,
+                name: {
+                show: !hideCenter,
+                formatter: () => this.centerLabel || ''
+                },
+                value: {
+                show: !hideCenter,
+                formatter: () => this.centerValue || formattedTotal
+                },
+                total: {
+                show: !hideCenter,
+                label: this.centerLabel || '',
+                formatter: () => this.centerValue || formattedTotal
+                }
+            }
+            }
+        }
+        }
+    }, false, false);
+    }
+
+
     // Common inputs
     @Input() title: string = '';
     @Input() type: 'bar' | 'line' | 'area' | 'donut' | 'radialBar' | 'pie' = 'bar';
@@ -89,6 +138,7 @@ export class ChartComponent implements OnInit, OnChanges {
     ngOnInit(): void {
         this.buildChartOptions();
         this.isInitialized = true;
+        //setTimeout(() => this.resizeCenterTitle(), 0);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -105,7 +155,7 @@ export class ChartComponent implements OnInit, OnChanges {
             const dataOnlyUpdate = hasDataChanges && !hasStructuralChanges;
 
             if (dataOnlyUpdate) {
-                // Only update the data without recreating the entire chart
+                // Only update t  he data without recreating the entire chart
                 this.updateChartData();
             } else {
                 // Rebuild the chart for significant changes
@@ -115,6 +165,8 @@ export class ChartComponent implements OnInit, OnChanges {
             // First change detection cycle, chart not initialized yet
             this.buildChartOptions();
         }
+
+        //setTimeout(() => this.resizeCenterTitle(), 0);
     }
 
     private buildChartOptions(): void {
@@ -189,10 +241,39 @@ export class ChartComponent implements OnInit, OnChanges {
                 labels: { colors: this.theme === 'dark' ? '#eee' : '#555' },
             },
             responsive: [
-                {
-                    breakpoint: 768,
+{
+                    breakpoint: 705,
                     options: {
                         legend: { position: 'bottom' },
+                        plotOptions: {
+                            pie: {
+                                donut: {
+                                    labels: {
+                                        show: false,
+                                        name: {
+                                            show: false
+                                        },
+                                        value: {
+                                            show: true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                },
+                {
+                    breakpoint: 100,
+                    options: {
+                        labels: {
+                            show: false,
+                            name:{
+                                show:false
+                            },
+                            value:{
+                                show:false
+                            }
+                        }
                     },
                 },
             ],
@@ -253,8 +334,8 @@ export class ChartComponent implements OnInit, OnChanges {
                             total: {
                                 show: true,  // Always show the total label
                                 label: this.centerLabel || '',
-                                // formatter: () => this.values.reduce((sum, val) => sum + val, 0).toString()
-                                formatter: () => this.centerValue || ''
+                                formatter: () => this.values.reduce((sum, val) => sum + val, 0).toString()
+                                //formatter: () => this.centerValue || ''
                             }
                         },
                     }
@@ -409,6 +490,7 @@ private updateChartData(): void {
         // Update center value for donut if needed
         if (this.type === 'donut') {
             this.updateDonutCenterValue();
+            //this.resizeCenterTitle();
         }
     }
     else if (!isAxisChart && JSON.stringify(this.values) !== JSON.stringify(this.previousValues)) {

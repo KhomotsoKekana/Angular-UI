@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ContentChildren, ElementRef, EventEmitter, HostListener, Input, Output, QueryList, Type, ViewChild, ViewContainerRef, AfterViewInit, ComponentRef } from '@angular/core';
 import { ButtonComponent } from "../button/button.component";
 import { ClassCombinePipe } from '../core/class-combine.pipe';
+import { ModalFooterComponent } from './v2/modal-footer.component';
 
 @Component({
   selector: 'flex-modal',

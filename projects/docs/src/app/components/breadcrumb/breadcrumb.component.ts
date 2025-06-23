@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbComponent } from '../../../../../ui/src/lib/breadcrumb/breadcrumb.component';
+import { CodeBlockComponent } from '../../../../../ui/src/lib/code-block/code-block.component';
+import { IconComponent } from '../../../../../ui/src/lib/icons/icon.component';
+//import {home,library,data} from '../../../../../ui/src/lib/icons/icon.component';
 
 @Component({
   selector: 'docs-breadcrumb',
   standalone: true,
-  imports: [CommonModule, BreadcrumbComponent],
+  imports: [CommonModule, BreadcrumbComponent,CodeBlockComponent,IconComponent],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
@@ -15,6 +18,18 @@ export class DocsBreadcrumbComponent {
     { label: 'Home', url: '/' },
     { label: 'Library', url: '/library' },
     { label: 'Data' }
+  ];
+
+  simpleIconExample = [
+    { icon: 'home', url: '/' },
+    { icon: 'bookOpen', url: '/library' },
+    { icon: 'settings' }
+  ];
+
+    simpleIconLabelExample = [
+    { label:'home', icon: 'home', url: '/' },
+    { label:'library', icon: 'bookOpen', url: '/library' },
+    { label:'Settings', icon: 'settings' }
   ];
 
   multiLevelExample = [

@@ -1,0 +1,18 @@
+<h2>virtual-scroll</h2>
+
+<!-- <flex-code-block> -->
+    <flex-virtual-scroll-paginator
+    [items]="stuff"
+    [itemHeight]="20"
+    [hasMore]="hasMoreItems"
+    [loadMoreFn]="loadMoreItems"
+    [itemTemplate]="itemTpl"
+    (itemClicked)="handleItemClick($event)">
+    </flex-virtual-scroll-paginator>
+
+    <ng-template #itemTpl let-item let-i="index">
+    <div class="p-2 border-b hover:bg-gray-100 cursor-pointer">
+        {{ i + 1 }}. {{ item.name }}
+    </div>
+    </ng-template>
+<!-- <flex-code-block/> -->

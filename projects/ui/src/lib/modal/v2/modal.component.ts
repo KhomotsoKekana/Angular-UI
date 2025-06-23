@@ -41,16 +41,7 @@ export class CustomModalContainerComponent extends CdkDialogContainer {
     // Optional: Close on backdrop click (if not disabled)
     onBackdropClick(): void {
         if (!this.config.disableClose && !this.dialogRef.disableClose) {
-            this.dialogRef.close();
+            this.dialogRef.close('testing');
         }
     }
-
-    // Optional: Close on Escape key press (handled by CDK Dialog by default if not disableClose)
-    // @HostListener('document:keydown.escape', ['$event'])
-    // onEscapeKey(event: KeyboardEvent): void {
-    //   if (!this.config.disableClose) {
-    //     event.preventDefault(); // Prevent potential browser default actions
-    //     this.dialogRef.close();
-    //   }
-    // }
 }

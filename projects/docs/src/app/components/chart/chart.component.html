@@ -3,7 +3,7 @@
     <p class="mb-4">A flexible charting component that supports various chart types including bar, line, area, donut, and pie charts. Built on top of ApexCharts, it provides extensive customization options and responsive design.</p>
     
     <h2 class="text-lg font-medium mb-2">Chart Types</h2>
-    <flex-code-block code = "
+    <flex-code-block code = " 
     <div class=&quot;mb-2&quot;>
         <div class=&quot;flex items-center gap-4 mb-2&quot;>
             <div>
@@ -16,7 +16,7 @@
                 <option value=&quot;pie&quot;>Pie Chart</option>
                 </select>
             </div>
-            <div>
+            <div>  
                 <label class=&quot;block text-sm mb-1&quot;>Theme:</label>
                 <select [(ngModel)]=&quot;selectedTheme&quot; class=&quot;border rounded px-2 py-1&quot;>
                     <option value=&quot;light&quot;>Light</option>
@@ -31,7 +31,6 @@
     </div>
     
     <div class=&quot;mb-6 border p-4 rounded&quot; [ngClass]=&quot;{'bg-gray-800': selectedTheme === 'dark'}&quot;>
-        <!-- Axis charts (bar, line, area) -->
         <flex-chart *ngIf=&quot;['bar', 'line', 'area'].includes(selectedChartType)&quot;
             [type]=&quot;selectedChartType&quot;
             [series]=&quot;getSeriesForSelectedChart()&quot;
@@ -43,7 +42,6 @@
             [legendPosition]=&quot;legendPosition&quot;>
         </flex-chart>
         
-        <!-- Donut chart -->
         <flex-chart *ngIf=&quot;selectedChartType === 'donut'&quot;
             [type]=&quot;'donut'&quot;
             [values]=&quot;donutChartValues&quot;
@@ -58,7 +56,6 @@
             [legendPosition]=&quot;legendPosition&quot;>
         </flex-chart>
         
-        <!-- Pie chart -->
         <flex-chart *ngIf=&quot;selectedChartType === 'pie'&quot;
             [type]=&quot;'pie'&quot;
             [values]=&quot;pieChartValues&quot;
@@ -72,57 +69,33 @@
         </flex-chart>
     </div>
     
-    <h2 class=&quot;text-lg font-medium mb-2&quot;>Chart Customization</h2>
-    <div class=&quot;mb-2&quot;>
-        <div class=&quot;grid grid-cols-2 gap-4 mb-2&quot;>
+     "> 
+    <div preview class="overflow-hidden">
+    <div class="mb-2">
+        <div class="flex items-center gap-4 mb-2">
             <div>
-                <label class=&quot;block text-sm mb-1&quot;>Chart Height:</label>
-                <input type=&quot;range&quot; min=&quot;200&quot; max=&quot;500&quot; step=&quot;10&quot; [(ngModel)]=&quot;chartHeight&quot; class=&quot;w-full&quot;>
-                <span class=&quot;text-xs&quot;>{{ chartHeight }}px</span>
-            </div>
-            <div>
-                <label class=&quot;block text-sm mb-1&quot;>Corner Radius (for pie/donut):</label>
-                <input type=&quot;range&quot; min=&quot;0&quot; max=&quot;30&quot; step=&quot;1&quot; [(ngModel)]=&quot;cornerRadius&quot; class=&quot;w-full&quot;>
-                <span class=&quot;text-xs&quot;>{{ cornerRadius }}px</span>
-            </div>
-            <div>
-                <label class=&quot;block text-sm mb-1&quot;>Legend Position:</label>
-                <select [(ngModel)]=&quot;legendPosition&quot; class=&quot;border rounded px-2 py-1&quot;>
-                    <option value=&quot;top&quot;>Top</option>
-                    <option value=&quot;bottom&quot;>Bottom</option>
-                    <option value=&quot;left&quot;>Left</option>
-                    <option value=&quot;right&quot;>Right</option>
+                <label class="block text-sm mb-1">Select chart type:</label>
+                <select [(ngModel)]="selectedChartType" class="border rounded px-2 py-1">
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                    <option value="area">Area Chart</option>
+                    <option value="donut">Donut Chart</option>
+                    <option value="pie">Pie Chart</option>
                 </select>
             </div>
+            <div>
+                <label class="block text-sm mb-1">Theme:</label>
+                <select [(ngModel)]="selectedTheme" class="border rounded px-2 py-1">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm mb-1">Data Labels:</label>
+                <input type="checkbox" [(ngModel)]="enableDataLabels" class="mr-2">Show data labels
+           </div>
         </div>
     </div>
-    ">
-        <div preview>
-            <div class="mb-2">
-                <div class="flex items-center gap-4 mb-2">
-                    <div>
-                        <label class="block text-sm mb-1">Select chart type:</label>
-                        <select [(ngModel)]="selectedChartType" class="border rounded px-2 py-1">
-                            <option value="bar">Bar Chart</option>
-                            <option value="line">Line Chart</option>
-                            <option value="area">Area Chart</option>
-                            <option value="donut">Donut Chart</option>
-                            <option value="pie">Pie Chart</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm mb-1">Theme:</label>
-                        <select [(ngModel)]="selectedTheme" class="border rounded px-2 py-1">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm mb-1">Data Labels:</label>
-                        <input type="checkbox" [(ngModel)]="enableDataLabels" class="mr-2">Show data labels
-                    </div>
-                </div>
-            </div>
     
     <div class="mb-6 border p-4 rounded" [ngClass]="{'bg-gray-800': selectedTheme === 'dark'}">
         <!-- Axis charts (bar, line, area) -->
@@ -135,7 +108,7 @@
             [enableDataLabels]="enableDataLabels"
             [title]="selectedChartType.charAt(0).toUpperCase() + selectedChartType.slice(1) + ' Chart'"
             [legendPosition]="legendPosition">
-        </flex-chart>
+        </flex-chart>   
         
         <!-- Donut chart -->
         <flex-chart *ngIf="selectedChartType === 'donut'"
@@ -165,9 +138,36 @@
             [legendPosition]="legendPosition">
         </flex-chart>
     </div>
+</div>
+    </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Chart Customization</h2>
-    <div class="mb-2">
+    <flex-code-block [code]="`
+    <div class=&quot;mb-2&quot;>
+        <div class=&quot;grid grid-cols-2 gap-4 mb-2&quot;>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Chart Height:</label>
+                <input type=&quot;range&quot; min=&quot;200&quot; max=&quot;500&quot; step=&quot;10&quot; [(ngModel)]=&quot;chartHeight&quot; class=&quot;w-full&quot;>
+                <span class=&quot;text-xs&quot;>{{ chartHeight }}px</span>
+            </div>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Corner Radius (for pie/donut):</label>
+                <input type=&quot;range&quot; min=&quot;0&quot; max=&quot;30&quot; step=&quot;1&quot; [(ngModel)]=&quot;cornerRadius&quot; class=&quot;w-full&quot;>
+                <span class=&quot;text-xs&quot;>{{ cornerRadius }}px</span>
+            </div>
+            <div>
+                <label class=&quot;block text-sm mb-1&quot;>Legend Position:</label>
+                <select [(ngModel)]=&quot;legendPosition&quot; class=&quot;border rounded px-2 py-1&quot;>
+                    <option value=&quot;top&quot;>Top</option>
+                    <option value=&quot;bottom&quot;>Bottom</option>
+                    <option value=&quot;left&quot;>Left</option>
+                    <option value=&quot;right&quot;>Right</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    `">
+    <div class="mb-2" preview>
         <div class="grid grid-cols-2 gap-4 mb-2">
             <div>
                 <label class="block text-sm mb-1">Chart Height:</label>
@@ -190,7 +190,6 @@
             </div>
         </div>
     </div>
-        </div>
     </flex-code-block>
     
     <h2 class="text-lg font-medium mb-2">Value Formatting</h2>
