@@ -112,31 +112,6 @@
         </div>
     </div>
     
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic skeleton --&gt;
-&lt;flex-skeleton class="w-full h-6 rounded"&gt;&lt;/flex-skeleton&gt;
-
-&lt;!-- Multiple skeletons for text content --&gt;
-&lt;div class="space-y-2"&gt;
-  &lt;flex-skeleton class="w-full h-4 rounded"&gt;&lt;/flex-skeleton&gt;
-  &lt;flex-skeleton class="w-3/4 h-4 rounded"&gt;&lt;/flex-skeleton&gt;
-  &lt;flex-skeleton class="w-1/2 h-4 rounded"&gt;&lt;/flex-skeleton&gt;
-&lt;/div&gt;
-
-&lt;!-- Donut chart skeleton --&gt;
-&lt;flex-skeleton type="donut-chart" class="w-40 h-40"&gt;&lt;/flex-skeleton&gt;
-
-&lt;!-- Conditional skeleton loading state --&gt;
-&lt;div *ngIf="isLoading; else loadedContent"&gt;
-  &lt;flex-skeleton class="w-full h-24 rounded"&gt;&lt;/flex-skeleton&gt;
-&lt;/div&gt;
-&lt;ng-template #loadedContent&gt;
-  &lt;!-- Your actual content --&gt;
-&lt;/ng-template&gt;
-        </pre>
-    </div>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Component Properties</h2>

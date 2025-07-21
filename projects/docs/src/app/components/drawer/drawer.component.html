@@ -375,62 +375,7 @@
             </flex-drawer>
         </div>
     </flex-code-block>
-    
-    <!-- <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic drawer --&gt;
-&lt;flex-drawer 
-  [isOpen]="isDrawerOpen" 
-  position="right"
-  (closeDrawer)="isDrawerOpen = false"&gt;
-  &lt;!-- Content goes here --&gt;
-  &lt;div class="h-full"&gt;
-    &lt;h3 class="text-lg font-medium"&gt;Drawer Title&lt;/h3&gt;
-    &lt;p&gt;Drawer content goes here...&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/flex-drawer&gt;
 
-&lt;!-- Resizable drawer --&gt;
-&lt;flex-drawer 
-  [isOpen]="isResizableOpen" 
-  position="right"
-  [resizable]="true"
-  [minSize]="200"
-  [maxSize]="800"
-  (closeDrawer)="isResizableOpen = false"&gt;
-  &lt;div class="h-full"&gt;
-    &lt;h3&gt;Resizable Drawer&lt;/h3&gt;
-    &lt;p&gt;This drawer can be resized by dragging its edge.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/flex-drawer&gt;
-        </pre>
-        
-        <div class="mt-4">
-            <p>In your component TypeScript file:</p>
-            <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-import { Component } from '@angular/core';
-import { DrawerComponent } from 'path-to-your-ui-lib';
-
-@Component({
-  // ...component metadata
-})
-export class YourComponent {
-  isDrawerOpen = false;
-  isResizableOpen = false;
-  
-  toggleDrawer() {
-    this.isDrawerOpen = !this.isDrawerOpen;
-  }
-  
-  toggleResizableDrawer() {
-    this.isResizableOpen = !this.isResizableOpen;
-  }
-}
-            </pre>
-        </div>
-    </div> -->
-    
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Inputs</h2>
         <table class="min-w-full bg-white border border-gray-200">

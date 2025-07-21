@@ -1,9 +1,5 @@
 <div class="container">
-  <h1>Breadcrumb</h1>
-  <p>Breadcrumbs help users understand their current location within a website or application by showing the hierarchical navigation path.</p>
-
   <section class="section">
-    <h2>Examples</h2>
 
     <div class="demo-title">Basic Breadcrumb</div>
     <p class="demo-explanation">A simple breadcrumb with three levels of navigation.</p>
@@ -65,35 +61,3 @@
     </div>
     </flex-code-block>
   </section>
-
-  <section class="api-section">
-    <h2 class="api-title">API Reference</h2>
-    
-    <h3>Input Properties</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="prop-name">items</td>
-          <!-- <td class="prop-type">{ label: string; url?: string; }[]</td> -->
-          <td>Array of breadcrumb items to display. Each item must have a label and can optionally have a URL.</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <h3>Accessibility</h3>
-    <p>The breadcrumb component uses proper semantic HTML and ARIA attributes:</p>
-    <ul>
-      <li>Uses <code>&lt;nav&gt;</code> element with <code>aria-label="breadcrumb"</code> to identify it as a breadcrumb navigation</li>
-      <li>Uses an ordered list (<code>&lt;ol&gt;</code>) to represent the hierarchy of the navigation</li>
-      <li>Current/last item is visually distinguished and doesn't have a link</li>
-      <li>Links have proper hover states for visual feedback</li>
-    </ul>
-  </section>
-</div>

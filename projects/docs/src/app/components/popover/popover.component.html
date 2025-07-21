@@ -269,43 +269,7 @@
             </flex-popover>
         </div>
     </flex-code-block>
-    
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic Popover --&gt;
-&lt;flex-popover&gt;
-  &lt;flex-popover-trigger&gt;
-    &lt;flex-button&gt;Open Popover&lt;/flex-button&gt;
-  &lt;/flex-popover-trigger&gt;
-  &lt;flex-popover-content&gt;
-    &lt;div class="p-4"&gt;Popover content goes here&lt;/div&gt;
-  &lt;/flex-popover-content&gt;
-&lt;/flex-popover&gt;
 
-&lt;!-- Controlled Popover with Events --&gt;
-&lt;flex-popover 
-  [isOpen]="popoverOpen"
-  (open)="handleOpen()"
-  (close)="handleClose()"&gt;
-  &lt;flex-popover-trigger&gt;
-    &lt;flex-button (click)="popoverOpen = !popoverOpen"&gt;Toggle&lt;/flex-button&gt;
-  &lt;/flex-popover-trigger&gt;
-  &lt;flex-popover-content&gt;
-    &lt;div class="p-4"&gt;Controlled popover content&lt;/div&gt;
-  &lt;/flex-popover-content&gt;
-&lt;/flex-popover&gt;
-
-&lt;!-- Customized Popover --&gt;
-&lt;flex-popover 
-  [placement]="'top'"
-  [showArrow]="true" 
-  [showCloseButton]="true"
-  [backdropClose]="false"&gt;
-  &lt;!-- Trigger and content --&gt;
-&lt;/flex-popover&gt;
-        </pre>
-    </div>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">Component Properties</h2>

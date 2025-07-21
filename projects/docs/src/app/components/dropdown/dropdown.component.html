@@ -197,46 +197,6 @@
             </flex-dropdown>
         </div>
     </flex-code-block>
-        
-    <div class="mt-8">
-        <h2 class="text-lg font-medium mb-2">Usage</h2>
-        <pre class="bg-gray-100 p-4 rounded overflow-x-auto">
-&lt;!-- Basic dropdown --&gt;
-&lt;flex-dropdown&gt;
-  &lt;flex-dropdown-trigger&gt;
-    &lt;flex-button&gt;
-      Click me
-      &lt;flex-icon icon="chevronDown" class="ml-2 h-4 w-4"&gt;&lt;/flex-icon&gt;
-    &lt;/flex-button&gt;
-  &lt;/flex-dropdown-trigger&gt;
-  &lt;flex-dropdown-menu&gt;
-    &lt;flex-dropdown-item (click)="handleAction()"&gt;Option 1&lt;/flex-dropdown-item&gt;
-    &lt;flex-dropdown-item&gt;Option 2&lt;/flex-dropdown-item&gt;
-    &lt;flex-dropdown-item&gt;Option 3&lt;/flex-dropdown-item&gt;
-  &lt;/flex-dropdown-menu&gt;
-&lt;/flex-dropdown&gt;
-
-&lt;!-- Dropdown with placement --&gt;
-&lt;flex-dropdown placement="top"&gt;
-  &lt;!-- trigger and menu content --&gt;
-&lt;/flex-dropdown&gt;
-
-&lt;!-- Dropdown with icons and custom content --&gt;
-&lt;flex-dropdown&gt;
-  &lt;flex-dropdown-trigger&gt;
-    &lt;flex-button&gt;Select an option&lt;/flex-button&gt;
-  &lt;/flex-dropdown-trigger&gt;
-  &lt;flex-dropdown-menu&gt;
-    &lt;flex-dropdown-item&gt;
-      &lt;flex-icon icon="user" class="mr-2 h-4 w-4"&gt;&lt;/flex-icon&gt;
-      User profile
-    &lt;/flex-dropdown-item&gt;
-    &lt;flex-dropdown-item [disabled]="true"&gt;Disabled option&lt;/flex-dropdown-item&gt;
-    &lt;flex-dropdown-item [active]="true"&gt;Active option&lt;/flex-dropdown-item&gt;
-  &lt;/flex-dropdown-menu&gt;
-&lt;/flex-dropdown&gt;
-        </pre>
-    </div>
     
     <div class="mt-8">
         <h2 class="text-lg font-medium mb-2">DropdownComponent Properties</h2>
