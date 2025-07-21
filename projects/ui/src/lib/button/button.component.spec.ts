@@ -20,7 +20,7 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  xit('should correctly apply disabled input ', () => {
+  it('should correctly apply disabled input ', () => {
     component.disabled = true;
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button');

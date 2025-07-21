@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainSidebarComponent } from './main-sidebar.component';
 
-xdescribe('MainSidebarComponent', () => {
+describe('MainSidebarComponent', () => {
   let component: MainSidebarComponent;
   let fixture: ComponentFixture<MainSidebarComponent>;
 
@@ -17,7 +17,7 @@ xdescribe('MainSidebarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  xit('should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -3,6 +3,7 @@ import { ConnectedPosition, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostBinding, Input, OnDestroy, Output, Renderer2, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { DropdownService } from './dropdown.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'flex-dropdown',
@@ -12,7 +13,7 @@ import { DropdownService } from './dropdown.service';
   styleUrl: './dropdown.component.css',
   // template: `<ng-content></ng-content>`
 })
-export class DropdownComponent implements AfterViewInit {
+export class DropdownComponent implements AfterViewInit , OnDestroy{
   @Input() placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
   @Input() options: { label: string; value: any }[] = []; // Options for the dropdown
   @Input() placeholder: string = 'Select an option'; // Placeholder text
@@ -31,18 +32,28 @@ export class DropdownComponent implements AfterViewInit {
   private overlayRef!: OverlayRef;
   selectedOption?: { label: string; value: any };
 
+  public subscription: Subscription = new Subscription();
+
   constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef, private dropdownService: DropdownService) { }
 
 
-  ngAfterViewInit(): void {
-    this.dropdownService.dropdownClicked$.subscribe(value => {
-      
-      if (value) {
-        this.closeDropdown();;
-      }
-
-    });
+ngAfterViewInit(): void {
+    this.subscription.add(
+      this.dropdownService.dropdownClicked$.subscribe(value => {
+        if (value) {
+          this.closeDropdown();
+        }
+      })
+    );
   }
+ 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+    }
+  }
+ 
 
   toggleDropdown() {
     if (this.overlayRef) {

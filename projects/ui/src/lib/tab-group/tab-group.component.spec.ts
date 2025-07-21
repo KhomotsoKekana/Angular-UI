@@ -1,27 +1,29 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { TabGroupComponent } from "./tab-group.component"
+import { Tab, TabGroupComponent } from "./tab-group.component"
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { observeOn, of } from "rxjs";
+import { TabContentComponent } from "../tabs/tab-content/tab-content.component";
 
-describe ('tab-group', () => {
+describe('TabGroupComponent', () => {
     let component: TabGroupComponent;
     let fixture: ComponentFixture<TabGroupComponent>;
 
-    const testBreakpointObserver = {
-        observe: () => of({matches: false})
-    };
-    
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [TabGroupComponent],
-            providers : [{provide: BreakpointObserver, useValue:testBreakpointObserver}]
-        }).compileComponents();
-    })
+        imports: [TabGroupComponent]
+        })
+        .compileComponents();
 
-    fixture = TestBed.createComponent(TabGroupComponent);
-    component = fixture.componentInstance;
+        fixture = TestBed.createComponent(TabGroupComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-    xit('should filter out hidden tabs', () => {
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should filter out hidden tabs', () => {
         component.tabs = [
             { id: 'tab1', label: 'Tab 1' },
             { id: 'tab2', label: 'Tab 2', hidden: true },
@@ -33,11 +35,7 @@ describe ('tab-group', () => {
         expect(component.visibleTabs[0].id).toBe('tab1');
     });
 
-    it('should create ', ()=> {
-        expect(component).toBeTruthy();
-    });
-
-    xit('should clear activeTabId if all tabs are hidden', () => {
+    it('should clear activeTabId if all tabs are hidden', () => {
         component.tabs = [
             { id: 'tab1', label: 'Tab 1', hidden: true },
             { id: 'tab2', label: 'Tab 2', hidden: true }
@@ -50,4 +48,6 @@ describe ('tab-group', () => {
 
         expect(component.activeTabId).toBeNull();
     });
-})
+
+
+});

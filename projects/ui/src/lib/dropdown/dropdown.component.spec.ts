@@ -20,4 +20,11 @@ describe('DropdownComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+    it('should clean up subscriptions on destroy', () => {
+    component.ngAfterViewInit();
+    const spy = jest.spyOn(component.subscription, 'unsubscribe');
+    component.ngOnDestroy();
+    expect(spy).toHaveBeenCalled(); // Ensure unsubscribe is called
+  });
 });

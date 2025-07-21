@@ -46,7 +46,7 @@ describe('PopoverComponent', () => {
     expect(component.bgColor).toBe('#FFFFFF');
   });
 
-  xit('should close popover when the backdrop is clicked', () => {
+  it('should close popover when the backdrop is clicked', () => {
     spyOn(component,'closePopover');
     component.getOverlayRef().backdropClick().subscribe(() => {
       component.closePopover();
